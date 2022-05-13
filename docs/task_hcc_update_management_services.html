@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head class="at-element-marker">
+  <title>更新管理服務</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="更新管理服務" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-tw/hci19/docs/task_hcc_update_management_services.html" />
+	<meta property="og:description" content="在進行升級時、您應該更新管理服務。NetApp HCI" />
+  <meta property="og:image" content="https://docs.netapp.com/zh-tw/hci19/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="在進行升級時、您應該更新管理服務。NetApp HCI">
+  <meta name="keywords" content=" netapp, hci, on premise, cluster, management services"><!-- Icons -->
+  <link rel="icon" href="/zh-tw/hci19/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/hci19/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/zh-tw/hci19/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/hci19/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/hci19/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/zh-tw/hci19/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/zh-tw/hci19/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/zh-tw/hci19/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/zh-tw/hci19/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/zh-tw/hci19/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/zh-tw/hci19/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/hci19/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/hci19/css/custom-dropdown.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/hci19/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/zh-tw/hci19/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/zh-tw/hci19/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/zh-tw/hci19/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    if (document.location.hostname === "docs.netapp.com") {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      head.appendChild(onetrustScript);
+    }
+
+    function OptanonWrapper() { }
+
+    if (document.location.hostname === "docs.netapp.com") {
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+      head.appendChild(adobe);
+
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81697994-3');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-tw/hci19/js/na-search.js'></script><script src='/zh-tw/hci19/js/na-pagenav.js'></script><link rel='stylesheet' href='/zh-tw/hci19/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-tw/hci19/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/zh-tw/hci19/js/na-utility.js'></script>
+  <script src='/zh-tw/hci19/js/clouddocs.js'></script>
+  <script src='/zh-tw/hci19/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/zh-tw/hci19/js/toc.js'></script>
+  <script src='/zh-tw/hci19/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/zh-tw/hci19/js/custom-dropdown.js'></script>
+  <script src='/zh-tw/hci19/js/FileSaver.min.js'></script>
+  <script src='/zh-tw/hci19/js/jszip-utils.min.js'></script>
+  <script src='/zh-tw/hci19/js/jszip.min.js'></script>
+  <script src='/zh-tw/hci19/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/hci19/issues/new?body=Page%3A%20[更新管理服務](https://docs.netapp.com/zh-tw/hci19/docs/task_hcc_update_management_services.html)" class="page-nav-contribute-link" role="button"><img src="/zh-tw/hci19/images/discuss-sm.svg" class="github-icon" />要求變更文件</a><a target="_blank" href="https://github.com/NetAppDocs/hci19/blob/main/docs/task_hcc_update_management_services.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-tw/hci19/images/edit-sm.svg" class="github-icon" />編輯此頁面</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-tw/hci19/images/article-sm.svg" class="github-icon" />瞭解如何作出貢獻</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此頁面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">產品與解決方案</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">支援與訓練</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">社群</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">部落格</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">客戶成功案例</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">聯絡人</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">聯絡人</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/zh-tw/hci19/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/zh-tw/hci19/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/zh-tw/hci19/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/zh-tw/hci19/search.html"
+          data-type="widget" 
+          data-placeholder="搜尋文件" 
+          data-no-results-found="找不到符合 {query} 的相關結果。" 
+          data-did-you-mean="搜尋 {suggestion}。" 
+          data-no-results-found-did-you-mean="找不到符合 {query} 的相關結果。您是否要找的是{suggestion}？" 
+          data-results-found="找到 {hitCount} 筆結果"  
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-tw/hci19/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">繁體中文</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-tw/hci19/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/hci19/docs/task_hcc_update_management_services.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/hci19/docs/task_hcc_update_management_services.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/hci19/docs/task_hcc_update_management_services.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/hci19/docs/task_hcc_update_management_services.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-tw/hci19/docs/task_hcc_update_management_services.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>可用的 PDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/zh-tw/hci19/pdfs/fullsite-sidebar/資訊文件NetApp_HCI.pdf" >
+          <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>此文件網站（PDF 格式）</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/版本資訊.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            版本資訊
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/概念.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            概念
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/儲存設備.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            儲存設備
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/需求與部署前工作.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            需求與部署前工作
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/網路組態.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            網路組態
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/立即開始NetApp_HCI_使用.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            立即開始NetApp HCI 使用
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/部署NetApp_HCI.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            部署NetApp HCI
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/存取NetApp部署引擎.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            存取NetApp部署引擎
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/設定VMware_vSphere.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            設定VMware vSphere
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/庫存選擇.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            庫存選擇
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/部署後工作.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            部署後工作
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/管理NetApp_HCI.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            管理NetApp HCI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/管理NetApp_HCI_此儲存設備.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            管理NetApp HCI 此儲存設備
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/使用管理節點.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            使用管理節點
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/安裝或恢復管理節點.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            安裝或恢復管理節點
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/使用管理節點UI.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            使用管理節點UI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/使用管理節點REST_API.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            使用管理節點REST API
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/管理支援連線.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            管理支援連線
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/關閉NetApp_HCI_或開啟您的系統電源.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            關閉NetApp HCI 或開啟您的系統電源
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/利用NetApp_HCI_NetApp混合雲控管監控您的系統.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            利用NetApp HCI NetApp混合雲控管監控您的系統
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/升級NetApp_HCI_您的1_9或1_9P1版.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            升級NetApp HCI 您的1.9或1.9P1版
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/系統升級程序.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            系統升級程序
+          </a>
+          
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-tw/hci19/pdfs/pages/docs/task_hcc_update_management_services.pdf" >
+    <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/擴充NetApp_HCI_您的系統.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            擴充NetApp HCI 您的系統
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/使用Rancher_on_NetApp_HCI_支援.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            使用Rancher on NetApp HCI 支援
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/部署後工作.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            部署後工作
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-tw/hci19/pdfs/sidebar/維護H系列硬體.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf.png" width="16" height="16"/>
+            維護H系列硬體
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/zh-tw/hci19/images/pdf-zip.png" width="16" height="16"/>
+      <pre>個別 PDF 文件的集合<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/index.html">
+        資訊文件NetApp HCI
+      </a></li><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/hci-solutions/index.html">
+        解決方案NetApp HCI
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 版本資訊</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/rn_whatsnew.html">
+        更新功能NetApp HCI
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/rn_relatedrn.html">
+        其他版本資訊
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 概念</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_product_overview.html">
+        產品總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_cg_hci_accounts.html">
+        帳戶
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_dataprotection.html">
+        資料保護
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_clusters.html">
+        叢集
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_nodes.html">
+        節點
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 儲存設備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_storage_maintenance_mode.html">
+        維護模式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_volumes.html">
+        磁碟區
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_volume_access_groups.html">
+        Volume存取群組
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_initiators.html">
+        啟動器
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hcc_custom_protection_domains.html">
+        自訂保護網域
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_cg_hci_licensing.html">
+        授權
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/reference_hcc_config_maximums.html">
+        NetApp混合雲控制組態上限
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_cg_hci_security.html">
+        安全性
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_performance.html">
+        效能
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 需求與部署前工作</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_overview.html">
+        需求NetApp HCI
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_management_node.html">
+        管理節點需求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_required_network_ports.html">
+        網路連接埠需求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_network_switch.html">
+        網路與交換器需求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_network_cables.html">
+        網路纜線需求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_ip_address.html">
+        IP位址需求
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 網路組態</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_network_configuration.html">
+        網路組態選項總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_network_configuration_option_A.html">
+        網路組態選項A
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_network_configuration_option_B.html">
+        網路組態選項B
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_network_configuration_option_C.html">
+        網路組態選項C
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_timekeeping.html">
+        DNS與時間保留需求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_environmental.html">
+        環境需求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_protection_domains.html">
+        保護網域
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_witness_nodes.html">
+        兩節點儲存叢集的見證節點資源需求
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 立即開始NetApp HCI 使用</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_getstarted.html">
+        安裝與部署概述NetApp HCI
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_installhw.html">
+        安裝H系列硬體
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_LACP_configuration.html">
+        設定LACP以獲得最佳儲存效能
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_task_validate_config_advisor.html">
+        利用Active IQ Config Advisor 功能驗證您的環境
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/hci_prereqs_final_prep.html">
+        為每個節點設定IPMI
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 部署NetApp HCI</div>
+      </a>
+      <ul><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 存取NetApp部署引擎</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_nde_access_overview.html">
+        NetApp部署引擎存取選項總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_access_no_dhcp.html">
+        在沒有DHCP的環境中存取NetApp部署引擎
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_access_dhcp.html">
+        在使用DHCP的環境中存取NetApp部署引擎
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_access_manual_ip.html">
+        手動指派IP位址以存取NetApp部署引擎
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_start_deployment.html">
+        開始部署
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_import_installation_profile.html">
+        匯入安裝設定檔
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 設定VMware vSphere</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_nde_config_vsphere_overview.html">
+        vSphere組態總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_configure_new_vsphere.html">
+        設定新的VMware vSphere環境
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_join_existing_vsphere.html">
+        加入現有的VMware vSphere部署
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_configure_credentials.html">
+        設定NetApp HCI 驗證資料
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_select_net_topology.html">
+        選取網路拓撲
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 庫存選擇</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_nde_node_compatibility.html">
+        庫存選擇與節點相容性
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_select_inventory.html">
+        選取庫存
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_configure_net_settings.html">
+        設定網路設定
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_review_deploy.html">
+        審查與部署
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 部署後工作</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_nde_post_deployment_overview.html">
+        部署後工作總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_supported_net_changes.html">
+        支援的網路變更
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_disable_smartd.html">
+        停用NetApp HCI 在各個運算節點上的smartd服務
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_disable_lacp_individual.html">
+        在已設定的交換器上停用「lacp個別」命令
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_create_netapp_hcc_role_vcenter.html">
+        在vCenter中建立NetApp HCC角色
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_update_vsphere.html">
+        讓VMware vSphere保持最新狀態
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_install_GPU_drivers.html">
+        安裝GPU運算節點的GPU驅動程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_access_hcc.html">
+        存取NetApp混合雲控管
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_reduce_boot_media_wear.html">
+        減少NetApp HCI 在一個運算節點上的開機媒體損耗
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 管理NetApp HCI</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_manage_overview.html">
+        管理NetApp HCI 功能概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_access_ui_fqdn.html">
+        設定完整網域名稱Web UI存取
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_post_deploy_credentials.html">
+        變更NetApp HCI 身分證明
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_credentials_vcenter_esxi.html">
+        更新vCenter和ESXi認證資料
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 管理NetApp HCI 此儲存設備</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_manage_storage_overview.html">
+        管理NetApp HCI 本產品儲存概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_manage_accounts.html">
+        建立及管理使用者帳戶
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_manage_storage_clusters.html">
+        新增及管理儲存叢集
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_manage_vol_management.html">
+        建立及管理磁碟區
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_manage_vol_access_groups.html">
+        建立及管理Volume存取群組
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_manage_initiators.html">
+        建立及管理啟動器
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_qos_policies.html">
+        建立及管理Volume QoS原則
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用管理節點</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_work_overview.html">
+        管理節點總覽
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 安裝或恢復管理節點</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_install.html">
+        安裝管理節點
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_install_add_storage_NIC.html">
+        設定儲存網路介面控制器（NIC）
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_recover.html">
+        恢復管理節點
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_access_ui.html">
+        存取管理節點
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用管理節點UI</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_work_overview_UI.html">
+        管理節點UI總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_enable_alerts.html">
+        在NetApp HCI 不顯示的情況下設定警示監控
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_settings.html">
+        修改及測試管理節點網路、叢集及系統設定
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_run_system_utilities.html">
+        從管理節點執行系統公用程式
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用管理節點REST API</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_work_overview_API.html">
+        管理節點REST API UI總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_api_get_authorizationtouse.html">
+        取得使用REST API的授權
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_enable_activeIQ.html">
+        啟用Active IQ 支援功能和NetApp HCI 功能性監控
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_multi_vcenter_config.html">
+        為多個vCenter設定NetApp混合雲控制
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_add_assets.html">
+        將運算和控制器資產新增至管理節點
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_locate_hardware_tag.html">
+        如何找出運算節點的硬體標籤
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_manage_storage_cluster_assets.html">
+        建立及管理儲存叢集資產
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_edit_vcenter_assets.html">
+        檢視或編輯現有的控制器資產
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_remove_assets.html">
+        從管理節點移除資產
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_configure_proxy_server.html">
+        設定管理節點的Proxy伺服器
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_api_find_mgmt_svcs_version.html">
+        驗證管理節點作業系統和服務版本
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_logs.html">
+        從管理服務取得記錄
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 管理支援連線</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_enable_remote_support_connections.html">
+        啟動遠端NetApp支援工作階段
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_mnode_ssh_management.html">
+        管理管理節點上的SSH功能
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 關閉NetApp HCI 或開啟您的系統電源</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_nde_hci_power_off_on.html">
+        功能概述NetApp HCI
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_hci_power_off_compute.html">
+        關閉NetApp HCI 適用於某個非系統的運算資源
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_hci_power_off_storage.html">
+        關閉NetApp HCI 適用於某個非系統的儲存資源
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_hci_power_on_storage.html">
+        開啟NetApp HCI 適用於某個不支援的系統的儲存資源
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_nde_hci_power_on_compute.html">
+        開啟NetApp HCI 運算資源以供支援一個不必要的系統
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 利用NetApp HCI NetApp混合雲控管監控您的系統</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_dashboard.html">
+        在NetApp混合雲控制儀表板上檢視資源
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_nodes.html">
+        請在NetApp混合雲控管的節點頁面上檢視您的庫存
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_edit_bmc_info.html">
+        使用NetApp混合雲控制編輯BMC連線資訊
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_volumes.html">
+        利用NetApp混合雲控制功能監控儲存叢集上的磁碟區
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_activeiq.html">
+        透過NetApp混合雲控制連線Active IQ 至VMware、監控效能、容量及叢集健全狀況
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_collectlogs.html">
+        收集記錄以進行疑難排解
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 升級NetApp HCI 您的1.9或1.9P1版</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hci_upgrade_overview.html">
+        升級順序總覽
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 系統升級程序</div>
+      </a>
+      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_update_management_services.html">
+        更新管理服務
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_upgrade_element_latest_healthtools.html">
+        升級至最新的HealthTools
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_upgrade_element_prechecks.html">
+        升級儲存設備之前、請先執行Element儲存設備健全狀況檢查
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_upgrade_element_software.html">
+        升級Element軟體
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_upgrade_storage_firmware.html">
+        升級儲存韌體
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_upgrade_management_node.html">
+        升級管理節點
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_vcp_upgrade_plugin.html">
+        升級NetApp Element vCenter Server的VMware vCenter外掛程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_upgrade_compute_prechecks.html">
+        在升級運算韌體之前執行運算節點健全狀況檢查
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_upgrade_compute_node_drivers.html">
+        更新運算節點驅動程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_upgrade_compute_node_firmware.html">
+        升級運算節點韌體
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_upgrade_compute_firmware_ansible.html">
+        使用Ansible自動執行運算節點韌體升級
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_upgrade_all_vsphere.html">
+        利用NetApp HCI vCenter Server的Element外掛程式、為支援VMware的系統升級vSphere元件
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 擴充NetApp HCI 您的系統</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_hcc_expandoverview.html">
+        展開總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_expand_storage.html">
+        擴充NetApp HCI 功能
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_expand_compute.html">
+        擴充NetApp HCI 各種運算資源
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hcc_expand_compute_and_storage.html">
+        擴充NetApp儲存與運算資源
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_removewn.html">
+        擴充叢集後移除見證節點
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用Rancher on NetApp HCI 支援</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_rancher_product_overview.html">
+        Rancher on NetApp HCI 》概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_rancher_concepts.html">
+        概念
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/rancher_prereqs_overview.html">
+        Rancher on NetApp HCI 支援需求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_deploy.html">
+        將Rancher部署在NetApp HCI
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 部署後工作</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/concept_rancher_post_deployment_overview.html">
+        部署後工作總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_ensure_rancher_support_parity.html">
+        確保Rancher支援同位元檢查
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_config_anti_affinity.html">
+        改善Rancher VM恢復能力
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_enable_monitoring.html">
+        設定監控
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_trident.html">
+        安裝Trident
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_trident_configure_networking.html">
+        啟用使用者叢集的Trident支援
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_deploy_user_clusters.html">
+        部署使用者叢集與應用程式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_manage.html">
+        在NetApp HCI 支援的基礎上管理Rancher
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_monitor.html">
+        監控Rancher on NetApp HCI
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_upgrades.html">
+        升級Rancher on NetApp HCI
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_rancher_remove_deployment.html">
+        移除NetApp HCI 在不支援的情況下安裝Rancher
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 維護H系列硬體</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_hwmainoverview.html">
+        H系列硬體維護總覽
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_hserieschassisrepl.html">
+        更換2U H系列機箱
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_dcpsurepl.html">
+        更換H615C和H610S節點中的DC電源供應器
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_dimmcomputerepl.html">
+        更換運算節點中的DIMM
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_driverepl.html">
+        更換儲存節點的磁碟機
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_h410crepl.html">
+        更換H410C節點
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_h410srepl.html">
+        更換H410S節點
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_h610ch615crepl.html">
+        更換H610C和H615C節點
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_h610srepl.html">
+        更換H610S節點
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_psurepl.html">
+        更換電源供應器
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_snswitches.html">
+        更換SN2010、SN2100和SN2700交換器
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/task_hci_2noderepl.html">
+        更換雙節點叢集中的儲存節點
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/reference_earlier_versions.html">
+        舊版
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-tw/hci19/docs/reference_notices_hci.html">
+        法律聲明
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/zh-tw/hci19/">HCI</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/zh-tw/hci19/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 本繁體中文版使用機器翻譯，譯文僅供參考，若與英文版本牴觸，應以英文版本為準。 </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">更新管理服務</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-05-13 19:35:13 +0000">05/13/2022</time>
+    
+  
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>安裝管理節點11.3或更新版本之後、您可以將管理服務更新為最新的套裝組合版本。</p>
+</div>
+<div class="paragraph">
+<p>從Element 11.3管理節點版本開始、管理節點設計已根據提供個別服務的新模組化架構而改變。這些模組化服務可為NetApp HCI 不支援的系統提供集中和延伸的管理功能。管理服務包括系統遙測、記錄和更新服務、適用於vCenter Server的Element Plug-in的QoSSIOC服務、NetApp混合雲控制等。</p>
+</div>
+<div class="ulist">
+<div class="title">關於這項工作</div>
+<ul>
+<li>
+<p>您必須先升級至最新的管理服務套裝組合、才能升級Element軟體。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如需最新的管理服務版本注意事項、說明各服務套裝組合的主要服務、新功能、錯誤修正及因應措施、請參閱 <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes" target="_blank" rel="noopener">"管理服務版本說明"</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>從管理服務的2.20開始、您必須先接受並儲存終端使用者授權合約（EULA）、才能使用NetApp混合雲控制UI或API來升級管理服務：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>在Web瀏覽器中開啟管理節點的IP位址：</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;ManagementNodeIP&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。</p>
+</li>
+<li>
+<p>選取介面右上角附近的*升級*。</p>
+</li>
+<li>
+<p>隨即顯示EULA。向下捲動、選取*我接受目前及所有未來更新*、然後選取*儲存*。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="附註">
+</td>
+<td class="content">
+當您接受EULA時、系統會記錄所有未來更新、並啟用自動下載功能。您將會收到NetApp軟體更新與升級的更新、您可以自行決定是否安裝、也可以方便地安裝。您可以停用與NetApp線上軟體儲存庫的網路連線、以停用自動下載功能。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>您可以使用NetApp混合雲控制UI或管理節點REST API來更新管理服務：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Update management services using Hybrid Cloud Control">[Update management services using Hybrid Cloud Control]</a> （建議方法）</p>
+</li>
+<li>
+<p><a href="#Update management services using the management node API">[Update management services using the management node API]</a></p>
+</li>
+<li>
+<p><a href="#Update management services using the management node API for dark sites">[Update management services using the management node API for dark sites]</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="使用混合雲控制更新管理服務">使用混合雲控制更新管理服務</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以使用NetApp混合式雲端控制來更新NetApp管理服務。</p>
+</div>
+<div class="paragraph">
+<p>管理服務套裝組合可在主要版本之外提供增強的功能與修正程式。</p>
+</div>
+<div class="ulist">
+<div class="title">開始之前</div>
+<ul>
+<li>
+<p>您執行的是管理節點11.3或更新版本。</p>
+</li>
+<li>
+<p>如果您要將管理服務更新至2.16版或更新版本、而且執行的是管理節點11.3至11.8、則在更新管理服務之前、必須先增加管理節點VM的RAM：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>關閉管理節點VM。</p>
+</li>
+<li>
+<p>將管理節點VM的RAM從12GB變更為24GB RAM。</p>
+</li>
+<li>
+<p>開啟管理節點VM的電源。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>您的叢集版本執行NetApp Element 的是更新版本的Software 11.3。</p>
+</li>
+<li>
+<p>您已將管理服務升級至至少2.1.326版。NetApp混合雲控制升級不適用於舊版服務組合。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如需每個服務套裝組合版本的可用服務清單、請參閱 <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes" target="_blank" rel="noopener">"管理服務版本說明"</a>。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在Web瀏覽器中開啟管理節點的IP位址：</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;ManagementNodeIP&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。</p>
+</li>
+<li>
+<p>選取介面右上角附近的*升級*。</p>
+</li>
+<li>
+<p>在「升級」頁面上、選取「<strong>管理服務</strong>」索引標籤。</p>
+<div class="paragraph">
+<p>「管理服務」索引標籤會顯示管理服務軟體的目前和可用版本。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如果您的安裝無法存取網際網路、則只會顯示目前的軟體版本。如果您有外部連線功能、NetApp HCI 但無法存取NetApp線上儲存庫、請檢查您的 <a href="task_mnode_configure_proxy_server.html" target="_blank" rel="noopener">"Proxy組態"</a>。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>如果您的安裝可以存取網際網路、而且有可用的管理服務升級、請選取*開始升級*。</p>
+</li>
+<li>
+<p>如果您的安裝無法存取網際網路、請執行下列動作：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>請依照頁面上的指示、下載管理服務升級套件並將其儲存至您的電腦。</p>
+</li>
+<li>
+<p>選取*瀏覽*以找出您儲存的套件並上傳。</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>升級開始後、您可以在此頁面上看到升級狀態。在升級期間、您可能會失去與NetApp混合雲控制的連線、而必須重新登入才能查看升級結果。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="使用管理節點api更新管理服務">使用管理節點API更新管理服務</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用者最好能從NetApp混合雲控制系統執行管理服務更新。不過、您可以從管理節點使用REST API UI手動更新管理服務。</p>
+</div>
+<div class="ulist">
+<div class="title">開始之前</div>
+<ul>
+<li>
+<p>您執行的是管理節點11.3或更新版本。</p>
+</li>
+<li>
+<p>如果您要將管理服務更新至2.16版或更新版本、而且執行的是管理節點11.3至11.8、則在更新管理服務之前、必須先增加管理節點VM的RAM：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>關閉管理節點VM。</p>
+</li>
+<li>
+<p>將管理節點VM的RAM從12GB變更為24GB RAM。</p>
+</li>
+<li>
+<p>開啟管理節點VM的電源。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>您的叢集版本執行NetApp Element 的是更新版本的Software 11.3。</p>
+</li>
+<li>
+<p>您已將管理服務升級至至少2.1.326版。NetApp混合雲控制升級不適用於舊版服務組合。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="附註">
+</td>
+<td class="content">
+如需每個服務套裝組合版本的可用服務清單、請參閱 <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes" target="_blank" rel="noopener">"管理服務版本說明"</a>。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在管理節點上開啟REST API UI：「https://&lt;ManagementNodeIP&gt;/mnode`</p>
+</li>
+<li>
+<p>選擇*授權*並完成下列項目：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>輸入叢集使用者名稱和密碼。</p>
+</li>
+<li>
+<p>如果尚未填入值、請將用戶端ID輸入為「mnode-client」。</p>
+</li>
+<li>
+<p>選取*授權*以開始工作階段。</p>
+</li>
+<li>
+<p>關閉視窗。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>（選用）確認管理節點服務的可用版本：「Get /services / versions」（取得/服務/版本）</p>
+</li>
+<li>
+<p>（選用）取得最新版本的詳細資訊：「Get /services /versions /latest」（取得/服務/版本/最新版本）</p>
+</li>
+<li>
+<p>（選用）取得特定版本的詳細資訊：「Get /services / versions /｛version｝/info」</p>
+</li>
+<li>
+<p>執行下列其中一個管理服務更新選項：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>執行此命令以更新至管理節點服務的最新版本：「PUT /services / update / latest」</p>
+</li>
+<li>
+<p>執行此命令以更新至管理節點服務的特定版本：「PUT /services / update /｛version｝」</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>執行「Get/services / update / Status（取得/服務/更新/狀態）」以監控更新狀態。</p>
+<div class="paragraph">
+<p>成功的更新會傳回類似下列範例的結果：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+"current_version": "2.10.29",
+"details": "Updated to version 2.14.60",
+"status": "success"
+}</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="使用管理節點api更新適用於黑點的管理服務">使用管理節點API更新適用於黑點的管理服務</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用者最好能從NetApp混合雲控制系統執行管理服務更新。不過、您可以使用REST API、將管理服務的服務套件更新手動上傳、擷取及部署至管理節點。您可以從管理節點的REST API UI執行每個命令。</p>
+</div>
+<div class="ulist">
+<div class="title">開始之前</div>
+<ul>
+<li>
+<p>您已部署NetApp Element 了一個版本為11.3或更新版本的軟件管理節點。</p>
+</li>
+<li>
+<p>如果您要將管理服務更新至2.16版或更新版本、而且執行的是管理節點11.3至11.8、則在更新管理服務之前、必須先增加管理節點VM的RAM：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>關閉管理節點VM。</p>
+</li>
+<li>
+<p>將管理節點VM的RAM從12GB變更為24GB RAM。</p>
+</li>
+<li>
+<p>開啟管理節點VM的電源。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>您的叢集版本執行NetApp Element 的是更新版本的Software 11.3。</p>
+</li>
+<li>
+<p>您已從下載服務套件更新 <a href="https://mysupport.netapp.com/site/products/all/details/mgmtservices/downloads-tab" target="_blank" rel="noopener">"NetApp 支援網站"</a> 至可在黑暗環境中使用的裝置。</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在管理節點上開啟REST API UI：「https://&lt;ManagementNodeIP&gt;/mnode`</p>
+</li>
+<li>
+<p>選擇*授權*並完成下列項目：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>輸入叢集使用者名稱和密碼。</p>
+</li>
+<li>
+<p>如果尚未填入值、請將用戶端ID輸入為「mnode-client」。</p>
+</li>
+<li>
+<p>選取*授權*以開始工作階段。</p>
+</li>
+<li>
+<p>關閉視窗。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>使用以下命令「PUT /services / upload」、在管理節點上上上傳並擷取服務套件組合</p>
+</li>
+<li>
+<p>在管理節點上部署管理服務：「放置/服務/部署」</p>
+</li>
+<li>
+<p>監控更新狀態：「Get /services / update/Status（取得/服務/更新/狀態）」</p>
+<div class="paragraph">
+<p>成功的更新會傳回類似下列範例的結果：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+"current_version": "2.10.29",
+"details": "Updated to version 2.17.52",
+"status": "success"
+}</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<h2 id="如需詳細資訊請參閱" class="discrete">如需詳細資訊、請參閱</h2>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/vcp/index.html" target="_blank" rel="noopener">"vCenter Server的VMware vCenter外掛程式NetApp Element"</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/hybrid-cloud/hci-documentation/" target="_blank" rel="noopener">"參考資源頁面NetApp HCI"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">條款與條件</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Privacy Policy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie Policy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie 設定</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <span class="n-footer__fine-print">對我們的網站有任何意見或要求？</span>
+              <a target="_self" href="javascript:netapp_mailto()">請與我們聯絡</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://docs.netapp.com/zh-tw/announcements/">公告</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/hci19/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/hci19/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/hci19/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/hci19/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/hci19/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/hci19/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-tw/hci19/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/zh-tw/hci19/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/zh-tw/hci19/js/prism.js'></script>
+      <script type="text/javascript" src='/zh-tw/hci19/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/zh-tw/hci19/js/www-ntap.js'></script>
+    <script src='/zh-tw/hci19/js/tabbed-blocks.js'></script>
+  </body></html>

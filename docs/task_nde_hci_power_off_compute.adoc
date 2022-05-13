@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_off_compute.html 
+summary: 瞭解如何關閉NetApp HCI 各個運算節點的電源。 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= 關閉NetApp HCI 適用於某個非系統的運算資源
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+若要關閉NetApp HCI VMware運算資源、您必須依特定順序關閉個別VMware ESXi主機和VMware vCenter Server設備的電源。
+
+.步驟
+. 登入控制NetApp HCI 此作業系統的vCenter執行個體、並判斷裝載vCenter Server Virtual Appliance（vCSA）的ESXi機器。
+. 確定執行vCSA的ESXi主機之後、請依照下列步驟關閉vCSA以外的所有其他虛擬機器：
++
+.. 選取虛擬機器。
+.. 按一下滑鼠右鍵、然後選取*電源>關機來賓作業系統*。
+
+
+. 關閉所有不是執行vCSA的ESXi主機的ESXi主機。
+. 關閉vCSA。
++
+這會導致vCenter工作階段結束、因為vCSA會在關機程序期間中斷連線。現在只需開啟一部ESXi主機、即可關閉所有虛擬機器。
+
+. 登入執行中的ESXi主機。
+. 確認主機上的所有虛擬機器均已關閉。
+. 關閉ESXi主機。
++
+這會中斷所有開啟NetApp HCI 至該儲存叢集的iSCSI工作階段。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_compute_firmware_2.76.html 
+summary: 取得可下載並套用NetApp HCI 至各個節點之韌體套件版本資訊的連結。 
+keywords: netapp, hci, compute firmware 
+---
+= 運算韌體套裝組合2.76版本說明
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+可下載的運算節點韌體套件包含最新的BIOS和BMC功能增強功能、錯誤修正、以及所有支援NetApp HCI 的各個不支援的運算節點的硬體支援。
+
+
+
+== 新增功能
+
+2.76版包含一般錯誤修正。
+
+
+
+=== 更新韌體元件
+
+此韌體套件包含下列硬體元件韌體版本、更新版本以粗體顯示：
+
+|===
+| 元件 | H300E、H500E、H700E | H410C | H610C | H615C 
+
+
+| BIOS | NA2.1 | * NATP3.9* | 3B03 | 3B08.co 
+
+
+| BMC | 6.84.00 | 6.71.18 | 4.00.07 | 4.68.07 
+
+
+| NIC / Mellanox | 14.25.1020 | 14.25.1020 | 14.25.1020 | 14.24.1000 
+|===
+
+
+=== 韌體元件變更
+
+以下是每個新韌體元件所包含的改善與變更詳細資料：
+
+|===
+| 節點和韌體元件 | 改善與變更 
+
+
+| * NATP3.9*  a| 
+* 當PPR函數成功事件發生時、CSESF-284 Tatooine + BMC 6.71.18不會報告。
+* CSESF-289 NA3.7 BIOS無法回報HPPR（硬PPR）成功案例。
+* 已將SKX uCode更新為0x6906、並將CLX uCode更新為0x2F01。
+
+
+|===
+
+
+=== Mellanox NIC韌體驅動程式相容性
+
+更新版Mellanox韌體14.251020和14.24.1000僅與下列版本的VMware ESXi驅動程式相容：
+
+* * ESXi 7.0*：H300E/H500E/H700E/H410C：版本4.19.16.1
+* * ESXi 7.0*：H610C/H615C：4.17.15.16版
+* * ESXi 6.7*：4.17.15.16版
+* * ESXi 6.5*：4.16.13.5版
+
+
+
+NOTE: 在升級至2.76版之前、請務必檢查目前的ESXi驅動程式版本。如果驅動程式已過期、請先升級驅動程式。然後將運算節點的運算韌體升級至2.76版。請造訪 link:task_hcc_upgrade_compute_node_drivers.html["更新運算節點驅動程式"^] 如需更新運算節點驅動程式的說明、請參閱內含ESXi驅動程式的說明。
+
+雖然NetApp部署引擎1.8P1並未部署ESXi 7.0版、但ESXi 7.0則支援自行安裝或手動升級選項。當您手動安裝或升級主機作業系統時、NetApp無法控制這些作業系統的驅動程式和韌體。
+
+
+
+== 下載Compute韌體產品組合2.76
+
+若要下載運算韌體產品組合、請前往 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["運算韌體套裝組合NetApp HCI"^] 頁面。
+
+請造訪 link:task_hcc_upgrade_compute_node_firmware.html#use-the-baseboard-management-controller-bmc-user-interface-ui["更新運算節點韌體"^] 以取得更新運算節點韌體的指示。
+
+
+
+== 解決安全性弱點
+
+以下是本版本中已解決的安全性弱點：
+
+* CVE202020-0548、CVE202020-0549
+* CVE2019至11157、CVE2019至14607
+
+
+
+
+== 已解決且已知的問題
+
+請參閱 https://mysupport.netapp.com/site/bugs-online/product["錯誤線上工具"^] 以瞭解已解決的問題及任何新問題的詳細資訊。
+
+
+
+=== 存取BO接觸 工具
+
+. 瀏覽至  https://mysupport.netapp.com/site/bugs-online/product["Bol工具"^] 並從下拉式清單中選取* Element Software*：
++
+image::bol_dashboard.png[儲存韌體套裝軟體版本注意事項]
+
+. 在關鍵字搜尋欄位中、輸入「Compute韌體產品組合」、然後按一下* New Search*：
++
+image::compute_firmware_bundle_choice.png[儲存韌體套裝軟體版本注意事項]
+
+. 畫面會顯示已解決或開啟的錯誤清單。您可以進一步精簡結果、如下所示：
++
+image::bol_list_bugs_found.png[儲存韌體套裝軟體版本注意事項]
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

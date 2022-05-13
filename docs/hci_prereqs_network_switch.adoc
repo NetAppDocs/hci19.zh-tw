@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_switch.html 
+summary: 瞭NetApp HCI 解此版本的更新內容。 
+keywords: netapp, hci, network, switch, requirements 
+---
+= 網路與交換器需求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, network, switch, requirements
+
+
+[role="lead"]
+您用於NetApp HCI 執行功能的交換器需要特定組態、才能確保成功部署。請參閱交換器文件、以取得針對您的環境實作下列各項需求的具體指示。
+
+進行支援時、至少需要三個網路區段、每個區段的流量類型如下：NetApp HCI
+
+* 管理
+* VMware VMotion
+* 儲存/資料
+
+
+根據NetApp H系列運算與儲存節點機型以及規劃的佈線組態、您可以使用不同的交換器來實體分隔這些網路、或使用VLAN在邏輯上分隔這些網路。不過、在大多數部署中、您都需要使用VLAN、以邏輯方式分隔這些網路（以及任何其他虛擬機器網路）。
+
+運算和儲存節點必須能夠在部署前後進行通訊。如果您要為儲存和運算節點實作個別的管理網路、請確定這些管理網路之間有網路路由。這些網路必須指派閘道、而且閘道之間必須有路由。確保每個新節點都有指派的閘道、以利節點與管理網路之間的通訊。
+
+下列交換器需求：NetApp HCI
+
+* 所有連接NetApp HCI 至非節點的交換器連接埠都必須設定為跨距樹狀結構邊緣連接埠。
++
+** 在Cisco交換器上、視交換器機型、軟體版本和連接埠類型而定、您可以使用下列其中一個命令來執行此作業：
++
+*** 「ming-tree連接埠類型edge」
+*** 「ming-tree連接埠類型edge trunk」
+*** 「平移樹狀結構」
+*** 「移動樹狀結構」portfast trunk
+
+
+** 在Mellanox交換器上、您可以使用「shoitming-tree port type edge」命令來執行此作業。
+
+
+* 除了頻外管理之外、所有網路功能的各個節點都有備援連接埠。NetApp HCI為了獲得最佳恢復能力、請將這些連接埠分成兩個具有備援上行鏈路的交換器、以連接至傳統階層式架構或第2層脊柱和葉架構。
+* 處理儲存設備、虛擬機器和VMotion流量的交換器必須支援每個連接埠至少10GbE的速度（每個連接埠最多支援25GbE）。
+* 處理管理流量的交換器必須支援每個連接埠至少1GbE的速度。
+* 您必須在處理儲存和VMotion流量的交換器連接埠上設定巨型框架。主機必須能夠端點對端傳送9000位元組封包、才能順利安裝。
+* 您必須設定管理網路交換器連接埠、以允許在每個主機上設定管理NIC連接埠的任何大小MTU。例如、如果主機管理網路連接埠使用的MTU大小為1、750位元組、則管理網路交換器連接埠必須設定為允許至少1、750位元組的MTU（管理網路不需要9000位元組的MTU）。MTU設定應一致
+* 所有儲存設備與運算節點之間的往返網路延遲不應超過2毫秒。
+
+
+所有NetApp HCI 的支援節點都能透過專屬的管理連接埠、提供額外的頻外管理功能。NetApp H300S、H300E、H500S、H500E、H700S、 H700E和H410C節點也允許透過連接埠A進行IPMI存取最佳實務做法是NetApp HCI 為環境中的所有節點設定頻外管理、以簡化對錶面的遠端管理。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

@@ -1,0 +1,91 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_remove_deployment.html 
+summary: 瞭解如何移除NetApp HCI 有關支援功能部署的Rancher安裝、以便重新部署。 
+keywords: netapp, hci, api, REST, remove, Rancher, redeploy 
+---
+= 移除NetApp HCI 在不支援的情況下安裝Rancher
+:allow-uri-read: 
+
+
+[role="lead"]
+如果您不小心將Rancher部署在NetApp HCI 包含不正確資訊的支援區（例如Rancher伺服器FQDN不正確）、則必須先移除安裝、然後重新部署。請依照下列步驟移除NetApp HCI 在實例上安裝的Rancher。
+
+此動作不會刪除使用者叢集。
+
+
+TIP: 您可能需要保留使用者叢集。如果您保留了這些資料、您可以稍後將其移轉至另一個Rancher實作。如果您想要刪除使用者叢集、則應先刪除使用者叢集、再刪除Rancher伺服器；否則、刪除Rancher伺服器之後刪除使用者叢集會更困難。
+
+.選項
+* <<Remove Rancher on NetApp HCI using NetApp Hybrid Cloud Control>> （建議）
+* <<Remove Rancher on NetApp HCI using the REST API>>
+
+
+
+
+== 使用NetApp HCI NetApp混合雲控管技術移除Rancher on
+
+您可以使用NetApp混合雲控制Web UI來移除部署期間所設定的三部虛擬機器、以裝載Rancher伺服器。
+
+.步驟
+. 在Web瀏覽器中開啟管理節點的IP位址：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板中、按一下右上角的功能表。
+. 選擇*設定*。
++
+image::hcc_configure.png[Rancher組態頁面]
+
+. 在* Rancher Server Clusters*窗格中、按一下*設定Rancher Server Clusters*。
+. 針對您需要移除的Rancher安裝、選取* Actions *功能表。
++
+
+CAUTION: 按一下「*刪除*」、即可立即移除NetApp HCI 有關支援的叢集上的Rancher。
+
+. 選擇*刪除*。
+
+
+
+
+== 使用NetApp HCI REST API移除靜態的Rancher
+
+您可以使用NetApp混合雲控制REST API移除部署期間所設定的三部虛擬機器、以裝載Rancher伺服器。
+
+.步驟
+. 輸入管理節點IP位址、然後按「/k8sdeployer/API/」：
++
+[listing]
+----
+https://[IP address]/k8sdeployer/api/
+----
+. 按一下*授權*或任何鎖定圖示、然後輸入叢集管理認證、以取得使用API的權限。
++
+.. 輸入叢集使用者名稱和密碼。
+.. 如果尚未選取*要求本文*、請從類型下拉式清單中選取該值。
+.. 如果尚未填入值、請將用戶端ID輸入為「mnode-client」。
+.. 請勿輸入用戶端機密的值。
+.. 按一下*授權*開始工作階段。
+.. 關閉視窗。
+
+
+. 關閉*可用授權*對話方塊。
+. 按一下* POST /銷毀*。
+. 按一下*試用*。
+. 在「Request body」（要求本文）文字方塊中、輸入Rancher伺服器FQDN作為「傳送URL」值。
+. 按一下*執行*。
++
+數分鐘後、vSphere Client的「主機與叢集」清單中不應再顯示Rancher伺服器虛擬機器。移除後、您可以使用NetApp混合雲控制功能在NetApp HCI 支援的情況下重新部署Rancher。
+
+
+
+[discrete]
+== 瞭解更多資訊
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Rancher部署疑難排解"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

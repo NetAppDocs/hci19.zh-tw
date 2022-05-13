@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: docs/task_trident_configure_networking.html 
+summary: 啟用使用者叢集的Trident支援。 
+keywords: netapp, hci, netapp, networking, clusters, user, trident, rancher 
+---
+= 啟用使用者叢集的Trident支援
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果NetApp HCI 您的靜態環境在管理和儲存網路之間沒有路由、而且您部署的使用者叢集需要Trident支援、則在安裝Trident之後、您需要進一步設定使用者叢集網路。對於每個使用者叢集、您都需要啟用管理網路與儲存網路之間的通訊。您可以修改使用者叢集中每個節點的網路組態、以達成此目的。
+
+請遵循下列一般步驟、修改使用者叢集中每個節點的網路組態。這些步驟假設您已使用預設節點範本建立使用者叢集、而此範本是與Rancher一起安裝NetApp HCI 在整個系統上。
+
+
+NOTE: 您可以將這些變更做為自訂節點範本的一部分、以供未來的使用者叢集使用。
+
+.步驟
+. 使用現有的預設範本部署使用者叢集。
+. 將儲存網路連線至使用者叢集。
++
+.. 為連線的vCenter執行個體開啟VMware vSphere Web用戶端。
+.. 在「主機與叢集」目錄樹狀結構中、選取新部署的使用者叢集中的節點。
+.. 編輯節點的設定。
+.. 在「設定」對話方塊中、新增一個網路介面卡。
+.. 在「*新網路*」下拉式清單中、瀏覽網路、然後選取「* HCI內部儲存資料_網路*」。
+.. 展開網路介面卡區段、並記錄新網路介面卡的MAC位址。
+.. 按一下「*確定*」。
+
+
+. 在Rancher中、為使用者叢集中的每個節點下載SSH私密金鑰檔案。
+. 使用SSH連線至使用者叢集中的節點、使用您為該節點下載的私密金鑰檔案：
++
+[listing]
+----
+ssh -i <private key filename> <ip address>
+----
+. 以超級使用者的身份、編輯並儲存「/etc/netpla/50-c雲端-init.yaml」檔案、使其包含「ens224」區段、類似於下列範例。將「<MAC位址>」取代為您先前記錄的MAC位址：
++
+[listing]
+----
+network:
+    ethernets:
+        ens192:
+            dhcp4: true
+            match:
+                macaddress: 00:50:56:91:1d:41
+            set-name: ens192
+        ens224:
+            dhcp4: true
+            match:
+                macaddress: <MAC address>
+            set-name: ens224
+    version: 2
+----
+. 使用下列命令重新設定網路：
++
+[listing]
+----
+`netplan try`
+----
+. 針對使用者叢集中其餘的每個節點、重複步驟4到6。
+. 當您為使用者叢集中的每個節點重新設定網路之後、就可以在使用Trident的使用者叢集中部署應用程式。
+

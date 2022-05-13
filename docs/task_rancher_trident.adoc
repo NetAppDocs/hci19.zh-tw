@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_trident.html 
+summary: 瞭解如何在NetApp HCI 將Rancher安裝到位後安裝Trident。Trident可讓您以熟悉的標準Kubernetes格式、建立、管理及互動持續儲存磁碟區。 
+keywords: netapp, hci, rancher, install, trident, persistent volumes, pv 
+---
+= 安裝Trident
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+瞭解如何在NetApp HCI 將Rancher安裝到位後安裝Trident。Trident是一款儲存協調工具、可與Docker和Kubernetes整合、以及以這些技術為基礎建置的平台、例如Red Hat OpenShift、Rancher和IBM Cloud Private。Trident的目標是讓應用程式的儲存資源配置、連線和使用變得透明且順暢。Trident是NetApp所維護的完全支援的開放原始碼專案。Trident可讓您以熟悉的標準Kubernetes格式、建立、管理及互動持續儲存磁碟區。
+
+
+TIP: 如需Trident的詳細資訊、請參閱 https://netapp-trident.readthedocs.io/en/stable-v20.10/introduction.html["Trident文件"^]。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您已在NetApp HCI 支援的過程中安裝Rancher。
+* 您已部署使用者叢集。
+* 您已將使用者叢集網路設定為Trident。請參閱 link:task_trident_configure_networking.html["啟用使用者叢集的Trident支援"^] 以取得相關指示。
+* 您已完成工作節點準備Trident所需的必要先決條件步驟。請參閱 https://netapp-trident.readthedocs.io/en/stable-v20.10/kubernetes/operations/tasks/worker.html["Trident文件"]。
+
+
+Trident安裝程式目錄是以NetApp混合雲控制系統安裝Rancher的一部分。在此工作中、您可以使用安裝程式目錄來安裝及設定Trident。在Rancher安裝過程中、NetApp提供了一個節點範本。如果您不打算使用NetApp提供的節點範本、而想要在RHEL或CentOS上進行資源配置、則可能需要額外的需求。如果您將工作節點變更為RHEL或CentOS、則必須符合多項先決條件。請參閱 https://netapp-trident.readthedocs.io/en/stable-v20.10/kubernetes/operations/tasks/worker.html["Trident文件"]。
+
+.步驟
+. 從Rancher UI中、選取使用者叢集的專案。
++
+
+TIP: 如需專案和命名空間的相關資訊、請參閱 https://rancher.com/docs/rancher/v2.x/en/cluster-admin/projects-and-namespaces/["Rancher文件"^]。
+
+. 選取*應用程式*、然後選取*啟動*。
++
+image::rancher-install-trident.jpg[顯示啟動Trident安裝程式的導覽。]
+
+. 在*目錄*頁面上、選取Trident安裝程式。
++
+image::rancher-trident.jpg[Rancher目錄頁面上的Trident安裝程式。]
+
++
+
+NOTE: 在開啟的頁面上、您可以選取*詳細說明*箭頭、以深入瞭解Trident應用程式、也可以找到的連結 https://netapp-trident.readthedocs.io/en/stable-v20.10/introduction.html["Trident文件"]。
+
+. 選取*組態選項*箭頭、然後輸入認證資料和儲存組態資訊。
++
+image::rancher-trident-config.jpg[顯示您應輸入Trident的儲存組態資訊。]
+
++
+
+NOTE: 預設的儲存租戶NetApp HCI 是不一樣的。您可以變更此值。您也可以變更後端名稱。不過、請勿變更預設的儲存驅動程式值* solidfire-san。
+
+. 選擇* Launch *（啟動*）。
++
+這會在* Trident *命名空間上安裝Trident工作負載。
+
+. 選取*資源>工作負載*、然後確認* Trident *命名空間包含下列元件：
++
+image::rancher-trident-workload.jpg[顯示Trident命名空間元件。]
+
+. （可選）選擇* Storage*（儲存設備）以查看您可用於持續磁碟區的儲存類別。
++
+
+NOTE: 這三個儲存類別分別是* solidfire-gold *、* solidfire-silveron*和* solidfire-bonze *。您可以選取「*預設*」欄下的圖示、將其中一個儲存類別設為預設值。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:task_trident_configure_networking.html["啟用使用者叢集的Trident支援"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

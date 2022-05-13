@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_removewn.html 
+summary: 將雙節點儲存叢集擴充至四個或更多節點之後、您可以刪除見證節點配對、以便在NetApp HCI 安裝時釋放運算資源。 
+keywords: netapp, hci, witness nodes, two-node cluster, four-node cluster, compute nodes, virtual machine, vm 
+---
+= 擴充叢集後移除見證節點
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+將雙節點儲存叢集擴充至四個或更多節點之後、您可以刪除見證節點配對、以便在NetApp HCI 安裝時釋放運算資源。儲存叢集先前使用的見證節點仍會在vSphere Web Client中顯示為待命虛擬機器（VM）。
+
+擁有四個以上儲存節點的叢集不需要見證節點。如果您想要在將雙節點叢集擴充至四個或更多節點之後、釋放CPU和記憶體、請選用此程序。
+
+
+TIP: 確認未報告叢集故障或錯誤。您可以在NetApp Element vSphere的「支援中心」擴充點中、按一下「*報告>警示*」、即可找到系統警示的相關資訊。
+
+.步驟
+. 從vSphere、NetApp Element 從*捷徑*索引標籤或側邊面板存取《S庫 管理》擴充點。
+. 選擇* NetApp Element 《Management》（資料管理）>「Cluster」（叢集）>「節點」
++
+image::vcp-witnessnode.gif[顯示NetApp Element 包含所列節點的「《不實管理》>「叢集」頁面。]
+
+. 選取您要刪除的見證節點核取方塊、然後按一下*「動作」>「移除」*。
+. 確認提示中的動作。
+. 按一下*主機與叢集*。
+. 瀏覽至您先前移除的見證節點VM。
+. 在VM上按一下滑鼠右鍵、然後關閉它。
+. 在您關閉的VM上按一下滑鼠右鍵、然後按一下*從磁碟刪除*。
+. 確認提示中的動作。
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/us/media/tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
+

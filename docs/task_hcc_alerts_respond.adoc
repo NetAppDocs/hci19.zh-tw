@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: docs/hcc_dashboard.html 
+summary: 您可以在混合雲控制儀表板上回應警示。 
+keywords: netapp, hci, hcc, on premise, alerts, warnings 
+---
+= 回應混合雲控制儀表板上的警示
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在混合雲控制儀表板上快速檢視及回應警示。
+
+
+
+== 步驟
+
+. 前往 https://fabric.netapp.io["NetApp Fabric Orchestrator"^] 登入頁面。
+. 輸入您的Cloud Central登入認證資料、然後按一下*登入*。
++
+
+TIP: 如果您沒有看到任何列出的系統、請確定NetApp HCI 已將此管理員新增至您的NetApp Cloud Central帳戶。
+
+. 如果您沒有Cloud Central帳戶、請在Cloud Central登入頁面上、按一下*註冊*。
++
+使用Cloud Central、您可以將帳戶設定為個別帳戶或聯盟帳戶：
+
++
+.. 您可以使用名稱、電子郵件和密碼建立新帳戶、然後登入。這是最簡單的帳戶類型。
+.. 如果您是Cloud Central聯盟組織的一員、請輸入您的電子郵件、然後路由傳送至組織登入。
+
+
+. 從其他Cloud Central產品中、選取* Products *>* NetApp Fabric Orchestrator *。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://cloud.netapp.com/home["NetApp Cloud Central"^]
+* https://docs.netapp.com/us-en/cloud/["NetApp雲端文件"^]
+

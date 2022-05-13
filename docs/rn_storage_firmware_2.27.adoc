@@ -1,0 +1,193 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_storage_firmware_2.27.html 
+summary: 取得可下載並套用NetApp HCI 至各個節點之韌體套件版本資訊的連結。 
+keywords: netapp, hci, storage firmware 
+---
+= 儲存韌體產品組合2.27版本說明
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+從Element 12和管理服務2.14版開始、您可以使用NetApp混合雲控制UI和REST API、在儲存節點上執行純韌體升級。此程序不會升級Element軟體、可讓您在主要Element版本之外升級儲存韌體。
+
+
+IMPORTANT: 對於執行Element軟體12.0版的H610S儲存節點、在升級至儲存韌體套件2.27之前、您應該先套用D-PAT修補 程式的SUST-909。升級前、請聯絡NetApp支援部門以取得D-修補 程式。
+
+
+
+== 新增功能
+
+儲存韌體套裝軟體2.27版包含各種錯誤修正與新功能、包括安全性弱點修正。您可以依照中的指示升級儲存韌體 link:task_hcc_upgrade_storage_firmware.html["升級儲存韌體"]。
+
+
+
+=== 更新韌體元件
+
+此韌體套件包含下列硬體元件韌體版本、更新版本以粗體顯示：
+
+|===
+| 元件 | Dell R630 | H410S | H610S 
+
+
+| BIOS | 不適用 | NA2.1 | 3B03 
+
+
+| BMC | 不適用 | * 6.84.00* | * 3.84.07* 
+
+
+| NIC / Mellanox | - | 14.21.1000 | 14.22.1002 
+
+
+| RMS200 | ae3b8cc | 7d842bc | - 
+
+
+| RMS300 | 7d842bc | 7d842bc | - 
+
+
+| NVDIMM、智慧型 | - | - | 3.1 
+
+
+| 每分鐘一次、智慧型 | - | - | 2.16 
+
+
+| NVDIMM、Michron Gen1 | - | - | 26.2c 
+
+
+| NVDIMM、Michron Gen2 | - | - | 253c 
+
+
+| PGEM、Michron | - | - | 1.40 
+
+
+| PM863、SED | GX T54404Q | GX T54404Q | - 
+
+
+| PM863、NSED | GX T59103Q | GX T59103Q | - 
+
+
+| PM883、SED | HXT7104Q | HXT7104Q | - 
+
+
+| Hawk-4、SED | 8ENP7101 | 8ENP7101 | - 
+
+
+| Hawk-4、NSED | 8ENP6101 | 8ENP6101 | - 
+
+
+| PM963、SED | - | - | CXV8202Q 
+
+
+| PM963、NSED | - | - | CXV8501Q 
+
+
+| PM983、SED | - | - | * EDA5302Q* 
+
+
+| PM983、NSED | - | - | * EDA5600Q* 
+
+
+| CD5、SED | - | - | 0108 
+
+
+| CD5、NSED | - | - | 0108 
+
+
+| CD5、FIPS | - | - | 0108 
+|===
+
+
+== 全新BMC功能
+
+以下是本版本所包含的BMC新功能與變更：
+
+* （H610S）支援啟用的INITRD、可在開機時載入初始ramdisk
+* （H610S）更新有關X．509認證的SSL說明訊息
+* （H610S）停用TLS 1.0和1.1支援來解決安全性弱點
+* （H610S、H410S）新增了使用Redfish API掛載遠端媒體的功能
+* （H610S）新增對HTML5網頁瀏覽器BMC管理的支援
+* （H610S）新增遠端系統日誌支援、協助遠端資料中心監控與管理
+
+
+
+
+== 已解決的問題
+
+以下是本版本已解決的問題：
+
+|===
+| 問題 | 說明 
+
+
+| 不適用 | 除錯使用者Sysadmin可在重設BMC之後使用SSH登入。 
+
+
+| 不適用 | 當您使用主控台ping BMC IP位址時、BMC不會回應。 
+
+
+| 不適用 | 在AC電源循環壓力測試期間、無法取得solSSH組態檔的存取權限。 
+
+
+| CSESF-116. | 在AC電源循環壓力測試期間、BMC記錄中會出現「PROCHOT」CPU溫度警告。 
+
+
+| CSESF-121. | 建立及更新服務帳戶API所需時間比預期更長。 
+
+
+| CSF-3321 / CSESF-129 | H610S BMC可能會因為「BMC自我測試失敗」錯誤而當機且無法存取。 
+
+
+| CSESF-197 | BMC Web UI Inventory API會傳回錯誤的記憶體序號格式。 
+|===
+
+
+== 解決安全性弱點
+
+以下是本版本中已解決的安全性弱點：
+
+
+
+=== H410S BMC 6.84.00
+
+* -201916649
+* -201916650
+* -2019-6260
+
+
+
+
+=== H610S BMC 3.84.07
+
+* -2019-1552
+* 2019至1547、-2019至1563
+* -2019-5482
+* -2019-15903
+* -2018-20843
+* 2019年-1421、2019年-15916、-2019年-16413
+* 2019年-10638、-2019年至1039年
+* 2019年-11478、2019年-11479、-2019年-11477
+* -2019-128.19
+* 2019年-14335、2019年-142014、2019年-148716、-2019年-16746
+* -2019-19062
+* 2019年-1992年、-2019年至20054年
+* 2019年-19447年、2019年-19767年、-2019年-10220年
+
+
+
+
+== 已知問題
+
+此版本中沒有已知問題。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

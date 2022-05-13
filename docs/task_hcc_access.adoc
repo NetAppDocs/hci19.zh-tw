@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_access.html 
+summary: 您可以登入NetApp混合雲控制。 
+keywords: netapp, hci, on premise, hybrid cloud control, hcc 
+---
+= 存取NetApp HCI 「混合雲控制」
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp混合雲控制可讓您管理NetApp HCI 功能。
+
+您可以瀏覽至管理節點的IP位址、登入NetApp混合雲控制。
+
+使用混合雲控制、您可以執行下列動作：
+
+* link:task_hcc_dashboard.html["監控NetApp HCI 您的安裝"]
+* link:concept_hci_upgrade_overview.html["升級NetApp HCI 您的系統"]
+* link:concept_hcc_expandoverview.html["擴充NetApp HCI 您的不必要儲存或運算資源"]
+
+
+*步驟*
+
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
++
+此時會出現NetApp混合雲控制介面。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

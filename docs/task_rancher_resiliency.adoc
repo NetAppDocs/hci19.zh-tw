@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_resiliency.html 
+summary: 瞭解如何在NetApp HCI 將Rancher安裝到位後、設定VM放置位置以獲得最佳恢復能力。 
+keywords: netapp, hci, Rancher, install, resiliency, vm, affinity 
+---
+= 設定恢復能力
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+瞭解如何在NetApp HCI 將Rancher安裝到位後、設定虛擬機器放置位置以獲得最佳恢復能力。
+
+您可能會考慮在下列方面恢復能力：
+
+* 如果您設定負載平衡或循環配置資源Proxy、管理叢集就會恢復彈性。
+* 對於使用者叢集、您可以根據要設定這些使用者叢集的方式來設定恢復能力。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

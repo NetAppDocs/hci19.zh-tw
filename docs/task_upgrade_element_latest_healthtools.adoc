@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: docs/task_upgrade_element_latest_healthtools.html 
+summary: 在系統升級過程中、您應該升級至NetApp Element 最新的HealthTools for VMware軟體。 
+keywords: netapp, HealthTools upgrade, sfupdate-healthtools, element 
+---
+= 升級至最新的HealthTools
+:allow-uri-read: 
+
+
+[role="lead"]
+在從11.1或更早版本開始元件儲存升級之前、您應該先升級HealthTools套件。只有在您執行的管理節點和元件軟體為11.1或更早版本時、才需要升級HealthTools。不需要HealthTools link:task_hcc_upgrade_element_software.html["使用NetApp混合式雲端控制進行元素升級"]。
+
+
+IMPORTANT: Element軟體12.3.2是您可使用NetApp HealthTools升級至的最終版本。如果您執行Element軟體11.3或更新版本、則應使用NetApp混合雲控制來升級Element軟體。您可以使用NetApp HealthTools升級Element版本11.1或更早版本。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您執行的是管理節點11.0、11.1或更新版本。
+* 您已將管理服務升級至至少2.1.326版。
++
+NetApp混合雲控制升級不適用於舊版服務套裝組合。
+
+* 您已下載最新版本的 https://mysupport.netapp.com/site/products/all/details/element-healthtools/downloads-tab["HealthTools"^] 並將安裝檔案複製到管理節點。
++
+
+TIP: 您可以執行「shipdate、healtools -v」命令來檢查本機安裝的HealthTools版本。
+
+* 若要將HealthTools用於黑暗站台、您需要執行下列額外步驟：
++
+** 下載 link:https://library.netapp.com/ecm/ecm_get_file/ECMLP2840740["Json 檔案"^] 從非管理節點的電腦上的NetApp支援網站、將其重新命名為「metadata.json」。
+** 讓管理節點在黑暗站台上啟動並執行。
+
+
+
+
+HealthTools套件中的命令需要提升權限才能執行。您可以使用「show」預先輸入命令、也可以將使用者升級為root權限。
+
+
+NOTE: 您使用的HealthTools版本可能比下方的範例輸入和回應更為更新。
+
+.步驟
+. 執行「shupdate、healtools <安裝檔案路徑>」命令、以安裝新的HealthTools軟體。
++
+範例輸入：
+
++
+[listing]
+----
+sfupdate-healthtools /tmp/solidfire-healthtools-2020.03.01.09.tgz
+----
++
+回應範例：
+
++
+[listing]
+----
+Checking key signature for file /tmp/solidfirehealthtools-2020.03.01.09/components.tgz
+installing command sfupdate-healthtools
+Restarting on version 2020.03.01.09
+sfupdate-healthtools /sf/bin/sfupdate-healthtools -r 2020.03.01.09
+installing command sfupgradecheck
+installing command sfinstall
+installing command sfresetupgrade
+----
+. 執行「shupdate、healtools-v」命令、確認已升級安裝的版本。
++
+回應範例：
+
++
+[listing]
+----
+Currently installed version of HealthTools:
+2020.03.01.09
+----
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

@@ -1,0 +1,119 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_install_add_storage_NIC.html 
+summary: 如果您使用額外的NIC進行儲存、則應設定無標記或有標記的網路介面。 
+keywords: netapp, element, management node, mnode, network, nic, storage nic 
+---
+= 設定儲存網路介面控制器（NIC）
+:allow-uri-read: 
+
+
+[role="lead"]
+如果您使用額外的NIC進行儲存、可以在管理節點上使用SSH、或使用vCenter主控台執行Curl命令、以設定標記或無標記的網路介面。
+
+.開始之前
+* 您知道eth0 IP位址。
+* 您的叢集版本執行NetApp Element 的是更新版本的Software 11.3。
+* 您已部署管理節點11.3或更新版本。
+
+
+選擇與您的環境相關的選項：
+
+* <<Configure a storage Network Interface Controller (NIC) for an untagged network interface>>
+* <<Configure a storage Network Interface Controller (NIC) for a tagged network interface>>
+
+
+
+
+== 為無標記網路介面設定儲存網路介面控制器（NIC）
+
+.步驟
+. 開啟SSH或vCenter主控台。
+. 取代下列命令範本中的值並執行命令：
++
+
+NOTE: 新儲存網路介面的每個必要參數值均以「$」表示。下列範本中的「叢集」物件是必要項目、可用於重新命名管理節點主機名稱。不應在正式作業環境中使用「不安全」或「-k」選項。
+
++
+[listing]
+----
+curl -u $mnode_user_name:$mnode_password --insecure -X POST \
+https://$mnode_IP:442/json-rpc/10.0 \
+-H 'Content-Type: application/json' \
+-H 'cache-control: no-cache' \
+-d ' {
+     "params": {
+               "network": {
+                          "$eth1": {
+                                   "#default" : false,
+                                   "address" : "$storage_IP",
+                                   "auto" : true,
+                                   "family" : "inet",
+                                   "method" : "static",
+                                   "mtu" : "9000",
+                                   "netmask" : "$subnet_mask",
+                                   "status" : "Up"
+                                   }
+                          },
+               "cluster": {
+                         "name": "$mnode_host_name"
+                         }
+             },
+    "method": "SetConfig"
+}
+'
+----
+
+
+
+
+== 為標記的網路介面設定儲存網路介面控制器（NIC）
+
+.步驟
+. 開啟SSH或vCenter主控台。
+. 取代下列命令範本中的值並執行命令：
++
+
+NOTE: 新儲存網路介面的每個必要參數值均以「$」表示。下列範本中的「叢集」物件是必要項目、可用於重新命名管理節點主機名稱。不應在正式作業環境中使用「不安全」或「-k」選項。
+
++
+[listing]
+----
+curl -u $mnode_user_name:$mnode_password --insecure -X POST \
+https://$mnode_IP:442/json-rpc/10.0 \
+-H 'Content-Type: application/json' \
+-H 'cache-control: no-cache' \
+-d ' {
+     "params": {
+               "network": {
+                          "$eth1": {
+                                   "#default" : false,
+                                   "address" : "$storage_IP",
+                                   "auto" : true,
+                                   "family" : "inet",
+                                   "method" : "static",
+                                   "mtu" : "9000",
+                                   "netmask" : "$subnet_mask",
+                                   "status" : "Up",
+                                   "virtualNetworkTag" : "$vlan_id"
+                                   }
+                          },
+               "cluster": {
+                         "name": "$mnode_host_name",
+                         "cipi": "$eth1.$vlan_id",
+                         "sipi": "$eth1.$vlan_id"
+                         }
+             },
+    "method": "SetConfig"
+}
+'
+----
+
+
+[discrete]
+== 瞭解更多資訊
+
+* link:task_mnode_add_assets.html["將運算和控制器資產新增至管理節點"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_multi_vcenter_config.html 
+summary: 您可以使用REST API UI、將NetApp混合雲控制設定為使用多個vCenter。 
+keywords: netapp, mnode, management node, multi-vcenter, hci 
+---
+= 為多個vCenter設定NetApp混合雲控制
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以設定NetApp混合雲控制、從兩個或多個vCenter管理未使用連結模式的資產。
+
+當您需要新增資產以進行最近擴充的安裝、或是新資產未自動新增至組態時、您應該在初始安裝之後使用此程序。使用這些API新增最近新增至安裝的資產。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您的叢集版本執行NetApp Element 的是更新版本的Software 11.3。
+* 您已部署執行11.3版或更新版本的管理節點。
+
+
+.步驟
+. link:task_mnode_add_assets.html["新增vCenter做為控制器資產"] 管理節點組態。
+. link:task_mnode_add_assets.html["新增運算節點做為運算資產"] 管理節點組態。
++
+
+NOTE: 您可能需要 link:task_hcc_edit_bmc_info.html["變更運算節點的BMC認證"] 解決NetApp混合雲控制系統中顯示的「Hardware ID Not Available（硬體ID不可用）」或「unable to Detect（無法偵測）」錯誤。
+
+. 重新整理管理節點上的庫存服務API：
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
++
+
+NOTE: 此外、您也可以在NetApp混合雲控制UI中等待2分鐘、以便更新庫存。
+
++
+.. 按一下「*授權*」、然後完成下列項目：
++
+... 輸入叢集使用者名稱和密碼。
+... 輸入用戶端ID為「mnode-client」。
+... 按一下*授權*開始工作階段。
+... 關閉視窗。
+
+
+.. 在REST API UI中、按一下*「Get R針對 性/安裝」*。
+.. 按一下*試用*。
+.. 按一下*執行*。
+.. 從回應中、複製安裝資產ID（「id」）。
+.. 在REST API UI中、按一下「* Get /Installations/{id}*」。
+.. 按一下*試用*。
+.. 將重新整理設為「真」。
+.. 將安裝資產ID貼到* id*欄位。
+.. 按一下*執行*。
+
+
+. 重新整理NetApp混合雲控制瀏覽器、查看變更內容。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

@@ -1,0 +1,246 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_manage_storage_cluster_assets.html 
+summary: 您可以使用REST API UI來新增、移除及變更管理節點儲存叢集資產。 
+keywords: netapp, mnode, management node, rest api, hci, assets 
+---
+= 建立及管理儲存叢集資產
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以將新的儲存叢集資產新增至管理節點、編輯已知儲存叢集資產的儲存認證、以及使用REST API從管理節點刪除儲存叢集資產。
+
+.您需要的是 #8217 ；需要的是什麼
+* 確保您的儲存叢集版本執行NetApp Element 的是更新版本的軟件、即不含任何更新版本。
+* 請確定您已部署執行11.3版或更新版本的管理節點。
+
+
+請選擇下列其中一個選項：
+
+* <<Retrieve the installation ID and cluster ID of a storage cluster asset>>
+* <<Add a new storage cluster asset>>
+* <<Edit the stored credentials for a storage cluster asset>>
+* <<Delete a storage cluster asset>>
+
+
+
+
+== 擷取儲存叢集資產的安裝ID和叢集ID
+
+您可以使用REST API取得儲存叢集的安裝ID和ID。您需要安裝ID來新增儲存叢集資產、以及叢集ID來修改或刪除特定的儲存叢集資產。
+
+.步驟
+. 輸入管理節點IP位址、然後輸入「/inventory/1/'：
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+. 按一下*授權*或任何鎖定圖示、然後完成下列步驟：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 按一下*授權*開始工作階段。
+.. 關閉視窗。
+
+
+. 按一下*「Get /Installations」*。
+. 按一下*試用*。
+. 按一下*執行*。
++
+API會傳回所有已知安裝的清單。
+
+. 從代碼200回應本文中、將值儲存在「id」欄位、您可以在安裝清單中找到該欄位。這是安裝ID。例如：
++
+[listing, subs="+quotes"]
+----
+"installations": [
+    {
+      *"id": "1234a678-12ab-35dc-7b4a-1234a5b6a7ba",*
+      "name": "my-hci-installation",
+      "_links": {
+        "collection": "https://localhost/inventory/1/installations",
+        "self": "https://localhost/inventory/1/installations/1234a678-12ab-35dc-7b4a-1234a5b6a7ba"
+      }
+    }
+  ]
+----
+. 輸入管理節點IP位址、然後輸入「/storage / 1/'：
++
+[listing]
+----
+https://<ManagementNodeIP>/storage/1/
+----
+. 按一下*授權*或任何鎖定圖示、然後完成下列步驟：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 按一下*授權*開始工作階段。
+.. 關閉視窗。
+
+
+. 按一下「* Get /叢 集*」。
+. 按一下*試用*。
+. 在「installationId」參數中輸入您先前儲存的安裝ID。
+. 按一下*執行*。
++
+API會傳回此安裝中所有已知儲存叢集的清單。
+
+. 從代碼200回應本文中找出正確的儲存叢集、並將值儲存在叢集的「儲存ID」欄位中。這是儲存叢集ID。
+
+
+
+
+== 新增儲存叢集資產
+
+您可以使用REST API將一或多個新的儲存叢集資產新增至管理節點庫存。當您新增儲存叢集資產時、它會自動登錄到管理節點。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您已複製 <<Retrieve the installation ID and cluster ID of a storage cluster asset,儲存叢集ID和安裝ID>> 適用於您要新增的任何儲存叢集。
+* 如果您要新增一個以上的儲存節點、您已閱讀並瞭解的限制 link:concept_hci_clusters.html#authoritative-storage-clusters["驗證叢集"] 以及多個儲存叢集支援。
++
+
+NOTE: 在授權叢集上定義的所有使用者、均定義為所有其他叢集上與混合雲控制執行個體相關聯的使用者。
+
+
+
+.步驟
+. 輸入管理節點IP位址、然後輸入「/storage / 1/'：
++
+[listing]
+----
+https://<ManagementNodeIP>/storage/1/
+----
+. 按一下*授權*或任何鎖定圖示、然後完成下列步驟：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 按一下*授權*開始工作階段。
+.. 關閉視窗。
+
+
+. 按一下* POST /叢集*。
+. 按一下*試用*。
+. 在「* Request bin*」欄位的下列參數中輸入新的儲存叢集資訊：
++
+[listing]
+----
+{
+  "installationId": "a1b2c34d-e56f-1a2b-c123-1ab2cd345d6e",
+  "mvip": "10.0.0.1",
+  "password": "admin",
+  "userId": "admin"
+}
+----
++
+|===
+| 參數 | 類型 | 說明 
+
+
+| "installationId" | 字串 | 新增儲存叢集的安裝。在此參數中輸入您先前儲存的安裝ID。 
+
+
+| 《VIP》 | 字串 | 儲存叢集的IPv4管理虛擬IP位址（MVIP）。 
+
+
+| 密碼 | 字串 | 用於與儲存叢集通訊的密碼。 
+
+
+| "用戶識別碼" | 字串 | 用於與儲存叢集通訊的使用者ID（使用者必須擁有系統管理員權限）。 
+|===
+. 按一下*執行*。
++
+API會傳回包含新增儲存叢集資產相關資訊的物件、例如名稱、版本和IP位址資訊。
+
+
+
+
+
+== 編輯儲存叢集資產的儲存認證資料
+
+您可以編輯管理節點用來登入儲存叢集的已儲存認證。您選擇的使用者必須擁有叢集管理存取權。
+
+
+NOTE: 請確定您已遵循中的步驟 <<Retrieve the installation ID and cluster ID of a storage cluster asset>> 然後繼續。
+
+.步驟
+. 輸入管理節點IP位址、然後輸入「/storage / 1/'：
++
+[listing]
+----
+https://<ManagementNodeIP>/storage/1/
+----
+. 按一下*授權*或任何鎖定圖示、然後完成下列步驟：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 按一下*授權*開始工作階段。
+.. 關閉視窗。
+
+
+. 按一下「*放置/叢集/｛storageId｝*」。
+. 按一下*試用*。
+. 將您先前複製的儲存叢集ID貼到「儲存叢集ID」參數中。
+. 在「* Request body *」欄位中變更下列其中一個或兩個參數：
++
+[listing]
+----
+{
+  "password": "adminadmin",
+  "userId": "admin"
+}
+----
++
+|===
+| 參數 | 類型 | 說明 
+
+
+| 密碼 | 字串 | 用於與儲存叢集通訊的密碼。 
+
+
+| "用戶識別碼" | 字串 | 用於與儲存叢集通訊的使用者ID（使用者必須擁有系統管理員權限）。 
+|===
+. 按一下*執行*。
+
+
+
+
+== 刪除儲存叢集資產
+
+如果儲存叢集不再服務、您可以刪除儲存叢集資產。當您移除儲存叢集資產時、它會自動從管理節點取消註冊。
+
+
+NOTE: 請確定您已遵循中的步驟 <<Retrieve the installation ID and cluster ID of a storage cluster asset>> 然後繼續。
+
+.步驟
+. 輸入管理節點IP位址、然後輸入「/storage / 1/'：
++
+[listing]
+----
+https://<ManagementNodeIP>/storage/1/
+----
+. 按一下*授權*或任何鎖定圖示、然後完成下列步驟：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 按一下*授權*開始工作階段。
+.. 關閉視窗。
+
+
+. 按一下「*刪除/叢集/｛storageId｝*」。
+. 按一下*試用*。
+. 在「儲存叢集ID」參數中輸入您先前複製的儲存叢集ID。
+. 按一下*執行*。
++
+成功後、API會傳回空白回應。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:concept_hci_clusters.html#authoritative-storage-clusters["驗證叢集"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

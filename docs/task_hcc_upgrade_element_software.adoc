@@ -1,0 +1,765 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_upgrade_element_software.html 
+summary: 在升級版的過程中、您需要升級一套功能完善的功能。NetApp HCI NetApp Element 
+keywords: netapp, hci, HealthTools, cluster, element, H610S upgrade, hcc 
+---
+= 升級Element軟體
+:allow-uri-read: 
+
+
+[role="lead"]
+若要升級NetApp Element VMware軟體、您可以使用NetApp混合雲控制UI、REST API或HealthTools套裝工具。某些作業會在元素軟體升級期間受到抑制、例如新增和移除節點、新增和移除磁碟機、以及與啟動器、Volume存取群組和虛擬網路相關的命令等。
+
+.您需要的是 #8217 ；需要的是什麼
+* *管理權限*：您有儲存叢集管理員權限可執行升級。
+* *有效的升級路徑*：您已檢查要升級的元素版本的升級路徑資訊、並確認升級路徑有效。https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/What_is_the_upgrade_matrix_for_storage_clusters_running_NetApp_Element_software%3F["NetApp知識庫：執行NetApp Element 「更新軟體」之儲存叢集的升級對照表"^]
+* *系統時間同步*：您已確保所有節點上的系統時間均已同步、且儲存叢集和節點的NTP設定正確。每個節點都必須在每個節點的Web UI（「https://[IP位址」：442`）中設定DNS名稱伺服器、且不會發生與時間偏移相關的未解決叢集故障。
+* *系統連接埠*：如果您使用NetApp混合式雲端控制進行升級、您已確保所需的連接埠已開啟。請參閱 link:hci_prereqs_required_network_ports.html["網路連接埠"] 以取得更多資訊。
+* *管理節點*：對於NetApp混合雲控制UI和API、您環境中的管理節點執行版本11.3。
+* *管理服務*：您已將管理服務套裝組合更新為最新版本。
+
+
+
+IMPORTANT: 您必須先升級至最新的管理服務套裝組合、才能將Element軟體升級至12.3.x版如果您要將Element軟體更新至12.3.x版、則需要使用管理服務2.14.60或更新版本才能繼續。
+
+* *叢集健全狀況*：您已確認叢集已準備好升級。請參閱 link:task_hcc_upgrade_element_prechecks.html["升級儲存設備之前、請先執行Element儲存設備健全狀況檢查"]。
+* *更新BMC for H610S nodes *：您已升級H610S節點的BMC版本。請參閱 link:rn_H610S_BMC_3.84.07.html["版本說明與升級指示"^]。
+* *終端使用者授權合約（EULA）*：從管理服務的2.20開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來升級Element軟體：
++
+.. 在Web瀏覽器中開啟管理節點的IP位址：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+.. 提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+.. 選取介面右上角附近的*升級*。
+.. 隨即顯示EULA。向下捲動、選取*我接受目前及所有未來更新*、然後選取*儲存*。
++
+
+NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動下載功能。您將會收到NetApp軟體更新與升級的更新、您可以自行決定是否安裝、也可以方便地安裝。您可以停用與NetApp線上軟體儲存庫的網路連線、以停用自動下載功能。
+
+
+
+
+
+請選擇下列其中一個元素軟體升級選項：
+
+* <<Use NetApp Hybrid Cloud Control UI to upgrade Element storage>>
+* <<Use NetApp Hybrid Cloud Control API to upgrade Element storage>>
+* <<Upgrade Element software at connected sites using HealthTools>>
+* <<Upgrade Element software at dark sites using HealthTools>>
+
+
+
+IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<<Upgrading H610S storage nodes to Element 12.3.x (phase 2),第2階段>>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+
+
+
+== 使用NetApp混合雲控制UI來升級元素儲存設備
+
+您可以使用NetApp混合雲控制UI來升級儲存叢集。
+
+如果您的管理節點未連線至網際網路、則表示您已下載 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["適用於不含資源的儲存叢集的軟體套件NetApp HCI NetApp HCI"^]。
+
+
+CAUTION: 如需使用NetApp混合式雲端控制及其因應措施升級儲存叢集的潛在問題、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Potential_issues_and_workarounds_when_running_storage_upgrades_using_NetApp_Hybrid_Cloud_Control["知識庫文章"^]。
+
+
+TIP: 對於非H610S平台、每個節點的升級程序約需30分鐘。
+
+.步驟
+. 在Web瀏覽器中開啟管理節點的IP位址：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 選取介面右上角附近的*升級*。
+. 在「*升級*」頁面上、選取「*儲存設備*」。
++
+「*儲存設備*」索引標籤會列出您安裝時所需的儲存叢集。如果NetApp混合雲控制無法存取叢集、則不會顯示在「*升級*」頁面上。
+
+. 從下列選項中選擇、然後執行適用於您叢集的一組步驟：
++
+[cols="2*"]
+|===
+| 選項 | 步驟 
+
+
+| 您的管理節點具有外部連線功能。  a| 
+.. 選取您要升級之叢集旁的下拉式箭頭、然後從* Element *索引標籤下可用的升級版本中選取。
+.. 選擇*開始升級*。
+
+
+
+TIP: 升級期間*升級狀態*會變更、以反映程序的狀態。它也會因應您採取的行動而變更、例如暫停升級、或升級傳回錯誤。請參閱 <<Upgrade status changes>>。
+
+
+NOTE: 在升級進行期間、您可以離開頁面、稍後再返回頁面、繼續監控進度。如果叢集列收合、頁面不會動態更新狀態和目前版本。叢集列必須展開以更新表格、否則您可以重新整理頁面。
+
+您可以在升級完成後下載記錄。
+
+
+
+| 您的管理節點位於黑暗站台內、沒有外部連線功能。  a| 
+.. 選擇*瀏覽*上傳您下載的升級套件。
+.. 等待上傳完成。進度列會顯示上傳狀態。
+
+
+
+CAUTION: 如果您離開瀏覽器視窗、檔案上傳將會遺失。
+
+檔案成功上傳及驗證後、畫面上會顯示一則訊息。驗證可能需要幾分鐘的時間。如果您在此階段離開瀏覽器視窗、檔案上傳會保留下來。
+
+
+
+| 您正在升級執行元素11.8之前版本的H610S叢集。  a| 
+.. 選取您要升級之叢集旁的下拉式箭頭、然後從可用的升級版本中選取。
+.. 選擇*開始升級*。升級完成後、UI會提示您執行程序的階段2。
+.. 完成中所需的其他步驟（階段2） https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure["知識庫文章"^]並在UI中確認您已完成階段2。
+
+
+您可以在升級完成後下載記錄。如需各種升級狀態變更的相關資訊、請參閱 <<Upgrade status changes>>。
+
+|===
+
+
+
+
+=== 升級狀態變更
+
+以下是使用者介面中「*升級狀態*」欄在升級前、期間及之後顯示的不同狀態：
+
+[cols="2*"]
+|===
+| 升級狀態 | 說明 
+
+
+| 最新 | 叢集已升級至可用的最新元素版本。 
+
+
+| 提供版本 | 有更新版本的Element和/或儲存韌體可供升級。 
+
+
+| 進行中 | 升級正在進行中。進度列會顯示升級狀態。畫面上的訊息也會顯示節點層級的故障、並在升級過程中顯示叢集中每個節點的節點ID。您可以使用Element UI或NetApp Element vCenter Server UI的VMware外掛程式來監控每個節點的狀態。 
+
+
+| 升級暫停 | 您可以選擇暫停升級。視升級程序的狀態而定、暫停作業可能會成功或失敗。您會看到UI提示、要求您確認暫停作業。為了確保叢集在暫停升級之前處於安全位置、升級作業可能需要兩小時才能完全暫停。若要繼續升級、請選取*恢復*。 
+
+
+| 已暫停 | 您已暫停升級。選取*恢復*以繼續處理程序。 
+
+
+| 錯誤 | 升級期間發生錯誤。您可以下載錯誤記錄並將其傳送至NetApp支援部門。解決錯誤之後、您可以返回頁面、然後選取*恢復*。當您繼續升級時、進度列會在系統執行健全狀況檢查並檢查升級的目前狀態時、向後移幾分鐘。 
+
+
+| 無法偵測 | 當NetApp混合雲控制系統無法連線至線上軟體儲存庫時、會顯示此狀態、而非*可用版本*。如果您有外部連線功能、但仍看到此訊息、請檢查您的 link:task_mnode_configure_proxy_server.html["Proxy組態"^]。 
+
+
+| 完成後續追蹤 | 僅適用於從11.8之前的元素版本升級的H610S節點。完成升級程序的階段1之後、此狀態會提示您執行升級的階段2（請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure["知識庫文章"^]）。完成階段2並確認您已完成、狀態會變更為*最新*。 
+|===
+
+
+== 使用NetApp混合雲控制API來升級元素儲存設備
+
+您可以使用API將叢集中的儲存節點升級至最新的Element軟體版本。您可以使用自己選擇的自動化工具來執行API。此處記錄的API工作流程使用管理節點上可用的REST API UI作為範例。
+
+.步驟
+. 視連線而定、執行下列其中一項：
++
+[cols="2*"]
+|===
+| 選項 | 步驟 
+
+
+| 您的管理節點具有外部連線功能。  a| 
+.. 驗證儲存庫連線：
++
+... 在管理節點上開啟管理節點REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/package-repository/1/
+----
+... 選擇*授權*並完成下列項目：
++
+.... 輸入叢集使用者名稱和密碼。
+.... 輸入用戶端ID為「mnode-client」。
+.... 選取*授權*以開始工作階段。
+.... 關閉授權視窗。
+
+
+... 從REST API UI中、選取*「Get Resi/Packages/site-repository/ connection*」。
+... 選擇*試用*。
+... 選擇*執行*。
+... 如果傳回代碼200、請前往下一步。如果沒有連線到遠端儲存庫、請建立連線或使用Dark站台選項。
+
+
+.. 尋找升級套件ID：
++
+... 從REST API UI中、選取* Get /packags*。
+... 選擇*試用*。
+... 選擇*執行*。
+... 從回應中、複製並儲存套件ID以供後續步驟使用。
+
+
+
+
+
+
+| 您的管理節點位於黑暗站台內、沒有外部連線功能。  a| 
+.. 將儲存設備升級套件下載至管理節點可存取的裝置、前往NetApp HCI 該軟體 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["下載頁面"^] 並下載最新的儲存節點映像。
+.. 將儲存升級套件上傳至管理節點：
++
+... 在管理節點上開啟管理節點REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/package-repository/1/
+----
+... 選擇*授權*並完成下列項目：
++
+.... 輸入叢集使用者名稱和密碼。
+.... 輸入用戶端ID為「mnode-client」。
+.... 選取*授權*以開始工作階段。
+.... 關閉授權視窗。
+
+
+... 從REST API UI中、選取* POST /套件*。
+... 選擇*試用*。
+... 選擇*瀏覽*並選擇升級套件。
+... 選取*執行*以啟動上傳。
+... 從回應中、複製並儲存套件ID（「id」）以供後續步驟使用。
+
+
+.. 確認上傳狀態。
++
+... 從REST API UI中、選取* GETRIVE/套件SESI/｛id｝/狀態*。
+... 選擇*試用*。
+... 在「* id*」中輸入您在上一個步驟中複製的套件ID。
+... 選取*執行*以啟動狀態要求。
++
+回答顯示「成功」。
+
+
+
+
+
+|===
+. 找出儲存叢集ID：
++
+.. 在管理節點上開啟管理節點REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. 選擇*授權*並完成下列項目：
++
+... 輸入叢集使用者名稱和密碼。
+... 輸入用戶端ID為「mnode-client」。
+... 選取*授權*以開始工作階段。
+... 關閉授權視窗。
+
+
+.. 從REST API UI中、選取* Get /Installations *。
+.. 選擇*試用*。
+.. 選擇*執行*。
+.. 從回應中、複製安裝資產ID（「id」）。
+.. 從REST API UI中選取* Get /Installations/{id}*。
+.. 選擇*試用*。
+.. 將安裝資產ID貼到* id*欄位。
+.. 選擇*執行*。
+.. 根據回應、複製並儲存您打算升級以供後續步驟使用的叢集儲存叢集ID（「id」）。
+
+
+. 執行儲存設備升級：
++
+.. 在管理節點上開啟儲存REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/storage/1/
+----
+.. 選擇*授權*並完成下列項目：
++
+... 輸入叢集使用者名稱和密碼。
+... 輸入用戶端ID為「mnode-client」。
+... 選取*授權*以開始工作階段。
+... 關閉授權視窗。
+
+
+.. 選擇* POST /升級*。
+.. 選擇*試用*。
+.. 在參數欄位中輸入升級套件ID。
+.. 在參數欄位中輸入儲存叢集ID。
++
+有效負載應類似下列範例：
+
++
+[listing]
+----
+{
+  "config": {},
+  "packageId": "884f14a4-5a2a-11e9-9088-6c0b84e211c4",
+  "storageId": "884f14a4-5a2a-11e9-9088-6c0b84e211c4"
+}
+----
+.. 選擇*執行*以啟動升級。
++
+回應應指出「initializing」（正在初始化）狀態：
+
++
+[listing]
+----
+{
+  "_links": {
+    "collection": "https://localhost:442/storage/upgrades",
+    "self": "https://localhost:442/storage/upgrades/3fa85f64-1111-4562-b3fc-2c963f66abc1",
+    "log": https://localhost:442/storage/upgrades/3fa85f64-1111-4562-b3fc-2c963f66abc1/log
+  },
+  "storageId": "114f14a4-1a1a-11e9-9088-6c0b84e200b4",
+  "upgradeId": "334f14a4-1a1a-11e9-1055`-6c0b84e2001b4",
+  "packageId": "774f14a4-1a1a-11e9-8888-6c0b84e200b4",
+  "config": {},
+  "state": "initializing",
+  "status": {
+    "availableActions": [
+      "string"
+    ],
+    "message": "string",
+    "nodeDetails": [
+      {
+        "message": "string",
+        "step": "NodePreStart",
+        "nodeID": 0,
+        "numAttempt": 0
+      }
+    ],
+    "percent": 0,
+    "step": "ClusterPreStart",
+    "timestamp": "2020-04-21T22:10:57.057Z",
+    "failedHealthChecks": [
+      {
+        "checkID": 0,
+        "name": "string",
+        "displayName": "string",
+        "passed": true,
+        "kb": "string",
+        "description": "string",
+        "remedy": "string",
+        "severity": "string",
+        "data": {},
+        "nodeID": 0
+      }
+    ]
+  },
+  "taskId": "123f14a4-1a1a-11e9-7777-6c0b84e123b2",
+  "dateCompleted": "2020-04-21T22:10:57.057Z",
+  "dateCreated": "2020-04-21T22:10:57.057Z"
+}
+----
+.. 複製做為回應一部分的升級ID（「upgradeId」）。
+
+
+. 驗證升級進度和結果：
++
+.. 選取*「Get」（取得）/「upgrade/eId」*。
+.. 選擇*試用*。
+.. 在* upgradeId*中輸入上一步的升級ID。
+.. 選擇*執行*。
+.. 如果升級期間發生問題或特殊需求、請執行下列其中一項：
++
+[cols="2*"]
+|===
+| 選項 | 步驟 
+
+
+| 您需要修正回應本文中的「失敗狀況檢查」訊息所造成的叢集健全狀況問題。  a| 
+... 請前往每個問題所列的特定KB文章、或執行指定的補救措施。
+... 如果指定KB、請完成相關KB文章中所述的程序。
+... 解決叢集問題之後、視需要重新驗證、然後選取*「PE/upgrades/｛upgradeId｝*」。
+... 選擇*試用*。
+... 在* upgradeId*中輸入上一步的升級ID。
+... 在申請本文中輸入「action」：「resume」（繼續）。
++
+[listing]
+----
+{
+  "action": "resume"
+}
+----
+... 選擇*執行*。
+
+
+
+
+| 您需要暫停升級、因為維護時間已經關閉或是因為其他原因。  a| 
+... 視需要重新驗證、然後選取*「PGE」（更新）/「｛upgradeId｝」*。
+... 選擇*試用*。
+... 在* upgradeId*中輸入上一步的升級ID。
+... 在申請本文中輸入「action」：「Pause」（暫停）。
++
+[listing]
+----
+{
+  "action": "pause"
+}
+----
+... 選擇*執行*。
+
+
+
+
+| 如果您要升級執行11.8之前元素版本的H610S叢集、您會在回應本文中看到「finishedNeedsAck」狀態。您需要為每個H610S儲存節點執行額外的升級步驟（階段2）。  a| 
+... 請參閱 <<Upgrading H610S storage nodes to Element 12.3.x or later (phase 2)>> 並完成每個節點的程序。
+... 視需要重新驗證、然後選取*「PGE」（更新）/「｛upgradeId｝」*。
+... 選擇*試用*。
+... 在* upgradeId*中輸入上一步的升級ID。
+... 在申請本文中輸入「action」：「Acknowledge」（確認）。
++
+[listing]
+----
+{
+  "action": "acknowledge"
+}
+----
+... 選擇*執行*。
+
+
+|===
+.. 視需要多次執行*「Get」（取得）/「upgradeId」* API（升級/｛upgradeId｝* API）、直到程序完成為止。
++
+在升級期間、如果沒有發生錯誤、「狀態」會指出「執行中」。當每個節點升級時、「命令」值會變更為「節點已完成」。
+
++
+如果將“百分點”值定爲“100”，而“板塊”表示“已完成”，則升級已成功完成。
+
+
+
+
+
+
+
+== 如果使用NetApp混合式雲端控制進行升級失敗、會發生什麼情況
+
+如果磁碟機或節點在升級期間故障、則元素UI會顯示叢集故障。升級程序不會繼續到下一個節點、而是等待叢集故障解決。UI中的進度列顯示升級正在等待叢集故障解決。在此階段、在UI中選取* Pause*將無法運作、因為升級會等待叢集正常運作。您需要與NetApp支援部門接洽、以協助調查故障。
+
+NetApp混合雲控制系統有預先設定的三小時等候時間、在此期間可能發生下列其中一種情況：
+
+* 叢集故障會在三小時內解決、並恢復升級。您不需要在此案例中採取任何行動。
+* 三小時後問題仍然存在、升級狀態會顯示*錯誤*並顯示紅色橫幅。您可以在問題解決後選取*恢復*來繼續升級。
+* NetApp支援部門已決定、必須在三小時前暫時中止升級、以便採取修正行動。支援人員將使用API中止升級。
+
+
+
+CAUTION: 在更新節點時中止叢集升級、可能會導致磁碟機無法正常移除節點。如果未正常移除磁碟機、在升級期間重新新增磁碟機將需要NetApp支援人員手動介入。節點執行韌體更新或更新後同步活動可能需要較長時間。如果升級進度似乎停滯、請聯絡NetApp支援部門以尋求協助。
+
+
+
+== 使用HealthTools升級連線站台的Element軟體
+
+.步驟
+. 下載儲存設備升級套件；前往NetApp HCI 更新軟體 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["下載頁面"^] 並將最新的儲存節點映像下載至非管理節點的裝置。
++
+
+NOTE: 您需要最新版本的HealthTools來升級Element儲存軟體。
+
+. 將ISO檔案複製到管理節點的可存取位置、例如/tmp.
++
+上傳ISO檔案時、請確定檔案名稱未變更、否則後續步驟將會失敗。
+
+. *選用*：升級前、請從管理節點下載ISO至叢集節點。
++
+此步驟可在儲存節點上預先執行ISO、並執行額外的內部檢查、以確保叢集處於良好的升級狀態、進而縮短升級時間。執行此作業不會使叢集進入「升級」模式、也不會限制任何叢集作業。
+
++
+[listing]
+----
+sfinstall <MVIP> -u <cluster_username> <path-toinstall-file-ISO> --stage
+----
++
+
+NOTE: 在命令行中省略密碼以允許"finshat"提示輸入信息。對於包含特殊字元的密碼、請在每個特殊字元之前加上反斜槓（`\）。例如、「mypass!@1」應輸入為「mypass\!@」。
+
++
+*範例*請參閱下列範例輸入：
+
++
+[listing]
+----
+sfinstall 10.117.0.244 -u admin /tmp/solidfire-rtfisodium-11.0.0.345.iso --stage
+----
++
+範例的輸出顯示、「最小」嘗試驗證是否有較新版的「最小」可用：
+
++
+[listing]
+----
+sfinstall 10.117.0.244 -u admin
+/tmp/solidfire-rtfisodium-11.0.0.345.iso 2018-10-01 16:52:15:
+Newer version of sfinstall available.
+This version: 2018.09.01.130, latest version: 2018.06.05.901.
+The latest version of the HealthTools can be downloaded from:
+https:// mysupport.netapp.com/NOW/cgi-bin/software/
+or rerun with --skip-version-check
+----
++
+請參閱以下成功的準備作業摘錄範例：
+
++
+
+NOTE: 當接移完成時、訊息會在升級事件後顯示「儲存節點升級接移成功」。
+
++
+[listing]
+----
+flabv0004 ~ # sfinstall -u admin
+10.117.0.87 solidfire-rtfi-sodium-patch3-11.3.0.14171.iso --stage
+2019-04-03 13:19:58: sfinstall Release Version: 2019.01.01.49 Management Node Platform:
+Ember Revision: 26b042c3e15a Build date: 2019-03-12 18:45
+2019-04-03 13:19:58: Checking connectivity to MVIP 10.117.0.87
+2019-04-03 13:19:58: Checking connectivity to node 10.117.0.86
+2019-04-03 13:19:58: Checking connectivity to node 10.117.0.87
+...
+2019-04-03 13:19:58: Successfully connected to cluster and all nodes
+...
+2019-04-03 13:20:00: Do you want to continue? ['Yes', 'No']: Yes
+...
+2019-04-03 13:20:55: Staging install pack on cluster nodes
+2019-04-03 13:20:55: newVersion: 11.3.0.14171
+2019-04-03 13:21:01: nodeToStage: nlabp2814, nlabp2815, nlabp2816, nlabp2813
+2019-04-03 13:21:02: Staging Node nlabp2815 mip=[10.117.0.87] nodeID=[2] (1 of 4 nodes)
+2019-04-03 13:21:02: Node Upgrade serving image at
+http://10.117.0.204/rtfi/solidfire-rtfisodium-
+patch3-11.3.0.14171/filesystem.squashfs
+...
+2019-04-03 13:25:40: Staging finished. Repeat the upgrade command without the --stage option to start the upgrade.
+----
++
+升級完成後、階段性ISO會自動刪除。不過、如果升級尚未啟動、需要重新排程、則可使用下列命令手動取消工位ISO：
+
++
+「finfest<MVIP>-u <cluster使用者名稱>--destage'
+
++
+升級開始後、取消階段選項將不再可用。
+
+. 使用「shfinsh停滯」命令和ISO檔案路徑開始升級：
++
+「finfl攤位<MVIP>-u <cluster使用者名稱><path-toinstall-file-iso>'
+
++
+* 範例 *
+
++
+請參閱下列輸入命令範例：
+
++
+[listing]
+----
+sfinstall 10.117.0.244 -u admin /tmp/solidfire-rtfi-sodium-11.0.0.345.iso
+----
++
+範例的輸出顯示、「最小」嘗試驗證是否有較新版的「最小」可用：
+
++
+[listing]
+----
+sfinstall 10.117.0.244 -u admin /tmp/solidfire-rtfi-sodium-11.0.0.345.iso
+2018-10-01 16:52:15: Newer version of sfinstall available.
+This version: 2018.09.01.130, latest version: 2018.06.05.901.
+The latest version of the HealthTools can be downloaded from:
+https://mysupport.netapp.com/NOW/cgi-bin/software/ or rerun with --skip-version-check
+----
++
+請參閱下列成功升級的摘錄範例。升級事件可用於監控升級進度。
+
++
+[listing]
+----
+# sfinstall 10.117.0.161 -u admin solidfire-rtfi-sodium-11.0.0.761.iso
+2018-10-11 18:28
+Checking connectivity to MVIP 10.117.0.161
+Checking connectivity to node 10.117.0.23
+Checking connectivity to node 10.117.0.24
+...
+Successfully connected to cluster and all nodes
+###################################################################
+You are about to start a new upgrade
+10.117.0.161
+10.3.0.161
+solidfire-rtfi-sodium-11.0.0.761.iso
+Nodes:
+10.117.0.23 nlabp1023 SF3010 10.3.0.161
+10.117.0.24 nlabp1025 SF3010 10.3.0.161
+10.117.0.26 nlabp1027 SF3010 10.3.0.161
+10.117.0.28 nlabp1028 SF3010 10.3.0.161
+###################################################################
+Do you want to continue? ['Yes', 'No']: yes
+...
+Watching for new network faults. Existing fault IDs are set([]).
+Checking for legacy network interface names that need renaming
+Upgrading from 10.3.0.161 to 11.0.0.761 upgrade method=rtfi
+Waiting 300 seconds for cluster faults to clear
+Waiting for caches to fall below threshold
+...
+Installing mip=[10.117.0.23] nodeID=[1] (1 of 4 nodes)
+Starting to move primaries.
+Loading volume list
+Moving primary slice=[7] away from mip[10.117.0.23] nodeID[1] ssid[11] to new ssid[15]
+Moving primary slice=[12] away from mip[10.117.0.23] nodeID[1] ssid[11] to new ssid[15]
+...
+Installing mip=[10.117.114.24] nodeID=[2] (2 of 4 nodes)
+Starting to move primaries.
+Loading volume list
+Moving primary slice=[5] away from mip[10.117.114.24] nodeID[2] ssid[7] to new ssid[11]
+...
+Install of solidfire-rtfi-sodium-11.0.0.761 complete.
+Removing old software
+No staged builds present on nodeID=[1]
+No staged builds present on nodeID=[2]
+...
+Starting light cluster block service check
+----
+
+
+
+IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<<Upgrading H610S storage nodes to Element 12.3.x (phase 2),第2階段>>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+
+
+
+== 使用HealthTools升級黑暗站台的Element軟體
+
+您可以使用HealthTools工具套件、在NetApp Element 沒有外部連線的暗處更新VMware軟體。
+
+.您需要的是 #8217 ；需要的是什麼
+. 移至NetApp HCI 「軟件」 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["下載頁面"^]。
+. 選取正確的軟體版本、並將最新的儲存節點映像下載到不是管理節點的電腦。
++
+
+NOTE: 您需要最新版本的HealthTools來升級Element儲存軟體。
+
+. 請下載 https://library.netapp.com/ecm/ecm_get_file/ECMLP2840740["Json 檔案"^] (https://library.netapp.com/ecm/ecm_get_file/ECMLP2840740)[] 從非管理節點的電腦上的NetApp支援網站、將其重新命名為「metadata.json」。
+. 將ISO檔案複製到可存取位置的管理節點、例如「/tmp」。
++
+
+TIP: 例如、您可以使用scp來執行此作業。上傳ISO檔案時、請確定檔案名稱未變更、否則後續步驟將會失敗。
+
+
+
+.步驟
+. 執行「shfupdate-healtools-command：
++
+[listing]
+----
+sfupdate-healthtools <path-to-healthtools-package>
+----
+. 檢查安裝的版本：
++
+[listing]
+----
+sfupdate-healthtools -v
+----
+. 對照中繼資料Json檔案檢查最新版本：
++
+[listing]
+----
+sfupdate-healthtools -l --metadata=<path-to-metadata-json>
+----
+. 確保叢集已就緒：
++
+[listing]
+----
+sudo sfupgradecheck -u <cluster_username> -p <cluster_password> MVIP --metadata=<path-to-metadata-json>
+----
+. 使用ISO檔案路徑和中繼資料Json檔案路徑執行「shfinshet'」命令：
++
+[listing]
+----
+sfinstall -u <cluster_username> <MVIP> <path-toinstall-file-ISO> --metadata=<path-to-metadata-json-file>
+----
++
+請參閱下列輸入命令範例：
+
++
+[listing]
+----
+sfinstall -u admin 10.117.78.244 /tmp/solidfire-rtfi-11.3.0.345.iso --metadata=/tmp/metadata.json
+----
++
+*可選*您可以將"--site"標記添加到"shfinshl"命令中，以便預先準備升級。
+
+
+
+
+IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<<Upgrading H610S storage nodes to Element 12.3.x (phase 2),第2階段>>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+
+
+
+== 如果使用HealthTools升級失敗、會發生什麼情況
+
+如果軟體升級失敗、您可以暫停升級。
+
+
+TIP: 您只能使用Ctrl-C暫停升級這可讓系統自行清理。
+
+當「finsh延遲」等待叢集故障清除、如果任何故障導致故障持續存在、「finsh延遲」將不會繼續到下一個節點。
+
+.步驟
+. 您應該使用Ctrl+C來停止「finshtrl」
+. 請聯絡NetApp支援部門、以協助調查故障。
+. 使用相同的"shfinsh回 寫"命令繼續升級。
+. 使用Ctrl+C暫停升級時、如果升級目前正在升級節點、請選擇下列其中一個選項：
++
+** * wait*：在重設叢集常量之前、請先讓目前升級的節點完成。
+** *繼續*：繼續升級、取消暫停。
+** *中止*：重設叢集常量、並立即中止升級。
++
+
+NOTE: 在更新節點時中止叢集升級、可能會導致磁碟機無法正常移除節點。如果未正常移除磁碟機、在升級期間重新新增磁碟機將需要NetApp支援人員手動介入。節點執行韌體更新或更新後同步活動可能需要較長時間。如果升級進度似乎停滯、請聯絡NetApp支援部門以尋求協助。
+
+
+
+
+
+
+
+== 將H610S儲存節點升級至Element 12.3.x（階段2）
+
+如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元素版本早於11.8、則升級程序需要兩個階段。
+
+第1階段先執行、步驟與標準升級至元件12.3.x程序相同。它一次在叢集的一個節點上、以循環方式安裝Element Software和所有5個韌體更新。由於韌體有效負載的關係、此程序預計每個H610S節點約需1.5至2小時、包括在升級結束時為每個節點執行單一冷開機週期。
+
+第2階段包括完成步驟、為所需的每個H610S節點執行完整的節點關機和電源中斷 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure["KB"^]。此階段預計每個H610S節點約需一小時。
+
+
+IMPORTANT: 完成階段1之後、五個韌體更新中的四個會在每個H610S節點的冷開機期間啟動；不過、複雜的可程式化邏輯裝置（CPLD）韌體需要完全中斷電源並重新連線才能完全安裝。CPLD韌體更新可在未來重新開機或重新開機期間、防止NVDIMM故障和中繼資料磁碟機被逐出。此電力重設預計每個H610S節點約需一小時。它需要關閉節點、拔下電源線或透過智慧型PDU中斷電源、等待約3分鐘、然後重新連接電源。
+
+.開始之前
+* 您已完成H610S升級程序的第1階段、並已使用標準元素儲存升級程序之一來升級儲存節點。
+
+
+
+NOTE: 第2階段需要現場人員。
+
+.步驟
+. （階段2）完成叢集中每個H610S節點所需的電源重設程序：
+
+
+
+NOTE: 如果叢集也有非H610S節點、則這些非H610S節點可免除階段2的限制、不需要關閉或中斷電源。
+
+. 請聯絡NetApp支援部門以取得協助、並安排此升級。
+. 請遵循本節中的第2階段升級程序 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure["KB"^] 這是完成每個H610S節點升級所需的條件。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

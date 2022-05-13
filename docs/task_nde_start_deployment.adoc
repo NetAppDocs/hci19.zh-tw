@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_start_deployment.html 
+summary: 開始部署NetApp HCI 功能。 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= 開始部署
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+在繼續NetApp HCI 進行不完整部署之前、您必須先閱讀並瞭解終端使用者授權合約。
+
+.步驟
+. 在*《歡迎使用NetApp HCI 介紹》*頁面上、按一下*《入門》*。
+. 在「*先決條件*」頁面上、執行下列動作：
++
+.. 確保符合每項先決條件、然後按一下每個相關的核取方塊進行確認。
+.. 按一下 * 繼續 * 。
+
+
+. 在「*終端使用者授權*」頁面上、執行下列動作：
++
+.. 請閱讀NetApp終端使用者授權合約。
+.. 如果您接受條款、請按一下協議文字下方的*我接受*。
+.. 閱讀VMware終端使用者授權合約。
+.. 如果您接受條款、請按一下協議文字下方的*我接受*。
+.. 按一下 * 繼續 * 。
+
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

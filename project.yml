@@ -1,0 +1,439 @@
+---
+settings:
+  name: HCI
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: zh-tw,us-en,ja-jp,zh-cn,ko-kr
+sidebar:
+  entries:
+  - title: 資訊文件NetApp HCI
+    url: "/index.html"
+  - title: 解決方案NetApp HCI
+    url: https://docs.netapp.com/us-en/hci-solutions/index.html
+  - title: 版本資訊
+    entries:
+    - title: 更新功能NetApp HCI
+      url: "/docs/rn_whatsnew.html"
+    - title: 其他版本資訊
+      url: "/docs/rn_relatedrn.html"
+  - title: 概念
+    entries:
+    - title: 產品總覽
+      url: "/docs/concept_hci_product_overview.html"
+    - title: 帳戶
+      url: "/docs/concept_cg_hci_accounts.html"
+    - title: 資料保護
+      url: "/docs/concept_hci_dataprotection.html"
+    - title: 叢集
+      url: "/docs/concept_hci_clusters.html"
+    - title: 節點
+      url: "/docs/concept_hci_nodes.html"
+    - title: 儲存設備
+      entries:
+      - title: 維護模式
+        url: "/docs/concept_hci_storage_maintenance_mode.html"
+      - title: 磁碟區
+        url: "/docs/concept_hci_volumes.html"
+      - title: Volume存取群組
+        url: "/docs/concept_hci_volume_access_groups.html"
+      - title: 啟動器
+        url: "/docs/concept_hci_initiators.html"
+      - title: 自訂保護網域
+        url: "/docs/concept_hcc_custom_protection_domains.html"
+    - title: 授權
+      url: "/docs/concept_cg_hci_licensing.html"
+    - title: NetApp混合雲控制組態上限
+      url: "/docs/reference_hcc_config_maximums.html"
+    - title: 安全性
+      url: "/docs/concept_cg_hci_security.html"
+    - title: 效能
+      url: "/docs/concept_hci_performance.html"
+  - title: 需求與部署前工作
+    entries:
+    - title: 需求NetApp HCI
+      url: "/docs/hci_prereqs_overview.html"
+    - title: 管理節點需求
+      url: "/docs/hci_prereqs_management_node.html"
+    - title: 網路連接埠需求
+      url: "/docs/hci_prereqs_required_network_ports.html"
+    - title: 網路與交換器需求
+      url: "/docs/hci_prereqs_network_switch.html"
+    - title: 網路纜線需求
+      url: "/docs/hci_prereqs_network_cables.html"
+    - title: IP位址需求
+      url: "/docs/hci_prereqs_ip_address.html"
+    - title: 網路組態
+      entries:
+      - title: 網路組態選項總覽
+        url: "/docs/hci_prereqs_network_configuration.html"
+      - title: 網路組態選項A
+        url: "/docs/hci_prereqs_network_configuration_option_A.html"
+      - title: 網路組態選項B
+        url: "/docs/hci_prereqs_network_configuration_option_B.html"
+      - title: 網路組態選項C
+        url: "/docs/hci_prereqs_network_configuration_option_C.html"
+    - title: DNS與時間保留需求
+      url: "/docs/hci_prereqs_timekeeping.html"
+    - title: 環境需求
+      url: "/docs/hci_prereqs_environmental.html"
+    - title: 保護網域
+      url: "/docs/hci_prereqs_protection_domains.html"
+    - title: 兩節點儲存叢集的見證節點資源需求
+      url: "/docs/hci_prereqs_witness_nodes.html"
+  - title: 立即開始NetApp HCI 使用
+    entries:
+    - title: 安裝與部署概述NetApp HCI
+      url: "/docs/task_hci_getstarted.html"
+    - title: 安裝H系列硬體
+      url: "/docs/task_hci_installhw.html"
+    - title: 設定LACP以獲得最佳儲存效能
+      url: "/docs/hci_prereqs_LACP_configuration.html"
+    - title: 利用Active IQ Config Advisor 功能驗證您的環境
+      url: "/docs/hci_prereqs_task_validate_config_advisor.html"
+    - title: 為每個節點設定IPMI
+      url: "/docs/hci_prereqs_final_prep.html"
+  - title: 部署NetApp HCI
+    entries:
+    - title: 存取NetApp部署引擎
+      entries:
+      - title: NetApp部署引擎存取選項總覽
+        url: "/docs/concept_nde_access_overview.html"
+      - title: 在沒有DHCP的環境中存取NetApp部署引擎
+        url: "/docs/task_nde_access_no_dhcp.html"
+      - title: 在使用DHCP的環境中存取NetApp部署引擎
+        url: "/docs/task_nde_access_dhcp.html"
+      - title: 手動指派IP位址以存取NetApp部署引擎
+        url: "/docs/task_nde_access_manual_ip.html"
+    - title: 開始部署
+      url: "/docs/task_nde_start_deployment.html"
+    - title: 匯入安裝設定檔
+      url: "/docs/task_nde_import_installation_profile.html"
+    - title: 設定VMware vSphere
+      entries:
+      - title: vSphere組態總覽
+        url: "/docs/concept_nde_config_vsphere_overview.html"
+      - title: 設定新的VMware vSphere環境
+        url: "/docs/task_nde_configure_new_vsphere.html"
+      - title: 加入現有的VMware vSphere部署
+        url: "/docs/task_nde_join_existing_vsphere.html"
+    - title: 設定NetApp HCI 驗證資料
+      url: "/docs/task_nde_configure_credentials.html"
+    - title: 選取網路拓撲
+      url: "/docs/task_nde_select_net_topology.html"
+    - title: 庫存選擇
+      entries:
+      - title: 庫存選擇與節點相容性
+        url: "/docs/concept_nde_node_compatibility.html"
+      - title: 選取庫存
+        url: "/docs/task_nde_select_inventory.html"
+    - title: 設定網路設定
+      url: "/docs/task_nde_configure_net_settings.html"
+    - title: 審查與部署
+      url: "/docs/task_nde_review_deploy.html"
+    - title: 部署後工作
+      entries:
+      - title: 部署後工作總覽
+        url: "/docs/concept_nde_post_deployment_overview.html"
+      - title: 支援的網路變更
+        url: "/docs/task_nde_supported_net_changes.html"
+      - title: 停用NetApp HCI 在各個運算節點上的smartd服務
+        url: "/docs/task_nde_disable_smartd.html"
+      - title: 在已設定的交換器上停用「lacp個別」命令
+        url: "/docs/task_nde_disable_lacp_individual.html"
+      - title: 在vCenter中建立NetApp HCC角色
+        url: "/docs/task_mnode_create_netapp_hcc_role_vcenter.html"
+      - title: 讓VMware vSphere保持最新狀態
+        url: "/docs/task_nde_update_vsphere.html"
+      - title: 安裝GPU運算節點的GPU驅動程式
+        url: "/docs/task_nde_install_GPU_drivers.html"
+      - title: 存取NetApp混合雲控管
+        url: "/docs/task_nde_access_hcc.html"
+      - title: 減少NetApp HCI 在一個運算節點上的開機媒體損耗
+        url: "/docs/task_reduce_boot_media_wear.html"
+  - title: 管理NetApp HCI
+    entries:
+    - title: 管理NetApp HCI 功能概述
+      url: "/docs/task_hci_manage_overview.html"
+    - title: 設定完整網域名稱Web UI存取
+      url: "/docs/task_nde_access_ui_fqdn.html"
+    - title: 變更NetApp HCI 身分證明
+      url: "/docs/task_post_deploy_credentials.html"
+    - title: 更新vCenter和ESXi認證資料
+      url: "/docs/task_hci_credentials_vcenter_esxi.html"
+    - title: 管理NetApp HCI 此儲存設備
+      entries:
+      - title: 管理NetApp HCI 本產品儲存概述
+        url: "/docs/task_hcc_manage_storage_overview.html"
+      - title: 建立及管理使用者帳戶
+        url: "/docs/task_hcc_manage_accounts.html"
+      - title: 新增及管理儲存叢集
+        url: "/docs/task_hcc_manage_storage_clusters.html"
+      - title: 建立及管理磁碟區
+        url: "/docs/task_hcc_manage_vol_management.html"
+      - title: 建立及管理Volume存取群組
+        url: "/docs/task_hcc_manage_vol_access_groups.html"
+      - title: 建立及管理啟動器
+        url: "/docs/task_hcc_manage_initiators.html"
+      - title: 建立及管理Volume QoS原則
+        url: "/docs/task_hcc_qos_policies.html"
+    - title: 使用管理節點
+      entries:
+      - title: 管理節點總覽
+        url: "/docs/task_mnode_work_overview.html"
+      - title: 安裝或恢復管理節點
+        entries:
+        - title: 安裝管理節點
+          url: "/docs/task_mnode_install.html"
+        - title: 設定儲存網路介面控制器（NIC）
+          url: "/docs/task_mnode_install_add_storage_NIC.html"
+        - title: 恢復管理節點
+          url: "/docs/task_mnode_recover.html"
+      - title: 存取管理節點
+        url: "/docs/task_mnode_access_ui.html"
+      - title: 使用管理節點UI
+        entries:
+        - title: 管理節點UI總覽
+          url: "/docs/task_mnode_work_overview_UI.html"
+        - title: 在NetApp HCI 不顯示的情況下設定警示監控
+          url: "/docs/task_mnode_enable_alerts.html"
+        - title: 修改及測試管理節點網路、叢集及系統設定
+          url: "/docs/task_mnode_settings.html"
+        - title: 從管理節點執行系統公用程式
+          url: "/docs/task_mnode_run_system_utilities.html"
+      - title: 使用管理節點REST API
+        entries:
+        - title: 管理節點REST API UI總覽
+          url: "/docs/task_mnode_work_overview_API.html"
+        - title: 取得使用REST API的授權
+          url: "/docs/task_mnode_api_get_authorizationtouse.html"
+        - title: 啟用Active IQ 支援功能和NetApp HCI 功能性監控
+          url: "/docs/task_mnode_enable_activeIQ.html"
+        - title: 為多個vCenter設定NetApp混合雲控制
+          url: "/docs/task_mnode_multi_vcenter_config.html"
+        - title: 將運算和控制器資產新增至管理節點
+          url: "/docs/task_mnode_add_assets.html"
+        - title: 如何找出運算節點的硬體標籤
+          url: "/docs/task_mnode_locate_hardware_tag.html"
+        - title: 建立及管理儲存叢集資產
+          url: "/docs/task_mnode_manage_storage_cluster_assets.html"
+        - title: 檢視或編輯現有的控制器資產
+          url: "/docs/task_mnode_edit_vcenter_assets.html"
+        - title: 從管理節點移除資產
+          url: "/docs/task_mnode_remove_assets.html"
+        - title: 設定管理節點的Proxy伺服器
+          url: "/docs/task_mnode_configure_proxy_server.html"
+        - title: 驗證管理節點作業系統和服務版本
+          url: "/docs/task_mnode_api_find_mgmt_svcs_version.html"
+        - title: 從管理服務取得記錄
+          url: "/docs/task_mnode_logs.html"
+      - title: 管理支援連線
+        entries:
+        - title: 啟動遠端NetApp支援工作階段
+          url: "/docs/task_mnode_enable_remote_support_connections.html"
+        - title: 管理管理節點上的SSH功能
+          url: "/docs/task_mnode_ssh_management.html"
+    - title: 關閉NetApp HCI 或開啟您的系統電源
+      entries:
+      - title: 功能概述NetApp HCI
+        url: "/docs/concept_nde_hci_power_off_on.html"
+      - title: 關閉NetApp HCI 適用於某個非系統的運算資源
+        url: "/docs/task_nde_hci_power_off_compute.html"
+      - title: 關閉NetApp HCI 適用於某個非系統的儲存資源
+        url: "/docs/task_nde_hci_power_off_storage.html"
+      - title: 開啟NetApp HCI 適用於某個不支援的系統的儲存資源
+        url: "/docs/task_nde_hci_power_on_storage.html"
+      - title: 開啟NetApp HCI 運算資源以供支援一個不必要的系統
+        url: "/docs/task_nde_hci_power_on_compute.html"
+  - title: 利用NetApp HCI NetApp混合雲控管監控您的系統
+    entries:
+    - title: 在NetApp混合雲控制儀表板上檢視資源
+      url: "/docs/task_hcc_dashboard.html"
+    - title: 請在NetApp混合雲控管的節點頁面上檢視您的庫存
+      url: "/docs/task_hcc_nodes.html"
+    - title: 使用NetApp混合雲控制編輯BMC連線資訊
+      url: "/docs/task_hcc_edit_bmc_info.html"
+    - title: 利用NetApp混合雲控制功能監控儲存叢集上的磁碟區
+      url: "/docs/task_hcc_volumes.html"
+    - title: 透過NetApp混合雲控制連線Active IQ 至VMware、監控效能、容量及叢集健全狀況
+      url: "/docs/task_hcc_activeiq.html"
+    - title: 收集記錄以進行疑難排解
+      url: "/docs/task_hcc_collectlogs.html"
+  - title: 升級NetApp HCI 您的1.9或1.9P1版
+    entries:
+    - title: 升級順序總覽
+      url: "/docs/concept_hci_upgrade_overview.html"
+    - title: 系統升級程序
+      entries:
+      - title: 更新管理服務
+        url: "/docs/task_hcc_update_management_services.html"
+      - title: 升級至最新的HealthTools
+        url: "/docs/task_upgrade_element_latest_healthtools.html"
+      - title: 升級儲存設備之前、請先執行Element儲存設備健全狀況檢查
+        url: "/docs/task_hcc_upgrade_element_prechecks.html"
+      - title: 升級Element軟體
+        url: "/docs/task_hcc_upgrade_element_software.html"
+      - title: 升級儲存韌體
+        url: "/docs/task_hcc_upgrade_storage_firmware.html"
+      - title: 升級管理節點
+        url: "/docs/task_hcc_upgrade_management_node.html"
+      - title: 升級NetApp Element vCenter Server的VMware vCenter外掛程式
+        url: "/docs/task_vcp_upgrade_plugin.html"
+      - title: 在升級運算韌體之前執行運算節點健全狀況檢查
+        url: "/docs/task_upgrade_compute_prechecks.html"
+      - title: 更新運算節點驅動程式
+        url: "/docs/task_hcc_upgrade_compute_node_drivers.html"
+      - title: 升級運算節點韌體
+        url: "/docs/task_hcc_upgrade_compute_node_firmware.html"
+      - title: 使用Ansible自動執行運算節點韌體升級
+        url: "/docs/task_hcc_upgrade_compute_firmware_ansible.html"
+    - title: 利用NetApp HCI vCenter Server的Element外掛程式、為支援VMware的系統升級vSphere元件
+      url: "/docs/task_hci_upgrade_all_vsphere.html"
+  - title: 擴充NetApp HCI 您的系統
+    entries:
+    - title: 展開總覽
+      url: "/docs/concept_hcc_expandoverview.html"
+    - title: 擴充NetApp HCI 功能
+      url: "/docs/task_hcc_expand_storage.html"
+    - title: 擴充NetApp HCI 各種運算資源
+      url: "/docs/task_hcc_expand_compute.html"
+    - title: 擴充NetApp儲存與運算資源
+      url: "/docs/task_hcc_expand_compute_and_storage.html"
+    - title: 擴充叢集後移除見證節點
+      url: "/docs/task_hci_removewn.html"
+  - title: 使用Rancher on NetApp HCI 支援
+    entries:
+    - title: Rancher on NetApp HCI 》概述
+      url: "/docs/concept_rancher_product_overview.html"
+    - title: 概念
+      url: "/docs/concept_rancher_concepts.html"
+    - title: Rancher on NetApp HCI 支援需求
+      url: "/docs/rancher_prereqs_overview.html"
+    - title: 將Rancher部署在NetApp HCI
+      url: "/docs/task_rancher_deploy.html"
+    - title: 部署後工作
+      entries:
+      - title: 部署後工作總覽
+        url: "/docs/concept_rancher_post_deployment_overview.html"
+      - title: 確保Rancher支援同位元檢查
+        url: "/docs/task_rancher_ensure_rancher_support_parity.html"
+      - title: 改善Rancher VM恢復能力
+        url: "/docs/task_rancher_config_anti_affinity.html"
+      - title: 設定監控
+        url: "/docs/task_rancher_enable_monitoring.html"
+      - title: 安裝Trident
+        url: "/docs/task_rancher_trident.html"
+      - title: 啟用使用者叢集的Trident支援
+        url: "/docs/task_trident_configure_networking.html"
+    - title: 部署使用者叢集與應用程式
+      url: "/docs/task_rancher_deploy_user_clusters.html"
+    - title: 在NetApp HCI 支援的基礎上管理Rancher
+      url: "/docs/task_rancher_manage.html"
+    - title: 監控Rancher on NetApp HCI
+      url: "/docs/task_rancher_monitor.html"
+    - title: 升級Rancher on NetApp HCI
+      url: "/docs/task_rancher_upgrades.html"
+    - title: 移除NetApp HCI 在不支援的情況下安裝Rancher
+      url: "/docs/task_rancher_remove_deployment.html"
+  - title: 維護H系列硬體
+    entries:
+    - title: H系列硬體維護總覽
+      url: "/docs/task_hci_hwmainoverview.html"
+    - title: 更換2U H系列機箱
+      url: "/docs/task_hci_hserieschassisrepl.html"
+    - title: 更換H615C和H610S節點中的DC電源供應器
+      url: "/docs/task_hci_dcpsurepl.html"
+    - title: 更換運算節點中的DIMM
+      url: "/docs/task_hci_dimmcomputerepl.html"
+    - title: 更換儲存節點的磁碟機
+      url: "/docs/task_hci_driverepl.html"
+    - title: 更換H410C節點
+      url: "/docs/task_hci_h410crepl.html"
+    - title: 更換H410S節點
+      url: "/docs/task_hci_h410srepl.html"
+    - title: 更換H610C和H615C節點
+      url: "/docs/task_hci_h610ch615crepl.html"
+    - title: 更換H610S節點
+      url: "/docs/task_hci_h610srepl.html"
+    - title: 更換電源供應器
+      url: "/docs/task_hci_psurepl.html"
+    - title: 更換SN2010、SN2100和SN2700交換器
+      url: "/docs/task_hci_snswitches.html"
+    - title: 更換雙節點叢集中的儲存節點
+      url: "/docs/task_hci_2noderepl.html"
+  - title: 舊版
+    url: "/docs/reference_earlier_versions.html"
+  - title: 法律聲明
+    url: "/docs/reference_notices_hci.html"
+homepage:
+  tiles:
+  - title: 開始使用
+    links:
+    - title: 產品總覽
+      url: "/docs/concept_hci_product_overview.html"
+    - title: 版本資訊
+      url: "/docs/rn_relatedrn.html"
+    - title: 新增功能
+      url: "/docs/rn_whatsnew.html"
+  - title: 安裝維護硬體
+    links:
+    - title: H系列硬體安裝
+      url: "/docs/task_hci_installhw.html"
+    - title: H系列硬體維護
+      url: "/docs/task_hci_hwmainoverview.html"
+  - title: 安裝NetApp HCI
+    links:
+    - title: 安裝與部署總覽
+      url: "/docs/task_hci_getstarted.html"
+    - title: 使用NetApp部署引擎開始部署
+      url: "/docs/concept_nde_access_overview.html"
+    - title: 執行部署後工作
+      url: "/docs/concept_nde_post_deployment_overview.html"
+  - title: 使用NetApp HCI
+    links:
+    - title: 使用NetApp混合式雲端控制進行管理
+      url: "/docs/task_nde_access_hcc.html"
+    - title: 使用管理節點
+      url: "/docs/task_mnode_work_overview.html"
+    - title: 使用NetApp Element vCenter Server的VMware vCenter外掛程式
+      url: https://docs.netapp.com/us-en/vcp/index.html
+    - title: 使用Rancher
+      url: "/docs/concept_rancher_product_overview.html"
+    - title: 展開NetApp HCI
+      url: "/docs/concept_hcc_expandoverview.html"
+    - title: 升級NetApp HCI
+      url: "/docs/concept_hci_upgrade_overview.html"
+  - title: 疑難排解
+    links:
+    - title: 疑難排解NetApp HCI VMware和Rancher
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting
+    - title: 在運算節點上重設BMC
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_reset_BMC_on_NetApp_HCI_compute_nodes
+    - title: 更多知識庫文章
+      url: https://kb.netapp.com/Special:Search?query=netapp+hci&type=wiki
+  - title: 解決方案
+    links:
+    - title: "「資源」頁面NetApp HCI"
+      url: https://www.netapp.com/hybrid-cloud/hci-documentation/
+    - title: NetApp解決方案
+      url: https://docs.netapp.com/us-en/netapp-solutions/index.html
+  - title: 示範教學課程
+    links:
+    - title: 視頻庫NetApp HCI
+      url: https://tv.netapp.com/category/videos/netapp-hci
+    - title: NetApp學習服務
+      url: https://www.netapp.com/support-and-training/netapp-university/
+  - title: 部落格社群
+    links:
+    - title: NetApp社群
+      url: https://community.netapp.com/t5/forums/searchpage/tab/message?advanced=false&allow_punctuation=false&q=hci
+    - title: 取得協助的地方
+      url: https://mysupport.netapp.com/site/products/all/details/netapp-hci/guideme-tab
+  - title: 舊版
+    links:
+    - title: 本文檔資料NetApp HCI
+      url: https://docs.netapp.com/us-en/hci18/index.html
+    - title: 資訊中心NetApp HCI
+      url: https://docs.netapp.com/hci/index.jsp

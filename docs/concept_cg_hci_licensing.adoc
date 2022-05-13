@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_cg_hci_licensing.html 
+summary: 當您使用NetApp HCI 時、可能需要額外的授權。 
+keywords: netapp, hci, license 
+---
+= 提供授權NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您使用NetApp HCI 時、可能需要額外的授權、視您使用的內容而定。
+
+
+
+== VMware vSphere授權NetApp HCI
+
+VMware vSphere授權取決於您的組態：
+
+[cols="25,75"]
+|===
+| 網路選項 | 授權 
+
+
+| 選項A：兩條運算節點纜線、使用VLAN標記（所有運算節點） | 需要使用vSphere分散式交換器、這需要VMware vSphere Enterprise Plus授權。 
+
+
+| 選項B：使用標記VLAN的六條運算節點纜線（H410C 2RU 4節點運算節點） | 此組態使用vSphere Standard交換器做為預設值。若要選用vSphere分散式交換器、則需要VMware Enterprise Plus授權。 
+
+
+| 選項C：使用原生及標記的VLAN、為運算節點提供六條纜線（H410C、2RU 4節點運算節點） | 此組態使用vSphere Standard交換器做為預設值。若要選用vSphere分散式交換器、則需要VMware Enterprise Plus授權。 
+|===
+
+
+== 不再需要授權NetApp HCI ONTAP Select
+
+如果您獲得ONTAP Select 的是可搭配所購買NetApp HCI 的一套系統使用的版本、則會有下列額外限制：
+
+* 隨附於銷售的不完整系統的不完整版的不完整版銷售授權、只能搭配使用於各個運算節點。ONTAP Select NetApp HCI NetApp HCI
+* 這些ONTAP Select 非實體執行個體的儲存只能駐留NetApp HCI 在不必要的儲存節點上。
+* 禁止使用第三方運算節點或第三方儲存節點。
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
+

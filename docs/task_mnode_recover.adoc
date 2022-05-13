@@ -1,0 +1,255 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_recover.html 
+summary: 您可以為執行NetApp Element NetApp軟體的叢集恢復及重新部署管理節點。視組態而定、您可能需要重新設定管理節點的驗證。 
+keywords: netapp, element, management node, mnode, disaster recovery, redeploy, VM 
+---
+= 恢復管理節點
+:allow-uri-read: 
+
+
+[role="lead"]
+如果先前的管理節點使用持續磁碟區、您可以手動為執行NetApp Element 此軟體的叢集恢復和重新部署管理節點。
+
+您可以部署新的OVA並執行重新部署指令碼、從先前安裝的管理節點擷取組態資料（執行版本11.3及更新版本）。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您先前的管理節點執行NetApp Element 的是版本11.3或更新版本的 link:concept_hci_volumes.html#persistent-volumes["持續磁碟區"] 功能投入。
+* 您知道包含持續磁碟區的叢集MVIP和SVIP。
+* 您的叢集版本執行NetApp Element 的是更新版本的Software 11.3。
+* 您的安裝使用的是IPV4。管理節點11.3不支援IPv6。
+* 您有權從NetApp支援網站下載軟體。
+* 您已識別出適合您平台的管理節點映像類型：
++
+[cols="30,30"]
+|===
+| 平台 | 安裝映像類型 
+
+
+| Microsoft Hyper-V | .iso 
+
+
+| KVM | .iso 
+
+
+| VMware vSphere | .ISO、.ova 
+
+
+| Citrix XenServer | .iso 
+
+
+| OpenStack | .iso 
+|===
+
+
+.步驟
+. <<Download ISO or OVA and deploy the VM>>
+. <<Configure the network>>
+. <<Configure time sync>>
+. <<Configure the management node>>
+
+
+
+
+== 下載ISO或OVA並部署VM
+
+. 從下載OVA或ISO以供安裝 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp HCI"^] NetApp支援網站上的頁面：
++
+.. 按一下*下載最新版本*並接受EULA。
+.. 選取您要下載的管理節點映像。
+
+
+. 如果您下載了OVA、請依照下列步驟操作：
++
+.. 部署OVA。
+.. 如果您的儲存叢集與管理節點（eth0）位於不同的子網路上、且您想要使用持續磁碟區、請在儲存子網路上的VM（例如eth1）中新增第二個網路介面控制器（NIC）、或確保管理網路可以路由傳送至儲存網路。
+
+
+. 如果您下載ISO、請依照下列步驟操作：
++
+.. 使用下列組態、從Hypervisor建立新的64位元虛擬機器：
++
+*** 六個虛擬CPU
+*** 24GB RAM
+*** 400GB虛擬磁碟、精簡配置
+*** 單一虛擬網路介面、可存取網際網路及儲存設備MVIP。
+*** （SolidFire 可選購以支援整合式All Flash儲存設備）單一虛擬網路介面、可透過管理網路存取儲存叢集。如果您的儲存叢集與管理節點（eth0）位於不同的子網路上、且您想要使用持續磁碟區、請在儲存子網路（eth1）的VM上新增第二個網路介面控制器（NIC）、或確保管理網路可以路由傳送至儲存網路。
++
+
+IMPORTANT: 請勿在執行此步驟之前開啟虛擬機器電源、此步驟稍後會指出此點。
+
+
+
+.. 將ISO附加至虛擬機器、然後開機至.ISO安裝映像。
++
+
+NOTE: 使用映像安裝管理節點可能會導致啟動畫面出現30秒延遲。
+
+
+
+. 安裝完成後、開啟管理節點的虛擬機器電源。
+
+
+
+
+== 設定網路
+
+. 使用終端使用者介面（TUI）建立管理節點管理使用者。
++
+
+TIP: 若要在功能表選項之間移動、請按上或下方向鍵。若要在按鈕之間移動、請按下「分頁」。若要從按鈕移至欄位、請按下Tab。若要在欄位之間瀏覽、請按下向上或向下箭頭鍵。
+
+. 設定管理節點網路（eth0）。
++
+
+NOTE: 如果您需要額外的NIC來隔離儲存流量、請參閱設定其他NIC的指示： link:task_mnode_install_add_storage_NIC.html["設定儲存網路介面控制器（NIC）"]。
+
+
+
+
+
+== 設定時間同步
+
+. 使用NTP確保管理節點與儲存叢集之間的時間同步：
+
+
+
+NOTE: 從元件12.3.1開始、會自動執行子步驟（A）至（e）。若為管理節點12.3.1、請繼續執行 <<substep_f_recover_config_time_sync,子步驟（f）>> 以完成時間同步組態。
+
+. 使用SSH或Hypervisor提供的主控台登入管理節點。
+. 停止ntpd：
++
+[listing]
+----
+sudo service ntpd stop
+----
+. 編輯NTP組態檔「/etc/ntp.conf：
++
+.. 在預設伺服器（「伺服器0.gentoo.pool.ntp.org」）前面加上「#」、即可註釋掉預設伺服器（「伺服器」）。
+.. 為您要新增的每個預設時間伺服器新增一行。預設時間伺服器必須與儲存叢集上使用的NTP伺服器相同、您將在中使用 link:task_mnode_recover.html#configure-the-management-node["後續步驟"]。
++
+[listing]
+----
+vi /etc/ntp.conf
+
+#server 0.gentoo.pool.ntp.org
+#server 1.gentoo.pool.ntp.org
+#server 2.gentoo.pool.ntp.org
+#server 3.gentoo.pool.ntp.org
+server <insert the hostname or IP address of the default time server>
+----
+.. 完成後儲存組態檔。
+
+
+. 強制NTP與新增的伺服器同步。
++
+[listing]
+----
+sudo ntpd -gq
+----
+. 重新啟動ntpd。
++
+[listing]
+----
+sudo service ntpd start
+----
+. [Subford_f_recover_config_time_sync-]停用透過Hypervisor與主機進行時間同步（以下為VMware範例）：
++
+
+NOTE: 如果您在VMware以外的Hypervisor環境中部署mNode、例如在OpenStack環境中從.ISO映像部署mNode、請參閱Hypervisor文件以取得等效命令。
+
++
+.. 停用定期時間同步：
++
+[listing]
+----
+vmware-toolbox-cmd timesync disable
+----
+.. 顯示並確認服務的目前狀態：
++
+[listing]
+----
+vmware-toolbox-cmd timesync status
+----
+.. 在vSphere中、確認VM選項中未勾選「將訪客時間與主機同步」方塊。
++
+
+NOTE: 如果您日後對VM進行變更、請勿啟用此選項。
+
+
+
+
+
+
+NOTE: 請勿在完成時間同步組態之後編輯NTP、因為它會在您執行時影響NTP <<step_6_recover_mnode_redeploy,重新部署命令>> 在管理節點上。
+
+
+
+== 設定管理節點
+
+. 建立管理服務套裝組合內容的暫用目的地目錄：
++
+[listing]
+----
+mkdir -p /sf/etc/mnode/mnode-archive
+----
+. 下載先前安裝在現有管理節點上的管理服務套裝組合（2.15.28版或更新版本）、並將其儲存在「/sf/etc/mnode/」目錄中。
+. 使用下列命令擷取下載的套件組合、並以套件檔案名稱取代[]方括弧中的值（包括方括弧）：
++
+[listing]
+----
+tar -C /sf/etc/mnode -xvf /sf/etc/mnode/[management services bundle file]
+----
+. 將產生的檔案解壓縮到「/SF/etc/mnode-archive（目錄）：
++
+[listing]
+----
+tar -C /sf/etc/mnode/mnode-archive -xvf /sf/etc/mnode/services_deploy_bundle.tar.gz
+----
+. 建立帳戶和磁碟區的組態檔：
++
+[listing]
+----
+echo '{"trident": true, "mvip": "[mvip IP address]", "account_name": "[persistent volume account name]"}' | sudo tee /sf/etc/mnode/mnode-archive/management-services-metadata.json
+----
++
+.. 針對下列每個必要參數、將[]方塊中的值（包括方括弧）取代：
++
+*** *[mvip IP位址]*：儲存叢集的管理虛擬IP位址。使用您在期間使用的相同儲存叢集來設定管理節點 link:task_mnode_recover.html#configure-time-sync["NTP伺服器組態"]。
+*** *[持續磁碟區帳戶名稱]*：與此儲存叢集中所有持續磁碟區相關聯的帳戶名稱。
+
+
+
+
+. 設定並執行管理節點重新部署命令、以連線至叢集上裝載的持續磁碟區、並使用先前的管理節點組態資料啟動服務：
++
+
+NOTE: 系統會提示您在安全提示中輸入密碼。如果叢集位於Proxy伺服器之後、您必須設定Proxy設定、才能連線至公用網路。
+
++
+[listing]
+----
+/sf/packages/mnode/redeploy-mnode --mnode_admin_user [username]
+----
++
+.. 將[]方括弧中的值（包括方括弧）取代為管理節點系統管理員帳戶的使用者名稱。這可能是您用來登入管理節點的使用者帳戶使用者名稱。
++
+
+NOTE: 您可以新增使用者名稱、或允許指令碼提示您輸入資訊。
+
+.. 運行"REDeploy－mnode"命令。重新部署完成時、指令碼會顯示成功訊息。
+.. 如果NetApp HCI 您使用系統的完整網域名稱（FQDN）來存取元素或Web介面（例如管理節點或NetApp混合雲控制）、 link:task_hcc_upgrade_management_node.html#reconfigure-authentication-using-the-management-node-rest-api["重新設定管理節點的驗證"^]。
+
+
+
+
+
+IMPORTANT: 提供SSH功能 link:task_mnode_enable_remote_support_connections.html["NetApp支援遠端支援通道（RST）工作階段存取"] 在執行管理服務2.18及更新版本的管理節點上、預設為停用。如果您先前已在管理節點上啟用SSH功能、則可能需要 link:task_mnode_ssh_management.html["再次停用SSH"] 在恢復的管理節點上。
+
+[discrete]
+== 瞭解更多資訊
+
+* link:concept_hci_volumes.html#persistent-volumes["持續磁碟區"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

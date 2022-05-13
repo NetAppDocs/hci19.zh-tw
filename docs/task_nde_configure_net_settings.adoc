@@ -1,0 +1,264 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_configure_net_settings.html 
+summary: 瞭解如何設定NetApp HCI 靜態部署網路設定。 
+keywords: netapp, hci, deployment, compatibility, nodes 
+---
+= 設定網路設定
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+提供網路設定頁面、其中包含多個區段、可簡化網路組態。NetApp HCI您可以逐一瀏覽各個區段、輸入資訊、或為每個網路中的主機和節點指派IP位址。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您已取得下列資訊：
++
+** 主機和儲存叢集的規劃命名前置碼
+** 所有規劃的子網路遮罩、起始IP位址、預設閘道和管理、iSCSI和VMotion網路的VLAN ID
+** 任何規劃VMware vCenter部署的子網路遮罩、IP位址、預設閘道和VLAN ID
+** 用於實現功能的網路時間傳輸協定（NTP）伺服器位址NetApp HCI
+** DNS伺服器IP位址資訊NetApp HCI
+
+
+* 如果您要部署vSphere分散式交換器、則可在部署完成後立即申請vSphere Enterprise Plus授權。
+* 如果您在終端使用者介面（TUI）組態期間將VLAN ID指派給節點連接埠、則您在網路組態期間已將這些連接埠設定為具有相同的VLAN ID。您不需要在連接的交換器連接埠上、將標記的主機連接埠設定為存取連接埠或原生VLAN。
+* 您已驗證網路交換器組態是否正確。不正確的交換器組態（例如不正確的VLAN或MTU大小）會導致部署錯誤。
+
+
+如果您為運算節點選擇了雙纜線網路拓撲、則必須針對部署中的所有運算和儲存節點、使用VMotion和儲存網路的VLAN ID（管理網路可選用VLAN ID）。請注意NetApp HCI 、此功能會驗證您在這些步驟中輸入的IP位址、但您可以使用* Live network validation is *（*即時網路驗證為*）按鈕來停用此驗證。此外、還會檢查您在這些步驟中輸入的其他資訊、例如確保子網路不會重疊、確保不會將VLAN ID指派給多個網路、以及其他基本驗證。NetApp HCI
+
+
+NOTE: 在部署前需要主機端VLAN標記的環境中、如果您已在運算和儲存節點上設定VLAN ID、以便NetApp部署引擎可搜尋、請務必在NetApp部署引擎中設定網路設定時使用正確的VLAN。
+
+如果您要部署雙節點或三節點儲存叢集、您可以在「*網路設定*」頁面上完成見證節點的IP位址資訊。
+
+
+NOTE: 在IP位址指派頁面中、您在*自動指派IP位址*模式中輸入的資訊不會影響*手動指派IP位址*模式中輸入的資訊、反之亦然。如果您在這兩種模式下輸入IP位址、NetApp HCI 只要按一下頁面底部的*繼續*、即可在任何作用中模式下使用IP位址資訊。
+
+系統會檢查您在這些頁面上輸入的資訊。NetApp HCI以下是一些常見的問題與因應措施：
+
+|===
+| 問題 | 因應措施 
+
+
+| 在自動IP位址指派模式中、輸入起始IP位址後、您會看到訊息「IP in the range are in use：」（範圍內的IP正在使用中：）、其中會顯示使用中IP位址的可捲動下拉式清單。 | 雖然已指派一系列鄰近的IP位址、但其中一或多個IP位址已在使用中。NetApp HCI釋放使用中的IP位址並重試、或使用手動IP位址指派模式來指派特定IP位址。 
+
+
+| 輸入預設閘道後、您會看到「閘道無效」訊息。  a| 
+預設閘道IP位址可能與您提供的子網路不符、或是您需要解決的網路或伺服器有問題。如需詳細資訊、請參閱下列NetApp知識庫文章：
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Troubleshoot_Invalid_Gateway_in_NDE["疑難排解NetApp部署引擎中的無效閘道"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/%22The_gateway_is_not_valid%22_during_NDE["閘道在NetApp部署引擎中無效"^]
+
+
+
+
+| 您完成數個*網路設定*組態頁面、發現在前一頁中、有不正確的資訊會依序排列。 | 使用頁面頂端的編號頁面順序、您可以選取先前已完成的頁面、並在其中變更資訊。完成後、您可以按一下完成頁面上的*繼續*、返回目前頁面。 
+|===
+
+
+== 設定DNS和NTP設定
+
+.步驟
+. 在「* DNS/NTP*」頁面NetApp HCI 上、於下列欄位中輸入有關的DNS與NTP伺服器資訊：
++
+|===
+| 欄位 | 說明 
+
+
+| * DNS伺服器IP位址1* | 主要DNS伺服器NetApp HCI 的IP位址、以供使用。如果您在vCenter組態頁面上指定DNS伺服器、則會填入此欄位並以唯讀方式顯示。 
+
+
+| * DNS伺服器IP位址2（選用）* | 次要DNS伺服器NetApp HCI 的選用IP位址、以供使用。 
+
+
+| * NTP伺服器位址1* | 此基礎架構主要NTP伺服器的IP位址或完整網域名稱。 
+
+
+| * NTP伺服器位址2（選用）* | 此基礎架構次要NTP伺服器的選用IP位址或完整網域名稱。 
+|===
+
+
+
+
+== 指派VLAN ID
+
+在「* VLAN ID*」頁面上、您可以將VLAN ID指派給NetApp HCI 整個網路。您也可以選擇不使用VLAN ID。如果您為運算節點選擇了雙纜線網路拓撲、則必須針對部署中的所有運算和儲存節點、使用VMotion和儲存網路的VLAN ID（管理網路可選用VLAN ID）。
+
+
+NOTE: 當您指派VLAN ID時、會設定NetApp HCI VLAN標記、以套用到網路流量。您不需要將原生VLAN輸入為VLAN ID；若要將原生VLAN用於網路、請將適當的欄位保留空白。
+
+請選擇下列其中一個選項：
+
+|===
+| 選項 | 步驟 
+
+
+| 指派VLAN ID  a| 
+. 選擇* Yes*（是）*作爲*是否分配VLAN ID*選項。
+. 在「* VLAN ID*」欄中、輸入您要指派給VLAN的每種網路流量類型所使用的VLAN標記。
++
+運算vMotion流量和iSCSI流量都必須使用非共用的VLAN ID。
+
+. 按一下 * 繼續 * 。
+
+
+
+
+| 請勿指派VLAN ID  a| 
+. 選擇*否*作為*您是否要指派VLAN ID*選項。
+. 按一下 * 繼續 * 。
+
+
+|===
+
+
+== 設定管理網路
+
+在「*管理*」頁面上、NetApp HCI 您可以根據起始IP位址、選擇讓S廳 自動填入管理網路的IP位址範圍、或是選擇手動輸入所有IP位址資訊。
+
+請選擇下列其中一個選項：
+
+|===
+| 選項 | 步驟 
+
+
+| 自動指派IP位址  a| 
+. 選取*自動指派IP位址*選項。
+. 在*子網路*欄中、輸入每個VLAN的CIDR格式子網路定義。
+. 在* Default Gateway*（*預設閘道*）欄中、輸入每個VLAN的預設閘道。
+. 在*子網路*欄中、輸入每個VLAN和節點類型所使用的起始IP位址。
++
+系統會自動填入每個主機或主機群組的結束IP位址。NetApp HCI
+
+. 按一下 * 繼續 * 。
+
+
+
+
+| 手動指派IP位址  a| 
+. 選取*手動指派IP位址*選項。
+. 在*子網路*欄中、輸入每個VLAN的CIDR格式子網路定義。
+. 在* Default Gateway*（*預設閘道*）欄中、輸入每個VLAN的預設閘道。
+. 在每個主機或節點的列中、輸入該主機或節點的IP位址。
+. 輸入管理網路的管理虛擬IP（MVIP）位址。
+. 按一下 * 繼續 * 。
+
+
+|===
+
+
+== 設定vMotion網路
+
+在「* vMotion *」頁面上、NetApp HCI 您可以根據起始IP位址、選擇自動填入VMotion網路的IP位址範圍、也可以選擇手動輸入所有IP位址資訊。
+
+請選擇下列其中一個選項：
+
+|===
+| 選項 | 步驟 
+
+
+| 自動指派IP位址  a| 
+. 選取*自動指派IP位址*選項。
+. 在*子網路*欄中、輸入每個VLAN的CIDR格式子網路定義。
+. （可選）在* Default Gateway*（*預設閘道*）欄中、輸入每個VLAN的預設閘道。
+. 在*子網路*欄中、輸入每個VLAN和節點類型所使用的起始IP位址。
++
+系統會自動填入每個主機或主機群組的結束IP位址。NetApp HCI
+
+. 按一下 * 繼續 * 。
+
+
+
+
+| 手動指派IP位址  a| 
+. 選取*手動指派IP位址*選項。
+. 在*子網路*欄中、輸入每個VLAN的CIDR格式子網路定義。
+. （可選）在* Default Gateway*（*預設閘道*）欄中、輸入每個VLAN的預設閘道。
+. 在每個主機或節點的列中、輸入該主機或節點的IP位址。
+. 按一下 * 繼續 * 。
+
+
+|===
+
+
+== 設定iSCSI網路
+
+在「* iSCSI *」頁面上、NetApp HCI 您可以選擇根據起始IP位址自動填入iSCSI網路的IP位址範圍、或是選擇手動輸入所有IP位址資訊。
+
+請選擇下列其中一個選項：
+
+|===
+| 選項 | 步驟 
+
+
+| 自動指派IP位址  a| 
+. 選取*自動指派IP位址*選項。
+. 在*子網路*欄中、輸入iSCSI網路的CIDR格式子網路定義。
+. （可選）在* Default Gateway*（*預設閘道*）欄中、輸入iSCSI網路的預設閘道。
+. 在*子網路*欄中、輸入每個節點類型所使用的起始IP位址。
++
+系統會自動填入每個主機或主機群組的結束IP位址。NetApp HCI
+
+. 按一下 * 繼續 * 。
+
+
+
+
+| 手動指派IP位址  a| 
+. 選取*手動指派IP位址*選項。
+. 在*子網路*欄中、輸入iSCSI網路的CIDR格式子網路定義。
+. （可選）在* Default Gateway*（*預設閘道*）欄中、輸入iSCSI網路的預設閘道。
+. 在「*管理節點*」區段中、輸入管理節點的IP位址。
+. 在「*運算節點*」區段中、輸入iSCSI A和iSCSI B的IP位址。
+. 在「*儲存虛擬IP（SVIP）*」列中、輸入iSCSI網路的SVIP IP位址。
+. 在其餘各列中、針對每個主機或節點、輸入該主機或節點的IP位址。
+. 按一下 * 繼續 * 。
+
+
+|===
+
+
+== 指派叢集和主機名稱
+
+在「*命名*」頁面上、您可以根據NetApp HCI 命名前置碼、選擇讓Ischall自動填入叢集名稱和叢集中節點的名稱、也可以選擇手動輸入叢集和節點的所有名稱。
+
+請選擇下列其中一個選項：
+
+|===
+| 選項 | 步驟 
+
+
+| 自動指派叢集和主機名稱  a| 
+. 選取*自動指派叢集/主機名稱*選項。
+. 在*安裝前置詞*區段中、輸入叢集中所有節點主機名稱（包括管理節點和見證節點）的命名前置詞。
++
+根據節點類型、以及通用節點名稱（例如運算和儲存節點）的後置字詞、系統會自動填入主機名稱。NetApp HCI
+
+. （可選）在*命名方案*列中修改主機的任何結果名稱。
+. 按一下 * 繼續 * 。
+
+
+
+
+| 手動指派叢集和主機名稱  a| 
+. 選取*手動指派叢集/主機名稱*選項。
+. 在*主機/叢集名稱*欄中、輸入每個主機的主機名稱、以及儲存叢集的叢集名稱。
+. 按一下 * 繼續 * 。
+
+
+|===
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件軟體文件SolidFire"^]
+

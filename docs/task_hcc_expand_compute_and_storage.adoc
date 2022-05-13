@@ -1,0 +1,133 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_expand_compute_and_storage.html 
+summary: 完成靜態部署之後NetApp HCI 、您可以NetApp HCI 使用NetApp混合雲控制來擴充及設定靜態儲存資源。 
+keywords: netapp, hci, on premise, expand, storage, compute, cluster 
+---
+= 同時擴充NetApp HCI 功能豐富的支援資源
+:allow-uri-read: 
+
+
+[role="lead"]
+完成支援功能部署之後NetApp HCI 、您NetApp HCI 可以使用NetApp混合雲控制、同時擴充及設定支援功能、以擴充及設定支援功能。
+
+.開始之前
+* 如果NetApp HCI 您使用虛擬分散式交換器來擴充部署、請確保vSphere執行個體使用vSphere Enterprise Plus授權。
+* 請確認使用NetApp HCI 中的vCenter或vSphere執行個體均未過期授權。
+* 請確定vCenter系統管理員帳戶認證已準備好。
+* 請確定現有節點所在的網路區段中有可用且未使用的IPv4位址（每個新節點必須安裝在與其類型現有節點相同的網路上）。
+* 確保您擁有下列SolidFire 任一類型的不二儲存叢集帳戶：
++
+** 初始部署期間建立的原生系統管理員帳戶
+** 具有叢集管理、磁碟機、磁碟區和節點權限的自訂使用者帳戶
+
+
+* 請確定您已對每個新節點執行下列動作：
++
+** 請遵循、將新節點安裝在NetApp HCI 更新機箱中 link:task_hci_installhw.html["安裝說明"]。
+** 連接纜線並開啟新節點
+
+
+* 請確定您擁有已安裝儲存節點的管理IPv6位址。您可以在NetApp Element vCenter Server適用的「VMware vCenter伺服器NetApp Element 」的*《VMware vCenter管理*》>*「叢集*」>「*節點*」索引標籤中找到IP位址。
+* 確保每個新節點使用與現有儲存設備或運算叢集相同的網路拓撲和佈線。
+
+
+.關於這項工作
+* 您可以將H410C運算節點與同NetApp HCI 一個機箱和叢集內現有的支援運算和儲存節點混用。
+* 您無法在同一個叢集中混用運算節點和啟用BPU的運算節點。如果您選取啟用GPU的運算節點、則純CPU運算節點將無法選取、反之亦然。
+* 如果您新增的運算節點的CPU世代與現有運算節點的CPU世代不同、而且控制vCenter執行個體上的增強型VMotion相容性（EVC）已停用、則必須先啟用EVC、才能繼續。如此可確保在擴充完成後、能夠執行VMotion功能。
+
+
+.步驟
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 按一下介面右上角的*展開*。
++
+瀏覽器會開啟NetApp部署引擎。
+
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp部署引擎。
+. 在「*歡迎*」頁面上、按一下「*是*」、然後按一下「*繼續*」。
+. 在「*終端使用者授權*」頁面上、閱讀VMware終端使用者授權合約、然後按一下「*我接受*」接受條款、再按一下「*繼續*」。
+. 在* vCenter*頁面上、完成下列步驟：
++
+.. 輸入與NetApp HCI 您的安裝有關的vCenter執行個體的FQDN或IP位址和管理員認證。
+.. 按一下 * 繼續 * 。
+.. 選取您要新增運算節點的vSphere資料中心、或按一下*建立新資料中心*、將運算節點新增至新的資料中心。
++
+
+NOTE: 如果您按一下「Create New Datacenter（建立新資料中心）」、則會自動填入「Cluster（叢集）」
+
+.. 如果您選取現有的資料中心、請選取要與新運算節點建立關聯的vSphere叢集。
++
+
+NOTE: 如果NetApp HCI 無法辨識您選擇要擴充的叢集網路設定、請確定管理、儲存設備和VMotion網路的vmkernel和vmnic對應已設定為部署預設值。請參閱 link:task_nde_supported_net_changes.html["支援的網路變更"] 以取得更多資訊。
+
+.. 按一下 * 繼續 * 。
+
+
+. 在「* ESXi認證*」頁面上、輸入您要新增之運算節點的ESXi根密碼。
++
+您應該使用在初始NetApp HCI 部署過程中建立的相同密碼。
+
+. 按一下 * 繼續 * 。
+. 如果您建立新的vSphere資料中心叢集、請在「*網路拓撲*」頁面上、選取符合您要新增之運算節點的網路拓撲。
++
+
+NOTE: 只有當運算節點使用雙纜線拓撲、且現有NetApp HCI 的虛擬區域網路部署設定有VLAN ID時、才需要選擇雙纜線選項。
+
+. 在*可用的Inventory（庫存）*頁面上、選取您要新增的儲存設備和運算節點、然後按一下* Continue（繼續）*。
++
+
+IMPORTANT: 對於某些運算節點、您可能需要在vCenter版本支援的最高層級啟用EV,才能將其新增至安裝。您需要使用vSphere用戶端來啟用這些運算節點的EVC。啟用之後、請重新整理「Inventory」頁面、然後再次嘗試新增運算節點。
+
+. 按一下 * 繼續 * 。
+. *選用*：如果您在「*網路設定*」頁面上建立新的vSphere資料中心叢集、NetApp HCI 請選取「*從現有叢集複製設定*」核取方塊、從現有的VMware部署中匯入網路資訊。
++
+這會填入每個網路的預設閘道和子網路資訊。
+
+. 在「*網路設定*」頁面上、從初始部署中偵測到部分網路資訊。每個新的儲存節點都會依序號列出、您需要為其指派新的網路資訊。針對每個新的儲存節點、請完成下列步驟：
++
+.. *主機名稱*：NetApp HCI 如果支援功能偵測到命名前置碼、請從偵測到的命名前置碼欄位複製前置碼、然後將其插入為您在「主機名稱」欄位中新增的唯一主機名稱前置碼。
+.. *管理位址*：輸入管理網路子網路內新儲存節點的管理IP位址。
+.. *儲存設備（iSCSI）IP位址*：輸入iSCSI網路子網路內新儲存節點的iSCSI IP位址。
+.. 按一下 * 繼續 * 。
++
+
+NOTE: 驗證輸入的IP位址可能需要一些時間。NetApp HCI當IP位址驗證完成時、「Continue（繼續）」按鈕會變為可用狀態。
+
+
+
+. 在「網路設定」區段的「* Review *」頁面上、新節點會以粗體顯示。若要變更任何區段、請執行下列步驟：
++
+.. 按一下該區段的*編輯*。
+.. 完成後、按一下任何後續頁面上的*繼續*、即可返回「檢閱」頁面。
+
+
+. *選用*：如果您不想將叢集統計資料與支援資訊傳送至NetApp託管Active IQ 的支援服務器、請清除最終核取方塊。
++
+這會停用NetApp HCI 實時健全狀況和診斷監控功能來監控不實時狀況。停用此功能可讓NetApp主動支援NetApp HCI 及監控故障偵測、並在正式作業受到影響之前解決問題。
+
+. 按一下「*新增節點*」。
++
+您可以監控進度、同時NetApp HCI 更新及設定資源。
+
+. *選用*：確認VMware vSphere Web Client（適用於運算節點）或Element Plug-in for vCenter Server（適用於儲存節點）中可見任何新節點。
++
+
+NOTE: 如果您將雙節點儲存叢集擴充至四個或更多節點、儲存叢集先前使用的見證節點配對仍會在vSphere中顯示為待命虛擬機器。新擴充的儲存叢集並不會使用這些資源；如果您想回收VM資源、您可以使用這些資源 link:task_hci_removewn.html["手動移除"^] 見證節點虛擬機器。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["《運算與儲存節點安裝與設定說明》NetApp HCI"^]
+* https://kb.vmware.com/s/article/1003212["VMware知識庫：增強的VMotion相容性（EVC）處理器支援"^]
+

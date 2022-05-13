@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_firmware_12.2.109.html 
+summary: 取得可下載並套用NetApp HCI 至各個節點之韌體套件版本資訊的連結。 
+keywords: netapp, hci, compute firmware 
+---
+= 運算韌體產品組合12.2.109版本說明
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+可下載的運算節點韌體套件包含最新的BIOS和BMC功能增強功能、錯誤修正、以及所有支援NetApp HCI 的各個不支援的運算節點的硬體支援。
+
+
+
+== 新增功能
+
+12.2.109版引進BMC支援DMTF Redfish API、可為NetApp混合式雲端控制提供未來功能。韌體更新也包含一般的錯誤修正及解決記憶體問題。H300E、H500E及H700E運算節點的BMC更新可解決多項安全性弱點、包括2019年16649、2019年16650與2019年6260。
+
+此韌體套件包含下列硬體元件韌體版本、更新版本以粗體顯示：
+
+|===
+| 元件 | H300E、H500E、H700E | H410C | H610C | H615C 
+
+
+| BIOS | NA2.1 | * NA3.7* | * 3B01 * | 3B06.CO 
+
+
+| BMC | * 6.84.00* | 6.71.06. | * 3.96-07* | * 4.64.07* 
+
+
+| NIC / Mellanox | 14.21.1000 | 14.21.1000 | 14.22.1002 | 14.23.1020 
+|===
+若要下載運算韌體產品組合、請前往 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["運算韌體套裝組合NetApp HCI"^] 頁面。
+
+請造訪 link:task_hcc_upgrade_compute_node_firmware.html#use-the-baseboard-management-controller-bmc-user-interface-ui["更新運算節點韌體"^] 以取得更新運算節點韌體的指示。
+
+
+
+== 已解決的問題
+
+以下是此版本已解決的問題。
+
+|===
+| 問題 | 說明 
+
+
+| PE-10306 | 在元素11.8儲存節點上升級BMC軟體時、BMC使用者認證將會遺失。 
+
+
+| CSESF-26 | 在某些情況下、H610C節點可能會出現間歇性的風扇雜訊。 
+
+
+| CSESF-293 | 當您在H410C、H610C、H300E、H500E或H700E節點上升級至12.2.92版運算節點韌體時、 安裝14.21.1000版Mellanox網路介面卡（NIC）韌體、即使之前是較新版本也沒問題。 
+
+
+| CSESF-352 | TLS 1.0和1.1版受安全性弱點影響。此版本會針對H610C和H615C運算節點停用TLS 1.0和1.1。 
+|===
+
+
+== 已知問題
+
+以下是本版本中已知可能影響某些環境中日常作業的問題。
+
+|===
+| 問題 | 說明 | 因應措施 
+
+
+| CSESF-295 | 使用可下載的韌體套件更新H410C節點上的韌體時、運算節點韌體更新程序會失敗並顯示BIOS更新錯誤。 | 手動將H410C節點上的BIOS更新至NA3.7版：1.瀏覽至 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["「下載」頁面NetApp HCI"^]。2.在下拉式清單文字欄位中輸入「H410C_BIOS _3.7」。3.按一下「*執行*」。下載頁面提供PDF格式的更新說明。更新BIOS和BMC之後、請使用運算韌體12.2.109套件更新H410C節點韌體。 
+|===

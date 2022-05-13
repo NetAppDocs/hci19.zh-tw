@@ -1,0 +1,18 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_management_node.html 
+summary: 深入瞭解NetApp HCI 圍繞整個流程管理節點的最佳實務做法。 
+keywords: netapp, hci, management node, mnode, best practice 
+---
+= 管理節點需求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, management node, mnode, best practice
+
+
+[role="lead"]
+最佳實務做法是、僅將一個管理節點與一個VMware vCenter執行個體建立關聯、避免在多個管理節點中定義相同的儲存設備和運算資源或vCenter執行個體。在多個管理節點中定義相同的資源、可能會導致NetApp ActiveIQ中的資源報告不正確等問題。

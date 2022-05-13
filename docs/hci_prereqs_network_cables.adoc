@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_cables.html 
+summary: 深入瞭NetApp HCI 解有關網路線需求的資訊。 
+keywords: netapp, hci, network, cable, requirements 
+---
+= 網路纜線需求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, network, cable, requirements
+
+
+[role="lead"]
+您可以使用下列準則、確保有足夠類型的網路纜線來配合部署規模。對於RJ45連接埠、您必須使用Cat 5e或Cat 6等級纜線。
+
+* 雙纜線運算節點組態：每個運算節點都必須透過兩個SFP+/ SFP28介面連接至10/25GbE網路（頻外管理可選用一條額外的Cat 5e/6纜線）。
+* 六線運算節點組態：每個運算節點都必須透過四個SFP+/ SFP28介面連接至10/25GbE網路、並透過兩條Cat 5e/6纜線連接至1/10GbE網路（頻外管理可選用一條額外的Cat 5e/6纜線）。
+* 每個儲存節點都必須透過兩個SFP+/ SFP28介面連接至10/25GbE網路、並透過兩條Cat 5e/6纜線連接至1/10GbE網路（額外的一條Cat 5e/6纜線可選用於頻外管理）。
+* 確保NetApp HCI 您用來將無法連接到網路的網路線足夠長、足以讓您舒適地觸及交換器。
+
+
+例如、如果部署包含四個儲存節點和三個運算節點（使用六線組態）、則需要下列數量的網路纜線：
+
+* （14）採用RJ45連接器的Cat 5e/6纜線（如有需要、可加上七條IPMI傳輸線）
+* （20）雙軸纜線搭配SFP28/SFP+連接器
+
+
+原因如下：
+
+* 四個儲存節點需要八（8）條Cat 5e/6纜線和八（8）條雙軸纜線。
+* 使用六線纜組態的三個運算節點需要六（6）條Cat 5e/6纜線和十二（12）條雙軸纜線。
+
+
+
+NOTE: 在六線組態中、有兩個連接埠保留給VMware ESXi、並由NetApp部署引擎設定及管理。您無法使用Element TUI或Element Web GUI來存取或管理這些ESXi專用連接埠。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

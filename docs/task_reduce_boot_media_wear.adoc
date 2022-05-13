@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: docs/task_reduce_boot_media_wear.html 
+summary: 瞭解如何減少NetApp HCI 在不實運算節點上的開機媒體損耗。 
+keywords: netapp, hci, deployment, review, deploy, boot, drive, wear 
+---
+= 減少NetApp HCI 在一個運算節點上的開機媒體損耗
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您使用Flash記憶體或NVDIMM開機媒體搭配NetApp HCI 使用時、若將系統記錄保留在該媒體上、就會頻繁寫入該媒體。這最終可能會使Flash記憶體降級。請依照下列知識庫文章中的指示、將主機記錄和核心傾印檔案移至共用儲存位置、如此有助於防止開機媒體隨著時間而降級、並有助於避免發生完整開機磁碟錯誤。
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_reduce_wear_on_the_boot_drive_of_a_Netapp_HCI_compute_node["如何減少NetApp HCI 使用者在執行時會耗用到的資源"]
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

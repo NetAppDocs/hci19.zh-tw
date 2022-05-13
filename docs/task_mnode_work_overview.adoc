@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_work_overview.html 
+summary: 您可以使用管理節點（mNode）來使用系統服務、管理叢集資產和設定、執行系統測試和公用程式、設定Active IQ 用於系統監控的支援、以及啟用NetApp支援存取來進行疑難排解。 
+keywords: netapp, mnode, api, rest api, mnode ui, management node ui 
+---
+= 管理節點總覽
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以使用管理節點（mNode）來使用系統服務、管理叢集資產和設定、執行系統測試和公用程式、設定Active IQ 用於系統監控的支援、以及啟用NetApp支援存取來進行疑難排解。
+
+
+NOTE: 最佳實務做法是、僅將一個管理節點與一個VMware vCenter執行個體建立關聯、避免在多個管理節點中定義相同的儲存設備和運算資源或vCenter執行個體。
+
+對於執行Element軟體版本11.3或更新版本的叢集、您可以使用以下兩種介面之一來使用管理節點：
+
+* 有了管理節點UI（「https://[mNode ip]：4442」）、您可以變更網路和叢集設定、執行系統測試或使用系統公用程式。
+* 有了內建REST API UI（「https://[mNode ips/mnode'）、您就能執行或瞭解與管理節點服務相關的API、包括Proxy伺服器組態、服務層級更新或資產管理。
+
+
+安裝或恢復管理節點：
+
+* link:task_mnode_install.html["安裝管理節點"]
+* link:task_mnode_install_add_storage_NIC.html["設定儲存網路介面控制器（NIC）"]
+* link:task_mnode_recover.html["恢復管理節點"]
+
+
+存取管理節點：
+
+* link:task_mnode_access_ui.html["存取管理節點（UI或REST API）"]
+
+
+使用管理節點UI執行工作：
+
+* link:task_mnode_work_overview_UI.html["管理節點UI總覽"]
+
+
+使用管理節點REST API執行工作：
+
+* link:task_mnode_work_overview_API.html["管理節點REST API UI總覽"]
+
+
+停用或啟用遠端SSH功能、或啟動與NetApp支援的遠端支援通道工作階段、以協助您疑難排解：
+
+* link:task_mnode_enable_remote_support_connections.html["啟用遠端NetApp支援連線"]
+* link:task_mnode_ssh_management.html["管理管理節點上的SSH功能"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

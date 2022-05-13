@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_overview.html 
+summary: 深入瞭NetApp HCI 解關於功能部署需求的資訊。 
+keywords: netapp, hci, deployment, requirements 
+---
+= 非部署需求NetApp HCI 總覽
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, environment, requirements
+
+
+[role="lead"]
+針對資料中心的正常運作、包含特定的實體和網路需求。NetApp HCI開始部署之前、請務必先實作下列需求與建議。
+
+在收到NetApp HCI 您的整套硬體之前、請務必先完成NetApp專業服務部門在部署前工作簿中的檢查清單項目。本文件提供完整的工作清單、列出您必須完成的工作、以準備好網路和環境、以順利NetApp HCI 完成NetApp部署。
+
+以下是需求與部署前工作的連結：
+
+* link:hci_prereqs_required_network_ports.html["網路連接埠需求"]
+* link:hci_prereqs_network_switch.html["網路與交換器需求"]
+* link:hci_prereqs_network_cables.html["網路纜線需求"]
+* link:hci_prereqs_ip_address.html["IP位址需求"]
+* link:hci_prereqs_network_configuration.html["網路組態"]
+* link:hci_prereqs_timekeeping.html["DNS與時間保留需求"]
+* link:hci_prereqs_environmental.html["環境需求"]
+* link:hci_prereqs_protection_domains.html["保護網域"]
+* link:hci_prereqs_witness_nodes.html["兩節點儲存叢集的見證節點資源需求"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

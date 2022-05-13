@@ -1,0 +1,105 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_edit_vcenter_assets.html 
+summary: 您可以使用REST API UI編輯vCenter管理節點控制器。 
+keywords: netapp, mnode, management node, rest api, hci 
+---
+= 檢視或編輯現有的控制器資產
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以使用REST API、在管理節點組態中檢視及編輯現有VMware vCenter控制器的相關資訊。控制器是VMware vCenter執行個體、已登錄至管理節點以供NetApp HCI 您進行安裝。
+
+.開始之前
+* 請確定您的叢集版本執行NetApp Element 的是更新版本的軟件。
+* 請確定您已部署執行11.3版或更新版本的管理節點。
+
+
+
+
+== 存取管理服務REST API
+
+.步驟
+. 輸入管理節點IP位址、然後輸入「/vCenter/1/」、即可存取管理服務的REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/vcenter/1/
+----
+. 按一下*授權*或任何鎖定圖示、然後完成下列步驟：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 按一下*授權*開始工作階段。
+.. 關閉視窗。
+
+
+
+
+
+
+== 檢視現有控制器的儲存資訊
+
+您可以列出已在管理節點註冊的現有vCenter控制器、並使用REST API檢視其儲存資訊。
+
+.步驟
+. 按一下*「Get /compute / controllers」*。
+. 按一下*試用*。
+. 按一下*執行*。
++
+API會傳回所有已知vCenter控制器的清單、以及用於與每個控制器通訊的IP位址、控制器ID、主機名稱和使用者ID。
+
+. 如果您想要特定控制器的連線狀態、請將控制器ID從該控制器的「ID」欄位複製到剪貼簿、然後參閱 <<View the status of an existing controller>>。
+
+
+
+
+== 檢視現有控制器的狀態
+
+您可以檢視在管理節點上登錄的任何現有vCenter控制器狀態。API會傳回狀態、指出NetApp混合雲控制是否可與vCenter控制器連線、以及該狀態的原因。
+
+.步驟
+. 按一下「* Get /compute / controller/｛controller_id｝/STATUS*」。
+. 按一下*試用*。
+. 在前面的「controller_id」參數中輸入您複製的控制器ID。
+. 按一下*執行*。
++
+API會傳回此特定vCenter控制器的狀態、以及該狀態的原因。
+
+
+
+
+
+== 編輯控制器的儲存內容
+
+您可以編輯已在管理節點上登錄之任何現有vCenter控制器的儲存使用者名稱或密碼。您無法編輯現有vCenter控制器的儲存IP位址。
+
+.步驟
+. 按一下「*放置/運算/控制器/｛controller_id｝*」。
+. 在「controller_id」參數中輸入vCenter控制器的控制器ID。
+. 按一下*試用*。
+. 在* Request body *欄位中變更下列任一參數：
++
+|===
+| 參數 | 類型 | 說明 
+
+
+| "用戶識別碼" | 字串 | 變更用於與vCenter控制器通訊的使用者ID（使用者必須擁有系統管理員權限）。 
+
+
+| 密碼 | 字串 | 變更用於與vCenter控制器通訊的密碼。 
+|===
+. 按一下*執行*。
++
+API會傳回更新的控制器資訊。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:task_mnode_add_assets.html["將運算和控制器資產新增至管理節點"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

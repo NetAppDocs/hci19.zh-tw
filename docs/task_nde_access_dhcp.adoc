@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_dhcp.html 
+summary: 瞭解如何在使用DHCP指派IP位址的環境中存取NetApp部署引擎。 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access, dhcp 
+---
+= 在使用DHCP的環境中存取NetApp部署引擎
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+在伺服器自動從DHCP取得IPv4組態的環境中、您可以使用指派給其中一個儲存節點上之Bond1G介面的IPV4位址來存取NetApp部署引擎。您可以使用USB隨身碟從其中一個儲存節點擷取IPv4位址。NetApp部署引擎會自動探索其他使用DHCP指派的IPv4位址的運算和儲存節點。除非您的網路有特殊需求、否則請勿使用此方法。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您或您的網路管理員已完成安裝與設定說明文件中的工作。
+* 您可以實體存取NetApp HCI 物件節點。
+* 所有的支援節點都已開啟。NetApp HCI
+* DHCP可在NetApp HCI 支援資源管理和儲存的網路上啟用。
+* DHCP位址集區足夠大、每NetApp HCI 個節點可容納兩個IPv6位址。
+
+
+
+NOTE: 為了使此功能順利部署、部署中的所有節點都必須擁有DHCP取得或自動設定的IPv4位址（您無法混合使用IPv4位址指派方法）NetApp HCI 。
+
+如果DHCP僅用於儲存網路（Bond10G介面）、您應該使用連結中概述的步驟： link:task_nde_access_no_dhcp.html["在沒有DHCP的環境中存取NetApp部署引擎"] 存取NetApp部署引擎。
+
+.步驟
+. 等待數分鐘、讓節點要求IP位址。
+. 選擇儲存節點、然後將USB隨身碟插入節點。保持至少五秒鐘。
+. 移除USB隨身碟、然後將其插入電腦。
+. 開啟「REadme.html」檔案。這將帶您前往NetApp部署引擎使用者介面。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

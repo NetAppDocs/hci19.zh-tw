@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_access_ui.html 
+summary: 您可以存取管理UI或REST API UI。 
+keywords: netapp, mnode, management node, api, hci 
+---
+= 存取管理節點
+:allow-uri-read: 
+
+
+[role="lead"]
+從NetApp Element 版本11.3開始、管理節點包含兩個UI：用於管理REST型服務的UI、以及用於管理網路和叢集設定的每節點UI、以及作業系統測試和公用程式。
+
+對於執行Element軟體版本11.3或更新版本的叢集、您可以使用下列兩種介面之一：
+
+* 您可以使用管理節點UI（「https：//[mNode IP}:442]）來變更網路和叢集設定、執行系統測試或使用系統公用程式。
+* 透過使用內建的REST API UI（「https://[mNode ips/mnode'）、您可以執行或瞭解與管理節點服務相關的API、包括Proxy伺服器組態、服務層級更新或資產管理。
+
+
+
+
+== 存取每節點UI的管理節點
+
+您可以從每個節點的UI存取網路和叢集設定、並使用系統測試和公用程式。
+
+.步驟
+. 輸入管理節點IP位址、然後輸入：4442、即可存取管理節點的每節點UI
++
+[listing]
+----
+https://[IP address]:442
+----
++
+image::mnode_per_node_442_ui.png[每節點UI的管理節點]
+
+. 出現提示時、請輸入管理節點的使用者名稱和密碼。
+
+
+
+
+== 存取管理節點REST API UI
+
+您可以從REST API UI存取服務相關API功能表、以控制管理節點上的管理服務。
+
+.步驟
+. 若要存取管理服務的REST API UI、請輸入管理節點IP位址、然後輸入「/mnode」：
++
+[listing]
+----
+https://[IP address]/mnode
+----
++
+image::mnode_swagger_ui.png[管理節點REST API UI]
+
+. 按一下*授權*或任何鎖定圖示、然後輸入叢集管理認證、以取得使用API的權限。
+
+
+[discrete]
+== 瞭解更多資訊
+
+* link:task_mnode_enable_activeIQ.html["啟用Active IQ 支援功能和NetApp HCI 功能性監控"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_work_overview_UI.html 
+summary: '使用管理節點UI (https://<mNodeIP>:442)[]、您可以變更網路和叢集設定、執行系統測試或使用系統公用程式。' 
+keywords: 'netapp, management node ui, mnode ui, :442, element' 
+---
+= 管理節點UI總覽
+:allow-uri-read: 
+
+
+[role="lead"]
+使用管理節點UI（「https://<mNodeIP>:442`」）、您可以變更網路和叢集設定、執行系統測試或使用系統公用程式。
+
+您可以使用管理節點UI執行的工作：
+
+* link:task_mnode_enable_alerts.html["在NetApp HCI 不顯示的情況下設定警示監控"]
+* link:task_mnode_settings.html["修改及測試管理節點網路、叢集及系統設定"]
+* link:task_mnode_run_system_utilities.html["從管理節點執行系統公用程式"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:task_mnode_access_ui.html["存取管理節點"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

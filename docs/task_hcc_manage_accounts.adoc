@@ -1,0 +1,198 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_manage_accounts.html 
+summary: 瞭解如何建立使用者帳戶、並將其與磁碟區建立關聯。 
+keywords: netapp, hci, on premise, cluster, element, account, user, volume, hybrid cloud control, hcc 
+---
+= 使用NetApp混合雲控制來建立及管理使用者帳戶
+:allow-uri-read: 
+
+
+[role="lead"]
+在元素型儲存系統中、您可以建立授權叢集使用者、以根據您想要授予「管理員」或「唯讀」使用者的權限、來啟用NetApp混合雲控制的登入存取權。除了叢集使用者之外、還有Volume帳戶、可讓用戶端連線至儲存節點上的磁碟區。 
+
+管理下列類型的帳戶：
+
+* <<Manage authoritative cluster accounts>>
+* <<Manage volume accounts>>
+
+
+
+
+== 啟用LDAP
+
+若要將LDAP用於任何使用者帳戶、您必須先啟用LDAP。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板中、按一下右上角的「選項」圖示、然後選取*「使用者管理」*。
+. 在「使用者」頁面中、按一下*「設定LDAP*」。
+. 定義您的LDAP組態。
+. 選取「搜尋與連結」或「直接連結」的驗證類型。
+. 儲存變更之前、請按一下頁面頂端的*測試LDAP登入*、輸入已知存在的使用者名稱和密碼、然後按一下*測試*。
+. 按一下「 * 儲存 * 」。
+
+
+
+
+== 管理授權叢集帳戶
+
+link:concept_cg_hci_accounts.html#authoritative-user-accounts["驗證使用者帳戶"] 可從NetApp混合式雲端控制的右上角功能表使用者管理選項進行管理。這些類型的帳戶可讓您針對與NetApp混合雲控制節點和叢集執行個體相關的任何儲存資產進行驗證。有了這個帳戶、您就能跨所有叢集管理磁碟區、帳戶、存取群組等。
+
+
+
+=== 建立授權叢集帳戶
+
+您可以使用NetApp混合雲控制來建立帳戶。
+
+此帳戶可用於登入混合雲控制、叢集的每節點UI、NetApp Element 以及使用效益軟體的儲存叢集。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板中、按一下右上角的「選項」圖示、然後選取*「使用者管理」*。
+. 選取*建立使用者*。
+. 選取叢集或LDAP的驗證類型。
+. 完成下列其中一項：
++
+** 如果您選取LDAP、請輸入DN。
++
+
+TIP: 若要使用LDAP、您必須先啟用LDAP或LDAPS。請參閱 <<Enable LDAP>>。
+
+** 如果您選取叢集做為驗證類型、請輸入新帳戶的名稱和密碼。
+
+
+. 選取「系統管理員」或「唯讀」權限。
++
+
+TIP: 若要檢視NetApp Element 來自SView軟體的權限、請按一下*顯示舊版權限*。如果您選取這些權限的子集、則會將帳戶指派為唯讀權限。如果您選取所有舊版權限、則會將該帳戶指派給系統管理員權限。
+
++
+
+TIP: 若要確保群組的所有子系都繼承權限、請在LDAP伺服器中建立一個DN組織管理群組。該群組的所有子帳戶都會繼承這些權限。
+
+. 勾選「我已閱讀並接受NetApp終端使用者授權合約」方塊。
+. 按一下「 * 建立使用者 * 」。
+
+
+
+
+=== 編輯授權叢集帳戶
+
+您可以使用NetApp混合雲控制變更使用者帳戶的權限或密碼。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板中、按一下右上角的圖示、然後選取*使用者管理*。
+. （可選）通過選擇* Cluster *、* LDAP*或* IDP *來篩選用戶帳戶列表。
++
+如果您在儲存叢集上使用LDAP設定使用者、則這些帳戶會顯示「LDAP」的使用者類型。 如果您在儲存叢集上使用IDP設定使用者、則這些帳戶的使用者類型會顯示為「IDP」。
+
+. 在表格的「*動作*」欄中、展開該帳戶的功能表、然後選取「*編輯*」。
+. 視需要進行變更。
+. 選擇*保存*。
+. 登出NetApp混合雲控制。
+. link:task_mnode_manage_storage_cluster_assets.html#edit-the-stored-credentials-for-a-storage-cluster-asset["更新認證資料"] 適用於使用NetApp混合雲控制API的授權叢集資產。
++
+
+NOTE: NetApp混合雲控制UI可能需要2分鐘的時間來重新整理庫存。若要手動重新整理資源清冊、請存取REST API UI目錄服務「https://<ManagementNodeIP>/inventory/1/`」、然後針對叢集執行「Get /installationsex/｛id｝」。
+
+. 登入NetApp混合雲控管。
+
+
+
+
+=== 刪除授權使用者帳戶
+
+您可以在不再需要時刪除一或多個帳戶。您可以刪除LDAP使用者帳戶。
+
+您無法刪除驗證叢集的主要系統管理員使用者帳戶。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板中、按一下右上角的圖示、然後選取*使用者管理*。
+. 在「使用者」表格的「*動作*」欄中、展開該帳戶的功能表、然後選取「*刪除*」。
+. 選擇* Yes（是）*確認刪除。
+
+
+
+
+== 管理Volume帳戶
+
+link:concept_cg_hci_accounts.html#volume-accounts["Volume帳戶"] 可在NetApp混合式雲端控制磁碟區表格中進行管理。這些帳戶僅適用於建立帳戶的儲存叢集。這些類型的帳戶可讓您在網路上設定磁碟區的權限、但不會影響這些磁碟區之外的任何功能。
+
+Volume帳戶包含存取指派給它的磁碟區所需的CHAP驗證。
+
+
+
+=== 建立Volume帳戶
+
+建立此磁碟區的專屬帳戶。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 從儀表板中、選取* Storage *>* Volumes *。
+. 選擇* Accounts *（帳戶*）選項卡。
+. 選取*建立帳戶*按鈕。
+. 輸入新帳戶的名稱。
+. 在[CHAP設定]區段中輸入下列資訊：
++
+** 用於CHAP節點工作階段驗證的啟動器密碼
+** CHAP節點工作階段驗證的目標機密
++
+
+NOTE: 若要自動產生任一密碼、請將認證欄位保留空白。
+
+
+
+. 選擇*建立帳戶*。
+
+
+
+
+=== 編輯Volume帳戶
+
+您可以變更CHAP資訊、並變更帳戶為作用中或鎖定狀態。
+
+
+IMPORTANT: 刪除或鎖定與管理節點相關的帳戶、會導致管理節點無法存取。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 從儀表板中、選取* Storage *>* Volumes *。
+. 選擇* Accounts *（帳戶*）選項卡。
+. 在表格的「*動作*」欄中、展開該帳戶的功能表、然後選取「*編輯*」。
+. 視需要進行變更。
+. 選擇* Yes（是）*確認變更。
+
+
+
+
+=== 刪除Volume帳戶
+
+刪除不再需要的帳戶。
+
+刪除Volume帳戶之前、請先刪除並清除與帳戶相關的任何Volume。
+
+
+IMPORTANT: 刪除或鎖定與管理節點相關的帳戶、會導致管理節點無法存取。
+
+
+NOTE: 與管理服務相關的持續磁碟區會在安裝或升級期間指派給新帳戶。如果您使用的是持續磁碟區、請勿修改或刪除磁碟區或其相關帳戶。如果您確實刪除這些帳戶、可能會使管理節點無法使用。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 從儀表板中、選取* Storage *>* Volumes *。
+. 選擇* Accounts *（帳戶*）選項卡。
+. 在表格的「*動作*」欄中、展開該帳戶的功能表、然後選取「*刪除*」。
+. 選擇* Yes（是）*確認刪除。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:concept_hci_accounts.html["深入瞭解客戶"]
+* http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-E93D3BAF-5A60-414D-86AF-0C1F86D43F26.html["使用使用者帳戶"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

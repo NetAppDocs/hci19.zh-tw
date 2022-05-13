@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_manage_vol_access_groups.html 
+summary: 瞭NetApp HCI 解如何新增Volume存取群組以搭配使用各種功能、從系統移除Volume存取群組、編輯現有的Volume存取群組、以及檢視Volume存取群組的詳細資料。 
+keywords: netapp, hci, on premise, cluster, element 
+---
+= 建立及管理Volume存取群組
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以建立新的Volume存取群組、變更名稱、相關的啟動器或相關的存取群組磁碟區、或使用NetApp混合雲控制刪除現有的Volume存取群組。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您擁有NetApp HCI 此系統的系統管理員認證資料。
+* 您已將管理服務升級至至少2.15.28版。NetApp混合雲控制儲存管理功能不適用於舊版服務組合。
+* 請確定您擁有磁碟區存取群組的邏輯命名配置。
+
+
+
+
+== 新增Volume存取群組
+
+您可以使用NetApp混合雲控制、將Volume存取群組新增至儲存叢集。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板的左側導覽功能表中、展開儲存叢集的名稱。
+. 選取* Volumes *。
+. 選取*存取群組*索引標籤。
+. 選取*建立存取群組*按鈕。
+. 在產生的對話方塊中、輸入新Volume存取群組的名稱。
+. （可選）在*啟動器*區段中、選取一或多個啟動器、以與新的Volume存取群組建立關聯。
++
+如果您將啟動器與Volume存取群組建立關聯、則該啟動器可以存取群組中的每個Volume、而不需要驗證。
+
+. （選用）在* Volumes（磁碟區）*區段中、選取要納入此磁碟區存取群組的一或多個磁碟區。
+. 選取*建立存取群組*。
+
+
+
+
+== 編輯Volume存取群組
+
+您可以使用NetApp混合雲控制來編輯現有Volume存取群組的內容。您可以變更存取群組的名稱、相關聯的啟動器或相關聯的磁碟區。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板的左側導覽功能表中、展開儲存叢集的名稱。
+. 選取* Volumes *。
+. 選取*存取群組*索引標籤。
+. 在存取群組表格的「*動作*」欄中、展開您需要編輯之存取群組的選項功能表。
+. 在選項功能表中、選取*編輯*。
+. 對名稱、相關聯的啟動器或相關的磁碟區進行任何必要的變更。
+. 選取*「Save（儲存）」*確認您的變更。
+. 在*存取群組*表格中、確認存取群組反映您的變更。
+
+
+
+
+== 刪除Volume存取群組
+
+您可以使用NetApp混合雲控制移除Volume存取群組、同時從系統中移除與此存取群組相關的啟動器。
+
+.步驟
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板的左側導覽功能表中、展開儲存叢集的名稱。
+. 選取* Volumes *。
+. 選取*存取群組*索引標籤。
+. 在存取群組表格的「*動作*」欄中、展開您需要刪除之存取群組的選項功能表。
+. 在選項功能表中、選取*刪除*。
+. 如果您不想刪除與存取群組相關聯的啟動器、請取消選取「刪除此存取群組中的啟動器*」核取方塊。
+. 選擇* Yes（是）*確認刪除作業。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:concept_hci_volume_access_groups.html["深入瞭解Volume存取群組"]
+* link:task_hcc_manage_initiators.html#add-initiators-to-a-volume-access-group["將啟動器新增至Volume存取群組"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

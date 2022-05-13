@@ -1,0 +1,18 @@
+---
+sidebar: sidebar 
+permalink: docs/reference_hcc_config_maximums.html 
+summary: NetApp混合雲控制具有特定功能、NetApp建議在其中運作。 
+keywords: netapp, hci, HCC, configuration, capabilities, limits, maximums 
+---
+= NetApp混合雲控制組態上限
+:allow-uri-read: 
+
+
+[role="lead"]
+包含NetApp混合雲控制、可簡化運算生命週期和儲存管理。NetApp HCI它支援NetApp HCI 在儲存節點上升級Element Software、以供支援使用以利實現更新、並可SolidFire 在NetApp HCI 支援更新韌體NetApp HCI 的情況下、將元件的運算節點升級至支援更新。根據預設NetApp HCI 、此功能可在位於介紹的管理節點上使用。
+
+除了在NetApp HCI 安裝過程中傳達NetApp提供的硬體和軟體元件、NetApp混合雲控制系統還能與客戶環境中的第三方元件互動、例如VMware vCenter。NetApp符合NetApp混合式雲端控制的功能及其與客戶環境中這些第三方元件的互動、最高可達特定規模。為獲得最佳的NetApp混合雲控制體驗、NetApp建議您保持在組態上限範圍內。
+
+如果您超過這些測試的上限、則可能會遇到NetApp混合雲控制的問題、例如使用者介面速度變慢、API回應速度變慢或功能無法使用。如果您在設定超過組態上限的環境中、使用NetApp混合式雲端控制技術來支援NetApp產品、NetApp支援部門會要求您將組態變更為記錄的組態上限範圍內的組態。
+
+NetApp混合雲控制系統支援VMware vSphere環境、最多可支援500個NetApp運算節點。它支援最多20 NetApp Element 個以軟體為基礎的儲存叢集、每個叢集有40個儲存節點。

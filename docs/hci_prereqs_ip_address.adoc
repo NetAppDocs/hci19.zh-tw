@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_ip_address.html 
+summary: 深入瞭NetApp HCI 解靜態IP位址需求。 
+keywords: netapp, hci, IP address, requirements 
+---
+= IP位址需求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, IP address, requirements
+
+
+[role="lead"]
+根據部署規模而定、包含特定的IP位址需求。NetApp HCI請注意、在使用NetApp部署引擎部署系統之前、您指派給每個節點的初始IP位址預設為暫時性、無法重複使用。您需要保留第二組永久未使用的IP位址、以便在最終部署期間指派。
+
+
+
+== 每NetApp HCI 個部署所需的IP位址數量
+
+這個解決方法NetApp HCI 應該使用不同的連續IP位址範圍。請使用下表來判斷部署所需的IP位址數量：
+
+|===
+| 系統元件 | 需要管理網路IP位址 | 所需的儲存網路IP位址 | 需要VMotion網路IP位址 | 每個元件所需的IP位址總計 
+
+
+| 運算節點 | 1. | 2. | 1. | 4. 
+
+
+| 儲存節點 | 1. | 1. |  | 2. 
+
+
+| 儲存叢集 | 1. | 1. |  | 2. 
+
+
+| VMware vCenter | 1. |  |  | 1. 
+
+
+| 管理節點 | 1. | 1. |  | 2. 
+
+
+| 見證節點 | 1. | 1. |  | 每個見證節點2個（為每個雙節點或三節點儲存叢集部署兩個見證節點） 
+|===
+
+
+== 由不完整的IP位址NetApp HCI
+
+下列IP位址範圍可供系統元件使用。NetApp HCI規劃網路時、請避免使用下列IP位址：
+
+|===
+| IP位址範圍 | 說明 
+
+
+| 10.0.0/24 | Docker覆疊網路 
+
+
+| 10.0.1.0/24 | Docker覆疊網路 
+
+
+| 10.12.5.0/16 | Docker暖入網路 
+
+
+| 169.254.1001/22 | Docker橋接網路 
+
+
+| 169.254.104.0/22 | Docker橋接網路 
+|===
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

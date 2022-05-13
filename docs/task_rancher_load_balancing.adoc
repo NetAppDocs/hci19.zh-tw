@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_load_balancing.html 
+summary: 瞭解如何在NetApp HCI 將Rancher安裝在VMware上之後、設定負載平衡。 
+keywords: netapp, hci, Rancher, install, installation, load, balance 
+---
+= 設定負載平衡
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+瞭解如何在NetApp HCI 將Rancher安裝在VMware上之後、設定負載平衡。Rancher on NetApp HCI VMware的負載平衡涉及管理叢集。
+
+對於正式作業工作負載、您應該考慮使用循環DNS或L4負載平衡器等技術來取得Rancher URL的值。其中任何一種技術都會分散對Rancher UI的存取權、並提供最大的恢復能力。
+
+L4負載平衡是一種技術、可將裝載應用程式的虛擬機器或容器設定為在管理叢集的三個節點之間分散要求。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

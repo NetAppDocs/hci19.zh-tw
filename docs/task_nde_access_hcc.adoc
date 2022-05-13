@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_hcc.html 
+summary: 瞭解如何在部署NetApp HCI 完NetApp混合雲之後存取其控制功能。 
+keywords: netapp, hci, deployment, review, GPU, install, driver, drivers 
+---
+= 存取NetApp混合雲控管
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp混合雲控制可讓您管理NetApp HCI 功能。您可以升級NetApp HCI 管理服務和其他的元件、並擴充及監控安裝。您可以瀏覽至管理節點的IP位址、登入NetApp混合雲控制。
+
+.您需要的是 #8217 ；需要的是什麼
+* *叢集管理員權限*：您具有儲存叢集管理員權限。
+* *管理服務*：您已將管理服務升級至至少2.1.326版。NetApp混合雲控制不適用於舊版服務組合。如需目前服務套裝組合版本的相關資訊、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["管理服務版本說明"^]。
+
+
+.步驟
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
++
+此時會出現NetApp混合雲控制介面。
+
+
+
+
+NOTE: 如果您登入時使用的權限不足、您會在整個HCC-資源頁面上看到「無法載入」訊息、而且資源將無法使用。
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件軟體文件SolidFire"^]
+

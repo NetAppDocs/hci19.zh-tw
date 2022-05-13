@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_review_deploy.html 
+summary: 瞭解如何檢視最終組態、並NetApp HCI 使用這些設定部署功能。 
+keywords: netapp, hci, deployment, review, deploy 
+---
+= 檢閱並部署組態
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在開始部署之前檢閱所提供的資訊。您也可以在繼續之前更正任何不正確或不完整的資訊。
+
+
+NOTE: 在部署期間、管理節點安裝程序會在元素儲存叢集中建立名稱以「NetApp-HCI」開頭的磁碟區、並在SolidFire 名稱為「租戶_」的「支援中心」帳戶中建立一個名稱為「支援中心」的名稱。請勿刪除這些磁碟區或帳戶、否則將導致管理功能喪失。
+
+.步驟
+. 選用：選取*下載*圖示、以CSV格式下載安裝資訊。您可以儲存此檔案、稍後再參閱以取得組態資訊。
++
+
+NOTE: 您可以視需要在未來安裝期間、將CSV檔案匯入為安裝設定檔、位於NetApp部署引擎（NDE）的「*安裝設定檔*」頁面。
+
+. 展開每個區段並檢閱資訊。若要一次展開所有區段、請選取*全部展開*。
+. 選用：若要變更任何顯示區段的資訊：
++
+.. 在對應的區段中選取*編輯*。
+.. 進行必要的變更。
+.. 選擇*繼續*、直到您到達*審查*頁面為止。您先前的設定會儲存在每個頁面上。
+.. 重複步驟2和3以進行任何其他必要變更。
+
+
+. 如果您不想將叢集統計資料和支援資訊傳送至NetApp託管SolidFire Active IQ 的支援服務器、請清除最終核取方塊。
++
+這會停用NetApp HCI 實時健全狀況和診斷監控功能來監控不實時狀況。停用此功能可讓NetApp主動支援NetApp HCI 及監控、在影響正式作業之前偵測並解決問題。
+
+. 如果所有資訊都正確、請選取*「Start Deployment」（開始部署）*。
++
+隨即出現對話方塊。如果在最後的設定程序中發生網路連線問題或停電、或是瀏覽器工作階段遺失、您可以複製對話方塊中顯示的URL、然後使用它瀏覽至最後的設定進度頁面。
+
+. 檢閱對話方塊中的資訊、然後選取*複製到剪貼簿*、將URL複製到剪貼簿。
+. 將URL儲存至電腦上的文字檔。
+. 當您準備好繼續部署時、請選取*確定*。
++
+開始部署、並顯示進度頁面。在部署完成之前、請勿關閉瀏覽器視窗或離開進度頁面。如果瀏覽器工作階段因為任何原因而遺失、您可以瀏覽至先前複製的URL（並接受任何出現的安全性警告）、以重新取得最終設定進度頁面的存取權。
+
++
+
+NOTE: 如果部署失敗、請儲存任何錯誤訊息文字、並聯絡NetApp支援部門。
+
++
+部署完成後、運算節點可能會重新開機一次以上、然後才準備好開始服務。
+
+
+
+選擇* Launch vSpher*即可開始使用NetApp HCI 此功能。
+
+[NOTE]
+====
+* 若為使用vSphere 6.7進行的版本、此連結會啟動HTML5 vSphere網路介面。NetApp HCI對於使用vSphere 6.5的安裝、此連結會啟動Adobe Flash vSphere Web介面。
+* 在兩個或三個儲存節點組態中、NDE會將見證節點設定為使用運算節點上的本機資料存放區。因此、vSphere Client會在磁碟*上顯示兩個*資料存放區使用量警告。若要繼續、請在每個警告中選取*重設為綠色*連結。
+
+
+====
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件軟體文件SolidFire"^]
+

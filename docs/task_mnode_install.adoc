@@ -1,0 +1,354 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_install.html 
+summary: 您可以為執行NetApp Element 不完善軟體的叢集安裝管理節點。 
+keywords: netapp, element, management node, mnode, storage, install 
+---
+= 安裝管理節點
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以使用NetApp Element 適當的組態映像、手動安裝執行更新軟體之叢集的管理節點。
+
+本手冊程序適用於SolidFire 不NetApp HCI 使用NetApp部署引擎進行管理節點安裝的所有Flash儲存管理員和管理員。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您的叢集版本執行NetApp Element 的是更新版本的Software 11.3。
+* 您的安裝使用的是IPV4。管理節點11.3不支援IPv6。
++
+
+NOTE: 如果需要IPv6支援、您可以使用管理節點11.1。
+
+* 您有權從NetApp支援網站下載軟體。
+* 您已識別出適合您平台的管理節點映像類型：
++
+[cols="30,30"]
+|===
+| 平台 | 安裝映像類型 
+
+
+| Microsoft Hyper-V | .iso 
+
+
+| KVM | .iso 
+
+
+| VMware vSphere | .ISO、.ova 
+
+
+| Citrix XenServer | .iso 
+
+
+| OpenStack | .iso 
+|===
+* （使用Proxy伺服器的管理節點12或更新版本）在設定Proxy伺服器之前、您已將NetApp混合雲控制更新為管理服務2.16版。
+
+
+Element 12.2管理節點為選用升級。現有部署不需要此功能。
+
+在執行此程序之前、您應該先瞭解 link:concept_hci_volumes.html#persistent-volumes["持續磁碟區"] 以及您是否要使用它們。持續磁碟區為選用功能、但建議在VM遺失時、用於管理節點組態資料恢復。
+
+.步驟
+. <<Download ISO or OVA and deploy the VM>>
+. <<Create the management node admin and configure the network>>
+. <<Configure time sync>>
+. <<Set up the management node>>
+. <<Configure controller assets>>
+. <<Configure compute node assets,（僅供參考）設定運算節點資產NetApp HCI>>
+
+
+
+
+== 下載ISO或OVA並部署VM
+
+. 從下載OVA或ISO以供安裝 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp HCI"^] NetApp支援網站上的頁面：
++
+.. 選擇*下載最新版本*並接受EULA。
+.. 選取您要下載的管理節點映像。
+
+
+. 如果您下載了OVA、請依照下列步驟操作：
++
+.. 部署OVA。
+.. 如果您的儲存叢集與管理節點（eth0）位於不同的子網路上、且您想要使用持續磁碟區、請在儲存子網路上的VM（例如eth1）中新增第二個網路介面控制器（NIC）、或確保管理網路可以路由傳送至儲存網路。
+
+
+. 如果您下載ISO、請依照下列步驟操作：
++
+.. 使用下列組態、從Hypervisor建立新的64位元虛擬機器：
++
+*** 六個虛擬CPU
+*** 24GB RAM
+*** 儲存介面卡類型設定為LSI Logic Parallel
++
+
+IMPORTANT: 管理節點的預設值可能是LSI Logic SAS。在「*新增虛擬機器*」視窗中、選取*自訂硬體*>*虛擬硬體*來驗證儲存介面卡組態。如有必要、請將LSI Logic SAS變更為* LSI Logic Parallel *。
+
+*** 400GB虛擬磁碟、精簡配置
+*** 單一虛擬網路介面、可存取網際網路及儲存設備MVIP。
+*** （SolidFire 可選購以支援整合式All Flash儲存設備）單一虛擬網路介面、可透過管理網路存取儲存叢集。如果您的儲存叢集與管理節點（eth0）位於不同的子網路上、且您想要使用持續磁碟區、請在儲存子網路（eth1）的VM上新增第二個網路介面控制器（NIC）、或確保管理網路可以路由傳送至儲存網路。
++
+
+IMPORTANT: 請勿在執行此步驟之前開啟虛擬機器電源、此步驟稍後會指出此點。
+
+
+
+.. 將ISO附加至虛擬機器、然後開機至.ISO安裝映像。
++
+
+NOTE: 使用映像安裝管理節點可能會導致啟動畫面出現30秒延遲。
+
+
+
+. 安裝完成後、開啟管理節點的虛擬機器電源。
+
+
+
+
+== 建立管理節點管理並設定網路
+
+. 使用終端使用者介面（TUI）建立管理節點管理使用者。
++
+
+TIP: 若要在功能表選項之間移動、請按上或下方向鍵。若要在按鈕之間移動、請按下「分頁」。若要從按鈕移至欄位、請按下Tab。若要在欄位之間瀏覽、請按下向上或向下箭頭鍵。
+
+. 設定管理節點網路（eth0）。
++
+
+NOTE: 如果您需要額外的NIC來隔離儲存流量、請參閱設定其他NIC的指示： link:task_mnode_install_add_storage_NIC.html["設定儲存網路介面控制器（NIC）"]。
+
+
+
+
+
+== 設定時間同步
+
+. 使用NTP確保管理節點與儲存叢集之間的時間同步：
++
+
+NOTE: 從元件12.3.1開始、會自動執行子步驟（A）至（e）。若為管理節點12.3.1、請繼續執行 <<substep_f_install_config_time_sync,子步驟（f）>> 以完成時間同步組態。
+
++
+.. 使用SSH或Hypervisor提供的主控台登入管理節點。
+.. 停止ntpd：
++
+[listing]
+----
+sudo service ntpd stop
+----
+.. 編輯NTP組態檔「/etc/ntp.conf：
++
+... 在預設伺服器（「伺服器0.gentoo.pool.ntp.org」）前面加上「#」、即可註釋掉預設伺服器（「伺服器」）。
+... 為您要新增的每個預設時間伺服器新增一行。預設時間伺服器必須與儲存叢集上使用的NTP伺服器相同、您將在中使用 link:task_mnode_install.html#set-up-the-management-node["後續步驟"]。
++
+[listing]
+----
+vi /etc/ntp.conf
+
+#server 0.gentoo.pool.ntp.org
+#server 1.gentoo.pool.ntp.org
+#server 2.gentoo.pool.ntp.org
+#server 3.gentoo.pool.ntp.org
+server <insert the hostname or IP address of the default time server>
+----
+... 完成後儲存組態檔。
+
+
+.. 強制NTP與新增的伺服器同步。
++
+[listing]
+----
+sudo ntpd -gq
+----
+.. 重新啟動ntpd。
++
+[listing]
+----
+sudo service ntpd start
+----
+.. [[subsection_f_install_config_time_synship]停用透過Hypervisor與主機進行時間同步（以下為VMware範例）：
++
+
+NOTE: 如果您在VMware以外的Hypervisor環境中部署mNode、例如在OpenStack環境中從.ISO映像部署mNode、請參閱Hypervisor文件以取得等效命令。
+
++
+... 停用定期時間同步：
++
+[listing]
+----
+vmware-toolbox-cmd timesync disable
+----
+... 顯示並確認服務的目前狀態：
++
+[listing]
+----
+vmware-toolbox-cmd timesync status
+----
+... 在vSphere中、確認VM選項中未勾選「將訪客時間與主機同步」方塊。
++
+
+NOTE: 如果您日後對VM進行變更、請勿啟用此選項。
+
+
+
+
+
+
+
+
+NOTE: 請勿在完成時間同步組態之後編輯NTP、因為它會在您執行時影響NTP link:task_mnode_install.html#set-up-the-management-node["設定命令"] 在管理節點上。
+
+
+
+== 設定管理節點
+
+. 設定並執行管理節點設定命令：
++
+
+NOTE: 系統會提示您在安全提示中輸入密碼。如果叢集位於Proxy伺服器之後、您必須設定Proxy設定、才能連線至公用網路。
+
++
+[listing]
+----
+/sf/packages/mnode/setup-mnode --mnode_admin_user [username] --storage_mvip [mvip] --storage_username [username] --telemetry_active [true]
+----
++
+.. 針對下列每個必要參數、將[]方塊中的值（包括方括弧）取代：
++
+
+NOTE: 命令名稱的縮寫形式以括弧（）表示、可取代完整名稱。
+
++
+*** *-mnode_admin_user（-mu）[username]*：管理節點系統管理員帳戶的使用者名稱。這可能是您用來登入管理節點的使用者帳戶使用者名稱。
+*** *-storage mvip（-sm）[MVIP位址]*：執行Element軟體之儲存叢集的管理虛擬IP位址（MVIP）。使用您在期間使用的相同儲存叢集來設定管理節點 link:task_mnode_install.html#configure-time-sync["NTP伺服器組態"]。
+*** *-storage使用者名稱（-su）[username]*：由「-storage _mvip」參數指定之叢集的儲存叢集管理員使用者名稱。
+*** *-遙測啟動（-t）[true]*：保留值true、讓Active IQ 資料收集功能得以透過支援以供分析之用。
+
+
+.. （選用）：在Active IQ 命令中新增find供 參考的端點參數：
++
+*** *- reme_host（-Rh）[AIQ_終結 點]*：Active IQ 傳送遙測資料以進行處理的端點。如果未包含此參數、則會使用預設的端點。
+
+
+.. （建議）：新增下列持續Volume參數。請勿修改或刪除為持續磁碟區功能所建立的帳戶和磁碟區、否則將導致管理功能遺失。
++
+*** *-使用_永久性 磁碟區（-PV）[true/假、預設值：假]*：啟用或停用持續磁碟區。輸入值true可啟用持續磁碟區功能。
+*** *-永久性 磁碟區帳戶（-PVA）[ACON_NAME]*：如果將「-US_INUMEATNON_Volumes」設為「true」、請使用此參數、並輸入將用於持續磁碟區的儲存帳戶名稱。
++
+
+NOTE: 對於與叢集上任何現有帳戶名稱不同的持續磁碟區、請使用唯一的帳戶名稱。將持續磁碟區的帳戶與環境的其他部分分開、是非常重要的。
+
+*** *：-永久性 磁碟區_mvip（-PVM）[mvip]*：輸入儲存叢集的管理虛擬IP位址（MVIP）、此儲存叢集執行元素軟體、將與持續磁碟區搭配使用。只有在管理節點管理多個儲存叢集時才需要此功能。如果未管理多個叢集、則會使用預設的叢集MVIP。
+
+
+.. 設定Proxy伺服器：
++
+*** *-使用Proxy（-up）[true/假、預設值：假]*：啟用或停用Proxy的使用。此參數是設定Proxy伺服器所需的參數。
+*** *-proxy_hostname_or_ip（-pi）[host]*：Proxy主機名稱或IP。如果您想要使用Proxy、則必須使用此選項。如果指定此選項、系統會提示您輸入「-proxy_port'」。
+*** -proxy_username(-pu）[username]*：Proxy使用者名稱。此參數為選用項目。
+*** *-proxy_password（-pp）[password]*：Proxy密碼。此參數為選用項目。
+*** *-proxy_port（-pq）[連接埠、預設值：0]*：Proxy連接埠。如果指定此項、系統會提示您輸入Proxy主機名稱或IP（`-proxy_hostname_or_ip`）。
+*** *-proxy_ssh連接埠（-ps）[連接埠、預設值：443]*：SSH Proxy連接埠。預設為連接埠443。
+
+
+.. （選用）如果您需要有關每個參數的其他資訊、請使用參數說明：
++
+*** *-說明（-h）*：傳回每個參數的相關資訊。參數是根據初始部署而定義為必要或選用。升級與重新部署參數的需求可能有所不同。
+
+
+.. 執行「Setup-mnode"命令。
+
+
+
+
+
+
+== 設定控制器資產
+
+. 找出安裝ID：
++
+.. 從瀏覽器登入管理節點REST API UI：
+.. 前往儲存設備MVIP並登入。此動作會在下一個步驟中接受憑證。
+.. 在管理節點上開啟庫存服務REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. 選擇*授權*並完成下列項目：
++
+... 輸入叢集使用者名稱和密碼。
+... 輸入用戶端ID為「mnode-client」。
+... 選取*授權*以開始工作階段。
+
+
+.. 從REST API UI中、選取*「Get Rise/Installations」*。
+.. 選擇*試用*。
+.. 選擇*執行*。
+.. 從代碼200回應本文中、複製並儲存「id」以供安裝使用、以供後續步驟使用。
++
+您的安裝具有在安裝或升級期間建立的基礎資產組態。
+
+
+
+. （NetApp HCI 僅供參考）在vSphere中找出運算節點的硬體標籤：
++
+.. 在vSphere Web Client瀏覽器中選取主機。
+.. 選擇*顯示器*標籤、然後選取*硬體健全狀況*。
+.. 列出節點BIOS製造商和型號。複製並儲存「標記」的值、以便日後使用。
+
+
+. 將vCenter控制器資產新增NetApp HCI 至管理NetApp HCI 節點的已知資產、以進行VMware vCenter監控（僅限支援VMware安裝）和混合雲控制（適用於所有安裝）：
++
+.. 在管理節點上輸入管理節點IP位址、然後輸入「/mnodes（mnodes）：
++
+[listing]
+----
+https:/<ManagementNodeIP>/mnode
+----
+.. 選取*授權*或任何鎖定圖示、然後完成下列步驟：
++
+... 輸入叢集使用者名稱和密碼。
+... 輸入用戶端ID為「mnode-client」。
+... 選取*授權*以開始工作階段。
+... 關閉視窗。
+
+
+.. 選取「* POST /Assites/{asset_id}/controller*」以新增控制器子資產。
++
+
+NOTE: 建議您在vCenter中建立新的NetApp HCC角色、以新增控制器子資產。這項新的NetApp HCC-角色會將管理節點服務檢視限制為僅適用於NetApp的資產。請參閱 link:task_mnode_create_netapp_hcc_role_vcenter.html["在vCenter中建立NetApp HCC角色"]。
+
+.. 選擇*試用*。
+.. 在「* asset_id*」欄位中、輸入您複製到剪貼簿的父基礎資產ID。
+.. 輸入「vCenter」類型和vCenter認證所需的有效負載值。
+.. 選擇*執行*。
+
+
+
+
+
+
+== （僅供參考）設定運算節點資產NetApp HCI
+
+. （NetApp HCI 僅供參考）將運算節點資產新增至管理節點已知資產：
++
+.. 選取「* POST /Assets /｛asset_id｝/ comp運算 節點*」、以新增內含運算節點資產認證的運算節點子資產。
+.. 選擇*試用*。
+.. 在「* asset_id*」欄位中、輸入您複製到剪貼簿的父基礎資產ID。
+.. 在有效負載中、輸入「模型」索引標籤中定義的必要有效負載值。輸入「ESXi主機」作為「類型」、然後輸入您在上一步中儲存的「hardware _tag」硬體標籤。
+.. 選擇*執行*。
+
+
+
+
+[discrete]
+== 瞭解更多資訊
+
+* link:concept_hci_volumes.html#persistent-volumes["持續磁碟區"]
+* link:task_mnode_add_assets.html["將運算和控制器資產新增至管理節點"]
+* link:task_mnode_install_add_storage_NIC.html["設定儲存NIC"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

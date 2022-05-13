@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_h610srepl.html 
+summary: 如果風扇、中央處理器（CPU）或雙列直插式記憶體模組（DIMM）故障、您可能需要更換機箱、或是修正開機程序的過熱問題或問題。機箱正面的黃色LED燈會持續亮起、表示可能需要更換機箱。在繼續之前、請先聯絡NetApp支援部門。 
+keywords: netapp, hci, h610s, chassis replacement, node replacement 
+---
+= 更換H610S節點
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果風扇、中央處理器（CPU）或雙列直插式記憶體模組（DIMM）故障、您可能需要更換機箱、或是修正開機程序的過熱問題或問題。機箱正面的黃色LED燈會持續亮起、表示可能需要更換機箱。在繼續之前、請先聯絡NetApp支援部門。
+
+
+NOTE: 請參閱 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/NetApp_H610S_installation_requirements_for_replacement_or_expansion_nodes["知識庫文章"^] 以取得H610S節點的安裝需求相關資訊。新的和備用的H610S儲存節點可能會根據儲存叢集的現有Element軟體版本、有額外的安裝需求。如需詳細資訊、請聯絡NetApp支援部門。
+
+
+TIP: H610S是單一機架單元（1U）機箱、因此「節點」和「機箱」兩個詞彙可互換使用。
+
+
+
+=== 新增和移除磁碟機的最佳實務做法
+
+您應該遵循下列最佳實務做法、將磁碟機新增至叢集：
+
+* 新增所有區塊磁碟機、並在新增磁碟機之前、確保區塊同步已完成。
+* 對於Element軟體10.x及更新版本、請一次新增所有區塊磁碟機。請確保您一次不超過三個節點。
+* 對於Element軟體9.x及更早版本、請一次新增三個磁碟機、以便在新增下一組三個磁碟機之前、完全同步。
+* 移除磁碟分割磁碟機、並確保磁碟分割同步已完成、然後再移除區塊磁碟機。
+* 一次從單一節點移除所有區塊磁碟機。在移至下一個節點之前、請先確認所有區塊同步都已完成。
+
+
+.您需要的是 #8217 ；需要的是什麼
+* 您已聯絡NetApp支援部門。如果您訂購的是更換產品、您應該可以透過NetApp支援部門開啟案例。
+* 您已取得替換節點。
+* 您有一個防靜電（ESD）腕帶、或是您已採取其他防靜電保護措施。
+* 如果您需要執行恢復原廠映像（RTFI）程序、表示您已取得USB金鑰。NetApp支援可協助您決定是否需要執行RTFI程序。
+* 您有鍵盤和顯示器。
+* 您已從叢集正確移除故障節點。
+* 如果DIMM發生故障、您必須先移除磁碟機、然後再從叢集移除節點。
+
+
+當主機故障時、VMware vSphere Web Client中的警示會提醒您。您必須將VMware vSphere Web Client故障主機的序號與節點背面貼紙上的序號配對。
+
+.步驟
+. 找到故障機箱正面的服務標籤。
++
+image::h610s-servicetag.gif[顯示H610S機箱正面的服務標籤。]
+
+. 訂購替換機箱時、請確認服務標籤上的序號與NetApp支援案例編號相符。
+. 將鍵盤和顯示器插入故障機箱的背面。
+. 使用NetApp Support驗證故障節點的序號。
+. 關閉機箱電源。
+. 在前面標示磁碟機、然後在背面標示其位置、以便在更換後將其放回相同位置。
++
+請參閱下圖、瞭解磁碟機在機箱中的位置：
+
++
+image::h610s-drives.gif[顯示H610S機箱正面的磁碟機標示。]
+
+. 拔下纜線。
+. 旋開安裝耳上的指旋螺絲、以卸下機箱。您應該將故障機箱封裝並退回給NetApp。
+. 安裝替換機箱。
+. 從故障的機箱中小心地取出磁碟機、然後將其插入更換的機箱中。
++
+
+NOTE: 您應該先將磁碟機插入原來的插槽、然後再將其移除。
+
+. 從故障機箱中取出電源供應器、然後將其插入更換機箱中。
+. 將電源供應器纜線和網路纜線插入其原始連接埠。
+. 小型可插拔（SFP）收發器可能會插入替換節點的10GbE連接埠。在連接10GbE連接埠之前、您應該先將其移除。
++
+
+NOTE: 如果交換器無法辨識纜線、請參閱交換器廠商的文件。
+
+. 按下正面的電源按鈕、開啟機箱電源。節點開機大約需要五分鐘30秒。
+. 執行組態步驟。
++
+** 如果H610S節點是NetApp HCI 安裝過程中的一部分、請使用NetApp混合雲控制來設定儲存資源。請參閱 link:task_hcc_expand_storage.html["擴充NetApp HCI 功能"]。
+** 如果H610S節點是SolidFire 安裝支援所有Flash儲存設備的一部分、請使用NetApp Element 支援支援的軟體使用者介面（UI）來設定節點。如需協助、請聯絡NetApp支援部門。
+
+
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
+

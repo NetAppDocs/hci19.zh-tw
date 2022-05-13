@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_manual_ip.html 
+summary: 瞭解如何手動指派IP位址給NetApp HCI 各個節點、以存取NetApp部署引擎。 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= 手動指派IP位址以存取NetApp部署引擎
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+您可以手動將靜態的IPv4位址指派給所有NetApp HCI 節點上的Bond1G和Bond10G介面、以存取NetApp部署引擎並部署NetApp HCI 。除非您的網路有特殊需求、否則請勿使用此方法。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您或您的網路管理員已完成安裝與設定說明文件中的工作。
+* 您可以實體存取NetApp HCI 物件節點。
+* 所有的支援節點都已開啟。NetApp HCI
+* 不啟用NetApp HCI DHCP以供支援靜態網路、NetApp HCI 且無法從DHCP伺服器取得DHCP位址。附註：您在使用NetApp部署引擎部署系統之前手動指派的所有IP位址都是暫時性的、無法重複使用。如果您選擇手動指派IP位址、則必須保留第二組永久未使用的IP位址、以便在最終部署期間指派。
+
+
+在此組態中、運算和儲存節點將使用靜態的IPv4位址、在部署期間探索其他節點並與之通訊。不建議使用此組態。
+
+.步驟
+. 將KVM插入NetApp HCI 其中一個「介紹」儲存節點的背面（此節點將成為控制儲存節點）。
+. 在使用者介面中設定Bond1G和Bond10G的IP位址、子網路遮罩和閘道位址。您也可以視需要為每個網路設定VLAN ID。
+. 針對其餘的儲存設備和運算節點、重複步驟2。
+. 在可存取NetApp HCI 此功能的電腦上開啟網頁瀏覽器。
+. 瀏覽至指派給控制儲存節點的Bond1G IP位址。例如：
++
+[listing]
+----
+http://<Bond1G IP address>
+----
++
+這將帶您前往NetApp部署引擎使用者介面。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_disable_lacp_individual.html 
+summary: 瞭解如何在部署NetApp HCI 完整套功能後、在已設定的交換器上停用「LACP個別」命令。 
+keywords: netapp, hci, deployment, review, deploy 
+---
+= 在已設定的交換器上停用LACP個別命令
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+依照預設、Mellanox交換器的「lacper-individual」命令和Cisco交換器的「lacp suspend-individual」命令會在部署後保留設定。安裝後不需要此命令；如果仍設定此命令、則在疑難排解或重新開機交換器時、可能會造成磁碟區存取問題。部署後、您應檢查每個Mellanox交換器和Cisco交換器組態、並移除「LACP個別」或「LACP暫停個別」命令。
+
+.步驟
+. 使用SSH開啟交換器的工作階段。
+. 顯示執行中的組態：
++
+「如何執行設定」
+
+. 檢查交換器組態輸出中是否有「lacp個別」或「lacp suspend-individual」命令。
++
+
+NOTE: 「xxx - xxx」是您的使用者提供的介面號碼。如有需要、您可以顯示多機箱連結集合群組介面：「How MLAG interfaces」（如何MLAG介面）來存取介面編號
+
++
+.. 對於Mellanox交換器、請檢查輸出是否包含下列行：
++
+「介面MLAG連接埠通道xxx - xxx LACP個別啟用力」
+
+.. 對於Cisco交換器、請檢查輸出是否包含下列行：
++
+「介面MLAG連接埠通道xxx - xxx LACP暫停個別啟用強制」
+
+
+
+. 如果存在命令、請將其從組態中移除。
++
+.. 對於Mellanox交換器：
++
+「無介面MLAG連接埠通道xxx - xxx LACP個別啟用強制」
+
+.. 對於Cisco交換器：「無介面MLAG連接埠通道xxx至xxx LACP暫停個別啟用力」
+
+
+. 針對組態中的每個交換器重複這些步驟。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/SF_Series/SolidFire_Bond10G_goes_down_when_flapping_an_interface_during_troubleshooting["儲存節點在疑難排解期間當機"^]
+

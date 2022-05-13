@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_ensure_rancher_support_parity.html 
+summary: 瞭解如何確保Rancher所使用的授權與您所購買的產品相符。 
+keywords: netapp, hci, Rancher, licensing 
+---
+= 確保Rancher支援同位元檢查
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在NetApp HCI 將Rancher部署到支援中心之後、您必須確保您購買的Rancher支援核心數量、與您用於Rancher管理VM和使用者叢集的CPU核心數量相符。
+
+如果您購買的Rancher支援僅適用於NetApp HCI 部分的VMware運算資源、則必須在VMware vSphere中採取行動、確保Rancher on NetApp HCI VMware及其託管使用者叢集僅在您購買Rancher支援的主機上執行。請參閱VMware vSphere文件、以取得如何將運算工作負載限制在特定主機上、以協助確保達成此目標的相關資訊。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.avail.doc/GUID-E137A9F8-17E4-4DE7-B986-94A0999CF327.html["vSphere HA與DRS關聯規則"]
+* https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.resmgmt.doc/GUID-FBE46165-065C-48C2-B775-7ADA87FF9A20.html["建立VM反關聯規則"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

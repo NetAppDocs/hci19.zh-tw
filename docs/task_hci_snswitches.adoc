@@ -1,0 +1,294 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_snswitches.html 
+summary: 您可以依照NetApp提供的最佳實務做法和步驟、在不中斷營運的情況下更換故障的SN2000系列交換器。 
+keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S 
+---
+= 更換SN2010、SN2100和SN2700交換器
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以依照NetApp提供的最佳實務做法和步驟、在不中斷營運的情況下更換故障的SN2000系列交換器。
+
+.您需要的是 #8217 ；需要的是什麼
+* 請確定Putty已安裝在筆記型電腦上、而且您已擷取輸出。請觀看此影片、瞭解如何設定Putty以擷取輸出工作階段。
+
+
+video::2LZfWH8HffA[youtube, ]
+* 確保Config Advisor 在更換之前和之後執行NetApp功能。這有助於在維護開始之前識別其他問題。請下載並安裝Config Advisor 此功能、並從存取快速入門指南 link:https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor/download["此處（需要登入）"^]。
+* 取得電源線、基本手工具和標籤。
+* 請確定您已規劃兩到四小時的維護時間。
+* 熟悉下列交換器連接埠：
+
+
+[#img-sn2010]
+.SN2010交換器面板和連接埠
+image::sn2010.png[SN2010,600,400]
+
+[#img-sn2100]
+.SN2100交換器面板和連接埠
+image::sn2100.png[SN2100,600,400]
+
+[#img-sn2010/2100]
+.SN2010和SN2100交換器後端
+image::sn2010_rear.png[SN2010和SN2100後端,600,400]
+
+[#img-sn2700]
+.SN2700開關前後
+image::SN2700.png[SN2700前後,600,400]
+
+您應依照下列順序執行本程序中的步驟。這是為了確保停機時間最短、更換交換器之前已預先設定更換交換器。
+
+
+NOTE: 如需指引、請聯絡NetApp支援部門。
+
+以下是程序步驟的總覽：<<Prepare to replace the faulty switch>>
+<<Create the configuration file>>
+<<Remove the faulty switch and install the replacement>>
+<<Verify the operating system version on the switch>>
+<<Configure the replacement switch>>
+<<Complete the replacement>>
+
+
+
+== 準備更換故障的交換器
+
+在更換故障交換器之前、請先執行下列步驟。
+
+.步驟
+. 確認更換交換器的型號與故障交換器相同。
+. 標示連接至故障交換器的所有纜線。
+. 識別儲存交換器組態檔的外部檔案伺服器。
+. 請確定您已取得下列資訊：
++
+.. 用於初始組態的介面：RJ-45連接埠或序列終端機介面。
+.. 交換器存取所需的認證：無故障交換器和故障交換器的管理連接埠IP位址。
+.. 管理存取密碼。
+
+
+
+
+
+
+== 建立組態檔
+
+您可以使用所建立的組態檔來設定交換器。從下列選項中選擇一個、以建立交換器的組態檔。
+
+[cols="2*"]
+|===
+| 選項 | 步驟 
+
+
+| 從故障交換器建立備份組態檔  a| 
+. 使用SSH從遠端連線至交換器、如下列範例所示：
++
+[listing]
+----
+ssh admin@<switch_IP_address
+----
+. 如下列範例所示、進入組態模式：
++
+[listing]
+----
+switch > enable
+switch # configure terminal
+----
+. 如下列範例所示、尋找可用的組態檔：
++
+[listing]
+----
+switch (config) #
+switch (config) # show configuration files
+----
+. 將作用中的Bin組態檔儲存至外部伺服器：
++
+[listing]
+----
+switch (config) # configuration upload my-filename scp://myusername@my-server/path/to/my/<file>
+----
+
+
+
+
+| 從另一個交換器修改檔案、以建立備份組態檔  a| 
+. 使用SSH從遠端連線至交換器、如下列範例所示：
++
+[listing]
+----
+ssh admin@<switch_IP_address
+----
+. 如下列範例所示、進入組態模式：
++
+[listing]
+----
+switch > enable
+switch # configure terminal
+----
+. 將文字型組態檔從交換器上傳至外部伺服器、如下列範例所示：
++
+[listing]
+----
+switch (config) #
+switch (config) # configuration text file my-filename upload scp://root@my-server/root/tmp/my-filename
+----
+. 修改文字檔中的下列欄位、使其符合故障交換器：
++
+[listing]
+----
+## Network interface configuration
+##
+no interface mgmt0 dhcp
+   interface mgmt0 ip address XX.XXX.XX.XXX /22
+
+##
+## Other IP configuration
+##
+   hostname oldhostname
+----
+
+
+|===
+
+
+== 移除故障的交換器、然後安裝更換裝置
+
+執行步驟以移除故障交換器並安裝更換裝置。
+
+.步驟
+. 找到故障交換器上的電源線。
+. 在交換器重新開機後、標記並拔下電源線。
+. 在故障交換器上標示並拔下所有纜線、並加以固定、以免在交換器更換期間受損。
+. 從機架中取出交換器。
+. 在機架中安裝替換交換器。
+. 連接電源線和管理連接埠纜線。
++
+
+NOTE: 當使用AC電源時、交換器會自動開啟電源。沒有電源按鈕。系統狀態LED可能需要五分鐘才能變成綠色。
+
+. 使用RJ-45管理連接埠或序列終端介面連接交換器。
+
+
+
+
+== 驗證交換器上的作業系統版本
+
+驗證交換器上的OS軟體版本。故障交換器上的版本和正常交換器應該相符。
+
+.步驟
+. 使用SSH從遠端連線至交換器。
+. 進入組態模式。
+. 執行「show version」命令。請參閱下列範例：
++
+[listing]
+----
+SFPS-HCI-SW02-A (config) #show version
+Product name:      Onyx
+Product release:   3.7.1134
+Build ID:          #1-dev
+Build date:        2019-01-24 13:38:57
+Target arch:       x86_64
+Target hw:         x86_64
+Built by:          jenkins@e4f385ab3f49
+Version summary:   X86_64 3.7.1134 2019-01-24 13:38:57 x86_64
+
+Product model:     x86onie
+Host ID:           506B4B3238F8
+System serial num: MT1812X24570
+System UUID:       27fe4e7a-3277-11e8-8000-506b4b891c00
+
+Uptime:            307d 3h 6m 33.344s
+CPU load averages: 2.40 / 2.27 / 2.21
+Number of CPUs:    4
+System memory:     3525 MB used / 3840 MB free / 7365 MB total
+Swap:              0 MB used / 0 MB free / 0 MB total
+
+----
+. 如果版本不相符、您應該升級作業系統。請參閱 link:https://community.mellanox.com/s/article/howto-upgrade-switch-os-software-on-mellanox-switch-systems["Mellanox軟體升級指南"^] 以取得詳細資料。
+
+
+
+
+== 設定替換交換器
+
+執行步驟以設定更換交換器。請參閱 link:https://docs.mellanox.com/display/MLNXOSv381000/Configuration+Management["Mellanox組態管理"^] 以取得詳細資料。
+
+.步驟
+. 從適用於您的選項中選擇：
+
+
+[cols="2*"]
+|===
+| 選項 | 步驟 
+
+
+| 從Bin組態檔  a| 
+. 擷取Bin組態檔、如下列範例所示：
++
+[listing]
+----
+switch (config) # configuration fetch scp://myusername@my-server/path/to/my/<file>
+----
+. 載入您在上一個步驟中擷取的Bin組態檔、如下列範例所示：
++
+[listing]
+----
+switch (config) # configuration switch-to my-filename
+----
+. 輸入「yes」以確認重新開機。
+
+
+
+
+| 從文字檔  a| 
+. 將交換器重設為原廠預設值：
++
+[listing]
+----
+switch (config) # reset factory keep-basic
+----
+. 套用文字型組態檔：
++
+[listing]
+----
+switch (config) # configuration text file my-filename apply
+----
+. 將文字型組態檔從交換器上傳至外部伺服器、如下列範例所示：
++
+[listing]
+----
+switch (config) #
+switch (config) # configuration text file my-filename upload scp://root@my-server/root/tmp/my-filename
+----
++
+
+NOTE: 套用文字檔時、不需要重新開機。
+
+
+
+|===
+
+
+== 完成更換
+
+執行步驟以完成更換程序。
+
+.步驟
+. 使用標籤引導您插入纜線。
+. 執行NetApp Config Advisor 功能。從存取快速入門指南 link:https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor/download["此處（需要登入）"^]。
+. 驗證您的儲存環境。
+. 將故障交換器退回NetApp。
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
+

@@ -1,0 +1,148 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_ssh_management.html 
+summary: 您可以使用NetApp混合雲控制UI或REST API UI、在管理節點上停用及啟用SSH功能、或使用REST API UI來判斷SSH支援連線功能的狀態。 
+keywords: netapp, mnode, management node, ssh, disable, enable, rest api, hybrid, cloud, control, hcc 
+---
+= 管理管理節點上的SSH功能
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以使用REST API在管理節點（mNode）上停用、重新啟用或判斷SSH功能的狀態。提供SSH功能 link:task_mnode_enable_remote_support_connections.html["NetApp支援遠端支援通道（RST）工作階段存取"] 在執行管理服務2.18或更新版本的管理節點上、預設為停用。
+
+從管理服務的2.20開始、您可以使用NetApp混合雲控制UI、在管理節點上啟用和停用SSH功能。
+
+.您需要的是 #8217 ；需要的是什麼
+* * NetApp混合式雲端控制權限*：您擁有系統管理員權限。
+* *叢集管理員權限*：您具有儲存叢集管理員權限。
+* * Element軟體*：您的叢集執行NetApp Element 的是不支援功能的軟體11.3或更新版本。
+* *管理節點*：您已部署執行11.3版或更新版本的管理節點。
+* *管理服務更新*：
++
+** 若要使用NetApp混合雲控制UI、您已更新您的 https://mysupport.netapp.com/site/products/all/details/mgmtservices/downloads-tab["管理服務套裝組合"^] 至版本2.20.
+** 若要使用REST API UI、您已更新您的 https://mysupport.netapp.com/site/products/all/details/mgmtservices/downloads-tab["管理服務套裝組合"^] 至版本2.17。
+
+
+
+
+.選項
+* <<Disable or enable the SSH capability on the management node using NetApp Hybrid Cloud Control UI>>
+
+
+您可以在之後執行下列任何一項工作 link:task_mnode_api_get_authorizationtouse.html["驗證"]：
+
+* <<Disable or enable the SSH capability on the management node using APIs>>
+* <<Determine status of the SSH capability on the management node using APIs>>
+
+
+
+
+== 使用NetApp混合雲控制UI在管理節點上停用或啟用SSH功能
+
+您可以在管理節點上停用或重新啟用SSH功能。提供SSH功能 link:task_mnode_enable_remote_support_connections.html["NetApp支援遠端支援通道（RST）工作階段存取"] 在執行管理服務2.18或更新版本的管理節點上、預設為停用。停用SSH不會終止或中斷現有SSH用戶端工作階段與管理節點的連線。如果您停用SSH並選擇稍後重新啟用、則可以使用NetApp混合雲控制UI來執行此作業。
+
+
+NOTE: 若要啟用或停用使用SSH存取儲存叢集的支援、您必須使用 https://docs.netapp.com/us-en/element-software/storage/task_system_manage_cluster_enable_and_disable_support_access.html["Element UI叢集設定頁面"^]。
+
+.步驟
+. 從儀表板中、選取右上角的選項功能表、然後選取*設定*。
+. 在* Support Access for Management Nod*（*管理節點支援存取*）畫面中、切換交換器以啟用管理節點SSH。
+. 完成疑難排解之後、請在* Support Access for Management Nod*（*管理節點支援存取*）畫面中、切換交換器以停用管理節點SSH。
+
+
+
+
+== 使用API在管理節點上停用或啟用SSH功能
+
+您可以在管理節點上停用或重新啟用SSH功能。提供SSH功能 link:task_mnode_enable_remote_support_connections.html["NetApp支援遠端支援通道（RST）工作階段存取"] 在執行管理服務2.18或更新版本的管理節點上、預設為停用。停用SSH不會終止或中斷現有SSH用戶端工作階段與管理節點的連線。如果停用SSH並選擇稍後重新啟用、您可以使用相同的API來執行此作業。
+
+若為管理服務2.18或更新版本：
+
+[listing]
+----
+curl -k -X PUT "https://<<ManagementNodeIP>/mnode/2/settings/ssh?enabled=<false/true>" -H  "accept: application/json" -H  "Authorization: Bearer ${TOKEN}"
+----
+若為管理服務2.17或更早版本：
+
+[listing]
+----
+curl -X PUT "https://<ManagementNodeIP>/mnode/settings/ssh?enabled=<false/true>" -H  "accept: application/json" -H  "Authorization: Bearer ${TOKEN}"
+----
+
+NOTE: 您可以找到API命令使用的承載「$｛token｝」 link:task_mnode_api_get_authorizationtouse.html["授權"]。承載「$｛token｝」位於捲曲回應中。
+
+.REST API UI步驟
+. 輸入管理節點IP位址、然後輸入「/mnode/'：
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/
+----
+. 選擇*授權*並完成下列項目：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 選取*授權*以開始工作階段。
+.. 關閉視窗。
+
+
+. 從REST API UI中、選取*放置/設定、以供參考/ ssh *。
++
+.. 按一下*試用*。
+.. 將*已啟用*參數設為「假」以停用SSH、或將「真」設為重新啟用先前停用的SSH功能。
+.. 按一下*執行*。
+
+
+
+
+
+
+== 使用API判斷管理節點上SSH功能的狀態
+
+您可以使用管理節點服務API、判斷管理節點上是否已啟用SSH功能。在執行管理服務2.18或更新版本的管理節點上、SSH預設為停用。
+
+若為管理服務2.18或更新版本：
+
+[listing]
+----
+curl -k -X PUT "https://<<ManagementNodeIP>/mnode/2/settings/ssh?enabled=<false/true>" -H  "accept: application/json" -H  "Authorization: Bearer ${TOKEN}"
+----
+若為管理服務2.17或更早版本：
+
+[listing]
+----
+curl -X PUT "https://<ManagementNodeIP>/mnode/settings/ssh?enabled=<false/true>" -H  "accept: application/json" -H  "Authorization: Bearer ${TOKEN}"
+----
+
+NOTE: 您可以找到API命令使用的承載「$｛token｝」 link:task_mnode_api_get_authorizationtouse.html["授權"]。承載「$｛token｝」位於捲曲回應中。
+
+.REST API UI步驟
+. 輸入管理節點IP位址、然後輸入「/mnode/'：
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/
+----
+. 選擇*授權*並完成下列項目：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 選取*授權*以開始工作階段。
+.. 關閉視窗。
+
+
+. 從REST API UI中、選取* Get /setsettings（取得/設定）、以供參考/ ssh *。
++
+.. 按一下*試用*。
+.. 按一下*執行*。
+
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

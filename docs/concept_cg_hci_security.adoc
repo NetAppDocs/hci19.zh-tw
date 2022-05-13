@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_cg_hci_security.html 
+summary: 使用NetApp HCI 支援功能時、您的資料會受到業界標準安全傳輸協定的保護。 
+keywords: netapp, hci, security 
+---
+= 安全性NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用NetApp HCI 支援功能時、您的資料會受到業界標準安全傳輸協定的保護。
+
+
+
+== 儲存節點的靜止加密
+
+利用此功能、您可以加密儲存在儲存叢集上的所有資料。NetApp HCI
+
+儲存節點中所有能夠加密的磁碟機、都會在磁碟機層級使用AES 256位元加密。每個磁碟機都有自己的加密金鑰、這是在磁碟機初次初始化時建立的。啟用加密功能時、會建立全儲存叢集的密碼、然後將密碼區塊散佈到叢集中的所有節點。沒有單一節點儲存整個密碼。然後使用密碼來保護所有磁碟機的存取權。您需要密碼才能解除磁碟機鎖定、而且由於磁碟機正在加密所有資料、因此您的資料隨時都是安全的。
+
+當您在閒置時啟用加密時、儲存叢集的效能和效率不會受到影響。此外、如果您使用Element API或Element UI從儲存叢集移除啟用加密的磁碟機或節點、磁碟機上的「靜止加密」功能將會停用、磁碟機將會安全地清除、以保護先前儲存在這些磁碟機上的資料。移除磁碟機之後、您可以使用「RecureEraseDDrives」API方法來安全地清除磁碟機。如果您強制從儲存叢集移除磁碟機或節點、資料仍會受到整個叢集的密碼和磁碟機的個別加密金鑰保護。
+
+如需啟用和停用靜止加密的相關資訊、請參閱 http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-EE404D52-B621-4DE5-B141-2559768FB1D0.html["啟用及停用叢集加密"] 在VMware及Element文件中心。SolidFire
+
+
+
+== 軟體加密功能
+
+「軟體加密閒置」功能可將寫入儲存叢集中SSD的所有資料加密。這可在SolidFire 不含自我加密磁碟機（SED）的「企業級SDS」節點中提供一級加密層。
+
+
+
+== 外部金鑰管理
+
+您可以將Element軟體設定為使用協力廠商的KMIP相容金鑰管理服務（KMS）來管理儲存叢集加密金鑰。啟用此功能時、儲存叢集的整個叢集磁碟機存取密碼加密金鑰會由您指定的KMS管理。Element可使用下列主要管理服務：
+
+* Gemalto SafeNet KeySecure
+* KeySecure的SafeNet
+* HyTrust金鑰控制
+* Vormetric Data Security Manager
+* IBM安全金鑰生命週期管理程式
+
+
+如需設定外部金鑰管理的詳細資訊、請參閱 http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-057D852C-9C1C-458A-9161-328EDA349B00.html["外部金鑰管理入門"] 在VMware及Element文件中心。SolidFire
+
+
+
+== 多因素驗證
+
+多因素驗證（MFA）可讓您要求使用者在NetApp Element 登入時出示多種證據、以便透過該Web UI或儲存節點UI進行驗證。您可以將元素設定為僅接受多因素驗證、以便與現有的使用者管理系統和身分識別供應商整合、以進行登入。您可以將元素設定為與現有的SAML 2.0身分識別供應商整合、以便強制執行多種驗證配置、例如密碼與文字訊息、密碼與電子郵件訊息、或其他方法。
+
+您可以將多因素驗證與通用的SAML 2.0相容身分識別供應商（IDP）配對、例如Microsoft Active Directory Federation Services（ADFS）和Shiboleth.
+
+若要設定MFA、請參閱 http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-B1C8D8E2-CE95-41FD-9A3E-A0C424EC84F3.html["啟用多因素驗證"] 在VMware及Element文件中心。SolidFire
+
+
+
+== FIPS 140-2適用於HTTPS和靜止資料加密
+
+NetApp SolidFire 支援加密功能、以符合NetApp HCI 聯邦資訊處理標準（FIPS）140-2的密碼編譯模組要求。您可以在NetApp HCI 您的支援HTTPS SolidFire 通訊和磁碟機加密的情況下、在您的支援網站上啟用FIPS 140-2法規遵循。
+
+當您在叢集上啟用FIPS 140-2操作模式時、叢集會啟動NetApp密碼編譯安全模組（NCSM）、並利用FIPS 140-2第1級認證加密功能、將所有經由HTTPS傳輸的通訊資料、都能透過HTTPS傳輸到NetApp Element 該UI和API。您可以使用「EnablFeature」元素API搭配「FIPS」參數來啟用FIPS 140-2 HTTPS加密。在具有FIPS相容硬體的儲存叢集上、您也可以使用「具「FipsDrives」參數的「Enablfoes' Element API」、為閒置的資料啟用FIPS磁碟機加密。
+
+如需準備新儲存叢集以進行FIPS 140-2加密的詳細資訊、請參閱 http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-4645FF0D-3FCD-4440-91A9-A47F7BCC5C50.html["建立支援FIPS磁碟機的叢集"]。
+
+如需在已準備好的現有叢集上啟用FIPS 140-2的詳細資訊、請參閱 http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-api/GUID-F2726BCA-D59C-47EE-B86C-DC465C96563B.html["啟用功能元素API"]。

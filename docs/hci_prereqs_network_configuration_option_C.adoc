@@ -1,0 +1,100 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_configuration_option_C.html 
+summary: 深入瞭NetApp HCI 解功能豐富的網路組態選項C 
+keywords: netapp, hci, cabling, network configuration 
+---
+= 網路組態
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, cabling, network configuration
+
+
+[role="lead"]
+可利用多種不同的網路纜線和VLAN組態。NetApp HCI第三種組態（選項C）會使用六條網路纜線來連接具有原生VLAN的每個運算節點。
+
+
+
+== 組態選項C：使用原生VLAN的運算節點有六條纜線
+
+您可以部署NetApp HCI 不含標記VLAN的功能來處理儲存和虛擬化流量、而是仰賴交換器組態來分隔網路區段。您可以將此組態搭配vSphere Standard交換器或vSphere分散式交換器（需要VMware vSphere Enterprise Plus授權）使用。
+
+本文檔使用字母來表示H系列節點背面板上的網路連接埠。NetApp HCI
+
+以下是H410C儲存節點上的網路連接埠和位置：
+
+[#H35700E_H410C]
+image::HCI_ISI_compute_6cable.png[NetApp H410C儲存節點網路連接埠]
+
+以下是H410S儲存節點上的網路連接埠和位置：
+
+[#H410S]
+image::HCI_ISI_storage_cabling.png[NetApp H410S儲存節點網路連接埠]
+
+以下是H610S儲存節點上的網路連接埠和位置：
+
+[#H610S]
+image::H610S_back_panel_ports.png[NetApp H610S儲存節點網路連接埠]
+
+
+
+=== H410C、H410S和H610S節點的VLAN組態
+
+此拓撲選項在H410C、H410S和H610S節點上使用下列VLAN組態：
+
+|===
+| 使用的節點連接埠 | 網路名稱 | VLAN ID | 連接的交換器連接埠組態 
+
+
+| 運算和儲存節點上的連接埠A和B | 管理 | 100 | 原生 
+
+
+| 運算節點上的連接埠D和E | 儲存設備 | 105. | 原生 
+
+
+| 儲存節點上的連接埠C和D | 儲存設備 | 105. | 原生 
+
+
+| 運算節點上的連接埠C和F | vMotion | 107% | 原生 
+
+
+| 運算節點上的連接埠C和F | 虛擬機器 | 200、201 | 已標記 
+|===
+
+CAUTION: 部署此組態時、請務必小心設定交換器連接埠。此網路拓撲中的組態錯誤可能會導致部署問題難以診斷。
+
+下圖顯示此拓撲選項的網路組態概觀。在範例中、個別的交換器連接埠會設定適當的網路區段作為原生網路。
+
+image::hci_networking_config_scenario_2.png[HCI網路組態選項C映像]
+
+
+
+=== 交換器命令範例
+
+您可以使用下列交換器命令範例來設定NetApp HCI 用於節點的交換器連接埠。這些命令是以Cisco組態為基礎、但可能只需要對Mellanox交換器進行最少的變更。如需實作此組態所需的特定命令、請參閱交換器文件。
+
+您可以使用下列命令範例來設定用於管理網路的交換器連接埠。將介面名稱、說明和VLAN取代為組態的值。
+
+「介面｛介面名稱、例如：ethernetX/Y或GigabitethernetX/y/Z｝」、「說明｛所需說明、例如NetApp-HCI節點X-Porta|B｝」、「交換埠存取VLAN 100」、「平移樹狀連接埠類型edge」
+
+您可以使用下列命令範例來設定用於儲存網路的交換器連接埠。將介面名稱、說明和VLAN取代為組態的值。
+
+「介面｛介面名稱、例如：ethernetX/Y或GigabitethernetX/Y/Z｝」、「說明｛所需說明、例如NetApp-HCI節點X-PortC|D｝」、「mtu 9216」、「交換埠存取VLAN 105」、「平移樹狀連接埠類型edge」
+
+您可以使用下列命令範例來設定用於VMotion和虛擬機器網路的交換器連接埠。將介面名稱、說明和VLAN取代為組態的值。
+
+「介面｛介面名稱、例如ethernetX/Y或GigabitethernetX/y/Z｝」「描述｛所需的說明、例如NetApp-HCI節點X-PortC|F｝」「mtu 9216」「witchport mode trunk」「witchport trunk原生VLAN 107」「witchport trunk允許VLAN 200,201」「連接埠傳輸型端口傳輸樹狀結構」
+
+
+NOTE: 有些交換器可能需要在允許的VLAN清單中納入原生VLAN。請參閱特定交換器機型與軟體版本的說明文件。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

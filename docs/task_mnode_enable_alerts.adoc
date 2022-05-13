@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_enable_alerts.html 
+summary: 您可以設定設定來監控NetApp HCI 您的功能完善系統上的警示。 
+keywords: netapp, element, management node, mnode, ui, alerts, alert monitoring 
+---
+= 在NetApp HCI 不顯示的情況下設定警示監控
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以設定設定來監控NetApp HCI 您的功能完善系統上的警示。
+
+利用VMware vCenter警示監控功能、將VMware vCenter儲存叢集系統警示轉送至vCenter Server、讓您從vSphere Web Client介面檢視所有的for VMware警示。NetApp HCI NetApp HCI NetApp HCI
+
+
+NOTE: 這些工具並未設定或用於純儲存叢集、例如SolidFire VMware全快閃儲存設備。執行這些叢集的工具會產生下列的405錯誤、這是預期的設定：「webUIParse錯誤：伺服器的回應無效。405'
+
+. 開啟每個節點的管理節點UI（「https://[IP位址」：442`）。
+. 按一下「*警示監視器*」索引標籤。
+. 設定警示監控選項。
+
+
+
+
+== 警示監控選項
+
+[cols="2*"]
+|===
+| 選項 | 說明 
+
+
+| 執行警示監控測試  a| 
+執行監視器系統測試、檢查下列項目：
+
+* VMware vCenter連線功能NetApp HCI
+* 透過QoSSIOC服務所提供的資料存放區資訊、將NetApp HCI VMware vCenter與VMware vCenter配對
+* 目前NetApp HCI 的部分警示和vCenter警示清單
+
+
+
+
+| 收集警示 | 啟用或停用NetApp HCI 將VMware vCenter儲存警示轉送至vCenter。您可以從下拉式清單中選取目標儲存叢集。此選項的預設設定為「已啟用」。 
+
+
+| 收集最佳實務做法警示 | 啟用或停用將NetApp HCI 「VMware vCenter儲存最佳實務」警示轉送至vCenter。「最佳實務」警示是指由低於最佳化的系統組態所觸發的故障。此選項的預設設定為「已停用」。停用時NetApp HCI 、vCenter不會顯示「VMware vCenter儲存最佳實務做法」警示。 
+
+
+| 將支援資料傳送給AIQ  a| 
+控制從VMware vCenter到NetApp SolidFire Active IQ 的支援與監控資料流。
+
+選項如下：
+
+* 已啟用：所有vCenter警示、NetApp HCI 不完整儲存警示和支援資料都會傳送至NetApp SolidFire Active IQ 支援中心。這可讓NetApp主動支援及監控NetApp HCI 支援功能、以便在影響系統之前偵測並解決可能的問題。
+* 停用：不會NetApp HCI 將vCenter警示、不支援資料傳送至NetApp SolidFire Active IQ VMware。
+
+
+
+NOTE: 如果您使用NetApp部署引擎關閉*傳送資料至AIQ*選項、您必須 link:task_mnode_enable_activeIQ.html["啟用遙測"] 再次使用管理節點REST API從這個頁面設定服務。
+
+
+
+| 將運算節點資料傳送至AIQ  a| 
+控制支援與監控資料從運算節點流向NetApp SolidFire Active IQ 支援中心的流程。
+
+選項如下：
+
+* 已啟用：運算節點的支援與監控資料會傳輸至NetApp SolidFire Active IQ 支援中心、以主動支援運算節點硬體。
+* 停用：有關運算節點的支援與監控資料不會傳輸至NetApp SolidFire Active IQ 支援中心。
+
+
+
+NOTE: 如果您使用NetApp部署引擎關閉*傳送資料至AIQ*選項、您必須 link:task_mnode_enable_activeIQ.html["啟用遙測"] 再次使用管理節點REST API從這個頁面設定服務。
+
+|===
+[discrete]
+== 瞭解更多資訊
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

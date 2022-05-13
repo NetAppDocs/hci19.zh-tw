@@ -1,0 +1,130 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_task_validate_config_advisor.html 
+summary: 瞭解如何使用Active IQ Config Advisor NetApp驗證部署前的組態。 
+keywords: netapp, hci, element, configuration, validation 
+---
+= 利用Active IQ Config Advisor 功能驗證您的環境
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, element, configuration, validation
+
+
+[role="lead"]
+在您安裝完機架NetApp HCI 上的不完整硬體並執行NetApp HCI 安裝時、您必須先確認環境是否符合NetApp HCI 「人際網路」的要求。透過驗證網路、交換器和VMware vSphere組態、即可在您的環境中執行檢查。Active IQ Config Advisor此工具會產生一份報告、供您用來協助解決問題、您也可以將報告轉寄給專業服務工程師、以準備及排程安裝。
+
+
+
+== 安裝Active IQ Config Advisor
+
+下載Active IQ Config Advisor 並安裝可存取NetApp HCI 此功能的個人電腦。
+
+.步驟
+. 在網頁瀏覽器中、從「NetApp支援」功能表中選取*「工具」*、搜尋Active IQ Config Advisor 「支援」、然後下載工具。
++
+https://mysupport.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["NetApp支援網站>工具"^]。
+
++
+在您同意終端使用者授權合約（EULA）之後、會出現「Download（下載）」頁面。Microsoft Windows、Linux和Mac二進位檔可在*用戶端工具*窗格中找到。
+
+. 執行執行檔。
+. 選取語言、然後按一下「*確定*」。
+. 單擊 * 下一步 * 。
+. 閱讀EULA、然後按一下*我同意*。
+. 按一下「*安裝*」。
+. 確認Active IQ Config Advisor 已選取* Run Sise*、然後按一下* Finish *。
++
+經過短暫延遲之後、Active IQ Config Advisor 即可在新的瀏覽器視窗或索引標籤中開啟這個畫面。
+
+
+
+
+
+== 使用Active IQ Config Advisor
+
+在瀏覽器視窗中執行、收集網路和環境的相關資訊、並產生報告、供您用來解決可能會干擾到非執行功能部署的任何網路或組態問題。Active IQ Config Advisor NetApp HCI
+
+您已在Active IQ Config Advisor 可存取管理網路、VMware vCenter Server網路（如果您正在加入現有的VMware安裝）和NetApp HCI 交換器的裝置上安裝了VMware。
+
+
+NOTE: 如果您使用Mellanox交換器、而NetApp專業服務將其設定為部署的一部分、則不需要提供交換器資訊。
+
+僅執行唯讀檢查以收集資訊。Active IQ Config Advisor集合中不會修改任何組態。
+
+.步驟
+. 開放Active IQ Config Advisor 式
++
+系統會在網頁瀏覽器中顯示* Basic Settings*視窗。Config Advisor您可以在此定義全域集合設定、並加密集合結果。
+
+. 在「*加密設定*」區段中輸入通關密碼、以加密收集專案。
++
+如此可確保只有您能在建立此集合專案之後載入該集合專案。
+
+. 在*使用者驗證*區段輸入您的姓名和電子郵件地址、將此收藏報告識別為您的收藏報告。
+. 按一下「 * 儲存 * 」。
+. 按一下*建立新的資料收集*。
+. 在「*收藏類型*」下拉式功能表中選取「*解決方案型態*」。
+. 在NetApp HCI 「*設定檔*」下拉式功能表中選取「*」「*「預先部署*」。
+. 在*類型*欄中、針對每種類型的裝置、在NetApp HCI *動作*下拉式功能表中選取該類型裝置的數量。
++
+例如、如果您有三個Cisco交換器、請從該列的*「Actions」（動作）*「column」（欄）下拉式功能表中選擇3。此時會出現三列、每個您識別的Cisco交換器各一列。
+
++
+
+NOTE: 如果您使用Mellanox交換器、而NetApp專業服務將其設定為部署的一部分、則不需要提供交換器資訊。
+
+. 針對您識別的任何交換器、輸入管理IP位址和管理員認證。
+. 針對您識別的任何VMware vCenter Server、請執行下列其中一項：
++
+** 如果您要部署新的vCenter Server、請提供規劃用於伺服器的IP位址或完整網域名稱（FQDN）。
+** 如果您要加入現有的vCenter Server、請提供伺服器的IP位址或FQDN和系統管理員認證。
+
+
+. 選用：如果您新增交換器的資訊、請在「*交換器驗證*」區段中輸入運算和儲存節點的數量。
+. 選擇您計畫在*運算節點網路*區段中使用的運算節點纜線組態。
+. 在「*運算節點網路*」區段中、針對任何交換器輸入個別的交換器連接埠和任何您計畫用於管理、vMotion和儲存網路的VLAN標記。
+. 在「*儲存節點網路*」區段中、輸入您計畫用於管理和儲存網路的個別交換器連接埠和任何VLAN標記。
+. 在「*網路設定檢查*」區段中、輸入管理網路的IP位址和閘道IP位址、然後輸入DNS、NTP和vCenter Server的伺服器清單（如果您要部署的是NetApp HCI 採用VMware技術的新vCenter Server）。
++
+本節可讓Active IQ Config Advisor 支援部門確保管理網路可供使用、並確保DNS和NTP等服務正常運作。
+
+. 按一下「*驗證*」以確保您輸入的所有IP位址資訊和認證均有效。
+. 按一下*儲存或收集*。
++
+這會啟動收集程序、您可以在集合執行時查看進度、並即時記錄集合命令。「*進度*」欄會顯示每個收藏工作的彩色編碼進度列。
+
++
+image::config_advisor_job_progress_bar.png[職務進度列Active IQ Config Advisor]
+
++
+進度列會使用下列色彩來顯示狀態：
+
++
+** *綠色*：集合已完成、沒有命令失敗。您可以按一下「*動作*」功能表中的*檢視與分析*圖示、查看部署風險與建議。
+** *黃色*：集合已完成某些命令失敗。您可以按一下「*動作*」功能表中的*檢視與分析*圖示、查看部署風險與建議。
+** * Red*：集合失敗。您需要解決錯誤並再次執行集合。
+
+
+. 選用：收集完成後、您可以按一下任何收集列的雙筒狀圖示、查看執行的命令和收集的資料。
+. 選取*檢視與分析*索引標籤。
++
+本頁顯示環境的一般健全狀況報告。您可以選取圓形圖的某個區段、以查看這些特定檢查或問題說明的詳細資訊、以及解決可能會干擾部署成功的任何問題的建議。您可以自行解決這些問題、或向NetApp專業服務部門尋求協助。
+
+. 按一下「*匯出*」、將收藏報告匯出為PDF或Microsoft Word文件。
++
+
+NOTE: PDF與Microsoft Word文件輸出包含您部署的交換器組態資訊、NetApp專業服務會使用這些資訊來驗證網路設定。
+
+. 將匯出的報告檔案傳送給您的NetApp專業服務代表。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

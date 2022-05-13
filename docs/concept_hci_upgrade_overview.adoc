@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_upgrade_overview.html 
+summary: 您可以升級NetApp HCI 整個過程的所有元件。 
+keywords: netapp, hci, on premise, cluster, upgrade, element 
+---
+= 升級順序總覽
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以NetApp HCI 在部署完成後持續更新您的更新版、方法是依序升級NetApp HCI 所有的各種軟體元件。
+
+這些元件包括管理服務、HealthTools、NetApp混合雲控制、Element軟體、管理節點、運算韌體、運算驅動程式、 以及vCenter Server的Element外掛程式
+
+。 <<sys_upgrade_seq,系統升級順序>> 內容說明完成NetApp HCI 更新功能所需的工作。理想情況下、您可以執行這些程序、做為較大規模升級順序的一部分、而非隔離。如果需要元件型升級或更新、請參閱程序先決條件、以確保解決更多複雜性問題。
+
+。 xref:task_hci_upgrade_all_vsphere.adoc[vSphere升級順序] 包含Element Plug-in for vCenter Server內容、說明重新安裝Element Plug-in for vCenter Server所需的其他升級前和升級後步驟。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您執行的是管理節點11.3或更新版本。較新版本的管理節點採用模組化架構、可提供個別服務。
++
+
+TIP: 若要檢查版本、請登入管理節點、並在登入橫幅中檢視元素版本編號。如果您沒有11.3、請參閱 link:task_hcc_upgrade_management_node.html["升級管理節點"]。
+
+* 您已將管理服務升級至至少2.1.326版。
++
+使用NetApp混合式雲端控制進行升級的舊版服務組合版本無法使用。
+
+* 您已確保所有節點上的系統時間都已同步、且儲存叢集和節點的NTP設定正確。每個節點都必須在每個節點的Web UI（「https://[IP位址」：442`）中設定DNS名稱伺服器、且不會發生與時間偏移相關的未解決叢集故障。
+
+
+
+
+== 系統升級順序
+
+您可以使用下列順序來升級NetApp HCI 您的作業系統。
+
+.步驟
+. link:task_hcc_update_management_services.html["從混合雲控制系統更新管理服務"]。
++
+
+IMPORTANT: 如果您要將管理服務更新至2.16版或更新版本、而且執行的是管理節點11.3至11.8、則在更新管理服務之前、必須先增加管理節點VM的RAM。
+
++
+
+IMPORTANT: 您必須先更新至最新的管理服務套裝組合、才能升級Element軟體。
+
+. link:task_upgrade_element_latest_healthtools.html["（選用）升級至最新的HealthTools"]。
++
+
+NOTE: 只有在您執行的管理節點和元件軟體為11.1或更早版本時、才需要升級HealthTools。使用NetApp混合式雲端控制進行元素升級時、不需要HealthTools。
+
+. link:task_hcc_upgrade_element_prechecks.html["升級儲存設備之前、請先執行Element儲存設備健全狀況檢查"]。
+. link:task_hcc_upgrade_element_software.html["升級您的Element軟體與儲存韌體"]。
+. link:task_hcc_upgrade_storage_firmware.html["（選用）僅升級您的Element儲存韌體"]。
++
+
+NOTE: 當主要版本以外的新儲存韌體升級可供使用時、您可能會執行此工作。
+
+. link:task_hcc_upgrade_management_node.html["（選用）升級管理節點"]。
++
+
+NOTE: 不再需要升級管理節點作業系統、即可升級儲存叢集上的Element軟體。如果管理節點為11.3版或更新版本、您只需將管理服務升級至最新版本、即可使用NetApp混合雲控制系統執行元件升級。如果您基於其他理由（例如安全性補救）而想要升級管理節點作業系統、請依照您案例的管理節點升級程序進行。
+
+. link:task_vcp_upgrade_plugin.html["升級vCenter Server的Element外掛程式"]。
+. link:task_upgrade_compute_prechecks.html["在升級運算韌體之前執行運算節點健全狀況檢查"]。
+. link:task_hcc_upgrade_compute_node_drivers.html["更新運算節點驅動程式"]。
+. link:task_hcc_upgrade_compute_node_firmware.html["使用NetApp混合雲控制更新運算節點韌體"] 或 link:task_hcc_upgrade_compute_firmware_ansible.html["使用Ansible將運算韌體升級作業自動化"]。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/upgrade/task_sf_upgrade_all.html["升級NetApp SolidFire 的All Flash儲存系統"^]
+

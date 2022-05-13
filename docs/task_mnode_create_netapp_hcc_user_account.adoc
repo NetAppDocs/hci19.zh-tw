@@ -1,0 +1,275 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_create_netapp_hcc_role_vcenter.html 
+summary: 您必須先在vCenter中建立NetApp HCC角色、才能將vCenter資產或運算節點新增至管理節點。 
+keywords: netapp, mnode, management node, vcenter, hci, role 
+---
+= 在vCenter中建立NetApp HCC角色
+:allow-uri-read: 
+
+
+[role="lead"]
+建議您在vCenter中建立NetApp HCC角色、以便在安裝後、手動將vCenter資產（控制器）或運算節點（節點）新增至管理節點、或是修改現有的控制器或節點。
+
+此NetApp的「高效能」角色會將您的管理節點服務檢視限制在僅適用於NetApp的資產上。
+
+.關於這項工作
+* 本程序說明vSphere 6.7版提供的步驟。您的vSphere使用者介面可能與所述內容略有不同、視所安裝的vSphere版本而定。如需其他說明、請參閱VMware vCenter文件。
+* 至 link:task_mnode_create_netapp_hcc_role_vcenter.html#create-a-new-netapp-hcc-role["建立新的NetApp HCC角色"]、您必須先在vCenter中設定新的使用者帳戶、建立NetApp的HIT角色、然後指派使用者權限。
+* 對於NetApp ESXi主機組態、您應該將NDE建立的使用者帳戶更新為新的NetApp HCC角色：
++
+** 使用 link:task_mnode_create_netapp_hcc_role_vcenter.html#netapp-esxi-host-does-not-exist-in-a-vcenter-host-cluster["此選項"] 如果您的NetApp ESXi主機不存在於vCenter主機叢集內
+** 使用 link:task_mnode_create_netapp_hcc_role_vcenter.html#netapp-esxi-host-exists-in-a-vcenter-host-cluster["此選項"] 如果您的NetApp ESXi主機存在於vCenter主機叢集內
+
+
+* 您可以 link:task_mnode_create_netapp_hcc_role_vcenter.html#controller-asset-already-exists-on-the-management-node["設定控制器資產"] 已存在於管理節點上。
+* 使用新的NetApp HCC角色 link:task_mnode_create_netapp_hcc_role_vcenter.html#add-an-asset-or-a-compute-node-to-the-management-node["新增資產或運算節點"] 至管理節點。
+
+
+
+
+== 建立新的NetApp HCC角色
+
+在vCenter中設定新的使用者帳戶、建立NetApp HCC,然後指派使用者權限。
+
+
+
+=== 在vCenter中設定新的使用者帳戶
+
+請執行下列步驟、在vCenter中設定新的使用者帳戶。
+
+.步驟
+. 以「\administrator@vsphere.er'」或同等身分登入vSphere Web Client。
+. 從功能表中選取*管理*。
+. 在「*單一登入*」區段中、選取「*使用者*」和「*群組*」。
+. 在*網域*清單中、選取「vSphere.local」或您的LDAP網域。
+. 選取*新增使用者*。
+. 填寫「*新增使用者*」表單。
+
+
+
+
+=== 在vCenter中建立新的NetApp HCC角色
+
+請執行下列步驟、在vCenter中建立新的NetApp HCC角色。
+
+.步驟
+. 選取*編輯角色*、然後指派所需的權限。
+. 在左側導覽窗格中、選取*全域*。
+. 選擇*診斷*和*授權*。
+. 在左側導覽窗格中、選取*主機*。
+. 選擇*維護*、*電源*、*儲存分割區組態*和*韌體*。
+. 另存為「NetApp角色」。
+
+
+
+
+=== 將使用者權限指派給vCenter
+
+執行下列步驟、將使用者權限指派給vCenter中的新NetApp HCC角色。
+
+.步驟
+. 從功能表中選取*主機*和*叢集*。
+. 在左側導覽窗格中、選取下列其中一個選項：
++
+** 頂級vCenter。
+** 您所需的vCenter（如果您處於連結模式）。
++
+
+NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:https://docs.netapp.com/us-en/vcp/vcp_concept_linkedmode.html["vCenter連結模式"^] 僅限於本機儲存叢集。
+
+
+
+. 在右導覽窗格中、選取*權限*。
+. 選取「*+*」圖示以新增使用者。
++
+在「*新增權限*」視窗中新增下列詳細資料：
+
++
+.. 選取「vSphere.local」或您的LDAP網域
+.. 使用搜尋來尋找您在中建立的新使用者 <<Set up a new user account in vCenter>>。
+.. 選擇「NetApp角色」。
++
+
+IMPORTANT: Do * Not *選取* Propagate to子系*。
+
++
+image::mnode_new_HCC_role_vcenter.PNG[說明「新增權限」視窗]
+
+
+
+
+
+
+
+=== 將使用者權限指派給資料中心
+
+執行下列步驟、將使用者權限指派給vCenter中的資料中心。
+
+.步驟
+. 在左窗格中、選取*資料中心*。
+. 在右導覽窗格中、選取*權限*。
+. 選取「*+*」圖示以新增使用者。
++
+在「*新增權限*」視窗中新增下列詳細資料：
+
++
+.. 選取「vSphere.local」或您的LDAP網域。
+.. 使用搜尋來尋找您在中建立的新的HCC.使用者 <<Set up a new user account in vCenter>>。
+.. 選取「ReadOnly role」。
++
+
+IMPORTANT: Do * Not *選取* Propagate to子系*。
+
+
+
+
+
+
+
+=== 將使用者權限指派給NetApp HCI 各個資料存放區
+
+請執行下列步驟、將使用者權限指派給NetApp HCI vCenter中的「VMware資料中心」。
+
+.步驟
+. 在左窗格中、選取*資料中心*。
+. 建立新的儲存資料夾。在*資料中心*上按一下滑鼠右鍵、然後選取*建立儲存資料夾*。
+. 將所有NetApp HCI 的不完整資料存放區從儲存叢集和本機傳輸到運算節點、再傳輸到新的儲存資料夾。
+. 選取新的儲存資料夾。
+. 在右導覽窗格中、選取*權限*。
+. 選取「*+*」圖示以新增使用者。
++
+在「*新增權限*」視窗中新增下列詳細資料：
+
++
+.. 選取「vSphere.local」或您的LDAP網域。
+.. 使用搜尋來尋找您在中建立的新的HCC.使用者 <<Set up a new user account in vCenter>>。
+.. 選取「管理員角色」。
+.. 選擇*衍生至子項*。
+
+
+
+
+
+
+=== 將使用者權限指派給NetApp主機叢集
+
+執行下列步驟、將使用者權限指派給vCenter中的NetApp主機叢集。
+
+.步驟
+. 在左側導覽窗格中、選取NetApp主機叢集。
+. 在右導覽窗格中、選取*權限*。
+. 選取「*+*」圖示以新增使用者。
++
+在「*新增權限*」視窗中新增下列詳細資料：
+
++
+.. 選取「vSphere.local」或您的LDAP網域。
+.. 使用搜尋來尋找您在中建立的新的HCC.使用者 <<Set up a new user account in vCenter>>。
+.. 選擇「NetApp角色」或「系統管理員」。
+.. 選擇*衍生至子項*。
+
+
+
+
+
+
+== NetApp ESXi主機組態
+
+對於NetApp ESXi主機組態、您應該將NDE建立的使用者帳戶更新為新的NetApp HCC角色。
+
+
+
+=== NetApp ESXi主機不存在於vCenter主機叢集中
+
+如果vCenter主機叢集內不存在NetApp ESXi主機、您可以使用下列程序、在vCenter中指派NetApp HCC角色和使用者權限。
+
+.步驟
+. 從功能表中選取*主機*和*叢集*。
+. 在左側導覽窗格中、選取NetApp ESXi主機。
+. 在右導覽窗格中、選取*權限*。
+. 選取「*+*」圖示以新增使用者。
++
+在「*新增權限*」視窗中新增下列詳細資料：
+
++
+.. 選取「vSphere.local」或您的LDAP網域。
+.. 使用搜尋來尋找您在中建立的新使用者 <<Set up a new user account in vCenter>>。
+.. 選擇「NetApp角色」或「系統管理員」。
+
+
+. 選擇*衍生至子項*。
+
+
+
+
+=== NetApp ESXi主機存在於vCenter主機叢集中
+
+如果vCenter主機叢集內有NetApp ESXi主機與其他廠商ESXi主機、您可以使用下列程序、在vCenter中指派NetApp HCC角色與使用者權限。
+
+. 從功能表中選取*主機*和*叢集*。
+. 在左側導覽窗格中、展開所需的主機叢集。
+. 在右導覽窗格中、選取*權限*。
+. 選取「*+*」圖示以新增使用者。
++
+在「*新增權限*」視窗中新增下列詳細資料：
+
++
+.. 選取「vSphere.local」或您的LDAP網域。
+.. 使用搜尋來尋找您在中建立的新使用者 <<Set up a new user account in vCenter>>。
+.. 選擇「NetApp角色」。
++
+
+IMPORTANT: Do * Not *選取* Propagate to子系*。
+
+
+
+. 在左側導覽窗格中、選取NetApp ESXi主機。
+. 在右導覽窗格中、選取*權限*。
+. 選取「*+*」圖示以新增使用者。
++
+在「*新增權限*」視窗中新增下列詳細資料：
+
++
+.. 選取「vSphere.local」或您的LDAP網域。
+.. 使用搜尋來尋找您在中建立的新使用者 <<Set up a new user account in vCenter>>。
+.. 選擇「NetApp角色」或「系統管理員」。
+.. 選擇*衍生至子項*。
+
+
+. 針對主機叢集中的其餘NetApp ESXi主機重複上述步驟。
+
+
+
+
+== 管理節點上已存在控制器資產
+
+如果管理節點上已存在控制器資產、請執行下列步驟、使用「PUT /Assets /｛asset_id｝/controllers /｛controller_id｝」來設定控制器。
+
+.步驟
+. 存取管理節點上的mNode服務API UI：
++
+https://<ManagementNodeIP>/mnode`
+
+. 選取*授權*並輸入認證資料以存取API呼叫。
+. 選取「Get /Assets」（取得/資產）以取得父ID。
+. 選取「PUT /Assets /｛asset_id｝/controller/｛controller_id｝」。
++
+.. 在要求本文的帳戶設定中輸入建立的認證資料。
+
+
+
+
+
+
+== 將資產或運算節點新增至管理節點
+
+如果您需要在安裝後手動新增資產或運算節點（及BMC Assets）、請使用您在中建立的新的「期後」使用者帳戶 <<Set up a new user account in vCenter>>。如需詳細資訊、請參閱 link:task_mnode_add_assets.html["將運算和控制器資產新增至管理節點"]。
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

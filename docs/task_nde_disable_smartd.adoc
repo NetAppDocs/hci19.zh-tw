@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_disable_smartd.html 
+summary: 瞭解如何在部署NetApp HCI 完畢後、停用運算節點上的「shmartd」服務。 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere, ESXi, compute, smartd, polling 
+---
+= 停用NetApp HCI 在各個運算節點上的smartd服務
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+根據預設、「shmartd」服務會定期輪詢運算節點中的磁碟機。在部署NetApp HCI 完介紹之後、您應該在所有運算節點上停用此服務。
+
+.步驟
+. 使用SSH或本機主控台工作階段、使用root認證登入運算節點上的VMware ESXi。
+. 停止執行「shmartd（服務）：
++
+[listing]
+----
+/etc/init.d/smartd stop
+----
+. 防止在開機時啟動「shmartd（服務）：
++
+[listing]
+----
+chkconfig smartd off
+----
+. 在安裝的其他運算節點上重複這些步驟。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/SF_Series/SolidFire%3A_Turning_off_smartd_on_the_ESXi_hosts_makes_the_cmd_0x85_and_subsequent_%22state_in_doubt%22_messages_stop["關閉VMware ESXi中的smartd服務"^]
+* https://kb.vmware.com/s/article/2133286["VMware知識庫文章2133286"^]
+

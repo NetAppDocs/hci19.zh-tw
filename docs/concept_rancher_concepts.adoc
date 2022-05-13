@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_rancher_concepts.html 
+summary: 瞭解在NetApp HCI 將Rancher安裝到位後、您可能需要執行的工作。 
+keywords: netapp, hci, rancher, control plane, catalog, cluster, kubernetes 
+---
+= Rancher的NetApp HCI 概念
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+瞭解有關Rancher on NetApp HCI 支援的基本概念。
+
+* * Rancher伺服器*或*控制面板*：Rancher控制面板、有時稱為_Rancher伺服器_、負責配置、管理及監控開發與營運團隊使用的Kubernetes叢集。
+* *目錄*：目錄是GitHub儲存庫或Helm圖表儲存庫、其中填入已做好部署準備的應用程式。Rancher能夠使用Helm圖表目錄、讓您輕鬆重複部署應用程式。Rancher包含兩種型錄：內建全域型錄和自訂型錄。Trident部署為目錄。請參閱 https://rancher.com/docs/rancher/v2.x/en/helm-charts/legacy-catalogs/["有關目錄的Rancher文件"]。
+* *管理叢集*：Rancher on NetApp HCI VMware可在Rancher管理叢集上部署三部虛擬機器、您可以使用Rancher、混合雲控制和vCenter外掛程式來查看這些虛擬機器。管理叢集虛擬機器裝載Rancher伺服器、Rancher Kubernetes Engine（RKE）和Linux OS。
+* *使用者叢集*：這些下游的Kubernetes叢集會執行您的應用程式與服務。在Rancher的Kubernetes安裝中、管理叢集應與使用者叢集分開。任何由Rancher使用者從Rancher部署或匯入Rancher的叢集、均視為使用者叢集。
+* * Rancher節點範本*：混合式雲端控制使用Rancher節點範本來簡化部署。
++
+請參閱  https://rancher.com/docs/rancher/v2.x/en/user-settings/node-templates/["有關節點範本的Rancher文件"]。
+
+
+
+
+
+== Trident軟體與持續儲存概念
+
+Trident本身是Kubernetes原生應用程式、直接在Kubernetes叢集內執行。有了Trident、Kubernetes使用者（例如開發人員、資料科學家和Kubernetes管理員）可以使用他們已經熟悉的標準Kubernetes格式、建立、管理及互動持續儲存磁碟區。有了Trident、NetApp解決方案就能滿足Kubernetes叢集持續提出的Volume要求。
+
+有了Rancher、您就可以使用持續的Volume、這種磁碟區獨立存在於任何特定的Pod上、而且有自己的生命週期。使用Trident管理持續磁碟區宣告（PVCS）、可讓開發人員建立Pod時、不受其存取儲存設備的較低層級實作詳細資料的影響。
+
+當容器化應用程式發出持續磁碟區宣告（PVc）要求時、Trident會根據要求的參數、針對NetApp Element 位於不穩定環境中的不穩定軟體儲存層動態配置儲存空間NetApp HCI 。
+
+Rancher可在NetApp HCI 使用者叢集上執行各種功能、並在其中提供Trident目錄。根據預設、Rancher目錄中會提供Trident安裝程式、這是Rancher在NetApp HCI 執行方面的一部分。加入此目錄可簡化對使用者叢集的Trident部署。
+
+請參閱 link:task_rancher_trident.html["將Trident with Rancher安裝在NetApp HCI 支援的範圍內"]。
+
+如需詳細資料、請造訪 https://netapp-trident.readthedocs.io/en/stable-v20.10/introduction.html["Trident文件"]。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

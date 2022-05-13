@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_config_vsphere_overview.html 
+summary: 瞭解如何在NetApp HCI 部署過程中設定VMware vSphere。 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= VMware vSphere組態
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+使用VMware vSphere的vCenter Server和ESXi元件。NetApp HCIvCenter Server用於管理和監控安裝在每個運算節點上的VMware ESXi Hypervisor。您可以安裝及設定新的vSphere部署、也可以安裝NetApp Element 適用於vCenter Server的VMware外掛程式、也可以加入及擴充現有的vSphere部署。
+
+使用NetApp部署引擎安裝新的vSphere部署時、請注意下列注意事項：
+
+* NetApp部署引擎會安裝新的vCenter Server Appliance、並提供小型部署規模選項。
+* vCenter Server授權是暫時性的評估授權。若要在評估期間之後繼續運作、您必須從VMware取得新的授權金鑰、然後將其新增至vCenter Server授權目錄。
+
+
+
+NOTE: 如果vSphere庫存組態使用資料夾將NetApp HCI VMware叢集儲存在vCenter資料中心內、則某些作業NetApp HCI （例如擴充VMware運算資源）將會失敗。請確認NetApp HCI vSphere Web用戶端詳細目錄樹狀結構中的資料中心正下方、且未儲存在資料夾中。如需詳細資訊、請參閱NetApp知識庫文章。
+
+如果您安裝新的vCenter Server、可以在網路組態期間安裝vSphere標準交換器或vSphere分散式交換器（VDS）。VDS可在NetApp HCI 部署完成後、簡化且集中化地管理虛擬機器網路組態。在VMware上的雲端資料服務功能NetApp HCI 需要VDS；vSphere標準交換器不支援雲端資料服務。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

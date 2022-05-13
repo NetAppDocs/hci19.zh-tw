@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_configure_proxy_server.html 
+summary: 您可以使用REST API UI將運算和控制器資產新增至管理節點組態。 
+keywords: netapp, hci, mnode, api, management node, add proxy, proxy server 
+---
+= 設定Proxy伺服器
+:allow-uri-read: 
+
+
+[role="lead"]
+如果叢集位於Proxy伺服器之後、您必須設定Proxy設定、才能連線至公用網路。
+
+Proxy伺服器用於遙測收集器和反轉通道連線。如果您在安裝或升級期間尚未設定Proxy伺服器、可以使用REST API UI來啟用和設定Proxy伺服器。您也可以修改現有的Proxy伺服器設定或停用Proxy伺服器。
+
+用於設定Proxy伺服器更新、然後傳回管理節點目前的Proxy設定的命令。Proxy設定由Active IQ 下列項目使用：NetApp NetApp HCI 部署引擎部署的支援功能、以及管理節點上安裝的其他元件軟體公用程式、包括NetApp支援的反轉支援通道。
+
+.開始之前
+* 您應該知道所設定Proxy伺服器的主機和認證資訊。
+* 請確定您的叢集版本執行NetApp Element 的是更新版本的軟件。
+* 請確定您已部署執行11.3版或更新版本的管理節點。
+* （管理節點12.0及更新版本）您已在設定Proxy伺服器之前、將NetApp混合雲控制更新為管理服務2.16版。
+
+
+.步驟
+. 輸入管理節點IP位址、然後輸入「/mnodes（/ mnodes）：
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode
+----
+. 按一下*授權*或任何鎖定圖示、然後完成下列步驟：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 按一下*授權*開始工作階段。
+.. 關閉視窗。
+
+
+. 按一下*「PUT /settings」*。
+. 按一下*試用*。
+. 若要啟用Proxy伺服器、您必須將「US_PROProxy」設為true。輸入IP或主機名稱及Proxy連接埠目的地。
++
+Proxy使用者名稱、Proxy密碼和SSH連接埠為選用項目、若未使用、則應省略。
+
++
+[listing]
+----
+{
+"proxy_ip_or_hostname": "[IP or name]",
+"use_proxy": [true/false],
+"proxy_username": "[username]",
+"proxy_password": "[password]",
+"proxy_port": [port value],
+"proxy_ssh_port": [port value: default is 443]
+}
+----
+. 按一下*執行*。
+
+
+
+NOTE: 視環境而定、您可能需要重新開機管理節點。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

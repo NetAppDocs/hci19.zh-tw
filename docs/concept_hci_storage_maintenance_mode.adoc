@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_storage_maintenance_mode.html 
+summary: 如果您需要將儲存節點離線以進行軟體升級或主機修復等維護作業、您可以啟用該節點的維護模式、將I/O對儲存叢集其餘部分的影響降至最低。您可以同時使用設備節點和SolidFire 支援功能的企業SDS節點來執行維護模式。 
+keywords: netapp, hci, storage nodes, maintenance, mode 
+---
+= 維護模式
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您需要將儲存節點離線以進行軟體升級或主機修復等維護作業、您可以啟用該節點的維護模式、將I/O對儲存叢集其餘部分的影響降至最低。您可以同時使用設備節點和SolidFire 支援功能的企業SDS節點來執行維護模式。
+
+
+NOTE: 當儲存節點關機時、它會在「儲存」頁面的「節點狀態」欄中顯示*不可用*、因為此欄會從叢集的觀點顯示節點的狀態。節點的關機狀態會以節點主機名稱旁的*離線*圖示表示。
+
+只有當節點狀況良好（沒有任何封鎖叢集故障）、而且儲存叢集能夠承受單一節點故障時、您才能將儲存節點轉換為維護模式。當您為健全且容錯的節點啟用維護模式之後、該節點不會立即轉換、除非符合下列條件、否則會加以監控：
+
+* 節點上裝載的所有磁碟區都已容錯移轉
+* 節點不再是任何磁碟區的主節點
+* 每個容錯移轉的磁碟區都會指派一個暫用待命節點
+
+
+符合這些條件之後、節點便會轉換成維護模式。如果在5分鐘內未符合這些條件、節點將不會進入維護模式。
+
+停用儲存節點的維護模式時、會監控節點、直到符合下列條件為止：
+
+* 所有資料都會完全複寫到節點
+* 所有封鎖的叢集故障都已解決
+* 節點上裝載之磁碟區的所有暫用待命節點指派都已停用
+
+
+在符合這些條件之後、節點就會移出維護模式。如果在一小時內不符合這些條件、節點將無法從維護模式移轉。
+
+使用元素API使用維護模式時、您可以查看維護模式作業的狀態：
+
+* *停用*：未要求維護。
+* *容錯移轉至恢復*：節點無法從維護中恢復。
+* * RecoveringFromMaintenance *：節點正在從維護中恢復。
+* *準備維護*：正在採取行動、以允許節點執行維護作業。
+* *就緒型維護*：節點已準備好進行維護。
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/element-software/api/reference_element_api_enablemaintenancemode.html["使用Element API啟用維護模式"^]
+* https://docs.netapp.com/us-en/element-software/api/reference_element_api_disablemaintenancemode.html["使用Element API停用維護模式"^]
+* https://docs.netapp.com/us-en/element-software/api/concept_element_api_about_the_api.html["API文件NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

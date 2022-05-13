@@ -1,0 +1,243 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_required_network_ports.html 
+summary: TCP和udp連接埠、供NetApp HCI 使用。 
+keywords: netapp, hci, ports, tcp, udp 
+---
+= 網路連接埠需求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, ports, tcp, udp
+
+
+[role="lead"]
+您可能需要允許下列連接埠通過資料中心的邊緣防火牆、以便從遠端管理系統、允許資料中心外部的用戶端連線至資源、並確保內部服務能夠正常運作。視您使用系統的方式而定、可能不需要這些連接埠、URL或IP位址。除非另有說明、否則所有連接埠都是TCP。
+
+[NOTE]
+====
+NetApp混合雲控制網路UI和API可從NetApp線上軟體儲存庫下載軟體套件。因此、部分URL或IP位址可能會根據內容傳輸網路解析為其他URL或IP位址。如有可能、您應與網路工程師合作、使用下列一般步驟、將這些URL或IP位址新增至防火牆規則：
+
+.步驟
+. 使用wGet或Curl公用程式存取URL（例如support-sg-nawest.netapp.com）。
+. 如下列範例所示、檢查連線能力：
++
+image::network_ports.PNG[檢查連接埠連線能力]
+
+. 無法存取URL（與support-sg-nawest.netapp.com不同）。
+. 編輯防火牆規則以允許新的URL。
+. 重複上述步驟、直到存取嘗試成功為止。
+
+
+====
+下表使用下列縮寫：
+
+* MIP：管理IP位址、每節點位址
+* Sip：儲存IP位址、每節點位址
+* MVIP：管理虛擬IP位址
+* SVIP：儲存虛擬IP位址
+
+
+除非另有說明、否則表格中的所有連接埠都是TCP。
+
+|===
+| 來源 | 目的地 | 連接埠 | 說明 
+
+
+| 運算節點BMC / IPMI | 管理節點 | 111 TCP / udp | NetApp混合雲控制API通訊 
+
+
+| 運算節點BMC / IPMI | 管理節點 | 137-138 udp | NetApp混合雲控制API通訊 
+
+
+| 運算節點BMC / IPMI | 管理節點 | 445 | NetApp混合雲控制API通訊 
+
+
+| 運算節點BMC / IPMI | 管理節點 | 623 udp | 遠端管理控制傳輸協定（RMCP）連接埠。NetApp混合雲控制運算韌體升級所需。 
+
+
+| 運算節點BMC / IPMI | 管理節點 | 2049 TCP/IP | NetApp混合雲控制API通訊 
+
+
+| iSCSI用戶端 | 儲存叢集MVIP | 443.. | （選用）UI和API存取 
+
+
+| iSCSI用戶端 | 儲存叢集SVIP | 3260 | 用戶端iSCSI通訊 
+
+
+| iSCSI用戶端 | 儲存節點Sip | 3260 | 用戶端iSCSI通訊 
+
+
+| 管理節點 | 《fsupport.solidfire.com》 | 22 | 反轉SSH通道以支援存取 
+
+
+| 管理節點 | 儲存節點MIP | 22 | SSH存取以取得支援 
+
+
+| 管理節點 | DNS伺服器 | 53個TCP / udp | DNS查詢 
+
+
+| 管理節點 | 運算節點BMC / IPMI | 139. | NetApp混合雲控制API通訊 
+
+
+| 管理節點 | 儲存節點MIP | 442-44 | 使用者介面和API存取儲存節點和元件軟體升級 
+
+
+| 管理節點 | 儲存節點MVIP | 442-44 | 使用者介面和API存取儲存節點和元件軟體升級 
+
+
+| 管理節點 | 《23.32.74.122》、《216.240.21.15》 | 443.. | Element軟體升級 
+
+
+| 管理節點 | 基礎板管理控制器（BMC） | 443.. | 硬體監控和庫存連線（Redfish和IPMI命令） 
+
+
+| 管理節點 | 運算節點BMC / IPMI | 443.. | NetApp混合雲控制HTTPS通訊 
+
+
+| 管理節點 | 《onitoring.solidfire.com》 | 443.. | 儲存叢集報告Active IQ 功能 
+
+
+| 管理節點  a| 
+新版本通知：
+
+* https://support.netapp.com/aods/`
+
+
+軟體下載：
+
+* https://support-sg-emea.netapp.com`
+* https://support-sg-naeast.netapp.com`
+* https://support-sg-nawest.netapp.com`
+
+| 443.. | 管理節點服務升級 
+
+
+| 管理節點 | 儲存叢集MVIP | 443.. | 使用者介面和API存取儲存節點和元件軟體升級 
+
+
+| 管理節點 | VMware vCenter | 443.. | NetApp混合雲控制HTTPS通訊 
+
+
+| 管理節點 | 運算節點BMC / IPMI | 623 udp | 遠端管理控制傳輸協定（RMCP）連接埠。NetApp混合雲控制運算韌體升級所需。 
+
+
+| 管理節點 | VMware vCenter | 5988-5989 | NetApp混合雲控制HTTPS通訊 
+
+
+| 管理節點 | 見證節點 | 9442. | 每節點組態API服務 
+
+
+| 管理節點 | vCenter Server | 9443 | vCenter外掛程式登錄。登錄完成後、即可關閉連接埠。 
+
+
+| SNMP伺服器 | 儲存叢集MVIP | 161udp | SNMP輪詢 
+
+
+| SNMP伺服器 | 儲存節點MIP | 161udp | SNMP輪詢 
+
+
+| 儲存節點MIP | DNS伺服器 | 53個TCP / udp | DNS查詢 
+
+
+| 儲存節點MIP | 管理節點 | 80 | Element軟體升級 
+
+
+| 儲存節點MIP | S3/Swift端點 | 80 | （選用）與S3/Swift端點之間的HTTP通訊、以供備份與還原 
+
+
+| 儲存節點MIP | NTP伺服器 | 123 udp | NTP 
+
+
+| 儲存節點MIP | 管理節點 | 162 udp | （選用）SNMP設陷 
+
+
+| 儲存節點MIP | SNMP伺服器 | 162 udp | （選用）SNMP設陷 
+
+
+| 儲存節點MIP | LDAP伺服器 | 389個TCP/IP | （選用）LDAP查詢 
+
+
+| 儲存節點MIP | 管理節點 | 443.. | Element軟體升級 
+
+
+| 儲存節點MIP | 遠端儲存叢集MVIP | 443.. | 遠端複寫叢集配對通訊 
+
+
+| 儲存節點MIP | 遠端儲存節點MIP | 443.. | 遠端複寫叢集配對通訊 
+
+
+| 儲存節點MIP | S3/Swift端點 | 443.. | （選用）與S3/Swift端點之間的HTTPS通訊、以供備份與還原 
+
+
+| 儲存節點MIP | LDAPS伺服器 | 636 TCP / udp | LDAPS查詢 
+
+
+| 儲存節點MIP | 管理節點 | 10514 TCP / udp、514 TCP / udp | 系統記錄轉送 
+
+
+| 儲存節點MIP | 系統記錄伺服器 | 10514 TCP / udp、514 TCP / udp | 系統記錄轉送 
+
+
+| 儲存節點MIP | 遠端儲存節點MIP | 2181 | 叢集間通訊、以進行遠端複寫 
+
+
+| 儲存節點Sip | S3/Swift端點 | 80 | （選用）與S3/Swift端點之間的HTTP通訊、以供備份與還原 
+
+
+| 儲存節點Sip | 運算節點Sip | 442-44 | 運算節點API、組態與驗證、以及軟體庫存存取 
+
+
+| 儲存節點Sip | S3/Swift端點 | 443.. | （選用）與S3/Swift端點之間的HTTPS通訊、以供備份與還原 
+
+
+| 儲存節點Sip | 遠端儲存節點Sip | 2181 | 叢集間通訊、以進行遠端複寫 
+
+
+| 儲存節點Sip | 儲存節點Sip | 3260 | 節點間iSCSI 
+
+
+| 儲存節點Sip | 遠端儲存節點Sip | 4000至4020 | 遠端複寫節點對節點資料傳輸 
+
+
+| 系統管理員PC | 儲存節點MIP | 80 | （僅限英文）NetApp部署引擎的登陸頁面NetApp HCI 
+
+
+| 系統管理員PC | 管理節點 | 442-44 | HTTPS UI存取管理節點 
+
+
+| 系統管理員PC | 儲存節點MIP | 442-44 | HTTPS UI和API存取儲存節點、NetApp HCI （僅供參考）NetApp部署引擎中的組態與部署監控 
+
+
+| 系統管理員PC | 管理節點 | 443.. | HTTPS UI和API存取管理節點 
+
+
+| 系統管理員PC | 儲存叢集MVIP | 443.. | HTTPS UI和API存取儲存叢集 
+
+
+| 系統管理員PC | 儲存節點MIP | 443.. | HTTPS儲存叢集建立、部署後UI存取儲存叢集 
+
+
+| 系統管理員PC | 見證節點 | 8080 | 見證節點個別節點的Web UI 
+
+
+| vCenter Server | 儲存叢集MVIP | 443.. | vCenter外掛程式API存取 
+
+
+| vCenter Server | 管理節點 | 8443. | （選用）vCenter外掛程式QoSSIOC服務。 
+
+
+| vCenter Server | 儲存叢集MVIP | 844 | vCenter VASA供應商存取（僅VVols） 
+
+
+| vCenter Server | 管理節點 | 9443 | vCenter外掛程式登錄。登錄完成後、即可關閉連接埠。 
+|===
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

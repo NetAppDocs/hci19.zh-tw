@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_access_overview.html 
+summary: 根據NetApp HCI 您的環境、在使用多種方法之一部署NetApp部署引擎之前、請先存取NetApp部署引擎。 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= NetApp部署引擎存取選項總覽
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+若要部署NetApp HCI 功能、您必須透過指派給Bond1G介面的IPV4位址、存取其中一個NetApp H系列儲存節點上的NetApp部署引擎、而Bond1G介面是將儲存節點的連接埠A和B結合在一起的邏輯介面。此儲存節點將成為部署程序的控制儲存節點。視您的環境而定、您需要設定或從其中一個儲存節點擷取該IPv4位址。
+
+
+NOTE: 您只能使用儲存節點的Bond1G介面來存取NetApp部署引擎。不支援使用Bond10G介面、將連接埠C和D結合用於儲存節點的邏輯介面。
+
+請使用下列其中一種最能描述您網路環境的方法來存取NetApp部署引擎：
+
+|===
+| 案例 | 方法 
+
+
+| 您的環境中沒有DHCP | link:task_nde_access_no_dhcp.html["在沒有DHCP的環境中存取NetApp部署引擎"] 
+
+
+| 您的環境中有DHCP | link:task_nde_access_dhcp.html["在使用DHCP的環境中存取NetApp部署引擎"] 
+
+
+| 您想要手動指派所有IP位址 | link:task_nde_access_manual_ip.html["手動指派IP位址以存取NetApp部署引擎"] 
+|===
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:task_nde_access_ui_fqdn.html["設定完整網域名稱Web UI存取"^]
+

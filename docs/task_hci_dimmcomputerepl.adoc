@@ -1,0 +1,281 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_dimmcomputerepl.html 
+summary: 您可以更換NetApp HCI 出現故障的雙列直插式記憶體模組（DIMM）、而非更換整個節點。 
+keywords: netapp, hci, dimm, compute nodes 
+---
+= 更換運算節點中的DIMM
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以更換NetApp HCI 出現故障的雙列直插式記憶體模組（DIMM）、而非更換整個節點。
+
+.您需要的是 #8217 ；需要的是什麼
+* 在開始執行此程序之前、您應該已聯絡NetApp支援部門、並收到更換零件。在安裝替換產品時、將會提供相關支援。如果您尚未這麼做、請聯絡 https://www.netapp.com/us/contact-us/support.aspx["支援"]。
+* 您已計畫系統停機、因為您需要關閉或循環節點、並將節點開機至NetApp安全模式、才能存取終端使用者介面（TUI）。
+
+
+此程序適用於下列運算節點機型：
+
+* H410C節點。H410C節點已插入2U NetApp HCI 的機箱中。
+* H610C節點。機箱內建H610C節點。
+* H615C節點。機箱內建H615C節點。
++
+
+IMPORTANT: H410C和H615C節點包括來自不同廠商的DIMM。請確保不要在同一個機箱中混用不同廠商的DIMM。
+
++
+
+NOTE: 在H610C和H615C的情況下、「機箱」和「節點」這兩個詞彙可互換使用、因為節點和機箱不是獨立的元件。
+
+
+
+以下是更換運算節點中DIMM的步驟：
+
+* <<Prepare to replace the DIMM>>
+* <<Replace the DIMM from the chassis>>
+
+
+
+
+== 準備更換DIMM
+
+當DIMM發生問題時、VMware ESXi會顯示警示、例如「記憶體組態錯誤」、「記憶體不可修正的ECC」、「記憶體移轉至嚴重」和「記憶體臨界溫度過高」。即使警示在一段時間後消失、硬體問題仍可能持續存在。您應該診斷並解決故障的DIMM。您可以從vCenter Server取得故障DIMM的相關資訊。如果您需要的資訊超過vCenter Server提供的資訊、則必須在TUI中執行硬體檢查。
+
+.步驟
+. 識別記錄錯誤的插槽、如下所示：
++
+.. 若為H615C、請執行下列步驟：
++
+... 登入BMC UI。
+... 選擇*日誌與報告*>* IPMI事件日誌*。
+... 在事件記錄中、找出記憶體錯誤、並找出錯誤記錄所在的插槽。
++
+image::h615c_bmc_memoryerror.png[顯示H615C節點的BMC UI中不可修正的記憶體錯誤]
+
+
+
+.. 若為H410C、請執行下列動作：
++
+... 登入BMC UI。
+... 選擇*伺服器健全狀況*>*健全狀況事件記錄*。
+... 在事件記錄中、找出記憶體錯誤、並找出錯誤記錄所在的插槽。
++
+image::dimm_h410c_bmc.png[顯示H410C節點的BMC UI記憶體錯誤。]
+
+
+
+
+
+. 執行步驟以識別DIMM製造商的零件編號。
++
+
+IMPORTANT: H410C和H615C節點包括來自不同製造商的DIMM。您不應在同一個機箱中混用不同的DIMM類型。您應該識別故障DIMM的製造商、並訂購相同類型的更換產品。
+
++
+.. 登入BMC以啟動節點上的主控台。
+.. 按鍵盤上的* F2*可進入*自訂系統/檢視記錄*功能表。
+.. 出現提示時輸入密碼。
++
+
+NOTE: 設定NetApp HCI 時、密碼應與您在NetApp部署引擎中設定的密碼相符。
+
++
+image::node_console_step1.png[顯示用於輸入密碼以登入節點上的主控台的視窗。]
+
+.. 在System Customization（系統自訂）功能表中、按向下箭頭以瀏覽至疑難排解選項、然後按* Enter *。
++
+image::node_console_step2.png[顯示系統自訂功能表。]
+
+.. 在疑難排解模式選項功能表中、使用向上或向下箭頭來啟用ESXi Shell和SSH、這是預設停用的功能。
+.. 按兩次<Esc>鍵退出疑難排解選項。
+.. 使用下列其中一個選項執行「mbiosDump（最小傾印））指令：
++
+[cols="2*"]
+|===
+| 選項 | 步驟 
+
+
+| 選項A  a| 
+... 使用主機的IP位址和您定義的根認證、連線至ESXi主機（運算節點）。
+... 執行「mbiosDump」命令。請參閱下列輸出範例：
+
+
+[listing]
+----
+`Memory Device:#30
+Location: "P1-DIMMA1"
+Bank: "P0_Node0_Channel0_Dimm0"
+Manufacturer:"Samsung"
+Serial: "38EB8380"
+Asset Tag: "P1-DIMMA1_AssetTag (date:18/15)"
+Part Number: "M393A4K40CB2-CTD"
+Memory Array: #29
+Form Factor: 0x09(DIMM)
+Type: 0x1a (DDR4)
+Type Detail: 0x0080 (Synchronous)
+Data Width: 64 bits (+8 ECC bits)
+Size: 32 GB`
+----
+
+
+| 備選案文B  a| 
+... 按* Alt + F1*輸入Shell、然後登入節點以執行命令。
+
+
+|===
+
+
+. 如需後續步驟的協助、請聯絡NetApp支援部門。NetApp支援部門需要下列資訊來處理零件更換：
++
+** 節點序號
+** 叢集名稱
+** BMC UI的系統事件記錄詳細資料
+** 從「mbiosDump」命令輸出
+
+
+
+
+
+
+== 從機箱裝回DIMM
+
+在實際移除及更換機箱中故障的DIMM之前、請確定您已執行所有的 link:task_hci_dimmcomputerepl.html#prepare-to-replace-the-dimm["準備步驟"]。
+
+
+IMPORTANT: 應將DIMM裝回與其移出相同的插槽中。
+
+.步驟
+. 登入vCenter Server即可存取節點。
+. 在報告錯誤的節點上按一下滑鼠右鍵、然後選取選項、將節點置於維護模式。
+. 將虛擬機器（VM）移轉至其他可用主機。
++
+
+NOTE: 如需移轉步驟、請參閱VMware文件。
+
+. 關閉機箱或節點的電源。
++
+
+NOTE: 如果是H610C或H615C機箱、請關閉機箱電源。對於2U四節點機箱中的H410C節點、請僅關閉有故障DIMM的節點。
+
+. 拔下電源線和網路纜線、小心地將節點或機箱滑出機架、然後將其放在防靜電的平面上。
++
+
+TIP: 請考慮使用扭轉帶連接纜線。
+
+. 打開機箱蓋以更換DIMM之前、請先開啟防靜電保護。
+. 執行與節點模型相關的步驟：
++
+[cols="2*"]
+|===
+| 節點模式 | 步驟 
+
+
+| H410C  a| 
+.. 請將您先前記下的插槽編號/ ID與主機板上的編號相符、找出故障的DIMM。以下是顯示主機板上DIMM插槽編號的範例影像：
++
+image::h410c_dimmslot.png[顯示H410C節點主機板上的DIMM插槽編號。]
+
++
+image::h410c_dimmslot_2.png[顯示H410C節點主機板上DIMM插槽編號的最新檢視。]
+
+.. 向外按兩個固定夾、然後小心地將DIMM向上拉。以下是顯示固定夾的範例影像：
++
+image::h410c_dimm_clips.png[顯示H410C節點中DIMM的固定夾。]
+
+.. 正確安裝替換DIMM。當您將DIMM正確插入插槽時、兩個固定夾會鎖定到位。
++
+
+IMPORTANT: 請確定只觸碰DIMM的後端。如果您按下DIMM的其他部分、可能會導致硬體受損。
+
+.. 將節點安裝到NetApp HCI 「不協調」機箱中、確保節點在滑入定位時會發出卡響。
+
+
+
+
+| H610C  a| 
+.. 如下列圖所示提起機箱蓋：
++
+image::h610c_airflowcover.png[顯示H610C節點上的機箱蓋。]
+
+.. 鬆開節點背面的四顆藍色鎖定螺絲。以下是顯示兩個鎖定螺絲位置的範例影像、您可以在節點另一側找到另兩個鎖定螺絲：
++
+image::h610c_lockscrews.png[顯示H610C節點背面的鎖定螺絲。]
+
+.. 卸下兩個PCI卡擋片。
+.. 取下GPU和氣流護蓋。
+.. 請將您先前記下的插槽編號/ ID與主機板上的編號相符、找出故障的DIMM。以下是顯示主機板上DIMM插槽編號位置的範例影像：
++
+image::h610c_dimmslot.png[顯示H610C主機板上的DIMM插槽編號。]
+
+.. 向外按兩個固定夾、然後小心地將DIMM向上拉。
+.. 正確安裝替換DIMM。當您將DIMM正確插入插槽時、兩個固定夾會鎖定到位。
++
+
+IMPORTANT: 請確定只觸碰DIMM的後端。如果您按下DIMM的其他部分、可能會導致硬體受損。
+
+.. 裝回所有您移除的元件：GPU、氣流護蓋和PCI擋片。
+.. 鎖緊鎖定螺絲。
+.. 將機箱蓋放回節點上。
+.. 在機架中安裝H610C機箱、確保在將機箱滑入定位時、機箱發出卡響。
+
+
+
+
+| H615C  a| 
+.. 如下列圖所示提起機箱蓋：
++
+image::h615c_airflowcover.png[顯示H615C節點上的機箱蓋。]
+
+.. 移除GPU（如果H615C節點已安裝GPU）和通風蓋。
++
+image::h615c_gpu.png[顯示H615C節點上卸下的通風蓋。]
+
+.. 請將您先前記下的插槽編號/ ID與主機板上的編號相符、找出故障的DIMM。以下是顯示主機板上DIMM插槽編號位置的範例影像：
++
+image::h615c_dimmslot.png[顯示H615C主機板上的DIMM插槽編號。]
+
+.. 向外按兩個固定夾、然後小心地將DIMM向上拉。
+.. 正確安裝替換DIMM。當您將DIMM正確插入插槽時、兩個固定夾會鎖定到位。
++
+
+IMPORTANT: 請確定只觸碰DIMM的後端。如果您按下DIMM的其他部分、可能會導致硬體受損。
+
+.. 裝回通風蓋。
+.. 將機箱蓋放回節點上。
+.. 在機架中安裝H610C機箱、確保在將機箱滑入定位時、機箱發出卡響。
+
+
+|===
+. 插入電源線和網路纜線。確認所有連接埠指示燈均已亮起。
+. 如果在安裝時、節點前面的電源按鈕沒有自動開啟、請按下該按鈕。
+. 在vSphere中顯示節點之後、以滑鼠右鍵按一下名稱、使節點退出維護模式。
+. 驗證硬體資訊、如下所示：
++
+.. 登入基板管理控制器（BMC）UI。
+.. 選擇* System（系統）> Hardware Information（硬體資訊）*、然後檢查所列的DIMM。
+
+
+
+
+節點恢復正常作業後、請在vCenter中檢查摘要索引標籤、以確保記憶體容量符合預期。
+
+
+NOTE: 如果DIMM安裝不正確、節點將正常運作、但記憶體容量低於預期。
+
+
+TIP: 完成DIMM更換程序之後、您可以清除vCenter硬體狀態索引標籤上的警告和錯誤。如果您想要清除與您更換之硬體相關的錯誤記錄、可以執行此動作。 https://kb.vmware.com/s/article/2011531["深入瞭解"^]。
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
+

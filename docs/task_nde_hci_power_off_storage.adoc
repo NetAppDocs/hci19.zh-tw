@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_off_storage.html 
+summary: 瞭解如何關閉NetApp HCI 各個運算節點的電源。 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= 關閉NetApp HCI 適用於某個非系統的儲存資源
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+當您關閉NetApp HCI 用於支援功能的儲存資源時、您需要使用「停機」元素API方法來正確停止儲存節點。
+
+關閉運算資源之後、您可以使用網頁瀏覽器來關閉NetApp HCI 該儲存叢集的所有節點。
+
+. 登入儲存叢集、確認您已連線至正確的MVIP。
+. 確認iSCSI工作階段計數為零。
+. 瀏覽至*叢集>節點> Active*、並記錄叢集中所有作用中節點的節點ID。
+. 若要關閉NetApp HCI 支援功能的儲存叢集、請開啟網頁瀏覽器、然後使用下列URL來叫用關機和停止程序、 其中、「｛MVIP｝」是NetApp HCI 指介紹整個儲存系統的管理IP位址、而「nodes=[]」陣列則包含您在步驟2中記錄的節點ID。例如：
++
+[listing]
+----
+https://{MVIP}/json-rpc/1.0?method=Shutdown&nodes=[1,2,3,4]&option=halt
+----
+. 輸入叢集管理員使用者名稱和密碼。
+. 驗證API呼叫是否成功傳回、方法是驗證所有儲存叢集節點是否都包含在API結果的「成功」區段中。
++
+您已成功關閉所有NetApp HCI 的支援中心儲存節點。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

@@ -1,0 +1,140 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_supported_net_changes.html 
+summary: 深入瞭解部署NetApp HCI 後應執行的各項任務。 
+keywords: netapp, hci, deployment, review, deploy 
+---
+= 支援的網路變更
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+部署NetApp HCI 完功能後、您可以對預設的網路組態進行有限的變更。不過、為了順暢運作和正確偵測網路、需要某些設定。變更這些設定將會造成非預期的行為、並可能使您無法擴充運算與儲存資源。
+
+部署系統之後、您可以依照網路需求、對VMware vSphere中的預設網路組態進行下列變更：
+
+* 變更vSwitch名稱
+* 變更連接埠群組名稱
+* 新增及移除其他連接埠群組
+* 針對您新增的任何其他連接埠群組、變更vmnic介面容錯移轉順序
+
+
+
+
+== H300E、H500E、H700E和H410C運算節點
+
+支援下列H300E、H500E、H700E和H410C節點的網路組態。NetApp HCI
+
+以下是VMware vSphere分散式交換（VDS）的六介面組態。此組態僅在搭配VMware vSphere分散式交換器使用時受到支援、且需要VMware vSphere Enterprise Plus授權。
+
+|===
+| 網路功能 | VMkernel | vmnic（實體介面） 
+
+
+| 管理 | vmk0 | vmnic2（連接埠A）、vmnic3（連接埠B） 
+
+
+| ISCSI-A | vmk1. | vmnic5（連接埠E） 
+
+
+| ISCSI-B | vmk2. | vmnic1（連接埠D） 
+
+
+| vMotion | vmk3. | vmnic4（連接埠C）、vmnic0（連接埠F） 
+|===
+以下是採用VMware vSphere Standard Switching（VSS）的六介面組態。此組態使用VMware vSphere Standard交換器（VSS）。
+
+|===
+| 網路功能 | VMkernel | vmnic（實體介面） 
+
+
+| 管理 | vmk0 | vmnic2（連接埠A）、vmnic3（連接埠B） 
+
+
+| ISCSI-A | vmk2. | vmnic1（連接埠E） 
+
+
+| ISCSI-B | vmk3. | vmnic5（連接埠D） 
+
+
+| vMotion | vmk1. | vmnic4（連接埠C）、vmnic0（連接埠F） 
+|===
+以下是雙介面組態。此組態僅在搭配VMware vSphere分散式交換器（VDS）使用時才受支援、且需要VMware vSphere Enterprise Plus授權。
+
+|===
+| 網路功能 | VMkernel | vmnic（實體介面） 
+
+
+| 管理 | vmk0 | vmnic1（連接埠D）、vmnic5（連接埠E） 
+
+
+| ISCSI-A | vmk1. | vmnic1（連接埠E） 
+
+
+| ISCSI-B | vmk2. | vmnic5（連接埠D） 
+
+
+| vMotion | vmk3. | vmnic1（連接埠C）、vmnic5（連接埠F） 
+|===
+
+
+== H610C運算節點
+
+適用於H610C節點的下列網路組態。NetApp HCI
+
+此組態僅在搭配VMware vSphere分散式交換器（VDS）使用時才受支援、且需要VMware vSphere Enterprise Plus授權。
+
+
+NOTE: H610C上未使用連接埠A和B。
+
+|===
+| 網路功能 | VMkernel | vmnic（實體介面） 
+
+
+| 管理 | vmk0 | vmnic2（連接埠C）、vmnic3（連接埠D） 
+
+
+| ISCSI-A | vmk1. | vmnic3（連接埠D） 
+
+
+| ISCSI-B | vmk2. | vmnic2（連接埠C） 
+
+
+| vMotion | vmk3. | vmnic2（連接埠C）、vmnic3（連接埠D） 
+|===
+
+
+== H615C運算節點
+
+適用於H615C節點的下列網路組態。NetApp HCI
+
+此組態僅在搭配VMware vSphere分散式交換器（VDS）使用時才受支援、且需要VMware vSphere Enterprise Plus授權。
+
+|===
+| 網路功能 | VMkernel | vmnic（實體介面） 
+
+
+| 管理 | vmk0 | vmnic0（連接埠A）、vmnic1（連接埠B） 
+
+
+| ISCSI-A | vmk1. | vmnic0（連接埠B） 
+
+
+| ISCSI-B | vmk2. | vmnic1（連接埠A） 
+
+
+| vMotion | vmk3. | vmnic0（連接埠A）、vmnic1（連接埠B） 
+|===
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件軟體文件SolidFire"^]
+

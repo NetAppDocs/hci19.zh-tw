@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_logs.html 
+summary: 您可以使用REST API從管理ndoe上執行的服務擷取記錄。 
+keywords: netapp, element, management node, management services, mnode, logs 
+---
+= 從管理服務取得記錄
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以使用REST API從管理節點上執行的服務擷取記錄。您可以從所有公有服務提取記錄、或指定特定服務、並使用查詢參數來更妥善定義傳回結果。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您的叢集版本執行NetApp Element 的是更新版本的Software 11.3。
+* 您已部署執行11.3版或更新版本的管理節點。
+
+
+.步驟
+. 在管理節點上開啟REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode
+----
+. 選取*授權*或任何鎖定圖示、然後完成下列步驟：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 如果尚未填入此值、請將用戶端ID輸入為mnode-Client。
+.. 選取*授權*以開始工作階段。
+.. 關閉視窗。
+
+
+. 選擇* Get /logs*。
+. 選擇*試用*。
+. 指定下列參數：
++
+** 「行數」：輸入您要記錄傳回的行數。此參數是預設為1000的整數。
++
+
+TIP: 將行設為0、避免要求記錄內容的完整歷程記錄。
+
+** 「ince」：新增服務記錄起點的ISO-8601時間戳記。
++
+
+TIP: 在收集更廣泛時間的記錄時、請使用合理的「ince」參數。
+
+** 「service-name」：輸入服務名稱。
++
+
+TIP: 使用「Get /services」命令列出管理節點上的服務。
+
+** 「已停止」：設為「true」、可從已停止的服務擷取記錄。
+
+
+. 選擇*執行*。
+. 從回應本文中選取* Download*以儲存記錄輸出。
+
+
+[discrete]
+== 瞭解更多資訊
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

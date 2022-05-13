@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_select_inventory.html 
+summary: 瞭解如何在NetApp HCI 部署期間選擇不需節點的庫存。 
+keywords: netapp, hci, deployment, compatibility, nodes 
+---
+= 選取庫存
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在「* Inventory *」頁面上、NetApp部署引擎會自動偵測可用的運算和儲存節點、讓您選擇NetApp HCI 所有的支援資源並將其新增至部署。如果某個節點不符合部署需求、則無法選取該節點、而且問題會指出為錯誤。您可以將游標放在節點列中的錯誤上、以查看說明。在「Inventory」（資源清冊）頁面上選擇節點資源清冊時、系統會自動選取裝載NetApp部署引擎的儲存節點、您無法取消選取該節點。
+
+必須啟用巨型框架、才能正確偵測資源清冊。如果庫存中沒有節點或只有一部分節點出現、請確認NetApp HCI 用於支援節點的交換器連接埠（所有SFP+/SFP28介面）已設定巨型框架。
+
+.步驟
+. 在「* Inventory *」頁面上、檢視可用節點的清單。
++
+如果系統無法偵測到任何庫存、則會顯示錯誤。請先修正錯誤再繼續。如果您的系統使用DHCP進行IP位址指派、儲存設備和運算資源可能不會立即出現在資源清冊中。
+
+. 可選：如果資源未立即出現在清單中，或者您解決了錯誤並需要刷新清單，請單擊* Refresh Inventory（刷新清單）*。您可能需要多次重新整理庫存。
+. 選用：若要篩選節點屬性上的庫存、例如節點類型：
++
+.. 按一下「*運算節點*」或「*儲存節點*」清單標題中的「*篩選器*」。
+.. 從下拉式清單中選擇準則。
+.. 在下拉式清單下方、輸入符合條件的資訊。
+.. 按一下*新增篩選器*。
+.. 按一下作用中篩選器旁的* X*來清除個別篩選、或按一下篩選清單上方的* X*來清除所有篩選。
+
+
+. 從*運算節點*清單中選取系統隨附的所有運算節點。
++
+您必須至少選取兩個運算節點、才能繼續部署。
+
+. 從「*儲存節點*」清單中選取系統隨附的所有儲存節點。
++
+您必須至少選取兩個儲存節點、才能繼續部署。
+
+. 選用：如果儲存節點選擇方塊已標示旗標、則該儲存節點超過儲存叢集總容量的33%。請執行下列操作：
++
+** 清除標記儲存節點的選取方塊。
+** 選取其他儲存節點、以便在節點之間更平均地分配儲存叢集容量。
+
+
+. 按一下 * 繼續 * 。
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件軟體文件SolidFire"^]
+

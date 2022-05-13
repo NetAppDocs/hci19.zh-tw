@@ -1,0 +1,335 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_upgrades.html 
+summary: 您可以使用NetApp混合式雲端控制功能、將Rancher部署的元件升級至NetApp HCI 先前使用HCC安裝的版本。 
+keywords: netapp, hci, rancher, upgrade, hcc 
+---
+= 升級Rancher on NetApp HCI
+:allow-uri-read: 
+
+
+[role="lead"]
+若要升級Rancher軟體、您可以使用NetApp混合雲控制（HCC）UI或REST API。利用H一些 簡單的按鈕程序來升級Rancher部署元件、包括Rancher伺服器、Rancher Kubernetes引擎（RKE）、以及管理叢集的節點作業系統（以進行安全性更新）。您也可以使用API來協助自動化升級。
+
+可透過元件進行升級、而非使用累計套件。因此、有些元件升級（例如Ubuntu OS）的執行速度更快。升級只會影響您的Rancher伺服器執行個體和部署Rancher伺服器的管理叢集。升級至管理叢集節點的Ubuntu作業系統僅適用於關鍵的安全性修補程式、不會升級作業系統。無法從NetApp混合雲控制升級使用者叢集。
+
+.您需要的是 #8217 ；需要的是什麼
+* *管理權限*：您有儲存叢集管理員權限可執行升級。
+* *管理服務*：您已將管理服務套裝組合更新為最新版本。
+
+
+
+IMPORTANT: 您必須升級至最新的管理服務套件2.17或更新版本、才能使用Rancher功能。
+
+* *系統連接埠*：如果您使用NetApp混合式雲端控制進行升級、您已確保所需的連接埠已開啟。請參閱 link:rancher_prereqs_overview.html#required-ports["網路連接埠"] 以取得更多資訊。
+* *終端使用者授權合約（EULA）*：從管理服務的2.20開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來升級Rancher部署：
++
+.. 在Web瀏覽器中開啟管理節點的IP位址：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+.. 提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+.. 選取介面右上角附近的*升級*。
+.. 隨即顯示EULA。向下捲動、選取*我接受目前及所有未來更新*、然後選取*儲存*。
++
+
+NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動下載功能。您將會收到NetApp軟體更新與升級的更新、您可以自行決定是否安裝、也可以方便地安裝。您可以停用與NetApp線上軟體儲存庫的網路連線、以停用自動下載功能。
+
+
+
+
+
+請選擇下列其中一個升級程序：
+
+* <<Use NetApp Hybrid Cloud Control UI to upgrade a Rancher deployment>>
+* <<Use NetApp Hybrid Cloud Control API to upgrade a Rancher deployment>>
+
+
+
+
+== 使用NetApp混合雲控制UI來升級Rancher部署
+
+使用NetApp混合雲控制UI、您可以在Rancher部署中升級下列任何元件：
+
+* Rancher伺服器
+* Rancher Kubernetes引擎（RKE）
+* 節點OS安全性更新
+
+
+.您需要的是 #8217 ；需要的是什麼
+* 良好的網際網路連線。無法進行暗站升級（在沒有外部連線的站台進行升級）。
+
+
+.步驟
+. 在Web瀏覽器中開啟管理節點的IP位址：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 選取介面右上角附近的*升級*。
+. 在「*升級*」頁面上、選取* Rancher *。
+. 選取您要升級之軟體的*「動作」*功能表。
++
+** Rancher伺服器
+** Rancher Kubernetes引擎（RKE）
+** 節點OS安全性更新
+
+
+. 選擇* Upgrade（升級）*作為Rancher伺服器或RKE升級、或* Apply Upgrade（套用升級）*作為節點OS安全性更新。
++
+
+NOTE: 對於節點作業系統、安全性修補程式的無人值守升級會每日執行、但節點不會自動重新開機。套用升級之後、您會重新啟動每個節點、使安全性更新生效。
+
+
+
+此時會出現一個橫幅、指出元件升級成功。在NetApp混合雲控制UI顯示更新版本編號之前、可能會有最多2分鐘的延遲。
+
+
+
+== 使用NetApp混合雲控制API升級Rancher部署
+
+您可以使用API來升級Rancher部署中的下列任何元件：
+
+* Rancher伺服器
+* Rancher Kubernetes引擎（RKE）
+* 節點作業系統（用於安全性更新）
+
+
+您可以使用所選的自動化工具來執行管理節點上可用的API或REST API UI。
+
+.選項
+* <<Upgrade Rancher Server>>
+* <<Upgrade RKE>>
+* <<Apply node OS security updates>>
++
+
+NOTE: 對於節點作業系統、安全性修補程式的無人值守升級會每日執行、但節點不會自動重新開機。套用升級之後、您會重新啟動每個節點、使安全性更新生效。
+
+
+
+
+
+=== 升級Rancher伺服器
+
+.API命令
+. 啟動清單升級版本要求：
++
+[listing]
+----
+curl -X POST "https://<managementNodeIP>/k8sdeployer/1/upgrade/rancher-versions" -H "accept: application/json" -H "Authorization: Bearer ${TOKEN}"
+----
++
+
+NOTE: 您可以找到API命令使用的承載「$｛token｝」 link:task_mnode_api_get_authorizationtouse.html["授權"]。承載「$｛token｝」位於捲曲回應中。
+
+. 使用先前命令的工作ID取得工作狀態、並從回應中複製最新版本編號：
++
+[listing]
+----
+curl -X GET "https://<mNodeIP>/k8sdeployer/1/task/<taskID>" -H "accept: application/json" -H "Authorization: Bearer ${TOKEN}"
+----
+. 啟動Rancher伺服器升級要求：
++
+[listing]
+----
+curl -X PUT "https://<mNodeIP>/k8sdeployer/1/upgrade/rancher/<version number>" -H "accept: application/json" -H "Authorization: Bearer"
+----
+. 使用升級命令回應中的工作ID取得工作狀態：
++
+[listing]
+----
+curl -X GET "https://<mNodeIP>/k8sdeployer/1/task/<taskID>" -H "accept: application/json" -H "Authorization: Bearer ${TOKEN}"
+----
+
+
+.REST API UI步驟
+. 在管理節點上開啟管理節點REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/k8sdeployer/api/
+----
+. 選擇*授權*並完成下列項目：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 選取*授權*以開始工作階段。
+.. 關閉授權視窗。
+
+
+. 請查看最新的升級套件：
++
+.. 從REST API UI中、執行* POST / upgrete/ rancher版本*。
+.. 從回應複製工作ID。
+.. 使用上一步的工作ID執行* Get /taskesk/｛taskID｝*。
+
+
+. 從*/ taskesk/｛taskID｝*回應、複製您要用於升級的最新版本編號。
+. 執行Rancher伺服器升級：
++
+.. 在REST API UI中、使用上一步的最新版本編號執行* Pet / upgrade/rancheresiret/｛version｝*。
+.. 從回應複製工作ID。
+.. 使用上一步的工作ID執行* Get /taskesk/｛taskID｝*。
+
+
+
+
+當「PercentComplete」顯示「100」和「REsults」表示升級版本編號時、即表示升級成功。
+
+
+
+=== 升級RKE
+
+.API命令
+. 啟動清單升級版本要求：
++
+[listing]
+----
+curl -X POST "https://<mNodeIP>/k8sdeployer/1/upgrade/rke-versions" -H "accept: application/json" -H "Authorization: Bearer ${TOKEN}"
+----
++
+
+NOTE: 您可以找到API命令使用的承載「$｛token｝」 link:task_mnode_api_get_authorizationtouse.html["授權"]。承載「$｛token｝」位於捲曲回應中。
+
+. 使用先前命令的工作ID取得工作狀態、並從回應中複製最新版本編號：
++
+[listing]
+----
+curl -X GET "https://<mNodeIP>/k8sdeployer/1/task/<taskID>" -H "accept: application/json" -H "Authorization: Bearer ${TOKEN}"
+----
+. 啟動RKE升級要求
++
+[listing]
+----
+curl -X PUT "https://<mNodeIP>/k8sdeployer/1/upgrade/rke/<version number>" -H "accept: application/json" -H "Authorization: Bearer"
+----
+. 使用升級命令回應中的工作ID取得工作狀態：
++
+[listing]
+----
+curl -X GET "https://<mNodeIP>/k8sdeployer/1/task/<taskID>" -H "accept: application/json" -H "Authorization: Bearer ${TOKEN}"
+----
+
+
+.REST API UI步驟
+. 在管理節點上開啟管理節點REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/k8sdeployer/api/
+----
+. 選擇*授權*並完成下列項目：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 選取*授權*以開始工作階段。
+.. 關閉授權視窗。
+
+
+. 請查看最新的升級套件：
++
+.. 從REST API UI執行* POST / upgradeSI10/RKE版本*。
+.. 從回應複製工作ID。
+.. 使用上一步的工作ID執行* Get /taskesk/｛taskID｝*。
+
+
+. 從*/ taskesk/｛taskID｝*回應、複製您要用於升級的最新版本編號。
+. 執行RKE升級：
++
+.. 從REST API UI中、以上一步的最新版本編號執行* PUT /升級/Rke/｛version｝*。
+.. 從回應複製工作ID。
+.. 使用上一步的工作ID執行* Get /taskesk/｛taskID｝*。
+
+
+
+
+當「PercentComplete」顯示「100」和「REsults」表示升級版本編號時、即表示升級成功。
+
+
+
+=== 套用節點OS安全性更新
+
+.API命令
+. 啟動檢查升級要求：
++
+[listing]
+----
+curl -X GET "https://<mNodeIP>/k8sdeployer/1/upgrade/checkNodeUpdates" -H "accept: application/json" -H "Authorization: Bearer ${TOKEN}"
+----
++
+
+NOTE: 您可以找到API命令使用的承載「$｛token｝」 link:task_mnode_api_get_authorizationtouse.html["授權"]。承載「$｛token｝」位於捲曲回應中。
+
+. 使用先前命令的工作ID來取得工作狀態、並從回應中驗證是否有可用的最新版本編號：
++
+[listing]
+----
+curl -X GET "https://<mNodeIP>/k8sdeployer/1/task/<taskID>" -H "accept: application/json" -H "Authorization: Bearer ${TOKEN}"
+----
+. 套用節點更新：
++
+[listing]
+----
+curl -X POST "https://<mNodeIP>/k8sdeployer/1/upgrade/applyNodeUpdates" -H "accept: application/json" -H "Authorization: Bearer"
+----
++
+
+NOTE: 對於節點作業系統、安全性修補程式的無人值守升級會每日執行、但節點不會自動重新開機。套用升級之後、您會依序重新啟動每個節點、使安全性更新生效。
+
+. 使用升級「applyNodeUpdates」回應中的工作ID取得工作狀態：
++
+[listing]
+----
+curl -X GET "https://<mNodeIP>/k8sdeployer/1/task/<taskID>" -H "accept: application/json" -H "Authorization: Bearer ${TOKEN}"
+----
+
+
+.REST API UI步驟
+. 在管理節點上開啟管理節點REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/k8sdeployer/api/
+----
+. 選擇*授權*並完成下列項目：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 輸入用戶端ID為「mnode-client」。
+.. 選取*授權*以開始工作階段。
+.. 關閉授權視窗。
+
+
+. 確認是否有可用的升級套件：
++
+.. 在REST API UI中、執行* Get /Ugrade/checksNodeUpdates *。
+.. 從回應複製工作ID。
+.. 使用上一步的工作ID執行* Get /taskesk/｛taskID｝*。
+.. 從「*/ taskesk/｛taskID｝*」回應中、確認版本編號比目前套用至節點的版本編號更新。
+
+
+. 套用節點作業系統升級：
++
+
+NOTE: 對於節點作業系統、安全性修補程式的無人值守升級會每日執行、但節點不會自動重新開機。套用升級之後、您會依序重新啟動每個節點、使安全性更新生效。
+
++
+.. 從REST API UI中、執行* POST / upgrete/應用程式節點更新*。
+.. 從回應複製工作ID。
+.. 使用上一步的工作ID執行* Get /taskesk/｛taskID｝*。
+.. 從「*/ taskesk/｛taskID｝*」回應中、確認已套用升級。
+
+
+
+
+當「PercentComplete」顯示「100」和「REsults」表示升級版本編號時、即表示升級成功。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

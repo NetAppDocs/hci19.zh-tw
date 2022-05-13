@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_volumes.html 
+summary: 您可以使用「混合雲控制磁碟區」頁面監控系統中的磁碟區。 
+keywords: netapp, hci, on premise, volumes, storage, access groups, initiators, capacity, data protection, QoS 
+---
+= 監控儲存叢集上的磁碟區
+:allow-uri-read: 
+
+
+[role="lead"]
+這個系統使用Volume來配置儲存設備。SolidFire磁碟區是透過iSCSI或Fibre Channel用戶端透過網路存取的區塊裝置。您可以監控有關存取群組、帳戶、啟動器、已用容量、Snapshot資料保護狀態、iSCSI工作階段數目、以及與磁碟區相關的服務品質（QoS）原則的詳細資料。
+
+您也可以查看作用中與刪除磁碟區的詳細資料。
+
+使用此檢視時、您可能會先監控「已用容量」欄。
+
+只有在您擁有NetApp混合雲控制管理權限時、才能存取此資訊。
+
+.步驟
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在左側導覽藍色方塊中、選取NetApp HCI 「安裝不穩定」。
++
+混合雲控制儀表板隨即出現。
+
+. 在左側導覽中、選取叢集、然後選取* Storage *>* Volumes *。
++
+image::hcc_volumes_overview_active.png[「HCC Volume」頁面>「總覽」索引標籤影像]
+
+. 在「Volumes（磁碟區）」頁面上、使用下列選項：
++
+image::hcc_volumes_icons.png[「HCC Volume」頁面圖示]
+
++
+.. 按一下*篩選*圖示來篩選結果。
+.. 按一下*隱藏/顯示*圖示、即可隱藏或顯示欄。
+.. 按一下* Refresh*圖示即可重新整理資料。
+.. 按一下*下載*圖示、即可下載CSV檔案。
+
+
+. 監控已用容量欄。如果達到「警告」、「錯誤」或「嚴重」臨界值、則此色彩代表已使用的容量狀態：
++
+.. 警告-黃色
+.. 錯誤-橘色
+.. 嚴重-紅色
+
+
+. 在「Volumes（磁碟區）」檢視中、按一下標籤以查看有關磁碟區的其他詳細資料：
++
+.. *存取群組*：您可以查看從啟動器對應到磁碟區集合的磁碟區存取群組、以確保安全存取。
++
+請參閱相關資訊 link:concept_hci_volume_access_groups.html["Volume存取群組"]。
+
+.. *帳戶*：您可以查看使用者帳戶、讓用戶端能夠連線至節點上的磁碟區。當您建立Volume時、該磁碟區會指派給特定的使用者帳戶。
++
+請參閱相關資訊 link:concept_cg_hci_accounts.html["使用者帳戶NetApp HCI"]。
+
+.. *啟動器*：您可以看到磁碟區的iSCSI啟動器IQN或Fibre Channel WWPN。新增至存取群組的每個IQN都可存取群組中的每個磁碟區、而不需要CHAP驗證。每個新增至存取群組的WWPN都可讓光纖通道網路存取存取存取群組中的磁碟區。
+.. * QoS原則*：您可以看到套用至磁碟區的QoS原則。QoS原則會將最低IOPS、最高IOPS及尖峰IOPS的標準化設定套用至多個磁碟區。
++
+請參閱相關資訊 link:concept_hci_performance#qos-performance.html["效能與QoS原則"]。
+
+
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件文件SolidFire"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

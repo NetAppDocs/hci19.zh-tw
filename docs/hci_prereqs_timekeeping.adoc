@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_timekeeping.html 
+summary: 深入瞭NetApp HCI 解DNS與計時需求、瞭解有關功能的資訊。 
+keywords: netapp, hci, timekeeping, NTP, DNS 
+---
+= DNS與時間保留需求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, timekeeping, NTP, DNS
+
+
+[role="lead"]
+在部署之前、您需要為NetApp HCI 您的作業系統準備網域名稱系統（DNS）記錄、並收集NTP伺服器資訊。若要成功部署、需要具備正確DNS項目的DNS伺服器和NTP伺服器。NetApp HCI
+
+部署NetApp HCI 完下列DNS與時程伺服器前、請先準備好下列事項：
+
+* 為主機（例如個別運算或儲存節點）建立任何所需的DNS項目、並記錄主機項目如何對應至各自的IP位址。在部署期間、您需要為儲存叢集指派一個前置碼、以套用至每個主機；若要避免混淆、請在選擇前置碼時記住DNS命名計畫。
+* 如果您使用NetApp HCI 完整網域名稱來部署全新VMware vSphere安裝的VMware解決方法、則必須在部署之前、在任何使用中的DNS伺服器上為vCenter Server建立一筆指標（PTr）記錄和一筆位址（A）記錄。
+* 如果您只NetApp HCI 使用IP位址來部署全新vSphere安裝的VMware vCenter、則不需要為vCenter建立新的DNS記錄。
+* 需使用有效的NTP伺服器才能維持時間。NetApp HCI如果環境中沒有可用的時間伺服器、您可以使用該伺服器。
+* 確保所有儲存設備和運算節點時鐘彼此同步、以及您用來登入NetApp HCI 的設備時鐘與NetApp HCI Esynesure節點同步。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

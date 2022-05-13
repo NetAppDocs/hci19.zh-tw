@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_deploy_user_clusters.html 
+summary: 在NetApp HCI 將Rancher部署至支援資源集中之後、您可以設定使用者叢集、並將應用程式新增至這些叢集。 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes, control plane,  user cluster, workload 
+---
+= 部署使用者叢集與應用程式
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在NetApp HCI 將Rancher部署至支援資源集中之後、您可以設定使用者叢集、並將應用程式新增至這些叢集。
+
+
+
+== 部署使用者叢集
+
+部署完成後、開發與營運團隊即可部署Kubernetes使用者叢集、類似於任何Rancher部署、以便部署應用程式。
+
+. 使用Rancher部署結束時提供給您的URL存取Rancher UI。
+. 建立使用者叢集。請參閱有關的Rancher文件 https://rancher.com/docs/rancher/v2.x/en/quick-start-guide/workload/["部署工作負載"]。
+. 在Rancher上配置使用者叢集NetApp HCI 。請參閱有關的Rancher文件 https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["在Rancher中設定Kubernetes叢集"]。
+
+
+
+
+== 在使用者叢集上部署應用程式
+
+與任何Rancher部署類似、您可以在Kubernetes叢集上新增應用程式。
+
+請參閱有關的Rancher文件 https://rancher.com/docs/rancher/v2.x/en/deploy-across-clusters/["跨叢集部署應用程式"]。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

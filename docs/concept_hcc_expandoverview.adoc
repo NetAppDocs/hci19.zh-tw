@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hcc_expandoverview.html 
+summary: 您可以NetApp HCI 使用NetApp混合雲控制來擴充您的NetApp系統。 
+keywords: NetApp, HCI, on premise, expand, hcc, hybrid cloud control 
+---
+= 擴充總覽
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, cloud, onprem, documentation, help
+
+
+[role="lead"]
+您NetApp HCI 可以使用NetApp混合雲控制來擴充您的NetApp系統。您可以分別擴充儲存或運算資源、或同時擴充。
+
+
+NOTE: 新的和備用的H610S儲存節點可能會根據儲存叢集的現有Element軟體版本、有額外的安裝需求。如需詳細資訊、請聯絡NetApp支援部門。
+
+在NetApp HCI 將節點安裝到整個過程中之後、您可以使用NetApp混合雲控制來設定NetApp HCI 使用新資源的功能。支援範圍可偵測現有的網路組態、並在現有的網路和VLAN中提供組態選項（如果有）NetApp HCI 。
+
+
+NOTE: 如果您最近擴充了安裝、但新資產並未自動新增至組態、則可能需要手動新增資產。請參閱 link:task_mnode_work_overview.html["管理節點總覽"]。
+
+當vSphere叢集中有不同CPU世代的運算節點時、VMware增強型VMotion相容性（EVC）可確保VMotion功能正常運作。NetApp HCI當擴充需要EVC時NetApp HCI 、只要可能、即可自動啟用。
+
+在下列情況下、您可能需要手動變更vSphere用戶端中的EVC設定、才能完成擴充：
+
+* 現有的運算節點產生的CPU比您嘗試新增的運算節點還要新。
+* 控制vCenter執行個體不支援所需的EVC層級。
+* 您嘗試新增的運算節點所產生的CPU較控制vCenter執行個體的EVC設定舊。
+
+
+
+NOTE: 當您在NetApp HCI NetApp部署引擎中擴充支援的運算或儲存資源時、應連線至管理現有NetApp HCI 的VMware運算節點的vCenter執行個體。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:task_hcc_expand_compute.html["擴充NetApp HCI 各種運算資源"]
+* link:task_hcc_expand_storage.html["擴充NetApp HCI 功能"]
+* link:task_hcc_expand_compute_and_storage.html["同時擴充NetApp HCI 功能豐富的支援資源"]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

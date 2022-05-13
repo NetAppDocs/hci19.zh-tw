@@ -1,0 +1,161 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_storage_firmware_2.99.2.html 
+summary: 取得可下載並套用NetApp HCI 至各個節點之韌體套件版本資訊的連結。 
+keywords: netapp, hci, storage firmware 
+---
+= 儲存韌體產品組合2.99.2版本說明
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+從Element 12和管理服務2.14版開始、您可以使用NetApp混合雲控制UI和REST API、在儲存節點上執行純韌體升級。此程序不會升級Element軟體、可讓您在主要Element版本之外升級儲存韌體。
+
+
+
+== 新增功能
+
+儲存韌體套裝軟體2.99.2版包含各種錯誤修正與新功能、包括安全性弱點修正。您可以依照中的指示升級儲存韌體 link:task_hcc_upgrade_storage_firmware.html["升級儲存韌體"]。
+
+
+
+=== 更新韌體元件
+
+此韌體套件包含下列硬體元件韌體版本、更新版本以粗體顯示：
+
+|===
+| 元件 | SF-Series SolidFire | H410S | H610S 
+
+
+| BIOS | 不含 | NA2.1 | 3B06. 
+
+
+| BMC | 不含 | 6.84.00 | * 3.91.07* 
+
+
+| NIC / Mellanox | 不含 | 14.25.1020 | 14.25.1020 
+
+
+| RMS200 | ae3b8cc | ae3b8cc | - 
+
+
+| RMS300 | 7d842bc | 7d842bc | - 
+
+
+| NVDIMM、智慧型 | - | - | 3.1 
+
+
+| 每分鐘一次、智慧型 | - | - | 2.16 
+
+
+| NVDIMM、Michron Gen1 | - | - | 26.2c 
+
+
+| NVDIMM、Michron Gen2 | - | - | 253c 
+
+
+| PGEM、Michron | - | - | 1.40 
+
+
+| PM863、SED | GX T54404Q | GX T54404Q | - 
+
+
+| PM863、NSED | GX T59103Q | GX T59103Q | - 
+
+
+| PM883、SED | HXT7904Q | HXT7904Q | - 
+
+
+| Hawk-4、SED | 8ENP7101 | 8ENP7101 | - 
+
+
+| Hawk-4、NSED | 8ENP6101 | 8ENP6101 | - 
+
+
+| PM963、SED | - | - | CXV8202Q 
+
+
+| PM963、NSED | - | - | CXV8501Q 
+
+
+| PM983、SED | - | - | EDA540第2季 
+
+
+| PM983、NSED | - | - | EDA5700Q 
+
+
+| CD5、SED | - | - | 0109. 
+
+
+| CD5、NSED | - | - | 0109. 
+
+
+| CD5、FIPS | - | - | 0108 
+|===
+
+
+== 儲存韌體元件的變更
+
+|===
+
+
+| 元件 | 改善/變更 
+
+
+| H610S BMC 3.91.07  a| 
+* 改善BMC Flash耗損使用率
+
+
+|===
+
+
+== 已解決且已知的問題
+
+請參閱 https://mysupport.netapp.com/site/bugs-online/product["錯誤線上工具"^] 以瞭解已解決的問題及任何新問題的詳細資訊。
+
+
+
+=== 存取錯誤線上工具
+
+. 瀏覽至  https://mysupport.netapp.com/site/bugs-online/product["錯誤線上工具"^] 並從下拉式清單中選取* Element Software*：
++
+image::bol_dashboard.png[儲存韌體套裝軟體版本注意事項]
+
+. 在關鍵字搜尋欄位中、輸入「Storage韌體產品組合」、然後按一下「* New Search*：
++
+image::storage_firmware_bundle_choice.png[儲存韌體套裝軟體版本注意事項]
+
+. 畫面會顯示已解決或開啟的錯誤清單。您可以進一步精簡結果、如下所示：
++
+image::bol_list_bugs_found.png[儲存韌體套裝軟體版本注意事項]
+
+
+
+
+
+== 解決安全性弱點
+
+以下是本版本中已解決的安全性弱點：
+
+
+
+=== H610S BMC 3.91.07
+
+* -2019-20636
+* 2019年-11599、2020年-12126、2020年-12464、-2020-12114
+* 2016年7月1日、2016年6月1日、2011年3月2日、 CVE-2006-7254、CVE-2005-3590
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/hci/index.jsp["資訊中心NetApp HCI"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/SF_Series/How_to_update_iDRAC%2F%2FBIOS_firmware_on_SF_Series_nodes["KB：如何更新SF系列節點上的IDC/BIOS韌體"^]
+

@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_on_compute.html 
+summary: 瞭NetApp HCI 解如何在各個運算節點上發揮威力。 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= 開啟NetApp HCI 運算資源以供支援一個不必要的系統
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+排定的停機時間結束後、您可以開啟NetApp HCI 支援整個系統的運算資源。
+
+.步驟
+. 使用開啟儲存節點電源的相同步驟來開啟運算節點。
+. 當所有運算節點都正常運作時、請登入執行vCSA的ESXi主機。
+. 登入運算主機、確認它看到所有NetApp HCI 的資料存放區。對於典型NetApp HCI 的支援系統、您應該會看到所有ESXi本機資料存放區和至少下列共享資料存放區：
+
+
+[listing]
+----
+NetApp-HCI-Datastore-[01,02]
+----
+. 假設所有儲存設備都可存取、請依下列步驟開啟vCSA和任何其他必要的虛擬機器：
++
+.. 在瀏覽器中選取虛擬機器、選取您要啟動的所有虛擬機器、然後按一下*「Power On*（開機*）」按鈕。
+
+
+. 開啟虛擬機器電源後、請等待約5分鐘、然後使用網頁瀏覽器瀏覽至vCSA應用程式的IP位址或FQDN。
++
+如果等待時間不夠長、會出現一則訊息、指出vSphere Client Web伺服器正在初始化。
+
+. vSphere Client初始化之後、請登入並確認所有ESXi主機和虛擬機器均已上線。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

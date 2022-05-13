@@ -1,0 +1,179 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_edit_bmc_info.html 
+summary: 您可以使用NetApp混合雲控制來編輯基礎板管理控制器（BMC）連線資訊、NetApp HCI 以便讓支援鏈接至該資訊。 
+keywords: netapp, hci, BMC, connection, credentials, monitor 
+---
+= 編輯基礎板管理控制器連線資訊
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以在NetApp混合雲控制中、針對每個運算節點變更基礎板管理控制器（BMC）管理員認證。您可能需要在升級BMC韌體之前變更認證資料、或是解決NetApp混合雲控制系統中指出的「Hardware ID Not Available（硬體ID無法使用）」或「unable to Detect（無法偵測）」錯誤。
+
+叢集管理員變更BMC認證的權限。
+
+
+NOTE: 如果您在健全狀況檢查期間設定BMC認證、則在「*節點*」頁面上反映變更之前、最多可能會有2分鐘的延遲。
+
+選擇下列其中一個選項來變更BMC認證：
+
+* <<Use NetApp Hybrid Cloud Control to edit BMC information>>
+* <<Use the REST API to edit BMC information>>
+
+
+
+
+== 使用NetApp混合雲控制來編輯BMC資訊
+
+您可以使用NetApp混合雲控制儀表板編輯儲存的BMC認證資料。
+
+.步驟
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在左側導覽藍色方塊中、選取NetApp HCI 「安裝不穩定」。
++
+此時會出現NetApp混合雲控制儀表板。
+
+. 在左側導覽中、按一下*節點*。
+. 若要檢視運算資源清冊資訊、請按一下*運算*。
++
+隨即顯示運算節點清單。「* BMC Connection Status *（BMC連線狀態*）」欄顯示BMC連線嘗試每個運算節點的結果。如果運算節點的連線嘗試失敗、則此欄中會顯示該節點的錯誤訊息。
+
+. 若要新增或編輯發生BMC連線錯誤之運算節點的儲存BMC認證、請按一下錯誤訊息文字中的*編輯連線設定*。
+. 在出現的對話方塊中、為此運算節點的BMC新增正確的管理員使用者名稱和密碼。
+. 按一下「 * 儲存 * 」。
+. 針對任何遺失或不正確儲存BMC認證的運算節點、重複步驟6至8。
+
+
+
+NOTE: 更新BMC資訊會重新整理庫存、並確保管理節點服務知道完成升級所需的所有硬體參數。
+
+
+
+== 使用REST API編輯BMC資訊
+
+您可以使用NetApp混合雲控制REST API來編輯儲存的BMC認證。
+
+.步驟
+. 找出運算節點硬體標籤和BMC資訊：
++
+.. 在管理節點上開啟庫存服務REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. 按一下「*授權*」、然後完成下列項目：
++
+... 輸入叢集使用者名稱和密碼。
+... 輸入用戶端ID為「mnode-client」。
+... 按一下*授權*開始工作階段。
+... 關閉授權視窗。
+
+
+.. 在REST API UI中、按一下「* Get /Installations *（*取得/安裝*）」。
+.. 按一下*試用*。
+.. 按一下*執行*。
+.. 從回應中、複製安裝資產ID（「id」）。
+.. 在REST API UI中、按一下「* Get /Installations/{id}*」。
+.. 按一下*試用*。
+.. 將安裝資產ID貼到* id*欄位。
+.. 按一下*執行*。
+.. 從回應中、複製並儲存節點資產ID（'id'）、BMC IP位址（'bmcAddress'）和節點序號（'chassiserialNumber'）、以供後續步驟使用。
++
+[listing, subs="+quotes"]
+----
+"nodes": [
+  {
+    "bmcDetails": {
+      *"bmcAddress": "10.117.1.111",*
+      "credentialsAvailable": false,
+      "credentialsValidated": false
+    },
+    *"chassisSerialNumber": "221111019323",*
+    "chassisSlot": "C",
+    "hardwareId": null,
+    "hardwareTag": "00000000-0000-0000-0000-ac1f6ab4ecf6",
+    *"id": "8cd91e3c-1b1e-1111-b00a-4c9c4900b000",*
+----
+
+
+. 在管理節點上開啟硬體服務REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/hardware/2/
+----
+. 按一下「*授權*」、然後完成下列項目：
++
+.. 輸入叢集使用者名稱和密碼。
+.. 如果尚未填入值、請將用戶端ID輸入為「mnode-client」。
+.. 按一下*授權*開始工作階段。
+.. 關閉視窗。
+
+
+. 按一下「*放置/節點/｛hardware _id｝*」。
+. 按一下*試用*。
+. 在前面的「hardware _id」參數中輸入您儲存的節點資產ID。
+. 在有效負載中輸入下列資訊：
++
+|===
+| 參數 | 說明 
+
+
+| 《無言無言》 | 您在步驟1(f)中儲存的安裝資產ID（「id」）。 
+
+
+| 「BMCIP」 | 您在步驟1k中儲存的BMC IP位址（「bmcAddress」）。 
+
+
+| 「bmcPassword」 | 用於登入BMC的更新密碼。 
+
+
+| 「bmcUsername」 | 用於登入BMC的更新使用者名稱。 
+
+
+| 「週期號碼」 | 硬體的機箱序號。 
+|===
++
+有效負載範例：
+
++
+[listing]
+----
+{
+  "assetId": "7bb41e3c-2e9c-2151-b00a-8a9b49c0b0fe",
+  "bmcIp": "10.117.1.111",
+  "bmcPassword": "mypassword1",
+  "bmcUsername": "admin1",
+  "serialNumber": "221111019323"
+}
+----
+. 按一下「*執行*」以更新BMC認證。成功的結果會傳回類似下列的回應：
++
+[listing]
+----
+{
+  "credentialid": "33333333-cccc-3333-cccc-333333333333",
+  "host_name": "hci-host",
+  "id": "8cd91e3c-1b1e-1111-b00a-4c9c4900b000",
+  "ip": "1.1.1.1",
+  "parent": "abcd01y3-ab30-1ccc-11ee-11f123zx7d1b",
+  "type": "BMC"
+}
+----
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades["運算節點升級的已知問題與因應措施"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

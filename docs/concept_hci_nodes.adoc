@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_nodes.html 
+summary: 節點是群組為叢集的硬體、可作為區塊儲存或運算資源來存取。 
+keywords: netapp, hci, storage nodes, volumes, compute nodes, witness nodes, management node 
+---
+= 節點
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+節點是一種硬體或虛擬資源、可群組為叢集、以提供區塊儲存和運算功能。
+
+支援元件軟體可定義叢集的各種節點角色。NetApp HCI這四種節點角色類型為*管理節點*、*儲存節點*、*運算節點*和* NetApp HCI 《見證節點*》。
+
+
+
+== 管理節點
+
+管理節點（有時簡稱mNode）會與儲存叢集互動、以執行管理動作、但不是儲存叢集的成員。管理節點會透過API呼叫定期收集叢集相關資訊、並將此資訊回報Active IQ 給VMware以供遠端監控（若已啟用）。管理節點也負責協調叢集節點的軟體升級。
+
+管理節點是一部虛擬機器（VM）、可與一或多個元件軟體型儲存叢集平行執行。除了升級之外、它還可用於提供系統服務、包括監控和遙測、管理叢集資產和設定、執行系統測試和公用程式、以及啟用NetApp支援存取來進行疑難排解。從Element 11.3版本開始、管理節點就能做為微服務主機、以便在主要版本之外更快更新精選軟體服務。這些微服務或管理服務（例如Active IQ ：《Sfsscollector》（資料收集器）、適用於vCenter外掛程式的QoSSIOC、以及管理節點服務）會隨著服務組合而頻繁更新。
+
+
+
+== 儲存節點
+
+支援的硬體可提供儲存資源給某個系統。NetApp HCI NetApp HCI節點中的磁碟機包含區塊和中繼資料空間、可用於資料儲存和資料管理。每個節點都包含NetApp Element 一個原廠的Imagesoftware映像。利用「不受資料管理」擴充點、即可管理各個儲存節點。NetApp HCI NetApp Element
+
+
+
+== 運算節點
+
+支援運算節點的硬體可提供執行虛擬化所需的運算資源、例如CPU、記憶體和網路功能。NetApp HCI NetApp HCI由於每部伺NetApp HCI 服器都執行VMware ESXi、因此必須在vSphere的「主機與叢集」功能表的外掛程式之外、執行VMware ESXi運算節點管理（新增或移除主機）。無論是四節點儲存叢集或雙節點儲存叢集、NetApp HCI 最少運算節點數仍維持在兩個、以利進行部署。
+
+
+
+== 見證節點
+
+「支援節點」是在運算節點上執行的VM、與元件軟體型儲存叢集並行運作。NetApp HCI見證節點不裝載分區或區塊服務。見證節點可在儲存節點故障時啟用儲存叢集可用度。您可以使用與其他儲存節點相同的方式來管理及升級見證節點。儲存叢集最多可有四個見證節點。其主要目的是確保有足夠的叢集節點、以構成有效的整體仲裁。
+
+|===
+
+
+ a| 
+*最佳實務做法：*設定見證節點VM使用運算節點的本機資料存放區（預設為NDE）、不要在共享儲存區（例如SolidFire 、靜態儲存磁碟區）上設定。若要防止VM自動移轉、請將見證節點VM的Distributed Resource Scheduler（DRS）自動化層級設為*已停用*。如此可防止在同一個運算節點上執行見證節點、並建立非高可用度（HA）配對組態。
+
+|===
+
+TIP: 深入瞭解 link:hci_prereqs_witness_nodes.html["見證節點資源需求"^] 和 link:hci_prereqs_ip_address.html["見證節點IP位址需求"^]。
+
+
+NOTE: 在雙節點儲存叢集中、在見證節點發生故障時、至少會部署兩個見證節點來提供備援。當安裝過程安裝見證節點時NetApp HCI 、VM範本會儲存在VMware vCenter中、您可以在見證節點意外移除、遺失或毀損時、使用該範本來重新部署見證節點。如果您需要更換裝載見證節點的故障運算節點、也可以使用範本來重新部署見證節點。如需相關指示、請參閱「*重新部署兩節點和三節點儲存叢集的見證節點*」一節 link:task_hci_h410crepl.html["請按這裡"^]。
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/us/media/tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
+

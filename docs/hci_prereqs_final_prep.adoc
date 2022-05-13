@@ -1,0 +1,106 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_final_prep.html 
+summary: 瞭解在部署NetApp HCI 完整套功能之前、您需要完成的最終準備和組態。 
+keywords: netapp, hci, final preparations, requirements 
+---
+= 為每個節點設定IPMI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, final preparations, IPMI
+
+
+[role="lead"]
+在您安裝好NetApp HCI 機架、連接好纜線並啟動完您的支援硬體之後、您可以為每個節點設定智慧型平台管理介面（IPMI）存取。為每個IPMI連接埠指派IP位址、並在遠端IPMI存取節點後立即變更預設IPMI管理員密碼。
+
+
+
+== 先決條件
+
+在您驗證環境已準備好支援NetApp HCI 功能、並解決任何可能的問題之後、您必須在部署之前完成一些最終工作。
+
+* 確保Active IQ Config Advisor 您擁有一份來自於此的成功報告。
+* 收集有關您的網路、目前或計畫中的VMware基礎架構、以及計畫中的使用者認證資料的所有相關資訊。
+* 機架、纜線和電源供應NetApp HCI 器。
+
+
+
+
+== 手動指派IPMI連接埠IP位址
+
+動態主機組態傳輸協定（DHCP）預設會針對每NetApp HCI 個支援節點的IPMI連接埠啟用。如果IPMI網路不使用DHCP、您可以手動將靜態的IPv4位址指派給IPMI連接埠。
+
+請確定您有鍵盤、視訊和滑鼠（KVM）交換器或顯示器和鍵盤、可以用來存取每個節點的BIOS。
+
+使用方向鍵瀏覽BIOS。按下「Enter」（輸入）以選取標籤或選項。按下「Esc」返回先前的畫面。
+
+.步驟
+. 開啟節點電源。
+. 開機時、按下「顯示」鍵進入BIOS。
+. 選取IPMI索引標籤。
+. 選擇* BMC Network Configuration（BMC網路組態）*、然後按下「Enter」（輸入）。
+. 選擇* Yes*並按下「Enter」。
+. 選擇*組態位址來源*、然後按下「Enter」。
+. 選擇* Static *（靜態*）、然後按下「Enter」（輸入）。
+. 選取*站台IP位址*、然後輸入IPMI連接埠的新IP位址。完成後按下「Enter」。
+. 選取*子網路遮罩*、然後輸入IPMI連接埠的新子網路遮罩。完成後按下「Enter」。
+. 選取*閘道IP位址*、然後輸入IPMI連接埠的新閘道IP位址。完成後按下「Enter」。
+. 將乙太網路纜線的一端連接至IPMI連接埠、另一端連接至交換器。
++
+此節點的IPMI連接埠已可供使用。
+
+. 對於NetApp HCI 任何其他未設定IPMI連接埠的支援節點、請重複此程序。
+
+
+
+
+== 變更H410C和H410S節點的預設IPMI密碼
+
+設定IPMI網路連接埠後、您應該立即變更每個運算和儲存節點上IPMI系統管理員帳戶的預設密碼。
+
+您已為每個運算和儲存節點設定IPMI IP位址。
+
+.步驟
+. 在可連線到IPMI網路的電腦上開啟網頁瀏覽器、然後瀏覽至該節點的IPMI IP位址。
+. 在登入提示中輸入使用者名稱「admin」和密碼「admin」。
+. 登入後、按一下*組態*索引標籤。
+. 按一下「*使用者*」。
+. 選取「管理」使用者、然後按一下「*修改使用者*」。
+. 選取*變更密碼*核取方塊。
+. 在*密碼*和*確認密碼*欄位中輸入新密碼。
+. 按一下「*修改*」、然後按一下「*確定*」。
+. 對於NetApp HCI 任何其他使用預設IPMI密碼的S4H410C和H410S節點、請重複此程序。
+
+
+
+
+== 變更H610C、H615C和H610S節點的預設IPMI密碼
+
+設定IPMI網路連接埠後、您應該立即變更每個運算和儲存節點上IPMI系統管理員帳戶的預設密碼。
+
+您已為每個運算和儲存節點設定IPMI IP位址。
+
+.步驟
+. 在可連線到IPMI網路的電腦上開啟網頁瀏覽器、然後瀏覽至該節點的IPMI IP位址。
+. 在登入提示中輸入使用者名稱「root」和密碼「calvin」。
+. 登入後、按一下頁面左上角的功能表導覽圖示、即可開啟側邊列抽屜。
+. 按一下 * 設定 * 。
+. 按一下*使用者管理*。
+. 從清單中選取*系統管理員*使用者。
+. 啟用「*變更密碼*」核取方塊。
+. 在「*密碼*」和「*確認密碼*」欄位中輸入新的強式密碼。
+. 按一下頁面底部的*「Save"（儲存）*。
+. 針對NetApp HCI 任何其他使用預設IPMI密碼的S16h610C、H615C或H610S節點、重複此程序。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://help.monitoring.solidire.com["NetApp SolidFire Active IQ 產品文件"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

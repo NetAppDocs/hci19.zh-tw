@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_nodes.html 
+summary: 您可以使用「混合雲控制節點」頁面、同時檢視系統中的儲存設備和運算資產。 
+keywords: netapp, hci, on premise, cluster, inventory, nodes, storage, compute 
+---
+= 在節點頁面上檢視您的庫存
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以檢視系統中的儲存設備和運算資產、並判斷其IP位址、名稱和軟體版本。
+
+您可以檢視多個節點系統的儲存資訊、以及NetApp HCI 任何與雙節點或三節點叢集相關聯的任何支援節點節點節點節點。如果 link:concept_hcc_custom_protection_domains.html["自訂保護網域"^] 您可以查看指派給特定節點的保護網域。
+
+見證節點可管理叢集內的仲裁、不用於儲存。見證節點僅適用於NetApp HCI 不適用於All Flash儲存環境的部分。
+
+如需見證節點的詳細資訊、請參閱 link:concept_hci_nodes.html["節點定義"]。
+
+若為SolidFire 「企業版SDS」節點、您可以在「儲存設備」索引標籤上監控庫存。
+
+.步驟
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在左側導覽中、按一下*節點*。
++
+image::hcc_nodes_storage_2nodes.png[混合雲控制節點頁面影像]
+
++
+
+NOTE: 當您第一次啟動新的NetApp混合雲控制工作階段時、當管理節點管理許多叢集時、載入NetApp混合雲控制節點頁面可能會有延遲。載入時間視管理節點主動管理的叢集數量而定。後續產品發表時、您將會體驗更快的載入時間。
+
+. 在「節點」頁面的「*儲存設備*」索引標籤上、檢閱下列資訊：
++
+.. 雙節點叢集：「Storage（儲存設備）」索引標籤上會出現「雙節點」標籤、並列出相關的見證節點。
+.. 三節點叢集：會列出儲存節點和相關的見證節點。三節點叢集在待命狀態下部署見證節點、以在節點故障時維持高可用度。
+.. 具有四個節點以上的叢集：會顯示具有四個以上節點之叢集的資訊。見證節點不適用。如果您從兩或三個儲存節點開始、並新增更多節點、則見證節點仍會出現。否則、「見證節點」表格不會出現。
+.. 韌體套裝組合版本：從管理服務2.14版開始、如果叢集執行Element 12或更新版本、您可以看到這些叢集的韌體套裝組合版本。如果叢集中的節點上有不同的韌體版本、您可以在*韌體產品組合版本*欄中看到*多個*。
+.. 自訂保護網域：如果叢集上使用自訂保護網域、您可以看到叢集中每個節點的自訂保護網域指派。如果未啟用自訂保護網域、則不會顯示此欄。
+
+
+. 若要檢視運算資源清冊資訊、請按一下*運算*。
+. 您可以透過多種方式來處理這些頁面上的資訊：
++
+.. 若要篩選結果中的項目清單、請按一下*篩選*圖示、然後選取篩選條件。您也可以輸入篩選條件的文字。
+.. 若要顯示或隱藏欄、請按一下*顯示/隱藏欄*圖示。
+.. 若要下載表格、請按一下*下載*圖示。
+.. 若要新增或編輯發生BMC連線錯誤之運算節點的儲存BMC認證、請按一下「* BMC Connection Status *（* BMC連線狀態*）」欄中錯誤訊息文字中的「* Edit connection settings *（*編輯連線設定*）」。只有在運算節點的連線嘗試失敗時、此欄中才會顯示該節點的錯誤訊息。
+
+
+
+
+
+TIP: 若要檢視儲存設備和運算資源的數量、請參閱NetApp混合雲控制（HCC）儀表板。請參閱 link:task_hcc_dashboard.html["利用「HCC儀表 板」監控儲存與運算資源"]。
+
+
+NOTE: 若要在NetApp混合式雲端控制中管理運算節點、您必須 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/How_to_set_up_compute_node_management_in_NetApp_Hybrid_Cloud_Control["將運算節點新增至vCenter主機叢集"^]。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

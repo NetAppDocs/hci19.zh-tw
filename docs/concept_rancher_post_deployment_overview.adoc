@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_rancher_post_deployment_overview.html 
+summary: 瞭解在NetApp HCI 將Rancher安裝到位後、您可能需要執行的工作。 
+keywords: netapp, hci, Rancher, install, post installation, requirements, tasks 
+---
+= 部署後工作總覽
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在NetApp HCI 將Rancher部署到支援中心之後、您應該繼續進行部署後的活動。
+
+* link:task_rancher_ensure_rancher_support_parity.html["確保Rancher支援同位元檢查"]
+* link:task_rancher_config_anti_affinity.html["改善Rancher VM恢復能力"]
+* link:task_rancher_enable_monitoring.html["設定監控"]
+* link:task_rancher_trident.html["安裝Trident"]
+* link:task_trident_configure_networking.html["啟用使用者叢集的Trident支援"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

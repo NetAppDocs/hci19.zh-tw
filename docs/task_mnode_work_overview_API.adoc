@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_work_overview_API.html 
+summary: 您可以使用管理節點（mNode）API來升級系統服務、管理叢集資產和設定、執行系統測試和公用程式、設定Active IQ 供系統監控的版本、以及啟用或停用NetApp Support SSH存取功能進行疑難排解。 
+keywords: netapp, mnode api, management node api, rest api 
+---
+= 管理節點REST API UI總覽
+:allow-uri-read: 
+
+
+[role="lead"]
+透過使用內建的REST API UI（「https://<ManagementNodeIP>/mnode`」）、您可以執行或瞭解與管理節點服務相關的API、包括Proxy伺服器組態、服務層級更新或資產管理。
+
+您可以使用REST API執行的工作：
+
+
+
+=== 授權
+
+* link:task_mnode_api_get_authorizationtouse.html["取得使用REST API的授權"]
+
+
+
+
+=== 資產組態
+
+* link:task_mnode_enable_activeIQ.html["啟用Active IQ 支援功能和NetApp HCI 功能性監控"]
+* link:task_mnode_configure_proxy_server.html["設定管理節點的Proxy伺服器"]
+* link:task_mnode_multi_vcenter_config.html["為多個vCenter設定NetApp混合雲控制"]
+* link:task_mnode_add_assets.html["將運算和控制器資產新增至管理節點"]
+* link:task_mnode_manage_storage_cluster_assets.html["建立及管理儲存叢集資產"]
+
+
+
+
+=== 資產管理
+
+* link:task_mnode_edit_vcenter_assets.html["檢視或編輯現有的控制器資產"]
+* link:task_mnode_manage_storage_cluster_assets.html["建立及管理儲存叢集資產"]
+* link:task_mnode_remove_assets.html["從管理節點移除資產"]
+* link:task_hcc_collectlogs.html#use-the-rest-api-to-collect-netapp-hci-logs["使用REST API來收集NetApp HCI 資訊記錄"]
+* link:task_mnode_api_find_mgmt_svcs_version.html["驗證管理節點作業系統和服務版本"]
+* link:task_mnode_logs.html["從管理服務取得記錄"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:task_mnode_access.html["存取管理節點"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

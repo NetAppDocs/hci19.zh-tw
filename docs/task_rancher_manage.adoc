@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_manage.html 
+summary: 深入瞭解如何在NetApp HCI 功能不完整的基礎上管理Rancher。 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes, control plane, monitor, user cluster, workload 
+---
+= 在NetApp HCI 支援的基礎上管理Rancher
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在NetApp HCI 將Rancher部署到位後、您可以檢視Rancher伺服器叢集URL和狀態。您也可以刪除Rancher伺服器。
+
+
+
+== 識別Rancher伺服器叢集URL和狀態
+
+您可以識別Rancher伺服器叢集URL並判斷伺服器狀態。
+
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 從儀表板中、選取右上角的「選項」圖示、然後選取「*設定*」。
++
+image::hcc_configure.png[Rancher組態頁面]
+
++
+「Rancher伺服器叢集」頁面會顯示已部署的Rancher伺服器叢集清單、相關的URL和狀態。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:task_rancher_remove_deployment.html["移除Rancher"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

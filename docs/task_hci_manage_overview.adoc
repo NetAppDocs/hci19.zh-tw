@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_manage_overview.html 
+summary: 您可以設定FQDN並管理NetApp HCI 身分證明、以利使用者帳戶、儲存叢集、磁碟區、Volume存取群組、 啟動器、Volume QoS原則和管理節點。 
+keywords: netapp, hci, install, deploy, get started, configure, fqdn, fully qualified domain name 
+---
+= 介紹管理概述NetApp HCI
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以設定完整網域名稱、並管理NetApp HCI 有關以下項目的認證資料： 啟動器、Volume QoS原則和管理節點。
+
+以下是您可以使用的項目：
+
+* link:task_nde_access_ui_fqdn.html["設定完整網域名稱Web UI存取"]
+* link:task_post_deploy_credentials.html["變更NetApp HCI 身分證明"]
+* link:task_hci_credentials_vcenter_esxi.html["更新vCenter和ESXi認證資料"]
+* link:task_hcc_manage_storage_overview.html["管理NetApp HCI 不一致的儲存資產"]
+* link:task_mnode_work_overview.html["使用管理節點"]
+* link:concept_nde_hci_power_off_on.html["關閉NetApp HCI 或開啟您的系統電源"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+

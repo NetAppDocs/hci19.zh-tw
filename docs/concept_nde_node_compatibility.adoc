@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_node_compatibility.html 
+summary: 深入瞭NetApp HCI 解部署過程中的哪些節點相容性需求。 
+keywords: netapp, hci, deployment, compatibility, nodes 
+---
+= 庫存選擇與節點相容性
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您選擇部署節點時、某些限制會套用至您可在同一個部署中組合的節點組態。
+
+
+
+== 儲存節點相容性
+
+支援儲存節點和磁碟機、具備SED（自我加密磁碟機）和FIPS 140-2磁碟機加密功能。NetApp HCI部署NetApp HCI 或擴充功能時、您可以混合使用不同的加密層級、但NetApp HCI 在這種情況下、僅支援更基本的加密形式。例如、如果您將FIPS加密功能的儲存節點與僅支援SED加密的節點混合使用、則此組態支援SED加密、但FIPS磁碟機加密則不支援。
+
+
+NOTE: 將能夠FIPS磁碟機加密的儲存節點新增至儲存叢集、並不會自動啟用FIPS磁碟機加密功能。部署或擴充具有FIPS功能節點的安裝之後、您需要手動啟用FIPS磁碟機加密。請參閱 https://docs.netapp.com/us-en/element-software/index.html["Element軟體文件"^] 以取得相關指示。
+
+所有儲存節點都必須執行相同的Element軟體次要版本、才能在同一個部署中相容。例如、您無法將執行元素11.3.1的儲存節點與執行元素11.5的其他儲存節點混合使用。
+
+
+NOTE: 視節點硬體組態而定、H410S儲存節點可能會出現在標示為H300S、H500S或H700S儲存節點的詳細目錄清單中。
+
+在雙節點儲存叢集中、僅支援特定的儲存節點機型。NetApp HCI如需詳細資訊、請參閱 link:concept_hci_clusters.html#two-node-storage-clusters["雙節點儲存叢集"] 或NetApp HCI 是您的版本資訊。
+
+
+NOTE: 對於雙節點儲存叢集部署、儲存節點類型僅限於配備480GB和960GB磁碟機的節點。
+
+
+
+== 運算節點相容性
+
+運算節點必須符合下列需求、才能選取為庫存：
+
+* 所有運算節點中的CPU世代必須相符、才能使用適當的VMware VMotion功能。從資源清冊中選取運算節點之後、就無法選取具有不同CPU世代的運算節點。
+* 您無法在同一個運算叢集中、將運算節點與啟用GPU的運算節點混用。如果您選取啟用GPU的運算節點、則純CPU運算節點將無法選取、反之亦然。
+* 在運算節點上執行的軟體版本必須與主控部署的NetApp部署引擎主要和次要版本相符。如果情況並非如此、您必須使用RTFI程序重新建立運算節點的映像。如需相關指示、請參閱NetApp知識庫文章：RTFI。
+* 運算節點必須在「網路拓撲」頁面上選取佈線組態、才能在「*運算節點*」清單中選取。
+* 同一模型之運算節點的網路纜線組態必須與單一運算叢集內的網路纜線組態相符。
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件軟體文件SolidFire"^]
+

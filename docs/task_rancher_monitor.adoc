@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_monitor.html 
+summary: 深入瞭解如何監控Rancher on NetApp HCI 整個過程。 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes, control plane, monitor, user cluster, workload 
+---
+= 監控Rancher的NetApp HCI 實作過程
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+有多種方式可以監控Rancher伺服器、管理叢集及其他詳細資料。
+
+* NetApp混合雲控制
+* Rancher UI
+* NetApp Active IQ
+* vCenter Server
+
+
+
+
+== 使用NetApp混合雲控制監控Rancher
+
+使用NetApp混合雲控制、您可以檢視Rancher URL和Rancher伺服器叢集狀態。您也可以監控正在執行Rancher的節點。
+
+. 提供元素儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板中、按一下右上角的「選項」圖示、然後選取「*設定*」。
++
+image::hcc_configure.png[Rancher組態頁面]
+
+. 若要檢視節點資訊、請從混合雲控制儀表板展開儲存叢集名稱、然後按一下*節點*。
+
+
+
+
+== 使用Rancher UI監控Rancher
+
+使用Rancher UI、您可以查看NetApp HCI 有關Rancher的資訊、瞭解有關的功能、包括有關的支援、以及有關的使用者叢集。
+
+
+TIP: 在Rancher UI中、管理叢集稱為「本機叢集」。
+
+. 使用Rancher部署結束時提供給您的URL存取Rancher UI。
+. 請參閱 https://rancher.com/docs/rancher/v2.x/en/monitoring-alerting/v2.5/["在Rancher v2.5中進行監控"]。
+
+
+
+
+== 使用NetApp Active IQ 功能來監控Rancher
+
+使用NetApp Active IQ 功能、您可以檢視Rancher遙測、例如安裝資訊、節點、叢集、狀態、命名空間資訊、 以及更多資訊。
+
+. 提供元素儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 從右上方的功能表中、選取* NetApp Active IQ S更新*。
+
+
+
+
+== 使用vCenter Server監控Rancher
+
+使用vCenter Server、您可以監控Rancher虛擬機器。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

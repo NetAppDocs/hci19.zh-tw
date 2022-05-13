@@ -1,0 +1,258 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_h610ch615crepl.html 
+summary: 您應該更換機箱、以修復CPU、主機板或無法開機的運算節點故障。如果您的H610C運算節點中有故障的DIMM、而執行NetApp HCI 的是版本1.6或更新版本的版、您可以更換DIMM、而不需要更換機箱。對於H615C節點、如果DIMM故障、您不需要更換機箱；您只能更換故障的DIMM。 
+keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement 
+---
+= 更換H610C和H615C節點
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您應該更換機箱、以修復CPU、主機板或無法開機的運算節點故障。如果您的H610C運算節點中有故障的DIMM、而執行NetApp HCI 的是版本1.6或更新版本的版、您可以更換DIMM、而不需要更換機箱。對於H615C節點、如果DIMM故障、您不需要更換機箱；您只能更換故障的DIMM。
+
+
+NOTE: 對於H610C和H615C、「節點」和「機箱」這兩個詞彙可互換使用、因為節點和機箱不是獨立的元件。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您已確認節點已故障。
+* 您有替換的機箱。若要訂購替換產品、請聯絡NetApp支援部門。
+* 您有一個防靜電（ESD）腕帶、或是您已採取其他防靜電保護措施。
+* 您已標記每條連接至機箱的纜線。
+
+
+當主機故障時、VMware vSphere Web Client中的警示會提醒您。您必須將VMware vSphere Web Client故障主機的序號與節點背面貼紙上的序號配對。
+
+以下是本程序步驟的深度概觀：<<Prepare to replace the node>>
+<<Replace the node>>
+<<Add the node to the cluster>>
+<<Install the GPU drivers>>
+
+
+
+== 準備更換節點
+
+在更換節點之前、您應該先將節點上裝載的虛擬機器（VM）移轉至可用的主機、然後從叢集移除節點。您應該可以取得節點的詳細資料、例如序號和網路資訊。
+
+
+NOTE: 如果節點仍在線上且運作正常的元件故障（例如雙列直插式記憶體模組（DIMM）故障）、您應該在移除故障節點之前、先從叢集中移除磁碟機。
+
+.步驟
+. 在VMware vSphere Web Client中、執行將VM移轉至其他可用主機的步驟。
++
+
+NOTE: 如需移轉步驟、請參閱VMware文件。
+
+. 選取故障節點、然後選取*監控>硬體狀態>感測器*。
+. 記下故障節點的序號。下列螢幕快照僅為範例：
++
+image::h610c serial number.gif[顯示VMware vSphere Web Client中故障節點的序號。]
+
++
+您需要序號來識別機箱、方法是將您記下的編號與節點背面貼紙上的序號進行比對。
+
+. 在故障節點上按一下滑鼠右鍵、然後選取*連線>中斷連線*。
+. 選擇* Yes（是）*以確認此動作。
+. 在故障節點上按一下滑鼠右鍵、然後選取「*從庫存移除*」。
+. 按一下「*是*」以確認此動作。
+
+
+
+
+== 更換節點
+
+從叢集移除故障節點之後、您可以移除故障的機箱、然後安裝替換機箱。
+
+
+NOTE: 執行此步驟之前、請務必先提供防靜電保護。
+
+.步驟
+. 打開新機箱的包裝、並將其放在平坦的表面上。將故障機箱歸還給NetApp時、請保留包裝材料。
+. 標示要移除之機箱背面的每條纜線。安裝新機箱之後、您必須將纜線插回原始連接埠。
+. 從機箱背面拔下所有纜線。
+. 旋開安裝耳上的指旋螺絲、以卸下機箱。您必須將故障機箱封裝並退回NetApp。
+. 將替換機箱滑入滑軌。
++
+
+CAUTION: 將機箱滑入滑軌時、請確保不會過度施力。
+
+. 僅適用於H615C。從故障機箱中取出DIMM、然後將這些DIMM插入更換機箱。
++
+
+NOTE: 您應該更換故障節點中移除的相同插槽中的DIMM。
+
+. 在故障機箱的任一側卸下兩個電源供應器、然後將其插入替換機箱。
+. 將纜線重新連接至原本拔下纜線的連接埠。拔下纜線時、您在纜線上新增的標籤將有助於引導您。
++
+
+CAUTION: 如果機箱背面的通風孔被纜線或標籤阻塞、可能會因為過熱而導致元件提早故障。請勿將纜線強制插入連接埠、否則可能會損壞纜線、連接埠或兩者。
+
+. 開啟機箱電源。
+
+
+
+
+== 將節點新增至叢集
+
+您應該設定NetApp HCI 使用新運算節點的功能。
+
+.您需要的是 #8217 ；需要的是什麼
+* 如果NetApp HCI 您使用虛擬分散式交換器將節點新增至部署、vSphere執行個體VMware會使用vSphere Enterprise Plus授權。
+* 搭配使用的vCenter或vSphere執行個體均NetApp HCI 未過期授權。
+* 您在現有節點所在的相同網路區段上有可用和未使用的IPv4位址（新節點必須安裝在與其類型現有節點相同的網路上）。
+* 您已準備好vCenter系統管理員帳戶認證。
+
+
+.步驟
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在「展開安裝」窗格中、選取*展開*。瀏覽器會開啟NetApp部署引擎。
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp部署引擎。
+. 在歡迎頁面上、選取*是*。
+. 在「終端使用者授權」頁面上、執行下列動作：
++
+.. 閱讀VMware終端使用者授權合約。
+.. 如果您接受條款、請在協議文字結尾選取*我接受*。
+
+
+. 按一下「繼續」。
+. 在vCenter頁面上、執行下列步驟：
++
+.. 輸入與NetApp HCI 您的安裝有關的vCenter執行個體的FQDN或IP位址和管理員認證。
+.. 選擇*繼續*。
+.. 選取要新增運算節點的現有vSphere資料中心、或選取建立新資料中心、將新的運算節點新增至新的資料中心。
++
+
+NOTE: 如果選取「Create New Datacenter（建立新資料中心）」、則會自動填入「Cluster（叢集）」欄位。
+
+.. 如果您選取現有的資料中心、請選取要與新運算節點建立關聯的vSphere叢集。
++
+
+NOTE: 如果NetApp HCI 無法辨識您選擇要擴充的叢集網路設定、請確定管理、儲存設備和VMotion網路的vmkernel和vmnic對應已設定為部署預設值。
+
+.. 選擇*繼續*。
+
+
+. 在「ESXi認證」頁面上、為您要新增的運算節點輸入ESXi根密碼。您應該使用在初始NetApp HCI 部署過程中建立的相同密碼。
+. 選擇*繼續*。
+. 如果您已建立新的vSphere資料中心叢集、請在「網路拓撲」頁面上、選取符合您要新增之新運算節點的網路拓撲。
++
+
+NOTE: 只有當運算節點使用雙纜線拓撲、且現有NetApp HCI 的動態部署設定有VLAN ID時、才能選取雙纜線選項。
+
+. 在「Available Inventory」（可用資源清冊）頁面上、選取要新增至現有NetApp HCI 的版本資訊安裝的節點。
++
+
+TIP: 對於某些運算節點、您可能需要在vCenter版本所支援的最高層級啟用EVC、才能將其新增至安裝。您應該使用vSphere用戶端為這些運算節點啟用EVC。啟用之後、請重新整理「Inventory」頁面、然後再次嘗試新增運算節點。
+
+. 選擇*繼續*。
+. 選用：如果您建立新的vSphere資料中心叢集、請NetApp HCI 在「網路設定」頁面上、選取*從現有叢集複製設定*核取方塊、從現有的VMware部署匯入網路資訊。這會填入每個網路的預設閘道和子網路資訊。
+. 在「網路設定」頁面上、從初始部署中偵測到部分網路資訊。每個新的運算節點都會依序號列出、您應該為其指派新的網路資訊。針對每個新的運算節點、請執行下列步驟：
++
+.. 如果NetApp HCI 檢測到命名前置碼、請從偵測到的命名前置碼欄位複製、並將其插入為您在主機名稱欄位中新增的唯一主機名稱前置碼。
+.. 在Management IP Address（管理IP位址）欄位中、輸入管理網路子網路內之運算節點的管理IP位址。
+.. 在[VMotion IP位址]欄位中、輸入VMotion網路子網路內之運算節點的VMotion IP位址。
+.. 在iSCSI A - IP位址欄位中、輸入iSCSI網路子網路內運算節點第一個iSCSI連接埠的IP位址。
+.. 在iSCSI B - IP位址欄位中、輸入位於iSCSI網路子網路內之運算節點的第二個iSCSI連接埠IP位址。
+
+
+. 選擇*繼續*。
+. 在「網路設定」區段的「審查」頁面上、新節點會以粗體顯示。如果您需要變更任何區段的資訊、請執行下列步驟：
++
+.. 選取該區段的*編輯*。
+.. 完成變更後、請在任何後續頁面上選取*繼續*、以返回「檢閱」頁面。
+
+
+. 選用：如果您不想將叢集統計資料和支援資訊傳送至NetApp代管SolidFire Active IQ 的支援服務器、請清除最終核取方塊。這會停用NetApp HCI 實時健全狀況和診斷監控功能來監控不實時狀況。停用此功能可讓NetApp主動支援NetApp HCI 及監控、在影響正式作業之前偵測並解決問題。
+. 選取*新增節點*。您可以監控進度、同時NetApp HCI 更新及設定資源。
+. 選用：確認vCenter中是否顯示任何新的運算節點。
+
+
+
+
+== 安裝GPU驅動程式
+
+使用NVIDIA圖形處理單元（GPU）（例如H610C節點）的運算節點、需要安裝在VMware ESXi中的NVIDIA軟體驅動程式、才能充分發揮更強大的處理能力。若要安裝GPU驅動程式、運算節點必須有GPU卡。
+
+.步驟
+. 開啟瀏覽器並瀏覽至NVIDIA授權入口網站、網址為：「https://nvid.nvidia.com/dashboard/`」
+. 視您的環境而定、將下列其中一個驅動程式套件下載到您的電腦：
++
+[cols="2*"]
+|===
+| vSphere版本 | 驅動程式套件 
+
+
+| vSphere 6.0  a| 
+NVIDIA-GRID-vSphere-6.0-390.94-390.96-392.05.zip
+
+
+
+| vSphere 6.5  a| 
+NVIDIA-GRID-vSphere-6.5-410.92-410.91-412.16.zip
+
+
+
+| vSphere 6.7  a| 
+NVIDIA-GRID-vSphere-6.7-410.92-410.91-412.16.zip
+
+|===
+. 將驅動程式套件解壓縮到電腦上。產生的.VIB檔案是未壓縮的驅動程式檔案。
+. 將.VIB驅動程式檔案從電腦複製到運算節點上執行的ESXi。下列每個版本的命令範例假設驅動程式位於管理主機上的$home/nvidia/ESX6.x/目錄中。大多數的Linux版本都能使用scp公用程式、或是所有Windows版本的可下載公用程式：
++
+[cols="2*"]
+|===
+| 選項 | 說明 
+
+
+| ESXi 6.0  a| 
+scp $home/nvidia/ESX6.0/nvia**.vibroot@<esxi_ip_ADDR>//。
+
+
+
+| ESXi 6.5  a| 
+scp $home/nvidia/ESX6.5/nvia**.vib root@<esxi_ip_ADDR>//。
+
+
+
+| ESXi 6.7  a| 
+scp $home/nvidia/ESX6.7/nvia**.vib root@<esxi_ip_ADDR>//。
+
+|===
+. 請使用下列步驟以root身分登入ESXi主機、並在ESXi中安裝NVIDIA vGPU管理程式。
++
+.. 執行下列命令、以root使用者身分登入ESXi主機：「sh root@<ESXi_ip_address>」
+.. 執行下列命令、確認目前未安裝NVIDIA GPU驅動程式：「nvidia-smi」。此命令會傳回「nvidia-smi：not found」訊息。
+.. 執行下列命令以啟用主機上的維護模式、並從VIB檔案安裝NVIDIA vGPU Manager：「esxcli system maintenanceMode set --enable true」「esxcli software vib install -v /nvidia**.vib」、您應該會看到「Operation finished Successfully」（操作已成功完成）訊息。
+.. 執行下列命令、確認命令輸出中列出所有八個GPU驅動程式：「nvidia-smi」
+.. 執行下列命令、確認NVIDIA vGPU套件已正確安裝及載入：「vmkload_mod-l | grep nvidia'命令應傳回類似下列的輸出：「NVIDIA 816 13808'
+.. 執行下列命令以結束維護模式並重新開機主機：「esxcli系統維護模式設定–enable fals'「reboot -f」
+
+
+. 針對任何其他新部署的NVIDIA GPU運算節點、重複步驟4-6。
+. 請依照NVIDIA文件網站上的指示執行下列工作：
++
+.. 安裝NVIDIA授權伺服器。
+.. 設定NVIDIA vGPU軟體的虛擬機器來賓。
+.. 如果您在虛擬桌面基礎架構（VDI）環境中使用啟用vGPU的桌面、請設定適用於NVIDIA vGPU軟體的VMware Horizon View。
+
+
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
+

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_LACP_configuration.html 
+summary: 瞭NetApp HCI 解如何設定以獲得最佳儲存效能的功能。 
+keywords: netapp, hci, storage, performance, LACP 
+---
+= 設定LACP以獲得最佳儲存效能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, storage, performance, LACP
+
+
+[role="lead"]
+為獲得最佳NetApp HCI 的靜態儲存叢集效能、您應該在每個儲存節點所使用的交換器連接埠上設定連結集合控制傳輸協定（LACP）。
+
+.開始之前
+* 您已將連接至NetApp HCI Ef2儲存節點10/25GbE介面的交換器連接埠設定為LACP連接埠通道。
+* 您已將處理儲存流量的交換器上的LACP定時器設定為「快速模式（1）」、以獲得最佳的容錯移轉偵測時間。在部署期間、所有儲存節點上的Bond1G介面都會自動設定為主動/被動模式。
+* 您已為處理儲存網路的交換器設定Cisco Virtual PortChannel（vPC）或等效的交換器堆疊技術。交換器堆疊技術可簡化LACP和連接埠通道的組態、並在交換器和儲存節點上的10/25GbE連接埠之間提供無迴圈拓撲。
+
+
+.步驟
+. 請遵循交換器廠商的建議、在用於NetApp H系列儲存節點的交換器連接埠上啟用LACP。
+. 在部署NetApp HCI 更新之前、請先在節點上的使用者介面（也稱為終端使用者介面或TUI）中將所有儲存節點上的連結模式變更為LACP。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_select_net_topology.html 
+summary: 瞭解如何在NetApp HCI 部署過程中設定VMware vSphere。 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= 選取網路拓撲
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+在佈線NetApp HCI 過程中、您可以根據需求選擇使用不同的網路纜線組態。對於每個運算節點、您可以使用所有六個網路連接埠、並將不同類型的流量指派給每對連接埠、也可以使用兩個連接埠來處理指派給連接埠的所有類型流量。儲存節點使用標準的四纜線組態。您的選擇會影響庫存中可選取的運算節點。
+
+如果您為運算節點選擇雙纜線網路拓撲、請考慮下列需求：
+
+* 部署完成後、您可以立即申請VMware vSphere Enterprise Plus授權。
+* 您已驗證網路和網路交換器的組態是否正確。
+* 所有運算和儲存節點的儲存和VMotion網路都需要VLAN標記。
+
+
+.步驟
+. 在「*網路拓撲*」頁面上、選取適合安裝運算節點NetApp HCI 的運算節點拓撲、以利執行下列動作：
++
+** * 6纜線選項*：六纜線選項可為每種類型的流量（管理、虛擬機器和儲存設備）提供專用連接埠。您可以選擇性啟用vSphere分散式交換器（VDS）。啟用VDS可設定分散式交換器、以便在NetApp HCI 完成部署後、能夠簡化且集中化地管理虛擬機器網路組態。如果啟用、您必須準備好vSphere Enterprise Plus授權、以便在部署後進行申請。
+** * 2纜線選項*：雙纜線選項將管理、虛擬機器及儲存流量結合在兩個連結連接埠上。此佈線選項需要VDS、並會自動啟用。您必須準備好vSphere Enterprise Plus授權、才能在部署後進行申請。
+
+
+. 某些纜線選項會顯示不同節點硬體類型的多個背板檢視。循環檢視背面板檢視、查看如何連接該特定節點機型和纜線選項的網路纜線。
+. 完成後、按一下*繼續*。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

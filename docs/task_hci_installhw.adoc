@@ -1,0 +1,423 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_installhw.html 
+summary: 開始使用NetApp HCI NetApp之前、您應該先正確安裝儲存設備和運算節點。 
+keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance, rails, h-series, nodes 
+---
+= 安裝H系列硬體
+:allow-uri-read: 
+
+
+[role="lead"]
+開始使用NetApp HCI NetApp之前、您應該先正確安裝儲存設備和運算節點。
+
+
+TIP: 請參閱 link:../media/hseries-isi.pdf["海報"^] 以視覺化方式呈現指示。
+
+* <<Workflow diagrams>>
+* <<Prepare for installation>>
+* <<Install the rails>>
+* <<Install the node/chassis>>
+* <<Install the switches>>
+* <<Cable the nodes>>
+* <<Power on the nodes>>
+* <<Configure NetApp HCI>>
+* <<Perform post-configuration tasks>>
+
+
+
+
+== 工作流程圖
+
+此處的工作流程圖提供安裝步驟的高階概觀。視H系列機型而定、步驟可能稍有不同。
+
+* <<H410C and H410S>>
+* <<H610C and H615C>>
+* <<H610S>>
+
+
+
+
+=== H410C和H410S
+
+image::workflow_h410c.PNG[H410C和H410S安裝工作流程]
+
+
+
+=== H610C和H615C
+
+
+NOTE: 在H610C和H615C的情況下、「節點」和「機箱」兩個詞彙可互換使用、因為節點和機箱並非獨立元件、與2U四節點機箱不同。
+
+image::workflow_h610c.png[H610C和H615C安裝工作流程]
+
+
+
+=== H610S
+
+
+NOTE: 在H610C和H615C的情況下、「節點」和「機箱」兩個詞彙可互換使用、因為節點和機箱並非獨立元件、與2U四節點機箱不同。
+
+image::workflow_h610s.png[H610S安裝工作流程]
+
+
+
+== 準備安裝
+
+在準備安裝時、請清點出貨給您的硬體、若有任何項目遺失、請聯絡NetApp支援部門。
+
+請確定您的安裝位置有下列項目：
+
+* 系統的機架空間。
+
+
+[cols="2*"]
+|===
+| 節點類型 | 機架空間 
+
+
+| H410C和H410S節點 | 兩個機架單元（2U） 
+
+
+| H610C節點 | 2U 
+
+
+| H615C和H610S節點 | 一個機架單元（1U） 
+|===
+* SFP28/SFP+直接連接纜線或收發器
+* Cat5e或更高規格纜線、含RJ45接頭
+* 用於設定系統的鍵盤、視訊、滑鼠（KVM）交換器
+* USB隨身碟（選用）
+
+
+
+TIP: 出貨給您的硬體取決於您的訂單。全新的2U四節點訂單包括機箱、擋板、滑軌套件、儲存節點、儲存與運算節點的磁碟機、以及電源線（每個機箱兩條）。如果您訂購H610S儲存節點、磁碟機就會安裝在機箱中。
+
+
+CAUTION: 安裝硬體時、請務必將所有包裝材料和包裝從裝置中取出。如此可避免節點過熱和關機。
+
+
+
+== 安裝滑軌
+
+出貨給您的硬體訂單包含一組滑軌。您需要使用螺絲起子來完成軌道安裝。每個節點機型的安裝步驟略有不同。
+
+
+TIP: 從機架底部到頂端安裝硬體、以避免設備翻覆。如果您的機架包含穩定裝置、請在安裝硬體之前先安裝。
+
+* <<H410C and H410S>>
+* <<H610C>>
+* <<H610S and H615C>>
+
+
+
+
+=== H410C和H410S
+
+H410C和H410S節點安裝在2U四節點H系列機箱中、隨附兩組介面卡。如果您想要將機箱安裝在有圓孔的機架中、請使用適合機架的轉接器來安裝圓孔。H410C和H410S節點的軌道可容納29英吋至33.5英吋深度的機架。當軌道完全外包時、長度為28英吋、且軌道的前後部份只能用一顆螺絲固定在一起。
+
+
+CAUTION: 如果您將機箱安裝在完全外包的軌道上、則軌道的正面和背面部分可能會分開。
+
+.步驟
+. 將滑軌正面對齊機架正面柱上的孔。
+. 將滑軌正面的掛勾推入機架正面柱上的孔中、然後向下推、直到裝有彈簧的掛栓卡入機架孔為止。
+. 使用螺絲將滑軌連接至機架。以下是連接至機架正面的左滑軌圖例：
++
+image::h410c_rail.gif[2U的軌道安裝]
+
+. 將滑軌的後部延伸至機架的後柱。
+. 將滑軌背面的掛勾與後柱上的適當孔對齊、確保滑軌的正面和背面處於相同的高度。
+. 將滑軌後端安裝到機架上、然後使用螺絲固定滑軌。
+. 請針對機架的另一側執行上述所有步驟。
+
+
+
+
+=== H610C
+
+以下是安裝H61OC運算節點軌道的圖例：
+
+image::h610c_rail.png[H610C運算節點的軌道安裝。]
+
+
+
+=== H610S和H615C
+
+以下是安裝H610S儲存節點或H615C運算節點軌道的圖例：
+
+image::h610s_rail.gif[H610S儲存節點和H615C運算節點的軌道安裝。]
+
+
+TIP: H610S和H615C上有左右軌道。將螺絲孔朝向底部、以便H610S/H615C指旋螺絲可將機箱固定至軌道。
+
+
+
+== 安裝節點/機箱
+
+您可以在2U四節點機箱中安裝H410C運算節點和H410S儲存節點。對於H610C、H615C和H610S、請將機箱/節點直接安裝在機架的軌道上。
+
+
+TIP: 從推出的功能區塊1.8開始NetApp HCI 、您可以設定具有兩或三個儲存節點的儲存叢集。
+
+
+CAUTION: 從裝置中取出所有的包裝材料和包裝材料。如此可避免節點過熱和關機。
+
+* <<H410C and H410S nodes>>
+* <<H610C node/chassis>>
+* <<H610S and H615C node/chassis>>
+
+
+
+
+=== H410C和H410S節點
+
+.步驟
+. 在機箱中安裝H410C和H410S節點。以下是安裝了四個節點的機箱後視圖範例：
++
+image::hseries_2U_rear.gif[2U後視圖]
+
+. 安裝H410S儲存節點的磁碟機。
++
+image::h410s_drives.png[安裝磁碟機的H410S儲存節點正面視圖。]
+
+
+
+
+
+=== H610C節點/機箱
+
+在H610C的情況下、「節點」和「機箱」這兩個詞彙可互換使用、因為節點和機箱不是獨立的元件、與2U四節點機箱不同。
+
+以下是在機架中安裝節點/機箱的圖例：
+
+image::h610c_chassis.png[顯示機架中正在安裝的H610C節點/機箱。]
+
+
+
+=== H610S和H615C節點/機箱
+
+在H615C和H610S的案例中、「節點」和「機箱」兩個詞彙可互換使用、因為節點和機箱不是獨立的元件、與2U四節點機箱不同。
+
+以下是在機架中安裝節點/機箱的圖例：
+
+image::h610s_chassis.gif[顯示機架中安裝的H615C或H610S節點/機箱。]
+
+
+
+== 安裝交換器
+
+如果NetApp HCI 您想在安裝時使用Mellanox SN2010、SN2100和SN2700交換器、請依照此處提供的指示安裝交換器並連接纜線：
+
+* link:https://docs.mellanox.com/pages/viewpage.action?pageId=6884619["Mellanox硬體使用手冊"^]
+* link:https://fieldportal.netapp.com/content/1075535?assetComponentId=1077676["TR-4836：NetApp HCI 《支援Mellanox SN2100與SN2700交換器佈線指南》（需登入）"^]
+
+
+
+
+== 連接節點
+
+如果您要將節點新增至現有NetApp HCI 的版本、請確定您新增的節點的纜線和網路組態與現有的安裝相同。
+
+
+CAUTION: 確保機箱背面的通風孔未被纜線或標籤阻塞。這可能會導致元件因過熱而提早故障。
+
+* <<H410C compute node and H410S storage node>>
+* <<H610C compute node>>
+* <<H615C compute node>>
+* <<H610S storage node>>
+
+
+
+
+=== H410C運算節點和H410S儲存節點
+
+H410C節點有兩種佈線選項：使用兩條纜線或使用六條纜線。
+
+以下是雙纜線組態：
+
+image::HCI_ISI_compute_2cable.png[顯示H410C節點的雙纜線組態。]
+
+image:blue circle.png["藍點"] 對於連接埠D和E、請連接兩條SFP28/SFP+纜線或收發器、以進行共享管理、虛擬機器和儲存設備連線。
+
+image:purple circle.png["Purple DOT"] （選用、建議）將CAT5e纜線連接至IPMI連接埠、以進行頻外管理連線。
+
+以下是六線組態：
+
+image::HCI_ISI_compute_6cable.png[顯示H410C節點的六纜線組態。]
+
+image:green circle.png["綠色點"] 對於連接埠A和B、請在連接埠A和B中連接兩條CAT5e或更高規格的纜線、以進行管理連線。
+
+image:orange circle.png["橘色點"] 對於連接埠C和F、請連接兩條SFP28/SFP+纜線或收發器以進行虛擬機器連線。
+
+image:blue circle.png["藍點"] 對於連接埠D和E、請連接兩條SFP28/SFP+纜線或收發器以進行儲存連線。
+
+image:purple circle.png["Purple DOT"] （選用、建議）將CAT5e纜線連接至IPMI連接埠、以進行頻外管理連線。
+
+以下是H410S節點的佈線：
+
+image::HCI_ISI_storage_cabling.png[顯示H410S節點的纜線。]
+
+image:green circle.png["綠色點"] 對於連接埠A和B、請在連接埠A和B中連接兩條CAT5e或更高規格的纜線、以進行管理連線。
+
+image:blue circle.png["藍點"] 對於連接埠C和D、請連接兩條SFP28/SFP+纜線或收發器以進行儲存連線。
+
+image:purple circle.png["Purple DOT"] （選用、建議）將CAT5e纜線連接至IPMI連接埠、以進行頻外管理連線。
+
+連接節點纜線之後、請將電源線連接至每個機箱的兩個電源供應器單元、並將其插入240V PDU或電源插座。
+
+
+
+=== H610C運算節點
+
+以下是H610C節點的佈線：
+
+
+NOTE: H610C節點只能部署在雙纜線組態中。確保所有VLAN都存在於連接埠C和D上
+
+image::H610C_node-cabling.png[顯示H610C節點的纜線。]
+
+image:dark green.png["深綠色點"] 對於連接埠C和D、請使用兩條SFP28/SFP+纜線將節點連接至10/25GbE網路。
+
+image:purple circle.png["Purple DOT"] （選用、建議）使用IPMI連接埠中的RJ45連接器、將節點連接至1GbE網路。
+
+image:light blue circle.png["淺藍色點"] 將兩條電源線連接至節點、然後將電源線插入200‐240V電源插座。
+
+
+
+=== H615C運算節點
+
+以下是H615C節點的佈線：
+
+
+NOTE: H615C節點只能部署在雙纜線組態中。確保所有VLAN都存在於連接埠A和B上
+
+image::H615C_node_cabling.png[顯示H615C節點的纜線。]
+
+image:dark green.png["深綠色點"] 對於連接埠A和B、請使用兩條SFP28/SFP+纜線將節點連接至10/25GbE網路。
+
+image:purple circle.png["Purple DOT"] （選用、建議）使用IPMI連接埠中的RJ45連接器、將節點連接至1GbE網路。
+
+image:light blue circle.png["淺藍色點"] 將兩條電源線連接至節點、然後將電源線插入110-140V電源插座。
+
+
+
+=== H610S儲存節點
+
+以下是H610S節點的佈線：
+
+image::H600S_ISI_noderear.png[顯示H610S節點的佈線。]
+
+image:purple circle.png["Purple DOT"] 使用IPMI連接埠中的兩個RJ45連接器、將節點連接至1GbE網路。
+
+image:dark green.png["深綠色點"] 使用兩條SFP28或SFP+纜線、將節點連接至10/25GbE網路。
+
+image:orange circle.png["橘色點"] 使用IPMI連接埠中的RJ45連接器、將節點連接至1GbE網路。
+
+image:light blue circle.png["淺藍色點"] 將兩條電源線連接至節點。
+
+
+
+== 開啟節點電源
+
+節點開機約需六分鐘。
+
+以下是NetApp HCI 顯示支援此功能的電源按鈕：
+
+image::H410c_poweron_ISG.png[顯示H系列2U的電源按鈕]
+
+以下圖例顯示H610C節點上的電源按鈕：
+
+image::H610C_power-on.png[顯示H610C節點/機箱上的電源按鈕。]
+
+以下圖例顯示H615C和H610S節點上的電源按鈕：
+
+image::H600S_ISI_nodefront.png[顯示H610S/H615C節點/機箱上的電源按鈕。]
+
+
+
+== 設定NetApp HCI 功能
+
+從下列其中一個選項中選擇：
+
+* <<New NetApp HCI installation>>
+* <<Expand an existing NetApp HCI installation>>
+
+
+
+
+=== 全新NetApp HCI 的安裝功能
+
+.步驟
+. 在單NetApp HCI 一支援中心儲存節點的管理網路（Bond1G）上設定一個IPV4位址。
++
+
+NOTE: 如果您在管理網路上使用DHCP、則可以連線至儲存系統的DHCP取得的IPv4位址。
+
++
+.. 將鍵盤、視訊、滑鼠（KVM）插入一個儲存節點的背面。
+.. 在使用者介面中設定Bond1G的IP位址、子網路遮罩和閘道位址。您也可以為Bond1G網路設定VLAN ID。
+
+
+. 使用支援的網頁瀏覽器（Mozilla Firefox、Google Chrome或Microsoft Edge）、連線至您在步驟1中設定的IPv4位址、即可瀏覽至NetApp部署引擎。
+. 使用NetApp部署引擎使用者介面（UI）來設定NetApp HCI 功能。
++
+
+NOTE: 所有其他NetApp HCI 的節點都會自動探索。
+
+
+
+
+
+=== 擴充現有NetApp HCI 的安裝程序
+
+.步驟
+. 在網頁瀏覽器中開啟管理節點的IP位址。
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 依照精靈中的步驟、將儲存和/或運算節點新增至NetApp HCI 您的安裝項目。
++
+
+TIP: 若要新增H410C運算節點、現有的安裝必須執行NetApp HCI 版本號為NetApp 1.4或更新版本。若要新增H615C運算節點、現有的安裝必須執行NetApp HCI 版本號為1.7或更新版本。
+
++
+
+NOTE: 同NetApp HCI 一個網路上新安裝的鏡射節點將會自動探索。
+
+
+
+
+
+== 執行組態後工作
+
+視您擁有的節點類型而定、您可能需要在安裝硬體並設定NetApp HCI 完故障時執行其他步驟。
+
+* <<H610C node>>
+* <<H615C and H610S nodes>>
+
+
+
+
+=== H610C節點
+
+在ESXi中為您安裝的每個H610C節點安裝GPU驅動程式、並驗證其功能。
+
+
+
+=== H615C和H610S節點
+
+.步驟
+. 使用Web瀏覽器瀏覽至預設BMC IP位址：「192．168．0．120」
+. 使用用戶名"root"和密碼"calin"登錄。
+. 在節點管理畫面中、瀏覽至*設定>網路設定*、然後設定頻外管理連接埠的網路參數。
+
+
+如果H615C節點中有GPU、請在ESXi中為您安裝的每個H615C節點安裝GPU驅動程式、並驗證其功能。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/media/tr-4820.pdf["_TR-4820：NetApp HCI 《鏈路》快速規劃指南"^]
+* https://mysupport.netapp.com/site/tools["NetApp組態顧問"^] 5.8.1或更新版本的網路驗證工具
+

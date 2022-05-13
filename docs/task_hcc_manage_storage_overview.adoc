@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_manage_storage_overview.html 
+summary: 有了這個功能、您就能使用NetApp混合雲控制來管理儲存資產。NetApp HCI 
+keywords: netapp, hci, on premise, cluster, element, account, user, volume, hybrid cloud control, hcc 
+---
+= 管理NetApp HCI 本產品儲存概述
+:allow-uri-read: 
+
+
+[role="lead"]
+有了這個功能、您可以使用NetApp混合雲控制來管理這些儲存資產。NetApp HCI
+
+* link:task_hcc_manage_accounts.html["建立及管理使用者帳戶"]
+* link:task_hcc_manage_storage_clusters.html["新增及管理儲存叢集"]
+* link:task_hcc_manage_vol_management.html["建立及管理磁碟區"]
+* link:task_hcc_manage_vol_access_groups.html["建立及管理Volume存取群組"]
+* link:task_hcc_manage_initiators.html["建立及管理啟動器"]
+* link:task_hcc_qos_policies.html["建立及管理Volume QoS原則"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

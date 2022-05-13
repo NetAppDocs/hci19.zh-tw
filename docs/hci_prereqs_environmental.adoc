@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_environmental.html 
+summary: 深入瞭NetApp HCI 解關於NetApp環境的要求。 
+keywords: netapp, hci, environment, requirements 
+---
+= 環境需求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, environment, requirements
+
+
+[role="lead"]
+請確定NetApp HCI AC電源插座供應安裝支援的機架電力、並確保資料中心能為NetApp HCI 安裝的尺寸提供足夠的冷卻效果。
+
+如需NetApp HCI 瞭解每個元件的詳細功能、請參閱NetApp HCI 《關於》 http://www.netapp.com/us/media/ds-3881.pdf["資料表"^]。
+
+
+NOTE: H410C運算節點只能以高線電壓（200-240 VAC）運作。將H410C節點新增至現有NetApp HCI 的版本安裝時、您必須確保符合電源需求。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

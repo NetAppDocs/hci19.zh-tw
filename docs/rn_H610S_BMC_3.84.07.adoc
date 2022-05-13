@@ -1,0 +1,137 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_H610S_BMC_3.84.07.html 
+summary: 取得可下載並套用NetApp HCI 至各個節點之韌體套件版本資訊的連結。 
+keywords: netapp, hci, compute firmware 
+---
+= H610S BMC 3.84.07版本說明
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+可下載的BMC更新包含適用於NetApp H610S節點的BMC功能增強功能與錯誤修正。
+
+
+
+== 新增功能
+
+H610S BMC 3.84.07包含各種錯誤修復和新功能。此版本在後續的Element軟體與儲存韌體套裝組合版本推出之前、會先為現場關鍵更新BMC韌體、同時也會為H610S節點提供此更新的BMC韌體。
+
+Element 11.8、12.0及12.2版支援此韌體套件。您可以直接在頻外升級H610S BMC韌體、如需升級指示、請參閱 <<Upgrading BMC firmware on H610S nodes>>。
+
+
+
+== 新功能
+
+以下是此版本所包含的新功能與變更：
+
+* 啟用了INITRD支援
+* 更新有關X．509認證的SSL說明訊息
+* 停用TLS 1.0和1.1支援
+* 新增Redfish遠端媒體支援
+* 新增了「五個檢視器RKVM」功能
+* 新增遠端系統記錄支援
+
+
+
+
+== 已解決的問題
+
+以下是本版本已解決的問題：
+
+|===
+| 問題 | 說明 
+
+
+| 不適用 | 除錯使用者Sysadmin可在重設BMC之後使用SSH登入。 
+
+
+| 不適用 | 當您使用主控台ping BMC IP位址時、BMC不會回應。 
+
+
+| 不適用 | 在AC電源循環壓力測試期間、無法取得solSSH組態檔的存取權限。 
+
+
+| CSESF-116. | 在AC電源循環壓力測試期間、BMC記錄中會出現「PROCHOT」CPU溫度警告。 
+
+
+| CSESF-121. | 建立及更新服務帳戶API所需時間比預期更長。 
+
+
+| CSF-3321 / CSESF-129 | H610S BMC可能會因為「BMC自我測試失敗」錯誤而當機且無法存取。 
+
+
+| CSESF-197 | BMC Web UI Inventory API會傳回錯誤的記憶體序號格式。 
+|===
+
+
+== 已知問題
+
+此版本中沒有已知問題。
+
+
+
+== 升級H610S節點上的BMC韌體
+
+請執行下列步驟、升級H610S節點上的BMC韌體版本。完成此程序大約需要30分鐘。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您已在NetApp Element 支援中心網頁使用者介面中按一下「*報告*>*警示*」來檢查警示、以確保沒有錯誤。
+* 您已下載BMC更新套件。下載BMC更新套件 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/H610S_BMC_3.84["請按這裡"^]。
+
+
+
+NOTE: 此更新套件包含「ROP.IM_enc」檔案、以及韌體更新所需的所有檔案。
+
+* 您已確定BMC和用來執行更新的電腦位於同一個網路上。
+* 您已聯絡NetApp支援部門、以取得BMC升級的協助。
+
+
+.步驟
+. 使用Web瀏覽器登入BMC主控台：「https://<BMC_IP>/#login`」、其中「BMC IP」是BMC的IP位址。
+. 按一下「*維護*」。
+. 按一下*保留組態*。
+. 請執行下列動作：
++
+.. 禁用*全部選中*複選框。
+.. 啟用「* IPMI*」核取方塊。
+.. 啟用「*網路*」核取方塊。
+.. 啟用「*驗證*」核取方塊。
++
+*** * IPMI*設定用於保留現有的使用者帳戶。
+*** 「*網路*」設定用於保留DHCP指派的BMC IP位址。
+*** 「*驗證*」設定用於保留設定用於BMC登入的自訂帳戶。
+
+
+
+
+. 按一下「 * 儲存 * 」。
+. 按一下*韌體更新*。
+. 停用*保留所有組態*核取方塊。
++
+
+NOTE: 請確定您已停用「*保留所有組態*」核取方塊。
+
+. 在您用來執行更新的電腦上、擷取BMC更新套件的內容。
+. 在BMC Web UI的「*韌體更新*」頁面的「*選取韌體映像*」區段下方、按一下「*選擇檔案*」。
+. 瀏覽至擷取的套件內容中的「rom.ima_enc」檔案、然後選取該檔案。
+. 出現詢問您是否要繼續的提示時、按一下*「Start韌體更新*」、然後按一下「* OK *（確定*）」。
+. 當出現指示正在進行韌體重設的提示時、請按一下「*確定*」。
+. 數分鐘後、請使用新的瀏覽器索引標籤登入BMC Web UI。
+. 在BMC儀表板上、前往*裝置資訊*>*更多資訊*。
+. 確認*韌體修訂版*為* 3.84.07*。
+. 針對叢集中其餘的H610S儲存節點執行此程序。
+
+
+[discrete]
+== 瞭解更多資訊
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

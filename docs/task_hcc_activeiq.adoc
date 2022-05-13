@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_activeiq.html 
+summary: 您可以SolidFire Active IQ 使用NetApp監控叢集健全狀況。 
+keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance 
+---
+= 利用VMware技術監控效能、容量和叢集健全狀況SolidFire Active IQ
+:allow-uri-read: 
+
+
+[role="lead"]
+透過使用VMware、您可以監控叢集的事件、效能和容量。SolidFire Active IQ您可以SolidFire Active IQ 從NetApp混合雲控制儀表板存取《》。
+
+*開始之前*
+
+* 您必須擁有NetApp支援帳戶、才能使用此服務。
+* 您必須擁有使用管理節點REST API的授權。
+* 您已部署執行12.0版或更新版本的管理節點。
+* 您的叢集版本執行NetApp Element 的是不含更新版本的軟體。
+* 您可以存取網際網路。無法從黑暗的站台使用此收集器服務。Active IQ
+
+
+*關於此工作*、您可以取得整個叢集統計資料的持續更新歷史檢視。您可以設定通知、針對叢集上的特定事件、臨界值或度量發出警示、以便快速處理這些通知。
+
+在您的一般支援合約中、NetApp Support會監控此資料、並提醒您可能發生的系統問題。
+
+*步驟*
+
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板中、按一下右上角的功能表。
+. 選擇* View Active IQ （查看）*。
++
+。 link:https://activeiq.solidfire.com["資訊儀表板SolidFire Active IQ"^] 出現。
+
+. 若要深入瞭SolidFire Active IQ 解VMware、請從儀表板按一下右上角的功能表圖示、然後按一下*文件*。
+. 在這個介面中、驗證「不實運算」和「儲存」節點是否正確向下列對象報告遙測資訊：SolidFire Active IQ NetApp HCI Active IQ
++
+.. 如果您有一個NetApp HCI 以上的版本安裝、請按一下*選取叢集*、然後從清單中選擇叢集。
+.. 在左側導覽窗格中、按一下*節點*。
+
+
+. 如果清單中缺少節點、請聯絡NetApp支援部門。
+
+
+
+TIP: 若要檢視儲存設備和運算資源的數量、請查看混合雲控制（HCC）儀表板。請參閱 link:task_hcc_dashboard.html["利用「HCC儀表 板」監控儲存與運算資源"]。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://help.monitoring.solidfire.com["NetApp SolidFire Active IQ 產品文件"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

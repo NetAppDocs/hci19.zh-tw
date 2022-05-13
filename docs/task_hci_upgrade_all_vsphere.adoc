@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_upgrade_all_vsphere.html 
+summary: 您可以升級VMware元件NetApp HCI 以利執行VMware、並採取其他步驟重新安裝vCenter外掛程式。 
+keywords: netapp, hci, vSphere components, upgrade, vCenter, ESXi 
+---
+= 利用NetApp HCI vCenter Server的Element外掛程式、為支援VMware的系統升級vSphere元件
+:allow-uri-read: 
+
+
+[role="lead"]
+當您升級NetApp HCI 安裝的VMware vSphere元件時、您需要採取一些額外步驟來安裝vCenter Server的Element Plug-in。
+
+.步驟
+. 對於vCSA升級、 https://docs.netapp.com/us-en/vcp/vcp_task_qossioc.html#clear-qossioc-settings["清楚明瞭"^] 外掛程式中的QoSSIOC設定（* NetApp Element 《SESQ組態》>《QoSSIOC設定》*）。流程完成後、「* QoSSIOC Status *（* QoSSIOC狀態*）」欄位會顯示「Not Configured（未設定）」。
+. 對於vCSA和Windows升級、 https://docs.netapp.com/us-en/vcp/task_vcp_unregister.html["取消登錄"^] 與vCenter Server相關聯的外掛程式、使用登錄公用程式。
+. https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vcenter.upgrade.doc/GUID-7AFB6672-0B0B-4902-B254-EE6AE81993B2.html["升級vSphere、包括vCenter Server、ESXi、VM及其他VMware元件"^]。
++
+
+IMPORTANT: 當您升級至VMware vCenter Server 7.0 U3時、NetApp Element vCenter Server的所有版本均無法部署。若要解決此問題、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["這篇知識庫文章"^]。
+
++
+
+NOTE: 升級適用於運算節點的ESXi時 https://www.netapp.com/us/media/tr-4823.pdf["雙節點叢集"]、一次只升級一個運算節點、因此只有一個見證節點暫時無法使用、而且叢集仲裁也能維持不變。
+
+. https://docs.netapp.com/us-en/vcp/vcp_task_getstarted.html#register-the-plug-in-with-vcenter["註冊"^] vCenter Server的元件外掛程式與vCenter一起使用。
+. https://docs.netapp.com/us-en/vcp/vcp_task_getstarted.html#add-storage-clusters-for-use-with-the-plug-in["新增叢集"^] 使用外掛程式。
+. https://docs.netapp.com/us-en/vcp/vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["設定QoSSIOC設定"^] 使用外掛程式。
+. https://docs.netapp.com/us-en/vcp/vcp_task_qossioc.html#enabling-qossioc-automation-on-datastores["啟用QoSSIOC"^] 適用於所有由外掛程式控制的資料存放區。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+* https://www.netapp.com/us/media/tr-4823.pdf["《雙節點儲存叢集技術報告》NetApp HCI"^]
+

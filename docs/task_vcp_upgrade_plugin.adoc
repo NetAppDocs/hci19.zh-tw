@@ -1,0 +1,108 @@
+---
+sidebar: sidebar 
+permalink: docs/task_vcp_upgrade_plugin.html 
+summary: 在進行升級時、您可以升級vCenter Server的Element外掛程式。NetApp HCI 
+keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9 
+---
+= 升級vCenter Server的Element外掛程式
+:allow-uri-read: 
+
+
+[role="lead"]
+對於已註冊NetApp Element 的VMware vCenter Server更新版現有vSphere環境、您可以在第一次更新包含外掛程式服務的管理服務套件之後、更新外掛程式登錄。
+
+您可以使用登錄公用程式、在vCenter Server Virtual Appliance（vCSA）或Windows上更新外掛程式登錄。您必須在需要使用外掛程式的每個vCenter Server上變更vCenter外掛程式的登錄。
+
+此升級程序涵蓋下列升級案例：
+
+* 您正在升級至Element Plug-in for VMware vCenter Server 4.9、4.8、4.7、4.6、4.5或4.4。
+* 您正在升級至7.0、6.7或6.5 HTML5 vSphere Web Client。
++
+
+IMPORTANT: 外掛程式與VMware vCenter Server 6.5 for Element Plug-in for VMware vCenter Server 4.6、4.7和4.8不相容。
+
+* 您正在升級至6.7 Flash vSphere Web Client。
++
+
+IMPORTANT: 外掛程式與版本6.7 U2 build 130074221的HTML5 vSphere Web Client不相容、以及在更新2a（建置13643870）之前發佈的其他6.7 U2組建。如需支援vSphere版本的詳細資訊、請參閱的版本資訊 https://docs.netapp.com/us-en/vcp/rn_relatedrn_vcp.html#netapp-element-plug-in-for-vcenter-server["您的外掛程式版本"^]。
+
+
+
+.您需要的是 #8217 ；需要的是什麼
+* *管理權限*：您有vCenter管理員角色權限可安裝外掛程式。
+* * vSphere升級*：您在升級NetApp Element 適用於vCenter Server的VMware vCenter外掛程式之前、已執行任何必要的vCenter升級。此程序假設vCenter升級已完成。
+* * vCenter Server*：您的vCenter外掛程式4.x版已在vCenter Server中註冊。從登錄公用程式（「https://[management節點IP」：9443）選取*登錄狀態*、填寫必要欄位、然後選取*檢查狀態*、以確認vCenter外掛程式已登錄、以及目前安裝的版本編號。
+* *管理服務更新*：您已更新您的 https://mysupport.netapp.com/site/products/all/details/mgmtservices/downloads-tab["管理服務套裝組合"^] 至最新版本。vCenter外掛程式的更新會使用管理服務更新進行發佈、這些更新是在適用於NetApp HCI VMware的主要產品版本之外發佈的。
+* *管理節點升級*：您執行的管理節點已經存在 link:task_hcc_upgrade_management_node.html["升級"] 至版本11.3或更新版本。vCenter外掛程式4.4或更新版本需要11.3或更新版本的管理節點、其模組化架構可提供個別服務。您的管理節點必須以設定的IP位址或DHCP位址來開啟電源。
+* * Element儲存升級*：您的叢集執行NetApp Element 的是功能齊全的軟件11.3或更新版本。
+* * vSphere Web Client*：您在開始任何外掛程式升級之前、已登出vSphere Web Client。如果您未登出、Web用戶端將無法辨識在此程序中對外掛程式所做的更新。
+
+
+.步驟
+. 在瀏覽器中輸入管理節點的IP位址、包括用於登錄的TCP連接埠：「https://[management節點IP」：9443。登錄公用程式UI會開啟外掛程式的「*管理QoSSIOC服務認證*」頁面。
++
+image::vcp_registration_utility_ui_qossioc.png[說明外掛程式的登錄公用程式UI]
+
+. 選取* vCenter外掛程式登錄*。
++
+image::vcp_registration_utility_ui.png[說明外掛程式的登錄公用程式UI]
+
+. 在*管理vCenter外掛程式*中、選取*更新外掛程式*。
+. 確認或更新下列資訊：
++
+.. 您要登錄外掛程式之vCenter服務的IPV4位址或FQDN。
+.. vCenter管理員使用者名稱。
++
+
+NOTE: 您輸入的使用者名稱和密碼認證必須是具有vCenter Administrator角色權限的使用者。
+
+.. vCenter管理員密碼。
+.. （適用於內部伺服器/黑點）外掛程式的自訂URL。
++
+
+NOTE: 如果您使用HTTP或HTTPS伺服器（黑網站）或修改了郵遞區號檔案名稱或網路設定、您可以選取*自訂URL*來自訂URL。如需自訂URL的其他組態步驟、請參閱Element Plug-In for vCenter Server文件、瞭解如何修改內部（暗站）HTTP伺服器的vCenter內容。
+
+
+
+. 選擇*更新*。
++
+註冊成功時、註冊公用程式UI會出現橫幅。
+
+. 以vCenter管理員身分登入vSphere Web Client。如果您已登入vSphere Web Client、則必須先登出、等待兩到三分鐘、然後再次登入。
++
+
+NOTE: 此動作會建立新的資料庫、並在vSphere Web Client中完成安裝。
+
+. 在vSphere Web Client中、請在工作監控器中尋找下列已完成的工作、以確保安裝完成：「下載外掛程式」和「部署外掛程式」。
+. 確認NetApp Element vSphere Web Client的「*捷徑*」索引標籤和側邊面板中顯示「功能不實的組態與管理」擴充點。
++
+image::vcp_shortcuts_page_accessing_plugin.png[說明成功升級或安裝後的外掛程式擴充點]
+
++
+[NOTE]
+====
+如果看不到vCenter外掛程式圖示、請參閱 link:https://review.docs.netapp.com/us-en/vcp_2.19_vcp4.8_release_vcp_repo/vcp_reference_troubleshoot_vcp.html#plug-in-registration-successful-but-icons-do-not-appear-in-web-client["vCenter Server的Element外掛程式"^] 外掛程式疑難排解的相關文件。
+
+使用VMware vCenter Server 6.7U1升級至VCP 4.8或更新版本之後、如果未列出儲存叢集、或NetApp Element 是在「VMware vCenter組態」的「*叢集*」和「* QoSSIOC設定*」區段中出現伺服器錯誤、請參閱 link:https://review.docs.netapp.com/us-en/vcp_2.19_vcp4.8_release_vcp_repo/vcp_reference_troubleshoot_vcp.html#errors-after-vcp-4-8-upgrade-with-vmware-vcenter-server-6-7u1["vCenter Server的Element外掛程式"^] 疑難排解這些錯誤的相關文件。
+
+====
+. 確認NetApp Element 外掛程式*的「組態*」擴充點*「關於*」索引標籤中的版本變更。
++
+您應該會看到下列版本詳細資料或較新版本的詳細資料：
+
+
+
+[listing]
+----
+NetApp Element Plug-in Version: 4.9
+NetApp Element Plug-in Build Number: 14
+----
+
+NOTE: vCenter外掛程式包含線上說明內容。若要確保您的「說明」包含最新內容、請在升級外掛程式之後清除瀏覽器快取。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

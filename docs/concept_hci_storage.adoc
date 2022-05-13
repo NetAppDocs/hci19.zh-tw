@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_storage.html 
+summary: 提供各種運算與儲存組態選項。NetApp HCI從推出更新版本的版本開始、您至少可以設定兩個儲存設備和兩個運算節點。NetApp HCI在較早版本中、所需的最低組態為四個儲存節點和兩個運算節點。 
+keywords: netapp, hci, storage nodes, volumes 
+---
+= 儲存設備
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+提供各種運算與儲存組態選項。NetApp HCI從推出版本的推出開始、您可以設定至少兩個儲存設備和兩個運算節點的初始組態。NetApp HCI在使用本技術之前、至少需要四個儲存節點和兩個運算節點的組態。NetApp HCI
+
+* 支援各種H系列儲存節點機型、例如H300S、H500S、H700S、NetApp HCI H410S和H610S。
++
+請參閱 https://www.netapp.com/us/products/converged-systems/hyper-converged-infrastructure.aspx#modelsAndSpecs["機型與規格NetApp HCI"]
+
+* 包含在內的儲存層NetApp HCI 是NetApp Element 由VMware軟體提供、管理層則由NetApp Element 適用於vCenter Server的VMware vCenter外掛程式提供。
+* 儲存節點是一種伺服器、其中包含透過Bond10G網路介面彼此通訊的磁碟機集合。
+* 每個儲存節點均連接至兩個網路、儲存設備和管理設備、每個都有兩個獨立的連結來提供備援和效能。每個節點都需要每個網路上的IP位址。
+* 您可以建立具有新儲存節點的叢集、或是將儲存節點新增至現有叢集、以增加儲存容量和效能。
+* 在這個由功能與功能組成的生態系統中、儲存設備是使用Volume進行配置。NetApp HCI SolidFire
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

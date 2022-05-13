@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_2noderepl.html 
+summary: 在您更換屬於雙節點叢集的節點之前、您應該先新增第三個儲存節點（需要一組新的IP位址）、讓同步作業完成、然後移除故障節點。四節點叢集：您需要額外的MIP和SIP。 
+keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement 
+---
+= 更換雙節點叢集中的儲存節點
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在更換屬於雙節點叢集的儲存節點之前、您應該先新增第三個儲存節點（需要一組新的IP位址）、讓同步作業完成、然後移除故障節點。叢集會維持降級狀態、直到替換節點加入叢集為止。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您有新的管理IP和儲存IP位址。
+* 您已確認叢集在節點離線後顯示「ClusterCannotSync」警示。如此可確保叢集在新節點新增回叢集時、執行完整的重新同步。此警示會在儲存節點離線約六分鐘後顯示。
+* 您已聯絡NetApp支援部門。如果您訂購的是更換產品、您應該可以透過NetApp支援部門開啟案例。
+* 您已取得替換節點。
+* 您有一個防靜電（ESD）腕帶、或是您已採取其他防靜電保護措施。
+
+
+當主機故障時、VMware vSphere Web Client中的警示會提醒您。您必須將VMware vSphere Web Client故障主機的序號與節點背面貼紙上的序號配對。
+
+.步驟
+. 從機架中實際移除故障節點。這些步驟取決於您擁有的儲存節點類型。請參閱 link:task_hci_h410srepl.html["更換H410S節點"^] 和 link:task_hci_h610srepl.html["更換H610S節點"^]。
++
+
+NOTE: 此時請勿從叢集移除節點。
+
+. 將替換節點安裝在同一個插槽中。
+. 連接節點。
+. 開啟節點電源。
+. 將鍵盤和監視器連接至節點。
+. 執行組態步驟：
++
+.. 設定IPMI/BMC IP位址。
+.. 使用新的管理IP和儲存IP位址、以及叢集名稱來設定新節點。
+
+
+. 將節點新增至叢集後、請新增磁碟機。
+. 同步完成後、請從叢集中移除故障磁碟機和故障節點。
+. 使用NetApp混合雲控制來設定您新增的新儲存節點。請參閱 link:https://docs.netapp.com/us-en/hci/docs/task_hcc_expand_storage.html["擴充NetApp HCI 功能"]。
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* http://docs.netapp.com/hci/index.jsp["資訊中心NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
+

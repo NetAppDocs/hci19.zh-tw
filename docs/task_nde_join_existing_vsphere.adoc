@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_join_existing_vsphere.html 
+summary: 瞭解如何在NetApp HCI 部署過程中設定VMware vSphere。 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= 加入現有的VMware vSphere部署
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+您可以提供NetApp HCI vCenter Server網路資訊和認證、設定使用VMware vCenter以充分利用現有的vSphere部署。
+
+.您需要的是 #8217 ；需要的是什麼
+* 如果您要加入現有的vSphere 6.7部署、請確定vCenter Server執行的是6.7 Update 1版。
+* 如果您要加入現有的vSphere 6.5部署、請確定vCenter Server執行的是6.5 Update 2或更新版本。
+* 取得現有vSphere部署的網路詳細資料和管理員認證資料。
+* 如果NetApp Element vCenter Server的VMware vCenter外掛程式已登錄至現有的vCenter執行個體、您必須執行以下操作 https://docs.netapp.com/us-en/vcp/task_vcp_unregister.html["取消登錄"^] 然後繼續。外掛程式會在NetApp HCI 完成還原部署後重新登錄。
+
+
+如果您加入使用vCenter連結模式連線的多個vCenter Server系統、NetApp HCI 則僅能辨識其中一個vCenter Server系統。
+
+
+NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:https://docs.netapp.com/us-en/vcp/vcp_concept_linkedmode.html["vCenter連結模式"^] 僅限於本機儲存叢集。
+
+.步驟
+. 按一下*加入並延伸現有的vSphere部署*。
+. 在「* vCenter Server網域名稱或IP位址*」欄位中輸入網域名稱或IP位址。如果您輸入網域名稱、也需要在出現的「* DNS伺服器IP位址*」欄位中輸入作用中DNS伺服器的IP位址。
+. 在*使用者名稱和密碼*欄位中輸入vSphere管理員的認證資料。
+. 按一下 * 繼續 * 。
+
+
+
+NOTE: 如果NetApp Element 在此步驟中登錄了vCenter Server的VMware vCenter外掛程式、就會出現一則需要您的錯誤訊息 https://docs.netapp.com/us-en/vcp/task_vcp_unregister.html["取消登錄"^] 外掛程式。請先執行此操作、再繼續NetApp HCI 進行不實部署。外掛程式會在部署完成後重新登錄。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

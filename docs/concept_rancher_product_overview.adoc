@@ -1,0 +1,84 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_rancher_product_overview.html 
+summary: 將Rancher部署在NetApp HCI Rancher控制面板（也稱為Rancher伺服器）上、可讓您建立內部部署的Kubernetes叢集。 
+keywords: netapp, hci, rancher, architecture, kubernetes, cluster 
+---
+= Rancher on NetApp HCI 》概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Rancher是一套完整的軟體堆疊、適用於採用容器的團隊。Rancher可解決在不同基礎架構之間管理多個Kubernetes叢集的作業與安全挑戰、同時為DevOps團隊提供執行容器化工作負載的整合式工具。
+
+將Rancher部署在NetApp HCI Rancher控制面板（也稱為_Rancher伺服器_）上、可讓您建立內部部署的Kubernetes叢集。您可以使用NetApp混合雲控制來部署Rancher控制面板。
+
+部署完成後、您可以使用Rancher控制面板來配置、管理及監控開發與營運團隊所使用的Kubernetes叢集。開發與營運團隊可以使用Rancher在NetApp HCI 駐留在下列項目的使用者叢集上執行活動：位於支援此功能的用戶叢集本身、公有雲供應商、或是Rancher所啟用的任何其他基礎架構。
+
+
+
+== Rancher在NetApp HCI 技術上的優點
+
+* 易於安裝：您不需要學習如何安裝及設定Rancher。您可以部署以範本為基礎的實作、NetApp HCI 此實作是由支援部與Rancher共同開發。
+* 生命週期管理：在手動Rancher實作中、Rancher伺服器應用程式或Rancher Kubernetes Engine（RKE）叢集的更新並未自動化。Rancher on NetApp HCI 支援更新管理叢集、包括Rancher伺服器和RKE。
+
+
+
+
+== Rancher on NetApp HCI 支援的功能
+
+透過Rancher on NetApp HCI 支援功能、您可以：
+
+* 跨雲端供應商與私有雲端部署服務。
+* 無論雲端位置為何、都能跨混合雲架構連接應用程式和資料、而不會影響服務層級的協議。
+* 自行增加雲端原生應用程式。
+* 集中管理多個叢集（新的和現有的）。
+* 協調混合雲Kubernetes型應用程式。
+
+
+
+
+== 技術支援選項
+
+將Rancher用於NetApp HCI 支援功能和Kubernetes的開放原始碼軟體、包括免費部署和使用。不需要授權金鑰。
+
+您可以選擇NetApp Rancher Support（NetApp Rancher支援）選項、以取得核心型Rancher企業級支援。
+
+
+NOTE: 您的NetApp Support Edge協議不包含Rancher支援。如需選項、請聯絡NetApp銷售人員或經銷商。如果您向NetApp購買Rancher支援、您將會收到一封內含指示的電子郵件。
+
+
+
+== Rancher的NetApp HCI 架構與元件
+
+以下概述Rancher的NetApp HCI 各個元件：
+
+image::rancher_architecture_diagram1.png[Rancher on NetApp HCI 支援的架構]
+
+* * NetApp混合雲控管*：此介面可讓您將Rancher部署在NetApp HCI Rancher NetApp Element on NetApp HCI Sfor
++
+
+TIP: 您也可以使用NetApp混合雲控制來升級管理服務、擴充系統、收集記錄、以及監控安裝。
+
+* *管理服務*：管理服務可在管理節點上執行、並可NetApp HCI 讓您使用NetApp混合式雲端控制功能、將Rancher部署在整個系統上。
+* *管理叢集*：Rancher on NetApp HCI the S廳 在Rancher管理叢集上部署三部虛擬機器、您可以使用NetApp混合雲控制、vCenter Server或Rancher使用者介面來查看這些虛擬機器。管理叢集虛擬機器裝載Rancher伺服器、Rancher Kubernetes Engine（RKE）和Linux OS。
+
+
+
+TIP: 為了獲得最佳效能和更高的安全性、請考慮使用專屬的Kubernetes叢集來管理Rancher管理伺服器。您不應在管理叢集上執行使用者工作負載。
+
+* *使用者叢集*：下游的Kubernetes使用者叢集會執行您的應用程式與服務。您從Rancher部署或匯入Rancher的任何叢集、都是使用者叢集。
+* * Trident *：Rancher可在NetApp HCI 支援使用者叢集的情況下、在使用者叢集中執行Trident目錄。加入此目錄可簡化對使用者叢集的Trident部署。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

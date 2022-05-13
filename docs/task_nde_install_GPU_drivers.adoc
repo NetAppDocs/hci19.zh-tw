@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_install_GPU_drivers.html 
+summary: 瞭解如何在部署NetApp HCI 完支援GPU的運算節點之後、為其安裝GPU驅動程式。 
+keywords: netapp, hci, deployment, review, GPU, install, driver, drivers 
+---
+= 安裝GPU運算節點的GPU驅動程式
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用NVIDIA圖形處理單元（GPU）（例如H610C）的運算節點、需要在VMware ESXi中安裝NVIDIA軟體驅動程式、才能充分發揮更強大的處理能力。使用GPU部署運算節點之後、您必須在每個啟用GPU的運算節點上執行這些步驟、才能在ESXi中安裝GPU驅動程式。
+
+.步驟
+. 開啟瀏覽器並瀏覽至NVIDIA授權入口網站、網址為：
++
+[listing]
+----
+https://nvid.nvidia.com/dashboard/
+----
+. 視您的環境而定、將下列其中一個驅動程式套件下載到您的電腦：
++
+|===
+| vSphere版本 | 驅動程式套件 
+
+
+| vSphere 6.5 | 《nvidia-grid-vSphere-6.5-410.92-410.91-412.16.zip》 
+
+
+| vSphere 6.7 | 《nvidia-grid-vSphere-6.7-410.92-410.91-412.16.zip》 
+|===
+. 將驅動程式套件解壓縮到電腦上。
++
+產生的.VIB檔案是未壓縮的驅動程式檔案。
+
+. 將「.VIB」驅動程式檔案從電腦複製到運算節點上執行的ESXi。以下每個版本的命令範例假設驅動程式位於管理主機上的「$home/nvidia/ESX6.x/」目錄中。大多數的Linux版本都能使用scp公用程式、或是所有Windows版本的可下載公用程式：
++
+|===
+| ESXi版本 | 說明 
+
+
+| ESXi 6.5 | "CP $home/nvidia/ESX6.5/nvia**.vib root@<esxi_ip_ADDR>:/." 
+
+
+| ESXi 6.7 | "CP $home/nvidia/ESX6.7/nvia**.vib root@<esxi_ip_ADDR>:/." 
+|===
+. 請使用下列步驟以root身分登入ESXi主機、並在ESXi中安裝NVIDIA vGPU管理程式。
++
+.. 執行下列命令、以root使用者身分登入ESXi主機：
++
+[listing]
+----
+ssh root@<ESXi_IP_ADDRESS>
+----
+.. 執行下列命令、確認目前未安裝NVIDIA GPU驅動程式：
++
+[listing]
+----
+nvidia-smi
+----
++
+此命令會傳回「nvidia-smi：not found"（nvidia-smi：找不到）訊息。
+
+.. 執行下列命令以啟用主機上的維護模式、並從VIB檔案安裝NVIDIA vGPU Manager：
++
+[listing]
+----
+esxcli system maintenanceMode set --enable true
+esxcli software vib install -v /NVIDIA**.vib
+----
++
+您應該會看到「成功完成作業」訊息。
+
+.. 執行下列命令、確認命令輸出中列出所有八個GPU驅動程式：
++
+[listing]
+----
+nvidia-smi
+----
+.. 執行下列命令、確認NVIDIA vGPU套件已正確安裝及載入：
++
+[listing]
+----
+vmkload_mod -l | grep nvidia
+----
++
+該命令應返回類似以下內容的輸出："NVIDIA 816 13808"
+
+.. 執行下列命令以重新啟動主機：
++
+[listing]
+----
+reboot -f
+----
+.. 執行下列命令以結束維護模式：
++
+[listing]
+----
+esxcli system maintenanceMode set --enable false
+----
+
+
+. 針對任何其他新部署的NVIDIA GPU運算節點、重複步驟4-6。
+. 請依照NVIDIA文件網站上的指示執行下列工作：
++
+.. 安裝NVIDIA授權伺服器。
+.. 設定NVIDIA vGPU軟體的虛擬機器來賓。
+.. 如果您在虛擬桌面基礎架構（VDI）環境中使用啟用vGPU的桌面、請設定適用於NVIDIA vGPU軟體的VMware Horizon View。
+
+
+
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件軟體文件SolidFire"^]
+

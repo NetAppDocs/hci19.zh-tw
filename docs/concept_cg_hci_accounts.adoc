@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_cg_hci_accounts.html 
+summary: 每NetApp HCI 個啟用雲端服務的支援系統都會與NetApp Cloud Central帳戶建立關聯。 
+keywords: netapp, hci, on premise, administrator, user account, cloud services, cluster 
+---
+= 使用者帳戶
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+若要存取系統上的儲存資源、您必須設定使用者帳戶。
+
+
+
+== 使用者帳戶管理
+
+使用者帳戶可用來控制NetApp Element 對以軟體為基礎之網路上儲存資源的存取。在建立磁碟區之前、至少需要一個使用者帳戶。
+
+當您建立Volume時、該磁碟區會指派給帳戶。如果您已建立虛擬磁碟區、則帳戶就是儲存容器。
+
+以下是一些額外考量：
+
+* 帳戶包含存取指派給它的磁碟區所需的CHAP驗證。
+* 帳戶最多可指派2000個磁碟區、但一個磁碟區只能屬於一個帳戶。
+* 使用者帳戶可從NetApp Element 「不受資料保護」擴充點進行管理。
+
+
+使用NetApp混合雲控制、您可以建立及管理下列類型的帳戶：
+
+* 儲存叢集的系統管理員使用者帳戶
+* 驗證使用者帳戶
+* Volume帳戶、僅適用於建立它們的儲存叢集。
+
+
+
+
+== 儲存叢集管理員帳戶
+
+執行NetApp Element 此軟件的儲存叢集中、可存在兩種類型的系統管理員帳戶：
+
+* *主叢集管理員帳戶*：此管理員帳戶是在建立叢集時建立的。此帳戶是主要管理帳戶、具有最高層級的叢集存取權。此帳戶類似於Linux系統中的root使用者。您可以變更此系統管理員帳戶的密碼。
+* *叢集管理員帳戶*：您可以為叢集管理員帳戶提供有限範圍的管理存取權、以便在叢集內執行特定工作。指派給每個叢集管理員帳戶的認證資料、用於驗證儲存系統內的API和元素UI要求。
+
+
+
+NOTE: 需要本機（非LDAP）叢集管理員帳戶、才能透過每節點UI存取叢集中的作用中節點。存取尚未屬於叢集一部分的節點時、不需要帳戶認證。
+
+您可以透過建立、刪除及編輯叢集管理員帳戶、變更叢集管理員密碼、以及設定LDAP設定來管理使用者的系統存取、來管理叢集管理員帳戶。
+
+
+
+== 驗證使用者帳戶
+
+授權使用者帳戶可針對與NetApp混合雲控制節點和叢集執行個體相關的任何儲存資產進行驗證。有了這個帳戶、您就能跨所有叢集管理磁碟區、帳戶、存取群組等。
+
+驗證使用者帳戶是從NetApp混合雲控制的右上角功能表「使用者管理」選項進行管理。
+
+。 link:concept_hci_clusters.html#authoritative-storage-clusters["授權儲存叢集"] 是NetApp混合雲控制系統用來驗證使用者的儲存叢集。
+
+所有在授權儲存叢集上建立的使用者都可以登入NetApp混合雲控制。在其他儲存叢集上建立的使用者無法登入混合雲控制。
+
+* 如果您的管理節點只有一個儲存叢集、則它是授權叢集。
+* 如果您的管理節點有兩個以上的儲存叢集、其中一個叢集會指派為授權叢集、而且只有該叢集的使用者才能登入NetApp混合雲控制。
+
+
+雖然許多NetApp混合雲控制功能可搭配多個儲存叢集使用、但驗證與授權仍有必要限制。驗證與授權的限制在於、授權叢集的使用者可以在其他綁定至NetApp混合雲控制的叢集上執行動作、即使他們不是其他儲存叢集的使用者。在繼續管理多個儲存叢集之前、您應確保在授權叢集上定義的使用者已在所有其他具有相同權限的儲存叢集上定義。您可以從NetApp混合雲控制管理使用者。
+
+
+
+== Volume帳戶
+
+Volume專屬帳戶僅適用於建立帳戶的儲存叢集。這些帳戶可讓您在網路上的特定磁碟區上設定權限、但在這些磁碟區之外並無任何影響。
+
+Volume帳戶是在NetApp混合雲控制磁碟區表格中管理。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* link:task_hcc_manage_accounts.html["管理使用者帳戶"]
+* link:concept_hci_clusters.html["深入瞭解叢集"]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

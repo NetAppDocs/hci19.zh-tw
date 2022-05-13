@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_configuration.html 
+summary: 深入瞭NetApp HCI 解適用於此功能的網路組態選項。 
+keywords: netapp, hci, cabling, network configuration 
+---
+= 網路組態
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, cabling, network configuration
+
+
+[role="lead"]
+可利用多種不同的網路纜線和VLAN組態。NetApp HCI規劃網路組態以確保成功部署是非常重要的。
+
+
+
+== 必要的網路區段
+
+至少需要三個網路區段：管理、儲存和虛擬化流量（包括虛擬機器和VMware VMotion流量）NetApp HCI 。您也可以分隔虛擬機器和VMotion流量。這些網路區段通常以邏輯分隔的VLAN形式存在NetApp HCI 於整個支援網路基礎架構中。
+
+運算和儲存節點如何連線至這些網路、取決於您如何設計網路和連接節點。本指南中的網路範例圖示假設下列網路：
+
+|===
+| 網路名稱 | VLAN ID 
+
+
+| 管理 | 100 
+
+
+| 儲存設備 | 105. 
+
+
+| vMotion | 107% 
+
+
+| 虛擬機器 | 200、201 
+|===
+若要在NetApp HCI NetApp部署引擎中自動探索及設定您的支援節點、您必須在節點上用於SFP+/ SFP28介面的所有交換器連接埠上、將網路區段設為無標記或原生VLAN。這將在所有節點之間提供第2層通訊、以供探索和部署。如果沒有原生VLAN、您必須手動設定所有節點的SFP+/ SFP28介面、並將VLAN和IPv4位址設定為可搜尋。在本文件的網路組態範例中、管理網路（VLAN ID 100）用於此用途。
+
+NetApp部署引擎可讓您在初始部署期間快速設定運算和儲存節點的網路。您可以將某些內建管理元件（例如vCenter和管理節點）放在自己的網路區段上。這些網路區段需要路由、才能讓vCenter和管理節點與儲存設備和運算管理網路進行通訊。在大多數部署中、這些元件使用相同的管理網路（本例中為VLAN ID 100）。
+
+
+NOTE: 您可以使用vCenter設定虛擬機器網路。在進行物件部署時、預設的虛擬機器網路（連接埠群組「VM_Network」）NetApp HCI 會設定為無VLAN ID。如果您打算使用多個標記的虛擬機器網路（前例中為VLAN ID 200和201）、請務必將它們納入初始網路規劃。
+
+
+
+== 網路組態和纜線選項
+
+H410C運算節點可使用雙纜線網路組態、簡化纜線佈線。此組態使用兩個SFP+/ SFP28介面、外加一個選用（但建議）RJ45介面來進行IPMI通訊。這些節點也可以使用六線組態搭配兩個RJ45和四個SFP28/SFP+介面。
+
+H410S和H610S儲存節點支援使用四個網路連接埠（連接埠A到D）的網路拓撲。
+
+運算節點支援三種網路拓撲、視硬體平台而定：
+
+|===
+| 組態選項 | H410C節點的佈線 | H610C節點的佈線 | H615C節點的佈線 
+
+
+| 選項A | 使用連接埠D和E的兩條纜線 | 使用連接埠C和D的兩條纜線 | 使用連接埠A和B的兩條纜線 
+
+
+| 備選案文B | 使用連接埠A至F的六條纜線 | 無法使用 | 無法使用 
+
+
+| 選項C 3+| 與選項B類似、但在交換器上有用於管理、儲存和VMotion網路的原生VLAN（或「存取連接埠」） 
+|===
+沒有正確連接纜線數量的節點無法參與部署。例如、如果運算節點只連接D和E連接埠、則無法在六纜線組態中部署。
+
+
+NOTE: 您可以在NetApp HCI 部署後調整此解決方案的功能、以滿足基礎架構需求。不過、當您擴充NetApp HCI 支援資源時、請記住、新節點的纜線組態必須與現有的運算和儲存節點相同。
+
+[NOTE]
+====
+如果NetApp部署引擎因網路不支援巨型框架而失敗、您可以執行下列其中一項因應措施：
+
+* 使用靜態IP位址、並在Bond10G網路上手動設定9000位元組的最大傳輸單位（MTU）。
+* 設定動態主機組態傳輸協定、在Bond10G網路上通告9000位元組的介面MTU。
+
+
+====
+.網路組態選項
+* link:hci_prereqs_network_configuration_option_A.html["網路組態選項A"]
+* link:hci_prereqs_network_configuration_option_B.html["網路組態選項B"]
+* link:hci_prereqs_network_configuration_option_C.html["網路組態選項C"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

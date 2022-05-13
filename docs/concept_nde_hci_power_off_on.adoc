@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_hci_power_off_on.html 
+summary: 瞭解如何在NetApp HCI 部署過程中設定VMware vSphere。 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= 關閉NetApp HCI 或開啟您的系統電源
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+如果您有排定的停電、需要執行硬體維護、或需要擴充系統、您可以關閉或開啟NetApp HCI 您的支援系統電源。根據NetApp HCI 需要、使用下列工作來關閉或開啟您的支援系統電源。
+
+您可能需要在NetApp HCI 多種不同的情況下關閉您的電力供應、例如：
+
+* 排定的中斷運作
+* 更換機箱風扇
+* 韌體升級
+* 儲存或運算資源擴充
+
+
+以下是關閉NetApp HCI 作業系統電源所需完成的工作總覽：
+
+* 關閉VMware vCenter伺服器（vCSA）以外的所有虛擬機器。
+* 關閉所有ESXi伺服器、但主控vCSA的伺服器除外。
+* 關閉vCSA。
+* 關閉NetApp HCI 不支援的儲存系統。
+
+
+以下是啟動NetApp HCI 一套功能完整的功能概述：
+
+* 開啟所有實體儲存節點的電源。
+* 開啟所有實體運算節點的電源。
+* 開啟vCSA電源。
+* 驗證系統並開啟其他虛擬機器。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

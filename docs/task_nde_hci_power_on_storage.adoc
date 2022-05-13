@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_on_storage.html 
+summary: 瞭解如何關閉NetApp HCI 各個運算節點的電源。 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= 開啟NetApp HCI 適用於某個不支援的系統的儲存資源
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+排定的停電時間結束後、NetApp HCI 您可以啟動支援功能。
+
+.步驟
+. 使用實體電源按鈕或BMC開啟所有儲存節點的電源。
+. 如果使用BMC、請登入每個節點、然後瀏覽至*遠端控制>電源控制>開機伺服器*。
+. 當所有儲存節點都在線上時、請登入NetApp HCI 到該儲存系統、並確認所有節點均可正常運作。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+

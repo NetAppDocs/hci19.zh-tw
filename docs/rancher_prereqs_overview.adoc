@@ -1,0 +1,164 @@
+---
+sidebar: sidebar 
+permalink: docs/rancher_prereqs_overview.html 
+summary: 瞭解成功安裝Rancher的需求NetApp HCI 。 
+keywords: netapp, hci, Rancher, install, installation, requirements 
+---
+= Rancher on NetApp HCI 支援需求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在NetApp HCI 將Rancher安裝在支援的地方之前、請先確保您的環境和NetApp HCI 您的支援系統符合這些要求。
+
+
+NOTE: 如果您不小心將Rancher部署在NetApp HCI 包含不正確資訊的支援區（例如Rancher伺服器FQDN不正確）上、就無法在不移除和重新部署的情況下修正部署。您需要移除Rancher on NetApp HCI the Randi instance、然後NetApp HCI 從NetApp混合雲控制UI重新部署Rancher on the支援。請參閱 link:task_rancher_remove_deployment.html["移除NetApp HCI 在不支援的情況下安裝Rancher"^] 以取得更多資訊。
+
+
+
+== 節點需求
+
+* 確保NetApp HCI 您的支援系統至少有三個運算節點、這是完整恢復能力所不可或缺的。僅儲存組態不支援Rancher on NetApp HCI 支援。
+* 確保您要用於Rancher on NetApp HCI the orchment的資料存放區至少有60GB的可用空間。
+* 請確定NetApp HCI 您的叢集執行的是管理服務2.17版或更新版本。
+
+
+
+
+=== 節點詳細資料
+
+Rancher on NetApp HCI 功能可部署三節點管理叢集。
+
+所有節點都具有下列特性：
+
+[cols="15,15, 15"]
+|===
+| VCPU | RAM（GB） | 磁碟（GB） 
+
+
+| 2. | 8. | 20 
+|===
+
+
+== 網路需求
+
+* 確保您要在NetApp HCI 支援的叢集上部署Rancher的網路、有一條通往管理節點管理網路的路由。
+* Rancher on NetApp HCI 支援控制面板（Rancher伺服器）和使用者叢集的DHCP位址、但我們建議正式作業環境使用靜態IP位址。如果要在正式作業環境中部署、請確定您已配置必要的靜態IP位址。
++
+** Rancher伺服器需要三個靜態IP位址。
+** 每個使用者叢集所需的靜態IP位址數量、與叢集中的節點數量一樣。例如、具有四個節點的使用者叢集需要四個靜態IP位址。
+** 如果您打算使用DHCP定址來處理Rancher控制面板或使用者叢集、請確定DHCP租用期間至少為24小時。
+
+
+* 如果您需要使用HTTP Proxy來啟用Rancher on NetApp HCI 支援的網際網路存取功能、您必須在部署前變更管理節點。使用SSH登入您的管理節點、然後遵循 https://docs.docker.com/config/daemon/systemd/#httphttps-proxy["說明"^] 在Docker文件中、手動更新Docker的Proxy設定。
+* 如果您在部署期間啟用及設定Proxy伺服器、下列IP位址範圍和網域會自動新增至Rancher伺服器NoProxy設定：
++
+[listing]
+----
+127.0.0.0/8, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, .svc, .cluster.local
+----
+* 確保管理節點可以使用DNS將主機名稱'<任何IP位址>.nip.io'解析為IP位址。這是部署期間使用的DNS供應商；如果管理節點無法解析此URL、部署將會失敗。
+* 請確定您已針對所需的每個靜態IP位址設定DNS記錄。
+
+
+
+
+== VMware vSphere需求
+
+* 請確定您使用的VMware vSphere執行個體為6.5、6.7或7.0版。
+* 您可以使用vSphere標準交換器（VSS）網路組態、但如果您這麼做、請確保用於Rancher VM的虛擬交換器和實體主機可以存取所有相同的連接埠群組、方法與一般VM相同。
+
+
+
+
+== 部署考量
+
+您可能需要檢閱下列考量事項：
+
+* 部署類型
++
+** 示範部署
+** 正式作業部署
+
+
+* Rancher FQDN
+
+
+
+TIP: Rancher on NetApp HCI 支援靜態、除非您設定某種類型的網路負載平衡、否則無法恢復節點故障。簡單的解決方案是針對保留給Rancher伺服器的三個靜態IP位址建立循環配置資源DNS項目。這些DNS項目應解析為Rancher伺服器FQDN、以便您在部署完成後存取Rancher伺服器主機、該主機可為Rancher Web UI提供服務。
+
+
+
+=== 部署類型
+
+您可以NetApp HCI 透過下列方式在支援中部署Rancher：
+
+* *示範部署*：如果目標部署環境中有DHCP、而您想展示Rancher的NetApp HCI 功能、則DHCP部署最合理。
++
+在此部署模式中、可以從管理叢集中的三個節點中的每個節點存取Rancher UI。
+
++
+如果您的組織不使用DHCP、您仍可使用部署前配置的四個靜態IP位址來試用、這與正式作業部署的做法類似。
+
+* *正式作業部署*：對於正式作業部署或目標部署環境中沒有DHCP時、需要更多的預先部署工作。第一步是連續取得三個IP位址。您在部署期間輸入第一個。
++
+我們建議在正式作業環境中使用L4負載平衡或循環DNS組態。這需要第四個IP位址和DNS組態中的個別項目。
+
++
+** * L4負載平衡*：這是一種技術、可將裝載應用程式的虛擬機器或容器設定為在管理叢集的三個節點之間分配要求。
+** *循環配置DNS：這是一種技術、可在DNS系統中設定單一主機名稱、以便在組成管理叢集的三個主機之間循環處理要求。
+
+
+
+
+
+
+=== Rancher FQDN
+
+安裝作業需要指派Rancher URL、其中包含安裝完成後、Rancher UI將在其中提供服務的主機完整網域名稱（FQDN）。
+
+在所有情況下、您都可以透過https傳輸協定（連接埠443）在瀏覽器中存取Rancher UI。
+
+正式作業部署需要設定FQDN、以便在管理叢集節點之間取得負載平衡。如果不使用FQDN和負載平衡、環境就無法恢復、僅適用於示範環境。
+
+
+
+== 必要的連接埠
+
+請確定官方* Rancher節點*區段的「Rancher伺服器節點的連接埠」區段中的連接埠清單 https://rancher.com/docs/rancher/v2.x/en/installation/requirements/ports/#ports-for-rancher-server-nodes-on-rke["Rancher文件"^] 可在防火牆組態中開啟、並可在執行Rancher伺服器的節點之間開啟。
+
+
+
+== 必要的URL
+
+下列URL應可從Rancher控制面板所在的主機存取：
+
+|===
+| URL | 說明 
+
+
+| https://charts.jetstack.io/[] | Kubernetes整合 
+
+
+| https://releases.rancher.com/server-charts/stable[] | Rancher軟體下載 
+
+
+| https://entropy.ubuntu.com/[] | 用於隨機數產生的Ubuntu Entropy服務 
+
+
+| https://raw.githubusercontent.com/vmware/cloud-init-vmware-guestinfo/v1.3.1/install.sh[] | VMware來賓新增功能 
+
+
+| https://download.docker.com/linux/ubuntu/gpg[] | Docker Ubuntu GPG公開金鑰 
+
+
+| https://download.docker.com/linux/ubuntu[] | Docker下載連結 
+
+
+| https://hub.docker.com/[] | 適用於NetApp混合雲控制的Docker Hub 
+|===

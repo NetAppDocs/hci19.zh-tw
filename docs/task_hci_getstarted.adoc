@@ -1,0 +1,278 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_getstarted.html 
+summary: 請使用這些指示來安裝及部署NetApp HCI 功能。 
+keywords: netapp, hci, install, deploy, get started 
+---
+= 安裝與部署概述NetApp HCI
+:allow-uri-read: 
+
+
+[role="lead"]
+請使用這些指示來安裝及部署NetApp HCI 功能。這些指示包含更多詳細資料的連結。
+
+以下是程序總覽：
+
+* <<Prepare for installation>>
+* <<Validate network readiness with NetApp Active IQ Config Advisor>>
+* <<Work with your NetApp team>>
+* <<Install NetApp HCI hardware>>
+* <<Complete optional tasks after installing hardware>>
+* <<Deploy NetApp HCI using the NetApp Deployment Engine (NDE)>>
+* <<Manage NetApp HCI using the vCenter Plug-in>>
+* <<Monitor or upgrade NetApp HCI with the Hybrid Cloud Control>>
+
+
+
+
+== 準備安裝
+
+在開始安裝之前、請先完成NetApp HCI 傳送給您的「_Estration Installation Discovery Workbook」（_版安裝探索手冊_）課前檢查清單、再接收硬體。
+
+
+
+=== 準備網路和安裝站台
+
+以下是簡化NetApp HCI 的網路拓撲安裝：
+
+image::hci_topology_simple_network.png[簡化NetApp HCI 的「網路拓撲圖」]
+
+這是單一儲存節點和單一運算節點的簡化網路拓撲。最小NetApp HCI 的叢集是兩個儲存設備和兩個運算節點。
+
+
+NOTE: 您的網路拓撲可能與此處顯示的不同。這只是一個範例。
+
+這項設定使用運算節點上的兩條網路纜線來連線至所有NetApp HCI 的鏈路。 
+
+請閱讀以下資源：
+
+* 安裝之前、請使用「_ NetApp HCI 靜態安裝探索工作簿_」來設定您的網路。
+* 如需詳細資料及其他支援的組態、請參閱 https://www.netapp.com/us/media/tr-4820.pdf["_TR-4820：NetApp HCI 《鏈路》快速規劃指南"] 和 https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["_《安裝與設定說明》_ NetApp HCI"]。
+* 如需NetApp HCI 有關小於四個儲存節點的不完整組態資訊、請參閱 https://www.netapp.com/us/media/tr-4823.pdf["_TR-4823：NetApp HCI 《SURF2-Node Storage Clust集中》"^]。
+* 如需在每個儲存節點所使用的交換器連接埠上設定連結集合控制傳輸協定（LACP）的詳細資訊、請參閱 link:hci_prereqs_LACP_configuration.html["設定LTAP以獲得最佳儲存效能"]。
+
+
+這項設定將所有流量整合到兩個實體備援連接埠、減少纜線佈線並簡化網路組態。此組態需要儲存設備、VMotion和任何虛擬機器網路區段使用VLAN標記。管理網路區段可以使用原生或標記的VLAN；不過、原生VLAN是偏好的模式、因此NetApp部署引擎（NDE）可以自動指派網路資源（零會議）。
+
+此模式需要vSphere分散式交換器（VDS）、這需要VMware vSphere Enterprise Plus授權。
+
+
+
+=== 開始之前的網路需求
+
+以下是必備條件的重點。
+
+如需先決條件詳細資料、請參閱 link:hci_prereqs_overview.html["非部署需求NetApp HCI 總覽"]。
+
+* Bond1G是一個邏輯介面、結合了儲存節點上的1GbE網路連接埠和運算節點上的管理介面。此網路用於NDE API流量。所有節點都必須能夠透過同一個L2網路中的管理介面進行通訊。
+* Bond10G是一個邏輯介面、結合了10/25GbE連接埠、並由NDE用於指標和庫存。所有節點都必須能夠透過Bond10G介面與非分散的巨型框架進行通訊。
+* NDE需要在單一儲存節點上的Bond1G介面上、至少手動指派一個IP位址。NDE將從此節點執行。
+* 所有節點都會有由NDE探索指派的暫用IP位址、這是透過自動私有IP位址（APIPA）來完成。
+
+
+
+NOTE: 在NDE程序期間、所有節點都會被指派永久IP位址、而任何指派的APIPA暫用IP都會釋出。
+
+* NDE需要在交換器網路上預先設定的管理、iSCSI和VMotion等個別網路。
+
+
+
+
+== 利用NetApp Active IQ Config Advisor 產品驗證網路整備
+
+若要確保NetApp HCI 網路能夠做好執行效能不整的準備、請安裝NetApp Active IQ Config Advisor 功能更新版本的NetApp此網路驗證工具位於其他 link:https://mysupport.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["NetApp支援工具"^]。使用此工具來驗證連線能力、VLAN ID、IP位址需求、交換器連線能力等。
+
+如需詳細資訊、請參閱 link:hci_prereqs_task_validate_config_advisor.html["利用Active IQ Config Advisor 功能驗證您的環境"]
+
+
+
+== 與您的NetApp團隊合作
+
+您的NetApp團隊會使用NetApp Active IQ Config Advisor 的《產品資訊》報告和_Discovery工作簿來驗證您的網路環境是否就緒。
+
+
+
+== 安裝NetApp HCI 軟硬體
+
+可在不同組態中安裝下列項目：NetApp HCI
+
+* H410C運算節點：雙纜線組態或六纜線組態
+* H610C運算節點：雙纜線組態
+* H615C運算節點：雙纜線組態
+* H410S儲存節點
+* H610S儲存節點
+
+
+
+CAUTION: 如需預防措施與詳細資料、請參閱 link:task_hci_installhw.html["安裝H系列硬體"]。
+
+.步驟
+. 安裝滑軌和機箱。
+. 在機箱中安裝節點、並安裝儲存節點的磁碟機。（僅適用於在NetApp H系列機箱中安裝H410C和H410S的情況。）
+. 安裝交換器。
+. 連接運算節點。
+. 連接儲存節點。
+. 連接電源線。
+. 開啟NetApp HCI 節點電源。
+
+
+
+
+== 安裝硬體後、請完成選用的工作
+
+安裝NetApp HCI 完故障硬體後、您應該執行一些選用但建議的工作。
+
+
+
+=== 管理所有機箱的儲存容量
+
+確保儲存容量平均分配至包含儲存節點的所有機箱。
+
+
+
+=== 為每個節點設定IPMI
+
+在您安裝好NetApp HCI 機架、連接好纜線並啟動完您的支援硬體之後、您可以為每個節點設定智慧型平台管理介面（IPMI）存取。為每個IPMI連接埠指派IP位址、並在遠端IPMI存取節點後立即變更預設的管理員IPMI密碼。
+
+請參閱 link:hci_prereqs_final_prep.html["設定IPMI"]。
+
+
+
+== 使用NetApp部署引擎（NDE）NetApp HCI 部署
+
+NDE UI是用來安裝NetApp HCI 程式的軟體精靈介面。
+
+
+
+=== 啟動NDE UI
+
+使用儲存節點管理網路的IPv4位址進行NDE的初始存取。NetApp HCI最佳實務做法是從第一個儲存節點連線。
+
+.先決條件
+* 您已手動或使用DHCP指派初始儲存節點管理網路IP位址。
+* 您必須能夠實體存取NetApp HCI 此安裝。
+
+
+.步驟
+. 如果您不知道初始儲存節點管理網路IP、請使用終端使用者介面（TUI）、此介面可透過鍵盤及儲存節點或上的監控器存取 link:task_nde_access_dhcp.html["使用USB隨身碟"]。
++
+如需詳細資訊、請參閱 link:concept_nde_access_overview.html["_存取NetApp部署引擎_"]。
+
+. 如果您知道IP位址、請從網頁瀏覽器透過HTTP（而非HTTPS）連線至主要節點的Bond1G位址。
++
+*範例*：「http://<IP_address>:442/nde/`
+
+
+
+
+
+=== 使用NetApp HCI NDE UI部署
+
+. 在NDE中、接受先決條件、勾選使用Active IQ 該功能、並接受授權合約。
+. 或者、啟用ONTAP Select Data Fabric File Services by功能、並接受ONTAP Select 此功能的支援。
+. 設定新的vCenter部署。按一下*使用完整網域名稱設定*、然後輸入vCenter Server網域名稱和DNS伺服器IP位址。
++
+
+NOTE: 強烈建議您使用FQDN方法來安裝vCenter。
+
+. 檢查是否已成功完成所有節點的庫存評估。
++
+執行NDE的儲存節點已核取。
+
+. 選取所有節點、然後按一下*繼續*。
+. 設定網路設定。請參閱NetApp HCI _《安裝探索手冊》_瞭解要使用的值。
+. 按一下藍色方塊以啟動簡易表單。
++
+image::hci_nde_network_settings_ui.png[NDE網路設定頁面]
+
+. 在Network Settings Easy Form中：
++
+.. 輸入命名前置字元。（請參閱《_ NetApp HCI 》《_》《_》《安裝探索手冊》的系統詳細資料》。）
+.. 按一下「*否*」以指定VLAN ID？（稍後請在「Network Settings（網路設定）」主頁中指派。）
+.. 根據您的工作簿鍵入管理、VMotion和iSCI網路的子網路CIDR、預設閘道和起始IP位址。（NetApp HCI 請參閱「_EstronInstallation Discovery Workbook」（_《安裝探索手冊》_）的「IP指派方法」一節、以瞭解這些值。）
+.. 按一下「*套用至網路設定*」。
+
+
+. 加入 link:task_nde_join_existing_vsphere.html["現有vCenter"] （選用）。
+. 請在「_EstronInstallation NetApp HCI Discovery工作簿」中記錄節點序號。
+. 為VMotion網路和任何需要VLAN標記的網路指定VLAN ID。請參閱_ NetApp HCI 《安裝探索手冊》_。
+. 將組態下載為.CSV檔案。
+. 單擊*開始部署*。
+. 複製並儲存出現的URL。
++
+
+NOTE: 完成部署可能需要45分鐘。
+
+
+
+
+
+=== 使用vSphere Web Client驗證安裝
+
+. 啟動vSphere Web Client、並使用NDE使用期間指定的認證登入。
++
+您必須在使用者名稱後加上「@vSphere.local'」。
+
+. 確認沒有任何警示。
+. 確認vCenter、mNode和ONTAP Select VMware（選用）應用裝置正在執行、且沒有警告圖示。
+. 請注意、這兩個預設資料存放區（NetApp-HCI資料存放區_01和02）已建立。
+. 選取每個資料存放區、並確保所有運算節點都列在「hosts（主機）」索引標籤中。
+. 驗證vMotion和Datastore-02。
++
+.. 將vCenter Server移轉至NetApp-HCI資料存放區-02（僅儲存設備vMotion）。
+.. 將vCenter Server移轉至每個運算節點（僅運算vMotion）。
+
+
+. 前往NetApp Element vCenter Server的VMware vCenter外掛程式、確保叢集可見。
+. 確保儀表板上不會顯示任何警示。
+
+
+
+
+== 使用vCenter外掛程式管理NetApp HCI
+
+安裝NetApp HCI 完功能後、您可以設定叢集、磁碟區、資料存放區、記錄、存取群組、 使用NetApp Element vCenter Server適用的VMware vCenter外掛程式來啟動器和服務品質（QoS）原則。
+
+如需詳細資訊、請參閱 https://docs.netapp.com/us-en/vcp/index.html["_適用於vCenter Server的_個外掛程式文件_ NetApp Element"^]。
+
+image::vcp_shortcuts_page.png[vSphere用戶端捷徑頁面]
+
+
+
+== 利用NetApp HCI 混合雲控管技術監控或升級功能
+
+您也可以選擇使用NetApp HCI 「混合雲控制」來監控、升級或擴充系統。
+
+您可以瀏覽至管理節點的IP位址、登入NetApp混合雲控制。
+
+使用混合雲控制、您可以執行下列動作：
+
+* link:task_hcc_dashboard.html["監控NetApp HCI 您的安裝"]
+* link:concept_hci_upgrade_overview.html["升級NetApp HCI 您的系統"]
+* link:concept_hcc_expandoverview.html["擴充NetApp HCI 您的不必要儲存或運算資源"]
+
+
+*步驟*
+
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
++
+此時會出現NetApp混合雲控制介面。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* link:../media/hseries-isi.pdf["《安裝與設定說明》NetApp HCI"^]
+* https://www.netapp.com/us/media/tr-4820.pdf["TR-4820：NetApp HCI 《鏈路》快速規劃指南"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server文件的適用插件NetApp Element"^]
+* https://mysupport-beta.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["NetApp組態顧問"^] 5.8.1或更新版本的網路驗證工具
+* https://help.monitoring.solidire.com["NetApp SolidFire Active IQ 產品文件"^]
+

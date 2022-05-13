@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_configuration_option_A.html 
+summary: 深入瞭NetApp HCI 解選購的功能：a. 
+keywords: netapp, hci, cabling, network configuration 
+---
+= 網路組態
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, cabling, network configuration
+
+
+[role="lead"]
+可利用多種不同的網路纜線和VLAN組態。NetApp HCI第一個組態選項A會針對每個運算節點使用兩條網路纜線。
+
+
+
+== 組態選項A：兩條運算節點纜線
+
+NetApp H410C、H610C和H615C運算節點支援使用兩條網路纜線連線至所有NetApp HCI 的支援網路。此組態需要儲存設備、VMotion和任何虛擬機器網路使用VLAN標記。所有運算和儲存節點都必須使用相同的VLAN ID配置。此組態使用需要VMware vSphere Enterprise Plus授權的vSphere分散式交換器。
+
+本文檔使用字母來表示H系列節點背面板上的網路連接埠。NetApp HCI
+
+以下是H410C儲存節點上的網路連接埠和位置：
+
+[#H35700E_H410C]
+image::HCI_ISI_compute_6cable.png[NetApp H410C儲存節點網路連接埠]
+
+以下是H610C運算節點上的網路連接埠和位置：
+
+[#H610C]
+image::H610C_node-cabling.png[NetApp H610C運算節點網路連接埠]
+
+以下是H615C運算節點上的網路連接埠和位置：
+
+[#H615C]
+image::H615C_node_cabling.png[NetApp H615C運算節點網路連接埠]
+
+此組態會在每個節點上使用下列網路連接埠：
+
+|===
+| 節點 | 使用的網路連接埠 
+
+
+| H410C | D和E 
+
+
+| H610C | C和D 
+
+
+| H615C | A和B 
+|===
+
+
+=== VLAN組態
+
+最佳實務做法是在節點所使用的所有交換器連接埠上設定所需的網路區段。例如：
+
+|===
+| 網路名稱 | VLAN ID | 交換器連接埠組態 
+
+
+| 管理 | 100 | 原生 
+
+
+| 儲存設備 | 105. | 已標記 
+
+
+| vMotion | 107% | 已標記 
+
+
+| 虛擬機器 | 200、201 | 已標記 
+|===
+下圖顯示兩條纜線H410C運算節點和四條纜線H410S儲存節點的建議纜線組態。本範例中的所有交換器連接埠都共用相同的組態。
+
+image::hci_networking_config_scenario_1.png[HCI網路組態選項映像]
+
+
+
+=== 交換器命令範例
+
+您可以使用下列命令範例來設定NetApp HCI 所有用於節點的交換器連接埠。這些命令是以Cisco組態為基礎、但可能只需要做些小變更、就能套用到Mellanox交換器。如需實作此組態所需的特定命令、請參閱交換器文件。將介面名稱、說明和VLAN取代為您環境的值。
+
+「介面｛介面名稱、例如：ethernetX/Y或GigabitethernetX/y/Z｝」「描述｛所需說明、例如NetApp-HCI節點X-portY｝」「mtu 9216」「witchport mode trunk」「witchport trunk Native VLAN 100」「允許VLAN 105,107,200,201連接埠傳輸模式樹狀結構」
+
+
+NOTE: 有些交換器可能需要在允許的VLAN清單中納入原生VLAN。請參閱特定交換器機型與軟體版本的說明文件。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: docs/reference_notices_hci.html 
+keywords: copyrights, notice, trademarks, patents, privacy, open source 
+summary: 法律聲明提供版權聲明、商標、專利等存取權限。 
+translate: false 
+---
+= 法律聲明
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+法律聲明提供版權聲明、商標、專利等存取權限。
+
+
+
+== 版權
+
+http://www.netapp.com/us/legal/copyright.aspx[]
+
+
+
+== 商標
+
+NetApp 、 NetApp 標誌及 NetApp 商標頁面上列出的標章均為 NetApp 、 Inc. 的商標。其他公司與產品名稱可能為其各自所有者的商標。
+
+http://www.netapp.com/us/legal/netapptmlist.aspx[]
+
+
+
+== 專利
+
+如需最新的 NetApp 擁有專利清單、請參閱：
+
+https://www.netapp.com/us/media/patents-page.pdf[]
+
+
+
+== 隱私權政策
+
+https://www.netapp.com/us/legal/privacypolicy/index.aspx[]
+
+
+
+== 開放原始碼
+
+通知檔案提供有關 NetApp 軟體所使用之協力廠商版權與授權的資訊。
+
+* link:../media/ansible-products-notice.pdf["運算升級的Ansible角色注意事項"^]
+* link:../media/Ember_12.3_notice.pdf["Ember OS 12.3.1注意事項"^]
+* link:../media/Ember_12.3_notice.pdf["Ember OS 12.3.注意事項"^]
+* link:../media/mNode_12.3_notice.pdf["管理節點12.3.1注意事項"^]
+* link:../media/mNode_12.3_notice.pdf["管理節點12.3.注意事項"^]
+* link:../media/NetApp_HCI_1.9_notice.pdf["關於此產品的注意事項NetApp HCI 1.9P1"^]
+* link:../media/NetApp_HCI_1.9_notice.pdf["關於此功能的注意事項NetApp HCI 1.9"^]
+* link:../media/storage_firmware_bundle_2.146_notices.pdf["儲存韌體產品組合2.146注意事項"^]
+* link:../media/compute_firmware_bundle_2.146_notices.pdf["運算韌體產品組合2.146注意事項"^]
+* link:../media/storage_firmware_bundle_2.99_notices.pdf["儲存韌體產品組合2.99.2注意事項"^]
+* link:../media/compute_firmware_bundle_2.76_notices.pdf["運算韌體產品組合2.76注意事項"^]
+* link:../media/storage_firmware_bundle_2.76_notices.pdf["儲存韌體產品組合2.76注意事項"^]
+* link:../media/compute_firmware_bundle_2.27_notices.pdf["運算韌體產品組合2.27注意事項"^]
+* link:../media/storage_firmware_bundle_2.27_notices.pdf["儲存韌體產品組合2.27注意事項"^]
+* link:../media/compute_iso_notice.pdf["運算韌體ISO注意事項"^]
+* link:../media/H610S_BMC_notice.pdf["H610S BMC注意事項"^]
+* link:../media/2.20_notice.pdf["管理服務注意事項2.20.69（VCP 4.9.14）"^]
+* link:../media/2.19_notice.pdf["管理服務注意事項2.19.48（VCP 4.8.34）"^]
+* link:../media/2.18_notice.pdf["管理服務注意事項2.18.91（VCP 4.7.10）"^]
+* link:../media/2.17.56_notice.pdf["管理服務注意事項2.17.56（VCP 4.6.32）"^]
+* link:../media/2.17_notice.pdf["管理服務注意事項2.17.52（VCP 4.6.29）"^]
+* link:../media/2.16_notice.pdf["管理服務2.16注意事項（VCP 4.6.29）"^]
+* link:../media/mgmt_svcs_2.14_notice.pdf["管理服務2.14注意事項（VCP 4.5.42）"^]
+* link:../media/2.13_notice.pdf["管理服務注意事項2.13（VCP 4.5.42）"^]
+* link:../media/mgmt_svcs2.11_notice.pdf["管理服務2.11注意事項（VCP 4.4.72）"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2870307["關於此產品的注意事項NetApp HCI 1.8"^]
+

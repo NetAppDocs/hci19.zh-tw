@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_update_vsphere.html 
+summary: 瞭解如何在部署NetApp HCI 完VMware vSphere之後、讓VMware vSphere保持最新狀態。 
+keywords: netapp, hci, deployment, review, deploy 
+---
+= 讓VMware vSphere保持最新狀態
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+部署NetApp HCI 完VMware vSphere生命週期管理程式之後、您應該使用VMware vSphere生命週期管理程式、針對搭配NetApp HCI 使用的VMware vSphere版本套用最新的安全性修補程式。
+
+使用 https://mysupport.netapp.com/matrix/#welcome["互通性對照表工具"] 確保所有軟體版本均相容。請參閱 https://docs.vmware.com/en/VMware-vSphere/index.html["VMware vSphere生命週期管理程式文件"] 以取得更多資訊。
+
+
+
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["零件與元件軟體文件SolidFire"^]
+

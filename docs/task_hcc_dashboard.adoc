@@ -1,0 +1,184 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_dashboard.html 
+summary: 您可以在NetApp混合雲控制儀表板上檢視儲存與運算資源。此外、您還可以監控儲存容量、儲存效能和運算使用率。 
+keywords: netapp, hci, on premise, hcc, hybrid cloud control, storage, compute, storage performance, utilization, capacity 
+---
+= 監控混合雲控制儀表板上的儲存與運算資源
+:allow-uri-read: 
+
+
+[role="lead"]
+透過NetApp混合雲控制儀表板、您可以一目瞭然地檢視所有的儲存與運算資源。此外、您還可以監控儲存容量、儲存效能和運算使用率。
+
+
+NOTE: 當您第一次啟動新的NetApp混合雲控制工作階段時、當管理節點管理許多叢集時、載入NetApp混合雲控制儀表板檢視可能會有延遲。載入時間視管理節點主動管理的叢集數量而定。後續產品發表時、您將會體驗更快的載入時間。
+
+混合雲控制儀表板上只會顯示受管理的運算節點、以及H系列硬體中至少有一個受管理節點的叢集。
+
+* <<Access the NetApp HCC Dashboard>>
+* <<Monitor storage resources>>
+* <<Monitor compute resources>>
+* <<Monitor storage capacity>>
+* <<Monitor storage performance>>
+* <<Monitor compute utilization>>
+
+
+
+
+== 存取NetApp HCC儀表板
+
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 檢視混合雲控制儀表板。
++
+image::hcc_dashboard_all.png[HCC儀表 板]
+
+
+
+
+TIP: 視安裝而定、您可能會看到部分或全部的窗格。例如、對於純儲存設備安裝、混合雲控制儀表板只會顯示「儲存」窗格、「儲存容量」窗格和「儲存效能」窗格。
+
+
+
+== 監控儲存資源
+
+使用「*儲存設備*」窗格查看您的整體儲存環境。您可以監控儲存叢集、儲存節點和總磁碟區的數量。
+
+若要查看詳細資料、請在儲存窗格中選取*顯示詳細資料*。
+
+image::hcc_dashboard_storage_node_number.PNG[儲存檢視]
+
+
+NOTE: 儲存節點總數不包括雙節點儲存叢集的見證節點。見證節點包含在該叢集詳細資料區段的節點編號中。
+
+
+TIP: 若要查看最新的儲存叢集資料、請使用「儲存叢集」頁面、其中輪詢的頻率比儀表板高。
+
+
+
+== 監控運算資源
+
+使用* Compute *窗格查看您的NetApp H系列運算環境總計。您可以監控運算叢集數量和運算節點總數。
+
+若要查看詳細資料、請在運算窗格中選取*顯示詳細資料*。
+
+
+NOTE: 您的vCenter執行個體只有NetApp HCI 在至少有一個VMware運算節點與該執行個體相關聯時、才會顯示在運算窗格中。若要列出在NetApp混合雲控制中連結的vCenter執行個體、您可以使用 link:task_mnode_edit_vcenter_assets.html["API"]。
+
+
+NOTE: 若要在NetApp混合式雲端控制中管理運算節點、您必須 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/How_to_set_up_compute_node_management_in_NetApp_Hybrid_Cloud_Control["將運算節點新增至vCenter主機叢集"^]。
+
+
+
+== 監控儲存容量
+
+監控環境的儲存容量至關重要。使用「儲存容量」窗格、您可以決定啟用或不啟用壓縮、重複資料刪除和精簡配置功能時、儲存容量的效率提升。
+
+您可以在*原始*索引標籤上查看叢集中可用的實體儲存空間總量、以及在*有效*索引標籤上查看已配置儲存設備的相關資訊。
+
+image::hcc_dashboard_storage_capacity_effective.png[「HCC儀表板」>「儲存容量」窗格]
+
+
+TIP: 若要檢視叢集健全狀況、也請參閱SolidFire Active IQ 「資訊不全儀表板」。請參閱 link:task_hcc_activeiq.html["在NetApp SolidFire Active IQ 產品技術中監控效能、容量和叢集健全狀況"]。
+
+.步驟
+. 選取「*原始*」索引標籤、查看叢集中已使用及可用的實體儲存空間總計。
++
+查看垂直行、判斷您使用的容量是否小於或小於「警告」、「錯誤」或「重大」臨界值。將游標暫留在這些行上以查看詳細資料。
+
++
+
+NOTE: 您可以設定「警告」的臨界值、預設值為低於「錯誤」臨界值3%。錯誤和臨界臨界臨界值是預設值、無法依設計進行設定。「錯誤」臨界值表示叢集中的容量仍少於一個節點。如需設定臨界值的步驟、請參閱 https://docs.netapp.com/us-en/element-software/storage/task_system_manage_cluster_set_the_cluster_full_threshold.html["設定叢集完整臨界值"^]。
+
++
+
+TIP: 如需相關叢集臨界值元素API的詳細資訊、請參閱 https://docs.netapp.com/us-en/element-software/api/reference_element_api_getclusterfullthreshold.html["「getClusterFullThreshold」"^] 在_Element軟體API文件中_。若要檢視區塊和中繼資料容量的詳細資料、請參閱 https://docs.netapp.com/us-en/element-software/storage/concept_monitor_understand_cluster_fullness_levels.html["瞭解叢集完整度層級"^] 在_Element軟體文件中_。
+
+. 選取*有效*索引標籤、即可查看已配置給連線主機的總儲存容量資訊、並查看效率分級。
++
+.. 或者、勾選*包括精簡配置*、即可在有效容量長條圖中查看精簡配置效率率。
+.. *有效容量長條圖*：查看長條線、判斷您使用的容量是否小於或小於警告、錯誤或臨界臨界臨界值。與「原始」索引標籤類似、您可以將游標暫留在垂直行上以查看詳細資料。
+.. *效率*：請查看這些評等、以判斷啟用壓縮、重複資料刪除及精簡配置功能後、您的儲存容量效率提升。例如、如果壓縮顯示為「1.3x」、表示啟用壓縮的儲存效率比沒有壓縮的效率高1.3倍。
++
+
+NOTE: 總效率等於（最大使用空間*效率係數）/ 2、其中效率係數=（thinProvisioningFactor * deDuplicationFactor * comensionFactor）。如果未核取「精簡配置」、則「整體效率」中不會包含此選項。
+
+.. 如果有效儲存容量接近錯誤或嚴重臨界值、請考慮清除系統上的資料。或者、您也可以考慮擴充系統。
++
+請參閱 link:concept_hcc_expandoverview.html["擴充總覽"]。
+
+
+
+. 如需進一步分析和歷史背景、請參閱 https://activeiq.solidfire.com/["NetApp SolidFire Active IQ 產品詳細資料"]。
+
+
+
+
+== 監控儲存效能
+
+您可以使用「儲存效能」窗格、查看叢集的IOPS或處理量、而不會超過該資源的實用效能。儲存效能是您在延遲問題發生之前獲得最高使用率的關鍵。
+
+「儲存效能」窗格可協助您識別效能是否達到工作負載增加時效能可能降低的程度。
+
+此窗格上的資訊每10秒會重新整理一次、並顯示圖表上所有點的平均值。
+
+如需相關元素API方法的詳細資訊、請參閱 https://docs.netapp.com/us-en/element-software/api/reference_element_api_getclusterstats.html["GetClusterStats"^] 方法（_Element軟體API文件_）。
+
+.步驟
+. 檢視「儲存效能」窗格。如需詳細資料、請將游標暫留在圖表中的點上。
++
+.. * IOPS *索引標籤：請參閱目前每秒的作業次數。尋找資料或尖峰趨勢。例如、如果您發現IOPS上限為160K、其中100K為可用或可用的IOPS、您可能會考慮將更多工作負載新增至此叢集。另一方面、如果您發現只有140K可用、您可以考慮卸載工作負載或擴充系統。
++
+image::hcc_dashboard_storage_perform_iops.png[儲存效能> IOPS索引標籤]
+
+.. *處理量*索引標籤：監控模式或處理量尖峰。同時監控持續的高處理量值、這可能表示您即將達到資源的最大可用效能。
++
+image::hcc_dashboard_storage_perform_throughput.png[儲存效能>處理量索引標籤]
+
+.. *使用率*索引標籤：監控IOPS的使用率、以監控叢集層級上可用總IOPS的使用率。
++
+image::hcc_dashboard_storage_perform_utlization.png[儲存效能>使用率索引標籤]
+
+
+
+. 如需進一步分析、請使用NetApp Element 適用於vCenter Server的VMware vCenter外掛程式來查看儲存效能。
++
+https://docs.netapp.com/us-en/vcp/vcp_task_reports_volume_performance.html["效能表現如NetApp Element vCenter Server的VMware vCenter外掛程式所示"^]。
+
+
+
+
+
+== 監控運算使用率
+
+除了監控儲存資源的IOPS和處理量之外、您也可能想要檢視運算資產的CPU和記憶體使用量。節點可以提供的IOPS總計取決於節點的實體特性、例如CPU數量、CPU速度和RAM容量。
+
+.步驟
+. 檢視*運算使用率*窗格。使用CPU和記憶體索引標籤、尋找使用率的模式或尖峰。此外、請注意使用率持續偏高、表示您可能已接近運算叢集的最大使用率。
++
+
+NOTE: 此窗格僅顯示此安裝所管理之運算叢集的資料。
+
++
+image::hcc_dashboard_compute_util_cpu.png[運算使用率窗格]
+
++
+.. * CPU*索引標籤：請參閱運算叢集上CPU使用率的目前平均值。
+.. *記憶體*索引標籤：請參閱運算叢集上目前的平均記憶體使用量。
+
+
+. 如需運算資訊的進一步分析、請參閱 https://activeiq.solidfire.com["NetApp SolidFire Active IQ 的歷史資料"]。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

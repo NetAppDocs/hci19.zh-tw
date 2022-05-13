@@ -1,0 +1,111 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_performance.html 
+summary:  
+keywords: netapp, hci, on premise, concept_hci_performance 
+---
+= 效能與服務品質
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, onprem, documentation,
+
+
+[role="lead"]
+支援以每個磁碟區為基礎、提供服務品質（QoS）參數的功能。SolidFire您可以使用三個可設定的參數來定義QoS、以每秒輸入和輸出（IOPS）為單位來保證叢集效能：最小IOPS、最大IOPS和爆發IOPS。
+
+
+NOTE: 支援QoS建議頁面、提供最佳組態和QoS設定的建議。SolidFire Active IQ
+
+
+
+== 服務品質參數
+
+IOPS參數的定義方式如下：
+
+* *最小IOPS *：儲存叢集提供給磁碟區的每秒持續輸入與輸出（IOPS）最小數量。為磁碟區設定的最小IOPS是保證磁碟區效能的等級。效能不會低於此等級。
+* *最大IOPS *：儲存叢集提供給磁碟區的最大持續IOPS數。當叢集IOPS等級極高時、不會超過此等級的IOPS效能。
+* *爆發IOPS *：短時間爆發案例中允許的最大IOPS數。如果某個磁碟區的執行量低於最大IOPS、則會累積大量資源。當效能等級變得非常高、並推升至最大層級時、磁碟區上就會允許短暫的IOPS突發。
++
+當叢集執行的叢集IOPS使用率低時、Element軟體會使用Burst IOPS。
+
++
+單一磁碟區可以累積爆發IOPS、並使用這些積分在設定的「爆發期間」內、將IOPS最高提升至爆發IOPS等級。 如果叢集具有容納突發量的容量、則磁碟區最多可暴增60秒。Volume每秒累積一秒的暴增信用額度（最高60秒）、使磁碟區的執行量低於其最大IOPS限制。
+
++
+暴增IOPS有兩種限制：
+
++
+** 磁碟區可以在數秒內暴增超過其最大IOPS、等於磁碟區已累積的突發量數。
+** 當磁碟區超過其最大IOPS設定時、其「爆發IOPS」設定將會受到限制。因此、尖峰IOPS永遠不會超過Volume的「尖峰IOPS」設定。
+
+
+* *有效的最大頻寬*：最大頻寬是以IOPS數（根據QoS曲線）乘以IO大小來計算。
++
+範例：QoS參數設定為100分鐘IOPS、1000最大IOPS及1500個爆發IOPs、對效能品質有下列影響：
+
++
+** 工作負載能夠達到並維持最高1000 IOPS、直到叢集上出現工作負載爭用IOPS的情況為止。然後逐漸減少IOPS、直到所有磁碟區的IOPS都在指定的QoS範圍內、並消除效能爭用。
+** 所有磁碟區的效能都推向100的最低IOPS。層級不會低於最低IOPS設定、但在工作負載爭用解除時、仍可能維持高於100 IOPS。
+** 效能絕不會超過1000 IOPS、或持續時間低於100 IOPS。允許執行1500 IOPS（爆發IOPS）的效能、但僅適用於執行低於最大IOPS且只允許短時間內執行的累積暴增積分磁碟區。連串連層級都無法維持。
+
+
+
+
+
+
+== QoS值限制
+
+以下是QoS的最小值和最大值。
+
+[cols="7*"]
+|===
+| 參數 | 最小值 | 預設 | 4 4 KB | 58KB | 616KB | 262KB 
+
+
+| 最小IOPS | 50 | 50 | 15、000 | 9、375* | 5556* | 385* 
+
+
+| 最大IOPS | 100 | 15、000 | 20、000 * | 125000 | 74,074 | 5128 
+
+
+| 暴增IOPS | 100 | 15、000 | 20、000 * | 125000 | 74.074 | 5128 
+|===
+*這些估計值是大約的。**最高IOPS和爆發IOPS可設定為高達20、000；不過、此設定僅允許有效地取消磁碟區效能上限。Volume的實際最大效能受到叢集使用量和每節點效能的限制。
+
+
+
+== QoS效能
+
+QoS效能曲線顯示區塊大小與IOPS百分比之間的關係。
+
+區塊大小和頻寬會直接影響應用程式可取得的IOPS數量。Element軟體會將區塊大小正規化為4K、以考慮其所接收的區塊大小。根據工作負載、系統可能會增加區塊大小。隨著區塊大小增加、系統會將頻寬增加至處理較大區塊大小所需的層級。隨著頻寬增加IOPS、系統也能達到降低的目標。
+
+QoS效能曲線顯示區塊大小增加與IOPS百分比下降之間的關係：
+
+image::hci_performance_curve.png[QoS效能曲線]
+
+舉例來說、如果區塊大小為4K、頻寬為4000 KB、則IOPS為1000。如果區塊大小增加至8k、頻寬會增加至5000 KB、IOPS則會減少至625。系統將區塊大小納入考量、可確保使用較高區塊大小（例如備份和Hypervisor活動）的較低優先順序工作負載、不會因為使用較小區塊大小的較高優先順序流量而佔用太多效能。
+
+
+
+== QoS原則
+
+QoS原則可讓您建立及儲存標準化的服務品質設定、以便套用至許多磁碟區。
+
+QoS原則最適合服務環境、例如資料庫、應用程式或基礎架構伺服器、很少重新開機、而且需要持續等量存取儲存設備。個別Volume QoS最適合輕度使用的VM、例如虛擬桌面或專用的Kiosk型VM、這些VM可能每天重新開機、開機或關機數次。
+
+QoS和QoS原則不應一起使用。如果您使用的是QoS原則、請勿在磁碟區上使用自訂QoS。自訂QoS會覆寫及調整Volume QoS設定的QoS原則值。
+
+
+NOTE: 選取的叢集必須是元素10.0或更新版本才能使用QoS原則、否則無法使用QoS原則功能。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

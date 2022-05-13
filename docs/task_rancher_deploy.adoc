@@ -1,0 +1,162 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_deploy.html 
+summary: 瞭解在NetApp HCI 將Rancher安裝到位後、您可能需要執行的工作。 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes 
+---
+= 將Rancher部署在NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+若要在NetApp HCI 您的整個環境中使用Rancher、您必須先在NetApp HCI 支援的地方部署Rancher。
+
+
+TIP: 開始部署之前、請務必檢查資料存放區可用空間及其他 link:rancher_prereqs_overview.html["Rancher on NetApp HCI 支援需求"]。
+
+
+NOTE: 您的NetApp Support Edge協議不包含Rancher支援。如需選項、請聯絡NetApp銷售人員或經銷商。如果您向NetApp購買Rancher支援、您將會收到一封內含指示的電子郵件。
+
+
+
+== 將Rancher部署在NetApp HCI 不支援的基礎上時、會發生什麼事？
+
+部署作業包括下列步驟、每個步驟都會進一步說明：
+
+* 使用NetApp混合雲控制來啟動部署。
+* Rancher部署會建立一個管理叢集、其中包含三部虛擬機器。
++
+每部虛擬機器都會指派Control Plane和Worker的所有Kubernetes角色。這表示Rancher UI可在每個節點上使用。
+
+* 此外也會安裝Rancher控制面板（或_Rancher Server_）、使用NetApp HCI Rancher中的「支援」節點範本來簡化部署。Rancher Control Plane會自動搭配NetApp部署引擎所使用的組態使用、此引擎是用來建置NetApp HCI 整個基礎架構的。
+* 部署完成後、您會收到NetApp寄送的電子郵件、讓您可以選擇註冊NetApp HCI NetApp Support on Rancher Deployment on the Rancher。
+* 部署完成後、開發與營運團隊即可部署使用者叢集、類似於任何Rancher部署。
+
+
+
+
+== 將Rancher部署到NetApp HCI 支援技術的步驟
+
+* <<Access the NetApp Hybrid Cloud Control>>
+* <<Deploy Rancher on NetApp HCI>>
+* <<Verify your deployment by using vCenter Server>>
+
+
+
+
+=== 存取NetApp混合雲控管
+
+若要開始部署、請存取NetApp混合雲控制。
+
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
++
+此時會出現NetApp混合雲控制介面。
+
+
+
+
+
+=== 將Rancher部署在NetApp HCI
+
+. 在混合雲控制中、按一下導覽列左下角的* Rancher *圖示。
++
+image::rancher_hcc_dashboard.png[NetApp混合雲控制儀表板和Rancher圖示]
+
++
+快顯視窗會顯示有關Rancher快速入門的訊息。
+
++
+image::rancher_hcc_getstarted.png[Rancher快速入門映像]
+
+. 按一下「*部署Rancher *」。
++
+此時會出現Rancher UI。
+
++
+image::rancher_hcc_deploy_vcenter.png[Rancher部署頁面]
+
++
+您的vCenter認證資料會根據NetApp部署引擎安裝來收集。
+
+. 輸入* vCenter Resources *資訊。接下來會說明一些欄位。
++
+** *資料中心*：選取資料中心。選取資料中心之後、所有其他欄位都會預先填入、不過您可以變更這些欄位。
+** *資料存放區*：在NetApp HCI 不實的儲存節點上選取資料存放區。此資料存放區應具有彈性、且可供所有VMware主機存取。請勿選取只有一部主機可存取的本機資料存放區。
+** *管理網路*：這應該可從管理站台及將裝載使用者叢集的虛擬機器網路存取。
+
+
+. 輸入*部署設定*資訊：
++
+** * DNS Servers*：選用。如果使用負載平衡、請輸入內部DNS伺服器資訊。
+** * Rancher伺服器FQDN：若要確保Rancher伺服器在節點故障期間仍可使用、請提供完整網域名稱（FQDN）、讓DNS伺服器能夠解析為指派給Rancher伺服器叢集節點的任何IP位址。此FQDN加上「https」字首、即成為您用來存取Rancher實作的Rancher URL。
++
+如果未提供網域名稱、則會改用萬用字元DNS、而且您可以使用部署完成後所顯示的其中一個URL來存取Rancher伺服器。
+
+
+
+. 輸入*進階設定*資訊：
++
+** *指派靜態IP位址*：如果您啟用靜態IP位址、請依序為三個IPv4位址提供起始IP位址、每個管理叢集虛擬機器各一個位址。Rancher on NetApp HCI VMware可部署三部管理叢集虛擬機器。
+** *設定Proxy伺服器*：
+
+
+. 檢閱並勾選Rancher終端使用者授權合約的核取方塊。
+. 檢閱並勾選核取方塊、確認有關Rancher軟體的資訊。
+. 按一下「*部署*」。
++
+顯示部署進度的列。
+
++
+
+TIP: Rancher部署可能需要約15分鐘的時間。
+
++
+部署完成後、Rancher會顯示完成的相關訊息、並提供Rancher URL。
+
++
+image::rancher_deploy_complete_url.png[Rancher部署完成與URL]
+
+. 記錄在部署結束時顯示的Rancher URL。您將使用此URL存取Rancher UI。
+
+
+
+
+=== 使用vCenter Server驗證部署
+
+在vSphere用戶端中、您可以看到Rancher管理叢集、其中包含三個虛擬機器。
+
+
+IMPORTANT: 完成部署後、請勿修改Rancher伺服器虛擬機器叢集的組態、或移除虛擬機器。Rancher on NetApp HCI 支援功能仰賴部署的RKE管理叢集組態、才能正常運作。
+
+
+
+== 接下來呢？
+
+部署之後、您可以執行下列動作：
+
+* link:task_rancher_post-deploy.html["完成部署後的工作"]
+* link:task_rancher_trident.html["將Trident with Rancher安裝在NetApp HCI 支援的範圍內"]
+* link:task_rancher_deploy_user_clusters.html["部署使用者叢集與應用程式"]
+* link:task_rancher_manage.html["在NetApp HCI 支援的基礎上管理Rancher"]
+* link:task_rancher_monitor.html["監控Rancher on NetApp HCI"]
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Rancher部署疑難排解"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

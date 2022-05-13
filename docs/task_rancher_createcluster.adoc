@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_createcluster.html 
+summary: 在Rancher部署之後、您可以使用Rancher UI來建立Kubernetes使用者叢集。 
+keywords: netapp, hci, rancher, kubernetes clusters, create cluster 
+---
+= 建立使用者叢集
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在Rancher部署之後、您可以使用Rancher UI來建立Kubernetes使用者叢集。您可以建立由各種Kubernetes供應商（例如Google Kubernetes Engine）主控的叢集、或是Rancher Kubernetes安裝程式Rancher Kubernetes Engine（RKE）。
+
+
+TIP: 如需建立叢集需求的詳細資訊、請參閱 https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Rancher文件"^]。
+
+.您需要的是 #8217 ；需要的是什麼
+* 您已在NetApp HCI 支援的過程中安裝Rancher。
+* 您擁有必要的靜態IP位址。每個使用者叢集需要三個靜態IP位址。
+* 您已熟悉中所列的需求 https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Rancher文件"^]。
+
+
+.步驟
+. 在NetApp混合雲控制中、選取Rancher部署結束時提供給您的URL。
+. 在Rancher UI中、建立使用者叢集。
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
+

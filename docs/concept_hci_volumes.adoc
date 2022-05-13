@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_volumes.html 
+summary: 一個Volume 
+keywords: netapp, hci, storage volume, solidfire volume, element volume, persistent volume 
+---
+= 磁碟區
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存設備是以NetApp Element 磁碟區形式配置在整個系統中。Volume是透過網路使用iSCSI或Fibre Channel用戶端存取的區塊裝置。
+
+vCenter Server的支援功能可讓您建立、檢視、編輯、刪除、複製、NetApp Element 使用者帳戶的備份或還原磁碟區。您也可以管理叢集上的每個Volume、以及在Volume存取群組中新增或移除Volume。
+
+
+
+== 持續磁碟區
+
+持續磁碟區可讓管理節點組態資料儲存在指定的儲存叢集、而非本機與VM一起儲存、以便在管理節點遺失或移除時保留資料。持續磁碟區是選用但建議的管理節點組態。
+
+如果NetApp HCI 您使用NetApp部署引擎來部署用於執行效能測試的管理節點、則會自動啟用和設定持續磁碟區。
+
+部署新的管理節點時、安裝與升級指令碼中會包含啟用持續磁碟區的選項。永續性磁碟區是位於元素軟體型儲存叢集上的磁碟區、其中包含主機管理節點VM的管理節點組態資訊、這些資訊在VM生命週期之外仍會持續存在。如果管理節點遺失、替換管理節點VM可重新連線至遺失的VM、並恢復其組態資料。
+
+持續磁碟區功能（如果在安裝或升級期間啟用）會自動建立多個磁碟區、並將NetApp-HCI預先置於指派叢集上的名稱。這些磁碟區和任何元件軟體型磁碟區一樣、都可以使用Element軟體Web UI、NetApp Element vCenter Server的支援功能或API來檢視、視您的偏好和安裝而定。持續磁碟區必須以iSCSI連線至管理節點來啟動和執行、才能維持目前可用於還原的組態資料。
+
+
+NOTE: 與管理服務相關的持續磁碟區會在安裝或升級期間建立並指派給新帳戶。如果您使用的是持續磁碟區、請勿修改或刪除磁碟區或其相關帳戶
+
+
+
+== 如需詳細資訊、請參閱
+
+* link:hci_task_manage_vol_management.html["管理磁碟區"]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
+

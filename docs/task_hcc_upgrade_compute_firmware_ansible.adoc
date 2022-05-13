@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_upgrade_compute_firmware_ansible.html 
+summary: 對於H系列運算節點、NetApp提供可執行的角色、可協助您自動化BMC、BIOS及NIC等硬體元件的韌體更新。 
+keywords: netapp, hci, on premise, cluster, element, compute node, ansible upgrade, upgrade role 
+---
+= 使用Ansible自動執行運算節點韌體升級
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以使用NetApp HCI NetApp混合雲控管中的工作流程、在支援各種元件（例如BMC、BIOS和NIC）的情況下、更新支援速度的系統韌體。若安裝大型運算叢集、您可以使用Ansible來執行整個叢集的循環升級、藉此自動化工作流程。
+
+
+NOTE: 雖然NetApp提供了自動化運算節點韌體升級的Ansible角色、但自動化是輔助元件、需要額外的設定和軟體元件才能執行。只有盡力支援Ansible自動化的修改。
+
+
+NOTE: 升級的Ansible角色僅適用於NetApp HCI 不間斷的H系列運算節點。您無法使用此角色來升級協力廠商運算節點。
+
+.您需要的是 #8217 ；需要的是什麼
+* *韌體升級的整備度和先決條件*：NetApp HCI 您的安裝必須準備好進行韌體升級、如的說明所述 link:task_hcc_upgrade_compute_node_firmware.html["執行韌體升級"^]。
+* *準備在Ansible控制節點*上執行自動化：實體或虛擬伺服器、以在Ansible中執行韌體更新自動化。
+
+
+在正式作業環境中、您應該NetApp HCI 以循環方式更新叢集中的運算節點、一次更新一個節點、一次更新一個節點。NetApp混合雲控制中的API可協調單一運算節點的整體運算節點韌體升級程序、包括執行健全狀況檢查、將ESXi放在運算節點上進行維護、以及重新啟動運算節點以套用韌體升級。Ansible角色可讓您協調一組運算節點或整個叢集的韌體升級。
+
+若要開始使用、請瀏覽至 https://github.com/NetApp-Automation/nar_compute_firmware_upgrade["GitHub上的NetApp Ansible儲存庫"^] 並下載「na_compute節點_f縮短 韌體升級」角色與文件。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

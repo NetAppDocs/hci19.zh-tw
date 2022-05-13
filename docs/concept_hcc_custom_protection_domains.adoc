@@ -1,0 +1,39 @@
+---
+permalink: docs/concept_hcc_custom_protection_domains.html 
+sidebar: sidebar 
+keywords: protection domain layout,user-defined,custom layout 
+summary: 您可以定義自訂保護網域配置、其中每個節點都與一個自訂保護網域相關聯、而只與一個自訂保護網域相關聯。根據預設、每個節點都會指派給相同的預設自訂保護網域。 
+---
+= 自訂保護網域
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以定義自訂保護網域配置、其中每個節點都與一個自訂保護網域相關聯、而只與一個自訂保護網域相關聯。根據預設、每個節點都會指派給相同的預設自訂保護網域。
+
+如果未指派自訂保護網域：
+
+* 叢集作業不受影響。
+* 自訂層級既不容忍、也不彈性。
+
+
+如果指派多個自訂保護網域、則每個子系統都會將重複項目指派給不同的自訂保護網域。如果無法這麼做、則會回復為將重複項目指派給不同的節點。每個子系統（例如、儲存槽、分片、傳輸協定端點供應商和頻道群）都會獨立執行此作業。
+
+
+NOTE: 使用自訂保護網域時、假設沒有節點共用機箱。
+
+下列元素API方法會公開這些新的保護網域：
+
+* GetprotectionDomainLayout：顯示每個節點所在的機箱和自訂保護網域。
+* SetProtectionDomainLayout：允許將自訂保護網域指派給每個節點。
+
+
+如需使用自訂保護網域的詳細資訊、請聯絡NetApp支援部門。
+
+
+
+== 如需詳細資訊、請參閱
+
+link:api/index.html["使用Element API管理儲存設備"]

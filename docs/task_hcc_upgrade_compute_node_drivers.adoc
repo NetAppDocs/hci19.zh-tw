@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_upgrade_compute_node_drivers.html 
+summary: 在進行系統升級時、您需要升級運算節點驅動程式。NetApp HCI 
+keywords: netapp, hci, on premise, cluster, element, compute node 
+---
+= 更新運算節點驅動程式
+:allow-uri-read: 
+
+
+[role="lead"]
+對於任何H系列運算節點、您都可以使用VMware Update Manager來更新節點上使用的驅動程式。
+
+請參閱中硬體的韌體和驅動程式對照表 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["這篇NetApp知識庫文章"^] （需要登入）。
+
+一次只執行其中一項更新作業。
+
+您應該先檢查目前的ESXi驅動程式版本、再嘗試執行運算韌體升級。如果驅動程式已過期、請先升級驅動程式。然後升級運算節點的運算韌體。
+
+.步驟
+. 瀏覽至 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["下載軟體NetApp HCI"^] 頁面、然後選取正確版本NetApp HCI 的更新連結。
+. 從下拉式清單中選取* ESXi驅動程式*。
+. 接受終端使用者授權合約。
+. 下載適用於您節點類型和ESXi版本的驅動程式套件。
+. 將下載的驅動程式套裝組合解壓縮到本機電腦上。
++
+
+NOTE: NetApp驅動程式套裝組合包含一或多個VMware離線套裝組合ZIP檔案、請勿解壓縮這些ZIP檔案。
+
+. 請移至VMware vCenter中的* VMware Update Manager*。
+. 將運算節點的驅動程式離線套件檔案匯入*修補程式儲存庫*。
++
+** 對於VMware ESXi 7.0、NetApp H610C、H615C、H410C和Hx00E運算節點及其內建系統元件的所有必要驅動程式、均包含在標準VMware ESXi 7.0安裝ISO映像中。執行VMware ESXi 7.0（及更新）的VMware ESXi運算節點不需要額外或更新的驅動程式NetApp HCI 。
+** 對於VMware ESXi 6.x、請執行下列步驟以匯入驅動程式離線套件檔案：
++
+... 選擇* Updates *（更新*）選項卡。
+... 選取*從檔案上傳*。
+... 瀏覽至先前下載的離線套件組合、然後選取*匯入*。
+
+
+
+
+. 為運算節點建立新的主機基準。
+. 選擇*主機延伸*作為名稱與類型、然後選取要納入新基準的所有匯入驅動程式套件。
+. 在vCenter的*主機與叢集*功能表中、選取要更新運算節點的叢集、然後瀏覽至* Update Manager*索引標籤。
+. 選取*修正*、然後選取新建立的主機基準。確定已選取基準中所含的驅動程式。
+. 繼續執行精靈、移至*主機修正選項*、並確認已選取*不變更VM電源狀態*選項、以便在驅動程式更新期間讓虛擬機器保持連線。
++
+
+NOTE: 如果叢集上已啟用VMware Distributed Resource Scheduler（DRS）（NetApp HCI 這是所有版本的預設安裝）、則虛擬機器會自動移轉至叢集中的其他節點。
+
+. 進入精靈的「*準備完成*」頁面、然後選取「*完成*」。
++
+叢集中所有運算節點的驅動程式會一次更新一個節點、而虛擬機器會保持連線。
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

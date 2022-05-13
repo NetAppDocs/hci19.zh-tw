@@ -1,0 +1,287 @@
+---
+sidebar: sidebar 
+permalink: docs/task_upgrade_compute_prechecks.html 
+summary: 在進行還原系統升級時NetApp HCI 、您需要先執行運算節點健全狀況檢查、然後再執行firwamre升級。 
+keywords: netapp, compute prechecks, compute node upgrade, netapp hci 
+---
+= 在升級運算韌體之前執行運算節點健全狀況檢查
+:allow-uri-read: 
+
+
+[role="lead"]
+您必須在升級運算韌體之前執行健全狀況檢查、以確保叢集中的所有運算節點都已準備好升級。運算節點健全狀況檢查只能針對一個或多個受管理NetApp HCI 的節點之運算叢集執行。
+
+.您需要的是 #8217 ；需要的是什麼
+* *管理服務*：您已更新至最新的管理服務套裝組合（2.11或更新版本）。
+* *管理節點*：您執行的是管理節點11.3或更新版本。
+* * Element軟體*：您的儲存叢集執行NetApp Element 的是功能不全的軟體11.3或更新版本。
+* *終端使用者授權合約（EULA）*：從管理服務的2.20開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API執行運算節點健全狀況檢查：
++
+.. 在Web瀏覽器中開啟管理節點的IP位址：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+.. 提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+.. 選取介面右上角附近的*升級*。
+.. 隨即顯示EULA。向下捲動、選取*我接受目前及所有未來更新*、然後選取*儲存*。
++
+
+NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動下載功能。您將會收到NetApp軟體更新與升級的更新、您可以自行決定是否安裝、也可以方便地安裝。您可以停用與NetApp線上軟體儲存庫的網路連線、以停用自動下載功能。
+
+
+
+
+
+您可以使用NetApp混合雲控制UI或NetApp混合雲控制API執行健全狀況檢查：
+
+* <<Use NetApp Hybrid Cloud Control to run compute node health checks prior to upgrading firmware>> （偏好的方法）
+* <<Use API to run compute node health checks prior to upgrading firmware>>
+
+
+您也可以深入瞭解由服務執行的運算節點健全狀況檢查：
+
+* <<Compute node health checks made by the service>>
+
+
+
+
+== 在升級韌體之前、請使用NetApp混合雲控制來執行運算節點健全狀況檢查
+
+使用NetApp混合雲控制、您可以確認運算節點已準備好進行韌體升級。
+
+
+NOTE: 如果您有多個雙節點儲存叢集組態、而且每個組態都位於自己的vCenter內、則可能無法準確報告見證節點健全狀況檢查。因此、當您準備好升級ESXi主機時、只能關閉正在升級的ESXi主機上的見證節點。您必須NetApp HCI 以另一種方式關閉見證節點、以確保在安裝過程中始終有一個見證節點正在執行。
+
+.步驟
+. 在Web瀏覽器中開啟管理節點的IP位址：
++
+[listing]
+----
+https://<ManagementNodeIP>/hcc
+----
+. 提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 選取介面右上角附近的*升級*。
+. 在「*升級*」頁面上、選取*運算韌體*索引標籤。
+. 選取健全狀況檢查 image:hcc_healthcheck_icon.png["圖示"] 針對您要檢查升級準備度的叢集。
+. 在「*運算效能檢查*」頁面上、選取「*執行效能狀況檢查*」。
+. 如果發生問題、頁面會提供報告。請執行下列動作：
++
+.. 請前往每個問題所列的特定KB文章、或執行指定的補救措施。
+.. 如果指定KB、請完成相關KB文章中所述的程序。
+.. 解決叢集問題之後、請選取*重新執行健全狀況檢查*。
+
+
+
+
+健全狀況檢查完成且無錯誤之後、叢集中的運算節點就可以開始升級。請參閱 link:task_hcc_upgrade_compute_node_firmware.html["更新運算節點韌體"] 以繼續。
+
+
+
+== 在升級韌體之前、請使用API執行運算節點健全狀況檢查
+
+您可以使用REST API來驗證叢集中的運算節點是否已準備好升級。健全狀況檢查可驗證升級是否有任何障礙、例如ESXi主機問題或其他vSphere問題。您需要針對環境中的每個運算叢集執行運算節點健全狀況檢查。
+
+.步驟
+. 找出控制器ID和叢集ID：
++
+.. 在管理節點上開啟庫存服務REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. 選擇*授權*並完成下列項目：
++
+... 輸入叢集使用者名稱和密碼。
+... 如果尚未填入值、請將用戶端ID輸入為「mnode-client」。
+... 選取*授權*以開始工作階段。
+
+
+.. 從REST API UI中、選取*「Get Rise/Installations」*。
+.. 選擇*試用*。
+.. 選擇*執行*。
+.. 從代碼200回應本文中、複製您計畫用於狀況檢查的安裝「ID」。
+.. 從REST API UI中、選取* Get Rid/installationsesk/｛id｝*。
+.. 選擇*試用*。
+.. 輸入安裝ID。
+.. 選擇*執行*。
+.. 從Code 200回應本文中、複製下列各項的ID：
++
+... 叢集ID（「clusterid」）
+... 控制器ID（「controllerId」）
++
+[listing]
+----
+{
+  "_links": {
+    "collection": "https://10.117.187.199/inventory/1/installations",
+    "self": "https://10.117.187.199/inventory/1/installations/xx94f6f0-12a6-412f-8b5e-4cf2z58329x0"
+  },
+  "compute": {
+    "errors": [],
+    "inventory": {
+      "clusters": [
+        {
+          "clusterId": "domain-1",
+          "controllerId": "abc12c3a-aa87-4e33-9f94-xx588c2cdcf6",
+          "datacenterName": "NetApp-HCI-Datacenter-01",
+          "installationId": "xx94f6f0-12a6-412f-8b5e-4cf2z58329x0",
+          "installationName": "test-nde-mnode",
+          "inventoryType": "managed",
+          "name": "NetApp-HCI-Cluster-01",
+          "summary": {
+            "nodeCount": 2,
+            "virtualMachineCount": 2
+          }
+        }
+      ],
+----
+
+
+
+
+. 在叢集中的運算節點上執行健全狀況檢查：
++
+.. 在管理節點上開啟運算服務REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/vcenter/1/
+----
+.. 選擇*授權*並完成下列項目：
++
+... 輸入叢集使用者名稱和密碼。
+... 如果尚未填入值、請將用戶端ID輸入為「mnode-client」。
+... 選取*授權*以開始工作階段。
+
+
+.. 選取* POST / computeesk/｛控制器ID｝/狀況檢查*。
+.. 選擇*試用*。
+.. 在「* controller_ID*參數」欄位中、輸入您從上一步複製的「controllerId」。
+.. 在有效負載中、輸入您從上一步複製的「clusterid」作為「叢集」值、然後移除「節點」參數。
++
+[listing]
+----
+{
+  "cluster": "domain-1"
+}
+----
+.. 選取*執行*以在叢集上執行健全狀況檢查。
++
+程式碼200回應會提供「resourceLink」URL、並附上確認健全狀況檢查結果所需的工作ID。
+
++
+[listing]
+----
+{
+  "resourceLink": "https://10.117.150.84/vcenter/1/compute/tasks/[This is the task ID for health check task results]",
+  "serviceName": "vcenter-v2-svc",
+  "taskId": "ab12c345-06f7-42d7-b87c-7x64x56x321x",
+  "taskName": "VCenter service health checks"
+}
+----
+.. 複製「resourceLink」URL的工作ID部分、以驗證工作結果。
+
+
+. 驗證健全狀況檢查的結果：
++
+.. 返回管理節點上的運算服務REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/vcenter/1/
+----
+.. 選取* Get / compute/sites/｛task_id｝*。
+.. 選擇*試用*。
+.. 在「task_id」參數欄位中、輸入* POST /computeSys/{controller_ID} RUSE/healing-checks* Code 200回應中「resourceLink」URL的工作ID部分。
+.. 選擇*執行*。
+.. 如果傳回的「狀態」表示運算節點健全狀況有問題、請執行下列動作：
++
+... 請參閱每個問題所列的特定知識庫文章（「KbLink」）、或執行指定的補救措施。
+... 如果指定KB、請完成相關KB文章中所述的程序。
+... 解決叢集問題之後、請再次執行* POST / computeesk/｛控制器ID｝/狀況檢查*（請參閱步驟2）。
+
+
+
+
+
+
+如果健全狀況檢查順利完成、則回應代碼200表示結果成功。
+
+
+
+== 由服務進行運算節點健全狀況檢查
+
+無論是由NetApp混合雲控制或API方法執行的運算健全狀況檢查、都會針對每個節點進行下列檢查。視您的環境而定、可能會略過其中一些檢查。您應該在解決任何偵測到的問題之後、重新執行健全狀況檢查。
+
+|===
+| 檢查說明 | 節點/叢集 | 解決所需的行動 | 內含程序的知識庫文章 
+
+
+| DRS是否已啟用且完全自動化？ | 叢集 | 開啟DRS、並確定其完全自動化。 | link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/How_to_enable_DRS_in_vSphere["請參閱此KB"^]。附註：如果您有標準授權、請將ESXi主機置於維護模式、並忽略此健全狀況檢查失敗警告。 
+
+
+| vSphere中是否已停用DPM？ | 叢集 | 關閉分散式電源管理。 | link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/How_to_disable_DPM_in_VMware_vCenter["請參閱此KB"^]。 
+
+
+| vSphere中的HA存取控制是否已停用？ | 叢集 | 關閉HA接入控制。 | link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_control_enable_HA_admission_in_vSphere["請參閱此KB"^]。 
+
+
+| 叢集中主機上的VM是否已啟用FT？ | 節點 | 在任何受影響的虛擬機器上暫停容錯功能。 | link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_suspend_fault_tolerance_on_virtual_machines_in_a_vSphere_cluster["請參閱此KB"^]。 
+
+
+| vCenter中是否有叢集的重大警示？ | 叢集 | 啟動vSphere並解決及/或確認任何警示、然後再繼續。 | 無需KB即可解決問題。 
+
+
+| vCenter中是否有一般/全域資訊警示？ | 叢集 | 啟動vSphere並解決及/或確認任何警示、然後再繼續。 | 無需KB即可解決問題。 
+
+
+| 管理服務是否為最新狀態？ | HCI系統 | 您必須先更新管理服務、才能執行升級或執行升級前的健全狀況檢查。 | 無需KB即可解決問題。請參閱 link:task_hcc_update_management_services.html["本文"] 以取得更多資訊。 
+
+
+| vSphere中目前的ESXi節點是否有錯誤？ | 節點 | 啟動vSphere並解決及/或確認任何警示、然後再繼續。 | 無需KB即可解決問題。 
+
+
+| 虛擬媒體是否掛載到叢集中主機上的VM？ | 節點 | 從VM中卸載所有虛擬媒體磁碟（CD/DVD/磁碟機）。 | 無需KB即可解決問題。 
+
+
+| BMC版本是否為Redfish支援的最低需求版本？ | 節點 | 手動更新BMC韌體。 | 無需KB即可解決問題。 
+
+
+| ESXi主機是否正常運作？ | 節點 | 啟動ESXi主機。 | 無需KB即可解決問題。 
+
+
+| 是否有任何虛擬機器駐留在本機ESXi儲存設備上？ | 節點/虛擬機器 | 移除或移轉連接至虛擬機器的本機儲存設備。 | 無需KB即可解決問題。 
+
+
+| BMC是否已啟動並正在執行？ | 節點 | 開啟BMC電源、並確保它已連線至此管理節點可連線的網路。 | 無需KB即可解決問題。 
+
+
+| 是否有合作夥伴ESXi主機可用？ | 節點 | 讓叢集中的一或多個ESXi主機可供移轉虛擬機器使用（非維護模式）。 | 無需KB即可解決問題。 
+
+
+| 您是否能透過IPMI傳輸協定與BMC連線？ | 節點 | 在基礎板管理控制器（BMC）上啟用IPMI傳輸協定。 | 無需KB即可解決問題。 
+
+
+| ESXi主機是否已正確對應至硬體主機（BMC）？ | 節點 | ESXi主機未正確對應至基礎板管理控制器（BMC）。修正ESXi主機與硬體主機之間的對應關係。 | 無需KB即可解決問題。請參閱 link:task_hcc_edit_bmc_info.html["本文"] 以取得更多資訊。 
+
+
+| 叢集中的見證節點狀態為何？所有識別的見證節點均未啟動且正在執行。 | 節點 | 見證節點未在其他ESXi主機上執行。開啟替代ESXi主機上的見證節點、然後重新執行健全狀況檢查。*在HCI安裝中、必須始終執行一個見證節點*。 | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["請參閱此KB"^] 
+
+
+| 叢集中的見證節點狀態為何？見證節點已在此ESXi主機上啟動並執行、而替代見證節點尚未啟動並正在執行。 | 節點 | 見證節點未在其他ESXi主機上執行。開啟替代ESXi主機上的見證節點。當您準備好升級此ESXi主機時、請關閉此ESXi主機上執行的見證節點、然後重新執行健全狀況檢查。*在HCI安裝中、必須始終執行一個見證節點*。 | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["請參閱此KB"^] 
+
+
+| 叢集中的見證節點狀態為何？見證節點已在此ESXi主機上啟動並執行、替代節點已啟動、但正在同一個ESXi主機上執行。 | 節點 | 這兩個見證節點都在此ESXi主機上執行。將一個見證節點重新部署到另一個ESXi主機。當您準備好升級此ESXi主機時、請關閉此ESXi主機上剩餘的見證節點、然後重新執行健全狀況檢查。*在HCI安裝中、必須始終執行一個見證節點*。 | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["請參閱此KB"^] 
+
+
+| 叢集中的見證節點狀態為何？見證節點已在此ESXi主機上啟動並執行、替代見證節點已在另一個ESXi主機上啟動並執行。 | 節點 | 見證節點在此ESXi主機上本機執行。當您準備好升級此ESXi主機時、請僅在此ESXi主機上關閉見證節點、然後重新執行健全狀況檢查。*在HCI安裝中、必須始終執行一個見證節點*。 | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["請參閱此KB"^] 
+|===
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

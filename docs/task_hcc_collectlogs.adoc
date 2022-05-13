@@ -1,0 +1,168 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_collectlogs.html 
+summary: 您可以使用NetApp混合雲控制系統從NetApp HCI 您的安裝過程收集記錄、以協助疑難排解。 
+keywords: netapp, hci, logs, collection, troubleshooting, monitor 
+---
+= 收集記錄以進行疑難排解
+:allow-uri-read: 
+
+
+[role="lead"]
+如果NetApp HCI 您在安裝時遇到問題、可以SolidFire 收集記錄以傳送給NetApp支援部門、以協助診斷。您可以使用NetApp混合雲控管或REST API來收集NetApp HCI 關於下列系統的記錄：
+
+.您需要的是 #8217 ；需要的是什麼
+* 確保您的儲存叢集版本執行NetApp Element 的是更新版本的軟件、即不含任何更新版本。
+* 請確定您已部署執行11.3版或更新版本的管理節點。
+
+
+請選擇下列其中一個選項：
+
+* <<Use NetApp Hybrid Cloud Control to collect logs>>
+* <<Use the REST API to collect logs>>
+
+
+
+
+== 使用NetApp混合雲控制來收集記錄
+
+您可以從NetApp混合雲控制儀表板存取記錄收集區域。
+
+.步驟
+. 在網頁瀏覽器中開啟管理節點的IP位址。例如：
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
+. 在儀表板中、按一下右上角的功能表。
+. 選取*收集記錄*。
++
+此時將顯示「*收集記錄*」頁面。如果您之前收集過記錄、可以下載現有的記錄套件、或開始收集新的記錄。
+
+. 在*日期範圍*下拉式功能表中選取日期範圍、以指定記錄應包含的日期。
++
+如果您指定自訂開始日期、可以選取開始日期範圍的日期。記錄會從該日期收集到目前為止。
+
+. 在「*記錄收藏*」區段中、選取記錄套件應包含的記錄檔類型。
++
+對於儲存和運算記錄、您可以展開儲存或運算節點清單、然後選取個別節點來收集來自（或清單中的所有節點）的記錄。
+
+. 按一下「*收集記錄*」開始收集記錄。
++
+記錄收集會在背景執行、頁面會顯示進度。
+
++
+
+NOTE: 視您收集的記錄而定、進度列可能會維持在某個百分比數分鐘、或在某些時間點進展非常緩慢。
+
+. 按一下「*下載記錄*」下載記錄套件。
++
+記錄套件為壓縮的UNIX .tgz檔案格式。
+
+
+
+
+
+== 使用REST API來收集記錄
+
+您可以使用REST API來收集NetApp HCI 靜態或元素記錄。
+
+.步驟
+. 找出儲存叢集ID：
++
+.. 在管理節點上開啟管理節點REST API UI：
++
+[listing]
+----
+https://<ManagementNodeIP>/logs/1/
+----
+.. 按一下「*授權*」、然後完成下列項目：
++
+... 輸入叢集使用者名稱和密碼。
+... 如果尚未填入值、請將用戶端ID輸入為「mnode-client」。
+... 按一下*授權*開始工作階段。
+
+
+
+
+. 收集NetApp HCI 來自下列元素的記錄：
++
+.. 按一下* POST / bundle*。
+.. 按一下*試用*。
+.. 根據您需要收集的記錄類型和時間範圍、在* Request banit*（申請本文）欄位中變更下列參數的值：
++
+|===
+| 參數 | 類型 | 說明 
+
+
+| 《我的新意》 | 日期字串 | 僅包含在此日期和時間之後修改的記錄。例如、值「2020-07-14T20：19：00.000Z」定義2020年7月14日20：19 UTC的開始日期。 
+
+
+| 《電腦記錄》 | 布林值 | 將此參數設為「true」以包含運算節點記錄。 
+
+
+| 《電腦》 | UUID陣列 | 如果將「computeLogs」設為「true」、請將運算節點的管理節點資產ID填入此參數、以將記錄收集限制在這些特定運算節點上。使用「Get」 https://<ManagementNodeIP>/logs/1/bundle/options`[] 端點以查看所有可用的節點ID。 
+
+
+| "mnodeLogs"（節點記錄） | 布林值 | 將此參數設為「true」以包含管理節點記錄。 
+
+
+| 《CrashDumps》 | 布林值 | 將此參數設為「true」、以包含儲存節點當機偵錯記錄。 
+
+
+| 「儲存記錄」 | 布林值 | 將此參數設為「true」以包含儲存節點記錄。 
+
+
+| 「節點Ids」 | UUID陣列 | 如果將「儲存記錄日誌」設為「true」、請使用儲存叢集節點ID填入此參數、以將記錄收集限制在這些特定儲存節點。使用「Get」 https://<ManagementNodeIP>/logs/1/bundle/options`[] 端點以查看所有可用的節點ID。 
+|===
+.. 按一下「*執行*」開始收集記錄。回應應傳回類似下列的回應：
++
+[listing]
+----
+{
+  "_links": {
+    "self": "https://10.1.1.5/logs/1/bundle"
+  },
+  "taskId": "4157881b-z889-45ce-adb4-92b1843c53ee",
+  "taskLink": "https://10.1.1.5/logs/1/bundle"
+}
+----
+
+
+. 檢查記錄收集工作的狀態：
++
+.. 按一下「* Get /bundle*」。
+.. 按一下*試用*。
+.. 按一下「*執行*」以傳回集合工作的狀態。
+.. 捲動至回應本文的底部。
++
+您應該會看到「完成百分比」屬性、詳細說明收藏的進度。如果集合完成、則「DownloadLink」屬性會包含完整的下載連結、包括記錄套件的檔案名稱。
+
+.. 複製「downloadLink」屬性結尾的檔案名稱。
+
+
+. 下載收集的記錄套件：
++
+.. 按一下「* Get /bundle/｛fileName｝*」。
+.. 按一下*試用*。
+.. 將您先前複製的檔案名稱貼到「Filename」參數文字欄位。
+.. 按一下*執行*。
++
+執行後、回應本文區域會出現下載連結。
+
+.. 按一下「*下載檔案*」、然後將產生的檔案儲存到您的電腦。
++
+記錄套件為壓縮的UNIX .tgz檔案格式。
+
+
+
+
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
+

@@ -1,0 +1,179 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_dataprotection.html 
+summary: 資料保護術語包括不同類型的遠端複寫、Volume Snapshot、Volume、Cloning、保護網域、 以及雙Helix技術的高可用度。 
+keywords: netapp, hci, data protection, ha, snapshots, replication, cloning, helix 
+---
+= 資料保護
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+利用雙Helix技術、支援不同類型的遠端複寫、Volume Snapshot、Volume Cloning、保護網域及高可用度等資料保護術語。NetApp HCI
+
+資料保護包括下列概念：NetApp HCI
+
+* <<Remote replication types>>
+* <<Volume snapshots for data protection>>
+* <<Volume clones>>
+* <<Backup and restore process overview for SolidFire storage>>
+* <<Protection domains>>
+* <<Double Helix high availability>>
+
+
+
+
+== 遠端複寫類型
+
+遠端複寫資料的形式如下：
+
+* <<Synchronous and asynchronous replication between clusters>>
+* <<Snapshot-only replication>>
+* <<Replication between Element and ONTAP clusters using SnapMirror>>
+
+
+請參閱 https://www.netapp.com/us/media/tr-4741.pdf["TR-4741：NetApp Element 《The》、《The》、《The》、《The》、《"^]。
+
+
+
+=== 叢集之間的同步與非同步複寫
+
+對於執行NetApp Element Real-Software的叢集、即時複寫功能可讓您快速建立Volume資料的遠端複本。
+
+您可以將儲存叢集與最多四個其他儲存叢集配對。您可以從叢集配對中的任一叢集同步或非同步複寫磁碟區資料、以進行容錯移轉和容錯回復。
+
+
+
+==== 同步複寫
+
+同步複寫會持續將資料從來源叢集複寫到目標叢集、並受到延遲、封包遺失、不穩定性和頻寬的影響。
+
+同步複寫適用於下列情況：
+
+* 在短距離內複寫多個系統
+* 災難恢復站台位於來源所在的地理區域
+* 對時間敏感的應用程式、以及資料庫的保護
+* 當主要站台當機時、需要次要站台做為主要站台的營運不中斷應用程式
+
+
+
+
+==== 非同步複寫
+
+非同步複寫可將資料從來源叢集持續複寫到目標叢集、而無需等待來自目標叢集的確認。在非同步複寫期間、寫入作業會在來源叢集上提交後確認給用戶端（應用程式）。
+
+非同步複寫適用於下列情況：
+
+* 災難恢復站台遠離來源、應用程式不容許網路造成延遲。
+* 連線來源叢集和目標叢集的網路頻寬有限制。
+
+
+
+
+=== 純快照複寫
+
+純快照資料保護功能會在特定時間點將變更的資料複寫到遠端叢集。只會複寫在來源叢集上建立的快照。來自來源Volume的作用中寫入不會。
+
+您可以設定快照複製的頻率。
+
+Snapshot複寫不會影響非同步或同步複寫。
+
+
+
+=== 使用SnapMirror在元素ONTAP 叢集與叢集之間進行複寫
+
+有了NetApp SnapMirror技術、您可以複製使用NetApp Element 支援還原的功能所拍攝的快照ONTAP 、以利災難恢復。在SnapMirror關係中、元素是一個端點、ONTAP 而不只是一個端點、
+
+SnapMirror是NetApp Snapshot™複寫技術、可協助災難恢復、專為從一線儲存設備容錯移轉到位於地理位置遠端站台的二線儲存設備而設計。SnapMirror技術會在二線儲存設備中建立工作資料的複本或鏡射、當一線站台發生中斷時、您可以從二線儲存設備繼續提供資料。資料會在磁碟區層級鏡射。
+
+一線儲存設備中的來源Volume與二線儲存設備中的目的地Volume之間的關係稱為資料保護關係。叢集稱為磁碟區所在的端點、而包含複寫資料的磁碟區則必須執行對等處理。對等關係可讓叢集和磁碟區安全地交換資料。
+
+SnapMirror原生在NetApp ONTAP 的支援控制器上執行、並整合到元素中、這些元素可在NetApp HCI 支援的過程中執行於整個過程的過程中。SolidFireSnapMirror的控制邏輯位於ONTAP 整個過程中；因此、所有SnapMirror關係都必須至少涉及一個ONTAP 支援系統、才能執行協調工作。使用者主要ONTAP 透過Element UI來管理Element與相依叢集之間的關係、不過有些管理工作則位於NetApp ONTAP ®System Manager中。使用者也可以透過CLI和API來管理SnapMirror、ONTAP 而這兩者都可在支援中找到。
+
+請參閱 https://fieldportal.netapp.com/content/616239["TR-4651：NetApp SolidFire SnapMirror架構與組態"^] （需要登入）。
+
+您必須使用Element軟體、在叢集層級手動啟用SnapMirror功能。SnapMirror功能預設為停用、不會在新安裝或升級時自動啟用。
+
+啟用SnapMirror之後、您可以從Element軟體的Data Protection（資料保護）索引標籤建立SnapMirror關係。
+
+
+
+== 磁碟區快照、提供資料保護
+
+Volume快照是Volume的時間點複本、您可以稍後用來將磁碟區還原至該特定時間。
+
+雖然快照與Volume複本類似、但快照只是Volume中繼資料的複本、因此您無法掛載或寫入快照。建立磁碟區快照也只需要少量的系統資源和空間、因此建立快照的速度比複製快照快。
+
+您可以將快照複寫到遠端叢集、並將其作為磁碟區的備份複本。這可讓您使用複寫的快照、將磁碟區回溯到特定時間點；您也可以從複寫的快照建立磁碟區的複本。
+
+您可以將快照從SolidFire 一個實體叢集備份到一個外部物件存放區、或是另SolidFire 一個實體叢集。當您將快照備份到外部物件存放區時、必須連線到允許讀取/寫入作業的物件存放區。
+
+您可以擷取個別磁碟區或多個磁碟區的快照、以保護資料。
+
+
+
+== Volume複製
+
+單一磁碟區或多個磁碟區的複本是資料的時間點複本。當您複製磁碟區時、系統會建立磁碟區的快照、然後建立快照所參照資料的複本。
+
+這是一個非同步程序、程序所需的時間長短取決於您要複製的磁碟區大小和目前的叢集負載。
+
+叢集一次最多可支援兩個執行中的每個Volume複製要求、一次最多可支援八個作用中Volume複製作業。超過這些限制的要求會排入佇列、以供日後處理。
+
+
+
+== 適用於還原儲存的備份與還原程序總覽SolidFire
+
+您可以將磁碟區備份並還原至其他SolidFire 的不二儲存區、以及與Amazon S3或OpenStack Swift相容的次要物件存放區。
+
+您可以將磁碟區備份至下列項目：
+
+* 一個可用來儲存的叢集SolidFire
+* Amazon S3物件存放區
+* OpenStack Swift物件存放區
+
+
+從OpenStack Swift或Amazon S3還原磁碟區時、您需要原始備份程序的資訊清單資訊。如果您要還原SolidFire 已備份到還原系統上的磁碟區、則不需要任何資訊清單資訊。
+
+
+
+== 保護網域
+
+保護網域是一或多個節點群組在一起的節點、因此任何部分、甚至所有節點都可能失敗、同時維持資料可用度。保護網域可讓儲存叢集自動修復機箱遺失（機箱關聯性）或整個網域（機箱群組）的問題。
+
+保護網域配置會將每個節點指派給特定的保護網域。
+
+支援兩種不同的保護網域配置、稱為保護網域層級。
+
+* 在節點層級、每個節點都位於自己的保護網域中。
+* 在機箱層級、只有共用機箱的節點位於相同的保護網域中。
++
+** 當節點新增至叢集時、會自動從硬體判斷機箱層級配置。
+** 在每個節點位於獨立機箱中的叢集中、這兩個層級的功能完全相同。
+
+
+
+
+您可以手動進行 https://docs.netapp.com/us-en/vcp/vcp_task_clusters_manage.html#set-protection-domain-monitoring["啟用保護網域監控"] 使用NetApp Element vCenter Server的VMware vCenter外掛程式。您可以根據節點或機箱網域選取保護網域臨界值。
+
+建立新叢集時、如果您使用位於共用機箱中的儲存節點、可能需要考慮使用保護網域功能來設計機箱層級的故障保護。
+
+您可以定義自訂保護網域配置、其中每個節點都與一個自訂保護網域相關聯、而只與一個自訂保護網域相關聯。根據預設、每個節點都會指派給相同的預設自訂保護網域。
+
+
+
+== 雙倍Helix高可用度
+
+雙Helix資料保護是一種複寫方法、可在系統內的所有磁碟機之間分散至少兩個備援的資料複本。「無RAID」方法可讓系統吸收儲存系統所有層級的多個並行故障、並快速修復。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
+

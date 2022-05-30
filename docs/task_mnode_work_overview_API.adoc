@@ -15,14 +15,14 @@ keywords: netapp, mnode api, management node api, rest api
 
 
 
-=== 授權
+== 授權
 
 * link:task_mnode_api_get_authorizationtouse.html["取得使用REST API的授權"]
 
 
 
 
-=== 資產組態
+== 資產組態
 
 * link:task_mnode_enable_activeIQ.html["啟用Active IQ 支援功能和NetApp HCI 功能性監控"]
 * link:task_mnode_configure_proxy_server.html["設定管理節點的Proxy伺服器"]
@@ -33,7 +33,7 @@ keywords: netapp, mnode api, management node api, rest api
 
 
 
-=== 資產管理
+== 資產管理
 
 * link:task_mnode_edit_vcenter_assets.html["檢視或編輯現有的控制器資產"]
 * link:task_mnode_manage_storage_cluster_assets.html["建立及管理儲存叢集資產"]

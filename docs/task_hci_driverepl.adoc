@@ -20,7 +20,7 @@ keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S
 
 
 
-=== 處理磁碟機的最佳實務做法
+== 處理磁碟機的最佳實務做法
 
 您應該遵循下列處理磁碟機的最佳實務做法：
 
@@ -35,7 +35,7 @@ keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S
 
 
 
-=== 新增和移除磁碟機的最佳實務做法
+== 新增和移除磁碟機的最佳實務做法
 
 您應該遵循下列最佳實務做法、將磁碟機新增至叢集並從叢集移除磁碟機：
 

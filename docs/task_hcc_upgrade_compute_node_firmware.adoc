@@ -79,7 +79,7 @@ NOTE: 在升級之前、請務必檢查目前的ESXi驅動程式版本。如果�
 
 * <<Use NetApp Hybrid Cloud Control UI to upgrade a compute node>> （建議）
 * <<Use NetApp Hybrid Cloud Control API to upgrade a compute node>>
-* <<Use a USB drive imaged with the latest compute node firmware bundle ISO>>
+* <<Use a USB drive imaged with the latest compute firmware bundle>>
 * <<Use the Baseboard Management Controller (BMC) user interface (UI)>>
 
 
@@ -93,19 +93,19 @@ NOTE: 在升級之前、請務必檢查目前的ESXi驅動程式版本。如果�
 TIP: 若要成功升級、請確認vSphere叢集上的健全狀況檢查成功。
 
 
-TIP: 如果升級套件和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。
+TIP: 如果運算韌體套裝組合和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。
 
 
 NOTE: 視管理節點與BMC主機之間的網路連線速度而定、每個節點升級NIC、BIOS和BMC可能需要約60分鐘的時間。
 
 
-NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <<manual_method_USB,USB磁碟機>> 或 <<manual_method_BMC,BMC UI>> 掛載運算韌體ISO。
+NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <<manual_method_USB,USB磁碟機>> 或 <<manual_method_BMC,BMC UI>> 以掛載運算韌體套裝組合。
 
 .您需要的是 #8217 ；需要的是什麼
-* 如果您的管理節點未連線至網際網路、則表示您已從下載運算節點韌體套件 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp 支援網站"^]。
+* 如果您的管理節點未連線至網際網路、則表示您已從下載運算韌體套裝組合 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp 支援網站"^]。
 +
 
-NOTE: 您應該將「TAR」檔案解壓縮至「TAR」檔案、然後將「TAR」檔案解壓縮至ISO。
+NOTE: 您應該將「TAR」檔案解壓縮至「TAR」檔案、然後將「TAR」檔案解壓縮至運算韌體套件。
 
 
 
@@ -131,7 +131,7 @@ https://<ManagementNodeIP>
 +
 您會看到叢集中的節點、以及目前的韌體版本和更新版本（如果有）可供升級。
 
-.. 選取升級套件。
+.. 選取運算韌體套裝組合。
 .. 選擇*開始升級*。
 +
 選擇*開始升級*之後、視窗會顯示失敗的狀況檢查（如果有）。
@@ -147,7 +147,7 @@ CAUTION: 升級無法在您開始後暫停。韌體將依下列順序更新：NI
 NOTE: 在升級進行期間、您可以離開頁面、稍後再返回頁面、繼續監控進度。在升級期間、UI會顯示有關升級狀態的各種訊息。
 
 
-CAUTION: 在H610C和H615S運算節點上升級韌體時、請勿透過BMC Web UI開啟LAN上序列（SOL）主控台。這可能會導致升級失敗。
+CAUTION: 在H610C和H615C運算節點上升級韌體時、請勿透過BMC Web UI開啟LAN上序列（SOL）主控台。這可能會導致升級失敗。
 
 升級完成後、UI會顯示訊息。您可以在升級完成後下載記錄。
 
@@ -155,7 +155,7 @@ CAUTION: 在H610C和H615S運算節點上升級韌體時、請勿透過BMC Web UI
 
 | 您的管理節點位於黑暗站台內、沒有外部連線功能。  a| 
 .. 選取您要升級的叢集。
-.. 選取*瀏覽*上傳您從下載的升級套件https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp 支援網站"^]。
+.. 選取*瀏覽*上傳您從下載的運算韌體套裝組合https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp 支援網站"^]。
 .. 等待上傳完成。進度列會顯示上傳狀態。
 
 
@@ -205,7 +205,7 @@ TIP: 如果在升級期間發生故障、NetApp混合雲控制系統會重新啟
 您可以使用API將叢集中的每個運算節點升級至最新的韌體版本。您可以使用自己選擇的自動化工具來執行API。此處記錄的API工作流程使用管理節點上可用的REST API UI作為範例。
 
 
-NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <<manual_method_USB,USB磁碟機>> 或 <<manual_method_BMC,BMC UI>> 掛載運算韌體ISO。
+NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <<manual_method_USB,USB磁碟機>> 或 <<manual_method_BMC,BMC UI>> 以掛載運算韌體套裝組合。
 
 管理節點資產必須知道運算節點資產、包括vCenter和硬體資產。您可以使用庫存服務API來驗證資產（「https://<ManagementNodeIP>/inventory/1/`」）。
 
@@ -240,12 +240,12 @@ https://<ManagementNodeIP>/package-repository/1/
 ... 如果傳回代碼200、請前往下一步。如果沒有連線到遠端儲存庫、請建立連線或使用Dark站台選項。
 
 
-.. 尋找升級套件ID：
+.. 尋找運算韌體套裝組合ID：
 +
 ... 從REST API UI中、選取* Get /packags*。
 ... 選擇*試用*。
 ... 選擇*執行*。
-... 從回應中、複製並儲存升級套件名稱（「PackageName」）和套件版本（「PackageVersion」）、以供後續步驟使用。
+... 從回應中、複製並儲存運算韌體套裝組合名稱（「套件名稱」）和版本（「套件版本」）、以供後續步驟使用。
 
 
 
@@ -253,12 +253,12 @@ https://<ManagementNodeIP>/package-repository/1/
 
 
 | 您的管理節點位於黑暗站台內、沒有外部連線功能。  a| 
-.. 移至NetApp HCI 「軟件」 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["下載頁面"^] 並將最新的運算節點韌體映像下載至管理節點可存取的裝置。
+.. 移至NetApp HCI 「軟件」 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["下載頁面"^] 並將最新的運算韌體套裝組合下載至管理節點可存取的裝置。
 +
 
-TIP: 如果升級套件和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。
+TIP: 如果運算韌體套裝組合和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。
 
-.. 將運算韌體升級套件上傳至管理節點：
+.. 將運算韌體套裝軟體上傳至管理節點：
 +
 ... 在管理節點上開啟管理節點REST API UI：
 +
@@ -276,9 +276,9 @@ https://<ManagementNodeIP>/package-repository/1/
 
 ... 從REST API UI中、選取* POST /套件*。
 ... 選擇*試用*。
-... 選擇*瀏覽*並選擇升級套件。
+... 選取*瀏覽*、然後選取運算韌體套裝組合。
 ... 選取*執行*以啟動上傳。
-... 從回應中、複製並儲存套件ID（「id」）以供後續步驟使用。
+... 從回應中、複製並儲存運算韌體套裝組合ID（「id」）以供後續步驟使用。
 
 
 .. 確認上傳狀態。
@@ -290,7 +290,7 @@ https://<ManagementNodeIP>/package-repository/1/
 +
 回答顯示「成功」。
 
-... 從回應中、複製並儲存升級套件名稱（「name」）和套件版本（「version」）、以供後續步驟使用。
+... 從回應中、複製並儲存運算韌體套裝組合名稱（「name」）和版本（「version」）、以供後續步驟使用。
 
 
 
@@ -374,7 +374,7 @@ https://<ManagementNodeIP>/hardware/2/
 +
 ... 保留「force」：「假」和「maintenanceMode」：true」的值、以便在節點上執行健全狀況檢查、並將ESXi主機設定為維護模式。
 ... 輸入從上一步儲存的叢集控制器ID（「controllerId」）。
-... 輸入您先前步驟中儲存的套件名稱和套件版本。
+... 輸入您先前步驟儲存的運算韌體套裝組合名稱和版本。
 +
 [listing]
 ----
@@ -462,15 +462,20 @@ https://<ManagementNodeIP>/hardware/2/
 
 
 
-== 使用以最新運算節點韌體套裝組合ISO建立映像的USB磁碟機
+== 使用以最新運算韌體套裝組合建立映像的USB磁碟機
 
-您可以插入USB磁碟機、並將最新的運算節點韌體ISO下載至運算節點的USB連接埠。除了使用本程序中所述的USB隨身碟方法、您也可以使用基礎板管理控制器（BMC）介面中虛擬主控台的*虛擬CD/DVD*選項、將ISO掛載到運算節點上。BMC方法比USB隨身碟方法所需的時間長得多。確保您的工作站或伺服器擁有必要的網路頻寬、且您與BMC的瀏覽器工作階段不會逾時。
+您可以將下載最新運算韌體套件的USB磁碟機插入運算節點的USB連接埠。除了使用本程序中所述的USB隨身碟方法、您也可以使用基礎板管理控制器（BMC）介面中虛擬主控台的*虛擬CD/DVD*選項、將運算韌體套件掛載到運算節點上。BMC方法比USB隨身碟方法所需的時間長得多。確保您的工作站或伺服器擁有必要的網路頻寬、且您與BMC的瀏覽器工作階段不會逾時。
+
+.您需要的是 #8217 ；需要的是什麼
+* 如果您的管理節點未連線至網際網路、則表示您已從下載運算韌體套裝組合 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp 支援網站"^]。
++
+
+NOTE: 您應該將「TAR」檔案解壓縮至「TAR」檔案、然後將「TAR」檔案解壓縮至運算韌體套件。
+
+
 
 .步驟
-. 瀏覽至 https://mysupport.netapp.com/site/downloads["NetApp軟體下載"^] 頁面、選取* NetApp HCI 《*》、然後選取正確版本NetApp HCI 的「更新」連結。
-. 接受終端使用者授權合約。
-. 在「*運算與儲存節點*」區段下載運算節點映像。
-. 使用Etcher公用程式將運算節點韌體ISO快閃至USB磁碟機。
+. 使用Etcher公用程式將運算韌體套裝組合快閃至USB磁碟機。
 . 使用VMware vCenter將運算節點置於維護模式、然後從主機中清空所有虛擬機器。
 +
 
@@ -492,7 +497,7 @@ NOTE: 如果叢集上已啟用VMware Distributed Resource Scheduler（DRS）（N
 
 == 使用基礎板管理控制器（BMC）使用者介面（UI）
 
-您必須執行連續步驟來載入運算節點韌體ISO、並將節點重新開機至ISO、以確保升級成功。ISO應位於主控網頁瀏覽器的系統或虛擬機器（VM）上。請確定您已下載ISO、然後再開始此程序。
+您必須執行連續步驟來載入運算韌體套裝組合、並將節點重新開機至運算韌體套裝組合、以確保升級成功。運算韌體套裝組合應位於主控網頁瀏覽器的系統或虛擬機器（VM）上。請先確認您已下載運算韌體套裝組合、再開始執行此程序。
 
 
 TIP: 建議將系統或VM和節點放在同一個網路上。
@@ -536,13 +541,13 @@ NOTE: 您可能必須安裝或更新Java。
 . 當主控台開啟時、選取*虛擬媒體>虛擬儲存*。
 . 在*虛擬儲存設備*畫面上、選取*邏輯磁碟機類型*、然後選取* ISO檔案*。
 +
-image:BIOS_H410C_iso.png["顯示選取ISO檔案的導覽路徑。"]
+image:BIOS_H410C_iso.png["顯示選取運算韌體套裝組合檔案的導覽路徑。"]
 
-. 選取*開啟Image*以瀏覽至您下載ISO檔案的資料夾、然後選取ISO檔案。
+. 選取*開啟映像*以瀏覽至下載運算韌體套裝組合檔案的資料夾、然後選取運算韌體套裝組合檔案。
 . 選取*外掛*。
 . 當連線狀態顯示「設備編號：VM外掛程式正常！！」時、請選取*確定*。
 . 按* F12*並選擇*重新啟動*或選擇*電源控制>設定電源重設*、即可重新啟動節點。
-. 在重新開機期間、按* F11 *選取開機選項並載入ISO。您可能需要按幾次F11鍵、才能顯示開機功能表。
+. 在重新開機期間、按* F11 *選取開機選項並載入運算韌體套裝組合。您可能需要按幾次F11鍵、才能顯示開機功能表。
 +
 您會看到下列畫面：
 
@@ -572,7 +577,7 @@ NOTE: 在節點完全開機之前、BIOS版本不會顯示升級版本。
 
 === 升級H610C/H615C節點上的韌體
 
-這些步驟會因節點是獨立式或是叢集的一部分而有所不同。此程序大約需要25分鐘、包括關閉節點電源、上傳ISO、更新裝置、以及在升級後重新開啟節點電源。
+這些步驟會因節點是獨立式或是叢集的一部分而有所不同。此程序大約需要25分鐘、包括關閉節點電源、上傳運算韌體套件、更新裝置、以及在升級後重新開啟節點電源。
 
 .步驟
 . 如果您的節點是叢集的一部分、請如下將其置於維護模式。如果沒有、請跳至步驟2。
@@ -599,7 +604,7 @@ image::bmc_wizard.gif[從BMC UI啟動虛擬媒體精靈。]
 image::virtual_med_popup.gif[顯示ISO上傳成功的快顯視窗。]
 
 . 按* F12*並選擇*重新啟動*或選擇*電源控制>設定電源重設*、即可重新啟動節點。
-. 在重新開機期間、按* F11 *選取開機選項並載入ISO。
+. 在重新開機期間、按* F11 *選取開機選項並載入運算韌體套裝組合。
 . 從顯示的清單中選取「* AMI Virtual Cdrom*」、然後選取「* Enter *」。如果清單中沒有看到AMI Virtual CDROM、請進入BIOS並在開機清單中啟用。儲存之後、節點將重新開機。在重新開機期間、按* F11 *。
 +
 image::boot_device.gif[顯示可選取開機裝置的視窗。]

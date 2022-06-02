@@ -503,7 +503,6 @@
   <block id="bfc5232cd54db21b7879b3adc6550835" category="paragraph">您可以在混合雲控制儀表板上快速檢視及回應警示。</block>
   <block id="92f931e19caf8af4e3a31a82b06ccabd" category="summary">取得可下載並套用NetApp HCI 至各個節點之韌體套件版本資訊的連結。</block>
   <block id="7a02f75af06b21c7f1cfccabab836899" category="doc">運算韌體套裝組合2.76版本說明</block>
-  <block id="c04379119f71302691848047a912bf77" category="paragraph">可下載的運算節點韌體套件包含最新的BIOS和BMC功能增強功能、錯誤修正、以及所有支援NetApp HCI 的各個不支援的運算節點的硬體支援。</block>
   <block id="5fef629b836b60819e0c0ce49cd2b9d7" category="section-title">新增功能</block>
   <block id="5d97960a6eafabed18140433c99665c6" category="paragraph">2.76版包含一般錯誤修正。</block>
   <block id="692731d8e937243e33f91c14df51cf3f" category="section-title">更新韌體元件</block>
@@ -3505,29 +3504,21 @@
   <block id="24aff39b6c002fcae2afa707e6dba7be" category="paragraph">選擇與升級案例相關的選項：</block>
   <block id="aaf077919c3a33948d4c6f6869ac6de2" category="list-text"><block ref="2f3f84c67669f9390053a8a70cc30811" category="inline-xref-macro-rx"></block> （建議）</block>
   <block id="c2b8ce6217c717bb4cf813b9002845d8" category="list-text"><block ref="b1a3460e81a377a120ecdc0296fecd85" category="inline-xref-macro-rx"></block></block>
-  <block id="bf881b2333a1be30f9e61518fed37215" category="list-text"><block ref="e445c7a7a2b2d959ddf443369364b480" category="inline-xref-macro-rx"></block></block>
   <block id="fea8733cb5d299251fb403db55d36c8e" category="list-text"><block ref="892214ad68d853838374848e25f4a43c" category="inline-xref-macro-rx"></block></block>
   <block id="8badc716b7bb810ab4db2a05996c128e" category="section-title">使用NetApp混合雲控制UI來升級運算節點</block>
   <block id="39298a57d99d452e16e020b7ccbd4095" category="paragraph">從管理服務2.14開始、您可以使用NetApp混合雲控制UI來升級運算節點。在節點清單中、您必須選取要升級的節點。「*目前版本*」索引標籤會顯示目前的韌體版本、「*建議版本*」索引標籤則會顯示可用的升級版本（如果有）。</block>
   <block id="9c09357fb6d5191d3a1913dd3c4401ef" category="admonition">若要成功升級、請確認vSphere叢集上的健全狀況檢查成功。</block>
-  <block id="22ff0969c4e3b2efc4c69d4132ff6e00" category="admonition">如果升級套件和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。</block>
   <block id="6f7ebeb72eb48d89aa2787433989b6b5" category="admonition">視管理節點與BMC主機之間的網路連線速度而定、每個節點升級NIC、BIOS和BMC可能需要約60分鐘的時間。</block>
   <block id="abca9e82408ff65627f936784141931b" category="inline-xref">USB磁碟機</block>
   <block id="e06e1c211afdb87bf0364232088b0c36" category="inline-xref">BMC UI</block>
-  <block id="ee32ec3c00387e48d64d3e91709654f2" category="admonition">不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <block ref="4d9d1e5487766b88d4d71ed7b5cbc3b9" category="inline-xref-macro-rx"></block> 或 <block ref="1f3fb96b93183df027058d51b91b7971" category="inline-xref-macro-rx"></block> 掛載運算韌體ISO。</block>
-  <block id="0402b00545fce110121d27e3e0116320" category="list-text">如果您的管理節點未連線至網際網路、則表示您已從下載運算節點韌體套件<block ref="3a326a2da6806c2b958ef45116362803" category="inline-link-rx"></block>。</block>
-  <block id="2c3b3b59652bc3410e7853f9e03eb5e3" category="admonition">您應該將「TAR」檔案解壓縮至「TAR」檔案、然後將「TAR」檔案解壓縮至ISO。</block>
   <block id="90b3d6cdea919388440a96816e53ea24" category="list-text">在「*升級*」頁面上、選取*運算韌體*。</block>
   <block id="fa7063e93d956bc8344f5540bf669b09" category="list-text">選取您要升級的叢集。</block>
   <block id="1051fa9779041ad6e9ee3beab1a5804e" category="paragraph">您會看到叢集中的節點、以及目前的韌體版本和更新版本（如果有）可供升級。</block>
-  <block id="1ec7d94e055dd1b38fea54a8c52a7107" category="list-text">選取升級套件。</block>
   <block id="ad658e59cd09feeecf6b238e019458b8" category="paragraph">選擇*開始升級*之後、視窗會顯示失敗的狀況檢查（如果有）。</block>
   <block id="a3341b6eded1e35dfa9b561f8a07b57d" category="admonition">升級無法在您開始後暫停。韌體將依下列順序更新：NIC、BIOS和BMC。升級期間請勿登入BMC UI。登入BMC會終止監控升級程序的混合雲控制LAN上序列（SOL）工作階段。</block>
   <block id="466e65481ab5efa6812230aeb4b69f80" category="list-text">如果在叢集或節點層級進行健全狀況檢查時發出警告、但沒有重大故障、您會看到*準備好升級*。選擇*升級節點*。</block>
   <block id="576792eafbabeb08a721725d8cd7f8c5" category="admonition">在升級進行期間、您可以離開頁面、稍後再返回頁面、繼續監控進度。在升級期間、UI會顯示有關升級狀態的各種訊息。</block>
-  <block id="79df72a933d3593ef7d9131e8d7c509c" category="admonition">在H610C和H615S運算節點上升級韌體時、請勿透過BMC Web UI開啟LAN上序列（SOL）主控台。這可能會導致升級失敗。</block>
   <block id="f018c25e2ba6e7d9e59d6f27fbefc1d1" category="paragraph">升級完成後、UI會顯示訊息。您可以在升級完成後下載記錄。</block>
-  <block id="c39906efe5a223585b255a41266ea9c8" category="list-text">選取*瀏覽*上傳您從下載的升級套件<block ref="132031089c33792b234781a9d8501a93" category="inline-link-rx"></block>。</block>
   <block id="67986ad534a347b7de1afe60bc4bad42" category="admonition">如果您離開瀏覽器視窗、檔案會在背景中上傳。</block>
   <block id="21ab535a80a78a0fb75c944c402b4134" category="paragraph">檔案成功上傳及驗證後、畫面上會顯示一則訊息。驗證可能需要幾分鐘的時間。您可以在升級完成後下載記錄。如需各種升級狀態變更的相關資訊、請參閱 <block ref="963ffe23b927e51707381f60a050d9f4" category="inline-xref-macro-rx"></block>。</block>
   <block id="ab57fd0432e25d5b3013133a1c910d56" category="inline-link-macro">KB</block>
@@ -3547,12 +3538,8 @@
   <block id="28e250dd03d1d6c42bd639d46927b2f8" category="paragraph">您可以使用API將叢集中的每個運算節點升級至最新的韌體版本。您可以使用自己選擇的自動化工具來執行API。此處記錄的API工作流程使用管理節點上可用的REST API UI作為範例。</block>
   <block id="571ebba046dfc62ef7155919bf315d2d" category="paragraph">管理節點資產必須知道運算節點資產、包括vCenter和硬體資產。您可以使用庫存服務API來驗證資產（「https://&lt;ManagementNodeIP&gt;/inventory/1/`」）。</block>
   <block id="689c642c94aa6268a48bbbc19bb529c5" category="list-text">在管理節點上開啟套件服務REST API UI：</block>
-  <block id="325b3df765685b8bf7d0a291e60ff0d7" category="list-text">從回應中、複製並儲存升級套件名稱（「PackageName」）和套件版本（「PackageVersion」）、以供後續步驟使用。</block>
   <block id="4876c936414c8b50876cdff810c036bd" category="inline-link">下載頁面</block>
-  <block id="aa9d5bf83f31cb6b0178cd6fca1bf339" category="list-text">移至NetApp HCI 「軟件」<block ref="5edcf9a6caebd1bfc3b9c296487defc8" category="inline-link-rx"></block> 並將最新的運算節點韌體映像下載至管理節點可存取的裝置。</block>
-  <block id="6020d7988dfd2e648ba586d737e1f210" category="list-text">將運算韌體升級套件上傳至管理節點：</block>
   <block id="ec1ddc98a355dba89ef5b1ccc291885d" category="list-text">在「* id*」中輸入您在上一個步驟中複製的套件ID。</block>
-  <block id="62924c929d970628e011c457f2df9215" category="list-text">從回應中、複製並儲存升級套件名稱（「name」）和套件版本（「version」）、以供後續步驟使用。</block>
   <block id="a73185557316cb4d3140159601de085c" category="list-text">找出您要升級之節點的運算控制器ID和節點硬體ID：</block>
   <block id="85c0d6693a939b1228351b83c2bc5327" category="list-text">從回應中、複製安裝資產ID（「id」）。</block>
   <block id="c1b6479fd9c7db0471ff4d500bfa314c" category="list-text">從回應中、複製並儲存叢集控制器ID（「controllerId」）和節點硬體ID（「hardwareId」）、以供後續步驟使用：</block>
@@ -3563,7 +3550,6 @@
   <block id="7271267de19060ea8c43031aa1e16351" category="list-text">請使用有效負載值執行下列動作：</block>
   <block id="951849308163feee05b1b4f669f83c91" category="list-text">保留「force」：「假」和「maintenanceMode」：true」的值、以便在節點上執行健全狀況檢查、並將ESXi主機設定為維護模式。</block>
   <block id="8e9b8402fc729e5b8cf2e9a5e6d1f4a7" category="list-text">輸入從上一步儲存的叢集控制器ID（「controllerId」）。</block>
-  <block id="898aa9fbdeaf861f6b63c3aee3dcac0a" category="list-text">輸入您先前步驟中儲存的套件名稱和套件版本。</block>
   <block id="c658aaae7b770a779963c2f0814f7b97" category="list-text">在回應中複製資源連結（「resourcegrolink」）URL的升級工作ID。</block>
   <block id="2af0540e1b6b59e46ab66bb3122952c5" category="list-text">選取* Get /task/{task_id}/logs*。</block>
   <block id="41ae3303c96aa0617f8cdc8eaf5eacba" category="list-text">在「* task_ID*」中輸入上一個步驟的工作ID。</block>
@@ -3578,12 +3564,6 @@
   <block id="8cbe2759efcdf76c5f107e0ecb7b4592" category="list-text">從REST API UI中、選取*「Get Rid/nodesk/｛hardware _id｝」（取得更新/更新）*。</block>
   <block id="4b441364b36bb6f4c7b059dcc366682f" category="list-text">（選用）輸入日期和狀態參數以篩選結果。</block>
   <block id="cc0bc3ddeb0e718be7e738b95d572af9" category="list-text">在回應中確認所有元件的韌體已從舊版成功升級至最新的韌體。</block>
-  <block id="c4c5c223d03335842a4306d18b9fe4c8" category="section-title">使用以最新運算節點韌體套裝組合ISO建立映像的USB磁碟機</block>
-  <block id="f67b6a10eef3ca58e647dda805d94d0f" category="paragraph">您可以插入USB磁碟機、並將最新的運算節點韌體ISO下載至運算節點的USB連接埠。除了使用本程序中所述的USB隨身碟方法、您也可以使用基礎板管理控制器（BMC）介面中虛擬主控台的*虛擬CD/DVD*選項、將ISO掛載到運算節點上。BMC方法比USB隨身碟方法所需的時間長得多。確保您的工作站或伺服器擁有必要的網路頻寬、且您與BMC的瀏覽器工作階段不會逾時。</block>
-  <block id="66049ae453415635891440129594baf4" category="inline-link">NetApp軟體下載</block>
-  <block id="9db3b1bbf31a34f016b6751560d022ca" category="list-text">瀏覽至<block ref="faddc0b2b4da1eceb58811a395f38dc6" category="inline-link-rx"></block> 頁面、選取* NetApp HCI 《*》、然後選取正確版本NetApp HCI 的「更新」連結。</block>
-  <block id="b36befe8937b455a62256bcdbd1761e1" category="list-text">在「*運算與儲存節點*」區段下載運算節點映像。</block>
-  <block id="6b42b239fce8e2fd9ba87948604faced" category="list-text">使用Etcher公用程式將運算節點韌體ISO快閃至USB磁碟機。</block>
   <block id="1cf46325f9536ec9b43713bcd791afe9" category="list-text">使用VMware vCenter將運算節點置於維護模式、然後從主機中清空所有虛擬機器。</block>
   <block id="b9ec44333357d23f4dfa6a74a2165dac" category="list-text">將USB隨身碟插入運算節點上的USB連接埠、然後使用VMware vCenter重新啟動運算節點。</block>
   <block id="17d898084fc0dd09fe19cbbc37846064" category="list-text">在運算節點POST週期期間、按* F11 *開啟開機管理程式。您可能需要快速連續多次按* F11 *。您可以透過連接視訊/鍵盤或使用「BMC」中的主控台來執行此作業。</block>
@@ -3594,7 +3574,6 @@
   <block id="97862762766e97a1006aa97db0c218c6" category="list-text">從升級的運算節點移除USB Flash磁碟機。</block>
   <block id="d6ad7b8195e77c9db09bfad90c137fca" category="list-text">對ESXi叢集中的其他運算節點重複此工作、直到所有運算節點都升級為止。</block>
   <block id="d3464dce5635d8b4ccec4750312b5df1" category="section-title">使用基礎板管理控制器（BMC）使用者介面（UI）</block>
-  <block id="37923f0374276dac33e16c1ee6b34231" category="paragraph">您必須執行連續步驟來載入運算節點韌體ISO、並將節點重新開機至ISO、以確保升級成功。ISO應位於主控網頁瀏覽器的系統或虛擬機器（VM）上。請確定您已下載ISO、然後再開始此程序。</block>
   <block id="ae064a1839cfc8ce34c858138e9c3966" category="admonition">建議將系統或VM和節點放在同一個網路上。</block>
   <block id="802eff2bb9ea58f2a6d0da71cd0bb0e8" category="admonition">透過BMC UI進行升級約需25至30分鐘。</block>
   <block id="ab38b151bd1653e9010fdaa497595497" category="list-text"><block ref="c5b8aa68ac6e93ecb14b72fa4051ba28" category="inline-xref-macro-rx"></block></block>
@@ -3614,13 +3593,9 @@
   <block id="593b9eacda7134868a2d80ea3c474ec6" category="admonition">您可能必須安裝或更新Java。</block>
   <block id="086e11190936943bd47b89359cc316ab" category="list-text">當主控台開啟時、選取*虛擬媒體&gt;虛擬儲存*。</block>
   <block id="0d86b24c482b6af94686b61cab281a55" category="list-text">在*虛擬儲存設備*畫面上、選取*邏輯磁碟機類型*、然後選取* ISO檔案*。</block>
-  <block id="46da4b73e077041d82cbd4b49b3a2a45" category="inline-image-macro">顯示選取ISO檔案的導覽路徑。</block>
-  <block id="88bfc9e47329ab3d571f1872dc37c1fb" category="paragraph"><block ref="88bfc9e47329ab3d571f1872dc37c1fb" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1034338dbc0cc8fb2f0061d492d27045" category="list-text">選取*開啟Image*以瀏覽至您下載ISO檔案的資料夾、然後選取ISO檔案。</block>
   <block id="9e02313ddd26aee118ee23b52ccb621f" category="list-text">選取*外掛*。</block>
   <block id="1ae7c00d24ffdca7598b194b2dc27dbf" category="list-text">當連線狀態顯示「設備編號：VM外掛程式正常！！」時、請選取*確定*。</block>
   <block id="da7914315fd2c0a46bc91f4a9b89ba7a" category="list-text">按* F12*並選擇*重新啟動*或選擇*電源控制&gt;設定電源重設*、即可重新啟動節點。</block>
-  <block id="b96987f61d66ba1db77d5b4f1783876a" category="list-text">在重新開機期間、按* F11 *選取開機選項並載入ISO。您可能需要按幾次F11鍵、才能顯示開機功能表。</block>
   <block id="a69d47f968d2fc21fb9cdec24acfbe9a" category="paragraph">您會看到下列畫面：</block>
   <block id="d0ed128bd3c8c20ecdc5eb6ff37f7d5a" category="inline-image-macro">顯示虛擬ISO開機的畫面。</block>
   <block id="64db04a065fe8c5683677bfa2a4efcff" category="paragraph"><block ref="64db04a065fe8c5683677bfa2a4efcff" category="inline-image-macro-rx" type="image"></block></block>
@@ -3632,7 +3607,6 @@
   <block id="6559f407fcadf1c3e1b80127774db925" category="list-text">使主機退出維護模式。這可能會顯示已中斷連線的紅色旗標。等到所有狀態都清除為止。</block>
   <block id="b8891f5f3c9ab182d0db3fef96037d36" category="list-text">開啟所有已關閉電源的其餘VM。</block>
   <block id="d9007dd2676748983c400ce8ca221bb7" category="section-title">升級H610C/H615C節點上的韌體</block>
-  <block id="e2cec94acacbfde7b552c83c32e84744" category="paragraph">這些步驟會因節點是獨立式或是叢集的一部分而有所不同。此程序大約需要25分鐘、包括關閉節點電源、上傳ISO、更新裝置、以及在升級後重新開啟節點電源。</block>
   <block id="ae2e167448f73cc45a857eeed2a38a45" category="list-text">瀏覽至BMC UI「https://BMCIP/#login`」、其中BMC IP為BMC的IP位址。</block>
   <block id="d2fcf7c7acbf0658169aa81fda53c0ff" category="list-text">選擇*遠端控制&gt;啟動KVM（Java）*。</block>
   <block id="7d853bfef08c6d2c19333026c6a5f295" category="list-text">在主控台視窗中、選取*媒體&gt;虛擬媒體精靈*。</block>
@@ -3640,7 +3614,6 @@
   <block id="ff568983eaa948e1c45ea44fd20c3515" category="list-text">選擇*瀏覽*、然後選取運算韌體「.ISO」檔案。</block>
   <block id="6988680d8d9db783d89d962e3a07b128" category="list-text">選擇*連接*。畫面會顯示快顯視窗、指出成功、並在底部顯示路徑和裝置。您可以關閉*虛擬媒體*視窗。</block>
   <block id="e3e72bb291b26812bea6d962e4866dab" category="image-alt">顯示ISO上傳成功的快顯視窗。</block>
-  <block id="7edcc1835a80e09463c4bf3b46c42cc0" category="list-text">在重新開機期間、按* F11 *選取開機選項並載入ISO。</block>
   <block id="e57c91d23315863d32587c65e08c874a" category="list-text">從顯示的清單中選取「* AMI Virtual Cdrom*」、然後選取「* Enter *」。如果清單中沒有看到AMI Virtual CDROM、請進入BIOS並在開機清單中啟用。儲存之後、節點將重新開機。在重新開機期間、按* F11 *。</block>
   <block id="b6c3b9c6bed53710f2cbf2c4dad9c6ef" category="image-alt">顯示可選取開機裝置的視窗。</block>
   <block id="f168f35f98997ef1f6a33afa3e3be93e" category="list-text">在顯示的畫面上、選取* Enter *。</block>
@@ -6229,4 +6202,31 @@
   <block id="a310588c148d934b9b30c31802d4a30b" category="sidebar">NetApp社群</block>
   <block id="213686afc3803be7caa09348765467fe" category="sidebar">取得協助的地方</block>
   <block id="389672366ff11f72a82c5c495b9b5159" category="sidebar">本文檔資料NetApp HCI</block>
+  <block id="ef1e8da076ed36db7d489060adff47fb" category="paragraph">可下載的運算韌體套裝組合包含最新的BIOS和BMC功能增強功能、錯誤修正程式、以及所有支援NetApp HCI 的支援功能。</block>
+  <block id="778f439c373ac0d9448a4607920b1422" category="list-text"><block ref="e2bd782e3d45140e59a9770dafcf72d8" category="inline-xref-macro-rx"></block></block>
+  <block id="c94da534f33010d7e118033321a44543" category="admonition">如果運算韌體套裝組合和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。</block>
+  <block id="2285a7aedaa8a3012ac18addc77cb998" category="admonition">不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <block ref="4d9d1e5487766b88d4d71ed7b5cbc3b9" category="inline-xref-macro-rx"></block> 或 <block ref="1f3fb96b93183df027058d51b91b7971" category="inline-xref-macro-rx"></block> 以掛載運算韌體套裝組合。</block>
+  <block id="36b254200cdbd8a07ea5d268a8d6baf6" category="list-text">如果您的管理節點未連線至網際網路、則表示您已從下載運算韌體套裝組合<block ref="3a326a2da6806c2b958ef45116362803" category="inline-link-rx"></block>。</block>
+  <block id="191ad55ad4891df96df5fa822849fef0" category="admonition">您應該將「TAR」檔案解壓縮至「TAR」檔案、然後將「TAR」檔案解壓縮至運算韌體套件。</block>
+  <block id="59f7535fd87661a1910847bce50d4e47" category="list-text">選取運算韌體套裝組合。</block>
+  <block id="73dcdf96dc4ca7f983752cea48f4c9f9" category="admonition">在H610C和H615C運算節點上升級韌體時、請勿透過BMC Web UI開啟LAN上序列（SOL）主控台。這可能會導致升級失敗。</block>
+  <block id="3ff050db4ec6e0f15c16e789f26e88af" category="list-text">選取*瀏覽*上傳您從下載的運算韌體套裝組合<block ref="132031089c33792b234781a9d8501a93" category="inline-link-rx"></block>。</block>
+  <block id="5ca8b1b2bf4af2fc7c663e45d817ec38" category="list-text">尋找運算韌體套裝組合ID：</block>
+  <block id="2e48d856cc4329ea1172aa1b12357d02" category="list-text">從回應中、複製並儲存運算韌體套裝組合名稱（「套件名稱」）和版本（「套件版本」）、以供後續步驟使用。</block>
+  <block id="f15fbee8c019557b653654608e114409" category="list-text">移至NetApp HCI 「軟件」<block ref="5edcf9a6caebd1bfc3b9c296487defc8" category="inline-link-rx"></block> 並將最新的運算韌體套裝組合下載至管理節點可存取的裝置。</block>
+  <block id="f8aab403230bedc419a9f667f64433b1" category="list-text">將運算韌體套裝軟體上傳至管理節點：</block>
+  <block id="e2b118423790740e16d77e176feae0c8" category="list-text">選取*瀏覽*、然後選取運算韌體套裝組合。</block>
+  <block id="4e3ab2a8327927bb040d9030052ab871" category="list-text">從回應中、複製並儲存運算韌體套裝組合ID（「id」）以供後續步驟使用。</block>
+  <block id="06e01a8ccacd1b43b5fddff004e9d4b2" category="list-text">從回應中、複製並儲存運算韌體套裝組合名稱（「name」）和版本（「version」）、以供後續步驟使用。</block>
+  <block id="d82d011768fe4be99bb8567a9fc35e59" category="list-text">輸入您先前步驟儲存的運算韌體套裝組合名稱和版本。</block>
+  <block id="dda5a90267bc798be83dbaf5789a1d11" category="section-title">使用以最新運算韌體套裝組合建立映像的USB磁碟機</block>
+  <block id="e001a7c4060c584ed7ac0c964481b703" category="paragraph">您可以將下載最新運算韌體套件的USB磁碟機插入運算節點的USB連接埠。除了使用本程序中所述的USB隨身碟方法、您也可以使用基礎板管理控制器（BMC）介面中虛擬主控台的*虛擬CD/DVD*選項、將運算韌體套件掛載到運算節點上。BMC方法比USB隨身碟方法所需的時間長得多。確保您的工作站或伺服器擁有必要的網路頻寬、且您與BMC的瀏覽器工作階段不會逾時。</block>
+  <block id="972fabde5f0ba99c25139d61cd7e3c9f" category="list-text">使用Etcher公用程式將運算韌體套裝組合快閃至USB磁碟機。</block>
+  <block id="f7ef036394a5c36769d6d2ea91d453f5" category="paragraph">您必須執行連續步驟來載入運算韌體套裝組合、並將節點重新開機至運算韌體套裝組合、以確保升級成功。運算韌體套裝組合應位於主控網頁瀏覽器的系統或虛擬機器（VM）上。請先確認您已下載運算韌體套裝組合、再開始執行此程序。</block>
+  <block id="a478ff55f210944ba68d37f5d911b465" category="inline-image-macro">顯示選取運算韌體套裝組合檔案的導覽路徑。</block>
+  <block id="22384f95e35e58825d7ec3ba3865263d" category="paragraph"><block ref="22384f95e35e58825d7ec3ba3865263d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2e3b483e37cec1a7842f185ac98ac6cd" category="list-text">選取*開啟映像*以瀏覽至下載運算韌體套裝組合檔案的資料夾、然後選取運算韌體套裝組合檔案。</block>
+  <block id="df8bcceb7ddee511e9494f0afd8c95a7" category="list-text">在重新開機期間、按* F11 *選取開機選項並載入運算韌體套裝組合。您可能需要按幾次F11鍵、才能顯示開機功能表。</block>
+  <block id="b56a80b47ffbf4eda21aa52a14a1c0d9" category="paragraph">這些步驟會因節點是獨立式或是叢集的一部分而有所不同。此程序大約需要25分鐘、包括關閉節點電源、上傳運算韌體套件、更新裝置、以及在升級後重新開啟節點電源。</block>
+  <block id="94accfc9ce60fbdbc6b912533ff89998" category="list-text">在重新開機期間、按* F11 *選取開機選項並載入運算韌體套裝組合。</block>
 </blocks>

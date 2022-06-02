@@ -15,7 +15,7 @@ keywords: netapp, hci, compute firmware
 
 
 [role="lead"]
-可下載的運算節點韌體套件包含最新的BIOS和BMC功能增強功能、錯誤修正、以及所有支援NetApp HCI 的各個不支援的運算節點的硬體支援。
+可下載的運算韌體套裝組合包含最新的BIOS和BMC功能增強功能、錯誤修正程式、以及所有支援NetApp HCI 的支援功能。
 
 
 

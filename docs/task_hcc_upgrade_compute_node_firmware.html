@@ -1807,7 +1807,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-13 19:35:13 +0000">05/13/2022</time>
+    <time datetime="2022-06-02 17:50:06 +0000">06/02/2022</time>
     
   
 
@@ -1990,7 +1990,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <p><a href="#Use NetApp Hybrid Cloud Control API to upgrade a compute node">[Use NetApp Hybrid Cloud Control API to upgrade a compute node]</a></p>
 </li>
 <li>
-<p><a href="#Use a USB drive imaged with the latest compute node firmware bundle ISO">[Use a USB drive imaged with the latest compute node firmware bundle ISO]</a></p>
+<p><a href="#Use a USB drive imaged with the latest compute firmware bundle">[Use a USB drive imaged with the latest compute firmware bundle]</a></p>
 </li>
 <li>
 <p><a href="#Use the Baseboard Management Controller (BMC) user interface (UI)">[Use the Baseboard Management Controller (BMC) user interface (UI)]</a></p>
@@ -2024,7 +2024,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <img src="/us-en/hci19/images/tip.svg" alt="提示">
 </td>
 <td class="content">
-如果升級套件和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。
+如果運算韌體套裝組合和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。
 </td>
 </tr>
 </table>
@@ -2048,7 +2048,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <img src="/us-en/hci19/images/note.svg" alt="附註">
 </td>
 <td class="content">
-不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <a href="#manual_method_USB">USB磁碟機</a> 或 <a href="#manual_method_BMC">BMC UI</a> 掛載運算韌體ISO。
+不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <a href="#manual_method_USB">USB磁碟機</a> 或 <a href="#manual_method_BMC">BMC UI</a> 以掛載運算韌體套裝組合。
 </td>
 </tr>
 </table>
@@ -2057,7 +2057,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <div class="title">您需要的是 #8217 ；需要的是什麼</div>
 <ul>
 <li>
-<p>如果您的管理節點未連線至網際網路、則表示您已從下載運算節點韌體套件 <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle" target="_blank" rel="noopener">"NetApp 支援網站"</a>。</p>
+<p>如果您的管理節點未連線至網際網路、則表示您已從下載運算韌體套裝組合 <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle" target="_blank" rel="noopener">"NetApp 支援網站"</a>。</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2065,7 +2065,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <img src="/us-en/hci19/images/note.svg" alt="附註">
 </td>
 <td class="content">
-您應該將「TAR」檔案解壓縮至「TAR」檔案、然後將「TAR」檔案解壓縮至ISO。
+您應該將「TAR」檔案解壓縮至「TAR」檔案、然後將「TAR」檔案解壓縮至運算韌體套件。
 </td>
 </tr>
 </table>
@@ -2118,7 +2118,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 </div>
 </li>
 <li>
-<p>選取升級套件。</p>
+<p>選取運算韌體套裝組合。</p>
 </li>
 <li>
 <p>選擇*開始升級*。</p>
@@ -2162,7 +2162,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <img src="/us-en/hci19/images/caution.svg" alt="注意">
 </td>
 <td class="content">
-在H610C和H615S運算節點上升級韌體時、請勿透過BMC Web UI開啟LAN上序列（SOL）主控台。這可能會導致升級失敗。
+在H610C和H615C運算節點上升級韌體時、請勿透過BMC Web UI開啟LAN上序列（SOL）主控台。這可能會導致升級失敗。
 </td>
 </tr>
 </table>
@@ -2179,7 +2179,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <p>選取您要升級的叢集。</p>
 </li>
 <li>
-<p>選取*瀏覽*上傳您從下載的升級套件https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp 支援網站"^]。</p>
+<p>選取*瀏覽*上傳您從下載的運算韌體套裝組合https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp 支援網站"^]。</p>
 </li>
 <li>
 <p>等待上傳完成。進度列會顯示上傳狀態。</p>
@@ -2278,7 +2278,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <img src="/us-en/hci19/images/note.svg" alt="附註">
 </td>
 <td class="content">
-不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <a href="#manual_method_USB">USB磁碟機</a> 或 <a href="#manual_method_BMC">BMC UI</a> 掛載運算韌體ISO。
+不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 <a href="#manual_method_USB">USB磁碟機</a> 或 <a href="#manual_method_BMC">BMC UI</a> 以掛載運算韌體套裝組合。
 </td>
 </tr>
 </table>
@@ -2354,7 +2354,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 </div>
 </li>
 <li>
-<p>尋找升級套件ID：</p>
+<p>尋找運算韌體套裝組合ID：</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
@@ -2367,7 +2367,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <p>選擇*執行*。</p>
 </li>
 <li>
-<p>從回應中、複製並儲存升級套件名稱（「PackageName」）和套件版本（「PackageVersion」）、以供後續步驟使用。</p>
+<p>從回應中、複製並儲存運算韌體套裝組合名稱（「套件名稱」）和版本（「套件版本」）、以供後續步驟使用。</p>
 </li>
 </ol>
 </div>
@@ -2380,7 +2380,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>移至NetApp HCI 「軟件」 <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle" target="_blank" rel="noopener">"下載頁面"</a> 並將最新的運算節點韌體映像下載至管理節點可存取的裝置。</p>
+<p>移至NetApp HCI 「軟件」 <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle" target="_blank" rel="noopener">"下載頁面"</a> 並將最新的運算韌體套裝組合下載至管理節點可存取的裝置。</p>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -2388,14 +2388,14 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <img src="/us-en/hci19/images/tip.svg" alt="提示">
 </td>
 <td class="content">
-如果升級套件和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。
+如果運算韌體套裝組合和管理節點都是本機的、則可在進行暗站升級時縮短上傳時間。
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>將運算韌體升級套件上傳至管理節點：</p>
+<p>將運算韌體套裝軟體上傳至管理節點：</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
@@ -2432,13 +2432,13 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <p>選擇*試用*。</p>
 </li>
 <li>
-<p>選擇*瀏覽*並選擇升級套件。</p>
+<p>選取*瀏覽*、然後選取運算韌體套裝組合。</p>
 </li>
 <li>
 <p>選取*執行*以啟動上傳。</p>
 </li>
 <li>
-<p>從回應中、複製並儲存套件ID（「id」）以供後續步驟使用。</p>
+<p>從回應中、複製並儲存運算韌體套裝組合ID（「id」）以供後續步驟使用。</p>
 </li>
 </ol>
 </div>
@@ -2463,7 +2463,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 </div>
 </li>
 <li>
-<p>從回應中、複製並儲存升級套件名稱（「name」）和套件版本（「version」）、以供後續步驟使用。</p>
+<p>從回應中、複製並儲存運算韌體套裝組合名稱（「name」）和版本（「version」）、以供後續步驟使用。</p>
 </li>
 </ol>
 </div>
@@ -2614,7 +2614,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <p>輸入從上一步儲存的叢集控制器ID（「controllerId」）。</p>
 </li>
 <li>
-<p>輸入您先前步驟中儲存的套件名稱和套件版本。</p>
+<p>輸入您先前步驟儲存的運算韌體套裝組合名稱和版本。</p>
 <div class="listingblock">
 <div class="content">
 <pre>{
@@ -2784,25 +2784,36 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 </div>
 </div>
 <div class="sect1">
-<h2 id="使用以最新運算節點韌體套裝組合iso建立映像的usb磁碟機">使用以最新運算節點韌體套裝組合ISO建立映像的USB磁碟機</h2>
+<h2 id="使用以最新運算韌體套裝組合建立映像的usb磁碟機">使用以最新運算韌體套裝組合建立映像的USB磁碟機</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>您可以插入USB磁碟機、並將最新的運算節點韌體ISO下載至運算節點的USB連接埠。除了使用本程序中所述的USB隨身碟方法、您也可以使用基礎板管理控制器（BMC）介面中虛擬主控台的*虛擬CD/DVD*選項、將ISO掛載到運算節點上。BMC方法比USB隨身碟方法所需的時間長得多。確保您的工作站或伺服器擁有必要的網路頻寬、且您與BMC的瀏覽器工作階段不會逾時。</p>
+<p>您可以將下載最新運算韌體套件的USB磁碟機插入運算節點的USB連接埠。除了使用本程序中所述的USB隨身碟方法、您也可以使用基礎板管理控制器（BMC）介面中虛擬主控台的*虛擬CD/DVD*選項、將運算韌體套件掛載到運算節點上。BMC方法比USB隨身碟方法所需的時間長得多。確保您的工作站或伺服器擁有必要的網路頻寬、且您與BMC的瀏覽器工作階段不會逾時。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的是 #8217 ；需要的是什麼</div>
+<ul>
+<li>
+<p>如果您的管理節點未連線至網際網路、則表示您已從下載運算韌體套裝組合 <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle" target="_blank" rel="noopener">"NetApp 支援網站"</a>。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="附註">
+</td>
+<td class="content">
+您應該將「TAR」檔案解壓縮至「TAR」檔案、然後將「TAR」檔案解壓縮至運算韌體套件。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
 <div class="title">步驟</div>
 <ol class="arabic">
 <li>
-<p>瀏覽至 <a href="https://mysupport.netapp.com/site/downloads" target="_blank" rel="noopener">"NetApp軟體下載"</a> 頁面、選取* NetApp HCI 《*》、然後選取正確版本NetApp HCI 的「更新」連結。</p>
-</li>
-<li>
-<p>接受終端使用者授權合約。</p>
-</li>
-<li>
-<p>在「<strong>運算與儲存節點</strong>」區段下載運算節點映像。</p>
-</li>
-<li>
-<p>使用Etcher公用程式將運算節點韌體ISO快閃至USB磁碟機。</p>
+<p>使用Etcher公用程式將運算韌體套裝組合快閃至USB磁碟機。</p>
 </li>
 <li>
 <p>使用VMware vCenter將運算節點置於維護模式、然後從主機中清空所有虛擬機器。</p>
@@ -2851,7 +2862,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <h2 id="使用基礎板管理控制器bmc使用者介面ui">使用基礎板管理控制器（BMC）使用者介面（UI）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>您必須執行連續步驟來載入運算節點韌體ISO、並將節點重新開機至ISO、以確保升級成功。ISO應位於主控網頁瀏覽器的系統或虛擬機器（VM）上。請確定您已下載ISO、然後再開始此程序。</p>
+<p>您必須執行連續步驟來載入運算韌體套裝組合、並將節點重新開機至運算韌體套裝組合、以確保升級成功。運算韌體套裝組合應位於主控網頁瀏覽器的系統或虛擬機器（VM）上。請先確認您已下載運算韌體套裝組合、再開始執行此程序。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -2965,11 +2976,11 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <li>
 <p>在*虛擬儲存設備*畫面上、選取*邏輯磁碟機類型*、然後選取* ISO檔案*。</p>
 <div class="paragraph">
-<p><span class="image"><img src="BIOS_H410C_iso.png" alt="顯示選取ISO檔案的導覽路徑。"></span></p>
+<p><span class="image"><img src="BIOS_H410C_iso.png" alt="顯示選取運算韌體套裝組合檔案的導覽路徑。"></span></p>
 </div>
 </li>
 <li>
-<p>選取*開啟Image*以瀏覽至您下載ISO檔案的資料夾、然後選取ISO檔案。</p>
+<p>選取*開啟映像*以瀏覽至下載運算韌體套裝組合檔案的資料夾、然後選取運算韌體套裝組合檔案。</p>
 </li>
 <li>
 <p>選取*外掛*。</p>
@@ -2981,7 +2992,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <p>按* F12*並選擇*重新啟動*或選擇*電源控制&gt;設定電源重設*、即可重新啟動節點。</p>
 </li>
 <li>
-<p>在重新開機期間、按* F11 *選取開機選項並載入ISO。您可能需要按幾次F11鍵、才能顯示開機功能表。</p>
+<p>在重新開機期間、按* F11 *選取開機選項並載入運算韌體套裝組合。您可能需要按幾次F11鍵、才能顯示開機功能表。</p>
 <div class="paragraph">
 <p>您會看到下列畫面：</p>
 </div>
@@ -3041,7 +3052,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <div class="sect2">
 <h3 id="升級h610ch615c節點上的韌體">升級H610C/H615C節點上的韌體</h3>
 <div class="paragraph">
-<p>這些步驟會因節點是獨立式或是叢集的一部分而有所不同。此程序大約需要25分鐘、包括關閉節點電源、上傳ISO、更新裝置、以及在升級後重新開啟節點電源。</p>
+<p>這些步驟會因節點是獨立式或是叢集的一部分而有所不同。此程序大約需要25分鐘、包括關閉節點電源、上傳運算韌體套件、更新裝置、以及在升級後重新開啟節點電源。</p>
 </div>
 <div class="olist arabic">
 <div class="title">步驟</div>
@@ -3106,7 +3117,7 @@ H615C運算節點必須使用將BMC韌體更新至4.68版 <a href="rn_compute_fi
 <p>按* F12*並選擇*重新啟動*或選擇*電源控制&gt;設定電源重設*、即可重新啟動節點。</p>
 </li>
 <li>
-<p>在重新開機期間、按* F11 *選取開機選項並載入ISO。</p>
+<p>在重新開機期間、按* F11 *選取開機選項並載入運算韌體套裝組合。</p>
 </li>
 <li>
 <p>從顯示的清單中選取「* AMI Virtual Cdrom*」、然後選取「* Enter <strong>」。如果清單中沒有看到AMI Virtual CDROM、請進入BIOS並在開機清單中啟用。儲存之後、節點將重新開機。在重新開機期間、按</strong> F11 *。</p>

@@ -10,7 +10,7 @@ settings:
 sidebar:
   entries:
   - title: 資訊文件NetApp HCI
-    url: "/docs/index.html"
+    url: "/index.html"
   - title: 解決方案NetApp HCI
     url: https://docs.netapp.com/us-en/hci-solutions/index.html
   - title: 版本資訊

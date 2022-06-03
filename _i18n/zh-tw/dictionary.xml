@@ -6229,4 +6229,5 @@
   <block id="df8bcceb7ddee511e9494f0afd8c95a7" category="list-text">在重新開機期間、按* F11 *選取開機選項並載入運算韌體套裝組合。您可能需要按幾次F11鍵、才能顯示開機功能表。</block>
   <block id="b56a80b47ffbf4eda21aa52a14a1c0d9" category="paragraph">這些步驟會因節點是獨立式或是叢集的一部分而有所不同。此程序大約需要25分鐘、包括關閉節點電源、上傳運算韌體套件、更新裝置、以及在升級後重新開啟節點電源。</block>
   <block id="94accfc9ce60fbdbc6b912533ff89998" category="list-text">在重新開機期間、按* F11 *選取開機選項並載入運算韌體套裝組合。</block>
+  <block id="baac2557431cefc749efdd1d5a826b20" category="sidebar">VMware 1.9文件NetApp HCI</block>
 </blocks>

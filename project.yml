@@ -9,7 +9,7 @@ settings:
   langs: zh-tw,us-en,ja-jp,zh-cn,ko-kr
 sidebar:
   entries:
-  - title: 資訊文件NetApp HCI
+  - title: VMware 1.9文件NetApp HCI
     url: "/index.html"
   - title: 解決方案NetApp HCI
     url: https://docs.netapp.com/us-en/hci-solutions/index.html

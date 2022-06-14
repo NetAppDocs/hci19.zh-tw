@@ -9,7 +9,7 @@ keywords: netapp, hci, api, enable, active iq, activeiq, hci monitoring
 
 
 [role="lead"]
-如果您在安裝或升級期間尚未執行此動作、您可以啟用Active IQ 支援支援功能的不完整資料儲存監控（用於SolidFire 整個過程的儲存和NetApp HCI 支援）和NetApp HCI 不完整的運算監控（NetApp HCI 僅供參考）。如果您使用NetApp HCI NetApp Deployment Engine停用遙測功能、或SolidFire Active IQ 是在安裝SolidFire 過程中未設定支援以支援整合式全快閃儲存系統的功能、則可能需要使用此程序。
+如果您在安裝或升級期間尚未啟用支援功能的不支援功能、您可以啟用Active IQ 支援功能以NetApp HCI 監控功能的不支援功能。NetApp HCI如果您使用NetApp HCI NetApp Deployment Engine停用遙測功能、可能需要使用此程序。
 
 此收集器服務會將組態資料和元件軟體型叢集效能指標轉送給NetApp支援中心、以進行歷史報告和近乎即時的效能監控。Active IQ Active IQ利用此功能、可將儲存叢集故障轉送至vCenter以發出警示通知。NetApp HCI
 

@@ -9,7 +9,7 @@ keywords: netapp, mnode, management node, connect to support, support tunnel, rs
 
 
 [role="lead"]
-如果NetApp HCI 您需要支援您的整套或SolidFire 全快閃儲存系統的技術支援、NetApp支援中心可遠端連線至您的系統。若要啟動工作階段並取得遠端存取、NetApp支援可開啟與環境的反轉安全Shell（SSH）連線。
+如果NetApp HCI 您需要支援您的整套系統、NetApp支援中心可遠端連線至您的系統。若要啟動工作階段並取得遠端存取、NetApp支援可開啟與環境的反轉安全Shell（SSH）連線。
 
 您可以開啟TCP連接埠、以便透過NetApp支援進行SSH反向通道連線。此連線可讓NetApp Support登入您的管理節點。
 

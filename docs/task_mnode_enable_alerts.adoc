@@ -13,9 +13,6 @@ keywords: netapp, element, management node, mnode, ui, alerts, alert monitoring
 
 利用VMware vCenter警示監控功能、將VMware vCenter儲存叢集系統警示轉送至vCenter Server、讓您從vSphere Web Client介面檢視所有的for VMware警示。NetApp HCI NetApp HCI NetApp HCI
 
-
-NOTE: 這些工具並未設定或用於純儲存叢集、例如SolidFire VMware全快閃儲存設備。執行這些叢集的工具會產生下列的405錯誤、這是預期的設定：「webUIParse錯誤：伺服器的回應無效。405'
-
 . 開啟每個節點的管理節點UI（「https://[IP位址」：442`）。
 . 按一下「*警示監視器*」索引標籤。
 . 設定警示監控選項。

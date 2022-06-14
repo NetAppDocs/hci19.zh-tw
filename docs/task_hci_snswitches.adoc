@@ -20,7 +20,7 @@ keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S
 * 請確定Putty已安裝在筆記型電腦上、而且您已擷取輸出。請觀看此影片、瞭解如何設定Putty以擷取輸出工作階段。
 
 
-video::2LZfWH8HffA[youtube, ]
+video::2LZfWH8HffA[youtube]
 * 確保Config Advisor 在更換之前和之後執行NetApp功能。這有助於在維護開始之前識別其他問題。請下載並安裝Config Advisor 此功能、並從存取快速入門指南 link:https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor/download["此處（需要登入）"^]。
 * 取得電源線、基本手工具和標籤。
 * 請確定您已規劃兩到四小時的維護時間。

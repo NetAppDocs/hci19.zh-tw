@@ -830,7 +830,6 @@
   <block id="77bdc785d9dab0917f6a0b8e4f7c435f" category="paragraph">使用vCenter Server、您可以監控Rancher虛擬機器。</block>
   <block id="5950c53f8d241e1e95440d518521b075" category="summary">您可以使用管理節點（mNode）來啟用NetApp Active IQ 的遙測功能和NetApp HCI 遙測功能。</block>
   <block id="bdfb39867dffbc06698f3cbba2891fce" category="doc">啟用Active IQ 支援功能和NetApp HCI 功能性監控</block>
-  <block id="e97fd0a705753a7f17bccd9bf489a092" category="paragraph">如果您在安裝或升級期間尚未執行此動作、您可以啟用Active IQ 支援支援功能的不完整資料儲存監控（用於SolidFire 整個過程的儲存和NetApp HCI 支援）和NetApp HCI 不完整的運算監控（NetApp HCI 僅供參考）。如果您使用NetApp HCI NetApp Deployment Engine停用遙測功能、或SolidFire Active IQ 是在安裝SolidFire 過程中未設定支援以支援整合式全快閃儲存系統的功能、則可能需要使用此程序。</block>
   <block id="6ac1a1d4d559f5629848b5d88e68e733" category="paragraph">此收集器服務會將組態資料和元件軟體型叢集效能指標轉送給NetApp支援中心、以進行歷史報告和近乎即時的效能監控。Active IQ Active IQ利用此功能、可將儲存叢集故障轉送至vCenter以發出警示通知。NetApp HCI</block>
   <block id="7ae82c07422143d84f2406fe018d3f73" category="list-text">您的儲存叢集執行NetApp Element 的是不含更新版本的軟件。</block>
   <block id="b28e179f94097b207a2dc9172aa4b4d0" category="list-text">您可以存取網際網路。無法從沒有外部連線的黑暗站台使用此收集器服務。Active IQ</block>
@@ -2753,7 +2752,6 @@
   <block id="00229b6ae28a3c795d4220f972583794" category="list-text">24GB RAM</block>
   <block id="ffd08ee6f575adf47c4b8596e51d4fda" category="list-text">400GB虛擬磁碟、精簡配置</block>
   <block id="950d6089bab8dc5f0af7f788b69458ce" category="list-text">單一虛擬網路介面、可存取網際網路及儲存設備MVIP。</block>
-  <block id="307bf29a25a4ac6cd9b4cb744bd5901a" category="list-text">（SolidFire 可選購以支援整合式All Flash儲存設備）單一虛擬網路介面、可透過管理網路存取儲存叢集。如果您的儲存叢集與管理節點（eth0）位於不同的子網路上、且您想要使用持續磁碟區、請在儲存子網路（eth1）的VM上新增第二個網路介面控制器（NIC）、或確保管理網路可以路由傳送至儲存網路。</block>
   <block id="527b1f1493e835bb654427d120dff5ec" category="admonition">請勿在執行此步驟之前開啟虛擬機器電源、此步驟稍後會指出此點。</block>
   <block id="95772984255fd54c3458a948ba42af1a" category="list-text">將ISO附加至虛擬機器、然後開機至.ISO安裝映像。</block>
   <block id="61106ad2e01de8b06da3caf17edacd33" category="admonition">使用映像安裝管理節點可能會導致啟動畫面出現30秒延遲。</block>
@@ -2954,7 +2952,6 @@
   <block id="b796ad77b5c2d7e3b3ded4471f3198c4" category="admonition">完成DIMM更換程序之後、您可以清除vCenter硬體狀態索引標籤上的警告和錯誤。如果您想要清除與您更換之硬體相關的錯誤記錄、可以執行此動作。<block ref="876b9d188a711c3c2b1fe508affe9aba" category="inline-link-rx"></block>。</block>
   <block id="005c3b430cc655f7555388f91ebb3859" category="summary">您可以設定設定來監控NetApp HCI 您的功能完善系統上的警示。</block>
   <block id="fdde616d64984e5c52201bf2f1a02adc" category="paragraph">利用VMware vCenter警示監控功能、將VMware vCenter儲存叢集系統警示轉送至vCenter Server、讓您從vSphere Web Client介面檢視所有的for VMware警示。NetApp HCI NetApp HCI NetApp HCI</block>
-  <block id="36cad81bfa070b7f125b05d13a28ba87" category="admonition">這些工具並未設定或用於純儲存叢集、例如SolidFire VMware全快閃儲存設備。執行這些叢集的工具會產生下列的405錯誤、這是預期的設定：「webUIParse錯誤：伺服器的回應無效。405'</block>
   <block id="97419dde0c44604b20e803f7b92bbbe3" category="list-text">開啟每個節點的管理節點UI（「https://[IP位址」：442`）。</block>
   <block id="77dd0d5c839caa7098834171deb013f6" category="list-text">按一下「*警示監視器*」索引標籤。</block>
   <block id="aba0876edc6160b9de4bd36d336440ee" category="list-text">設定警示監控選項。</block>
@@ -4496,7 +4493,6 @@
   <block id="5eca06837292fdb7aace3e8b6b16124f" category="summary">您可以為執行NetApp Element 不完善軟體的叢集安裝管理節點。</block>
   <block id="a0533a33290a803a3e4ffb6aa11b713d" category="doc">安裝管理節點</block>
   <block id="618b2a6a492417a6fd149f483c611dd6" category="paragraph">您可以使用NetApp Element 適當的組態映像、手動安裝執行更新軟體之叢集的管理節點。</block>
-  <block id="39d054f16665efd662cb5551e7cdab2f" category="paragraph">本手冊程序適用於SolidFire 不NetApp HCI 使用NetApp部署引擎進行管理節點安裝的所有Flash儲存管理員和管理員。</block>
   <block id="7e6093e52119f18464fc862a969c9f6a" category="admonition">如果需要IPv6支援、您可以使用管理節點11.1。</block>
   <block id="9385b032418674e92472a8b4a2ae5cdf" category="list-text">（使用Proxy伺服器的管理節點12或更新版本）在設定Proxy伺服器之前、您已將NetApp混合雲控制更新為管理服務2.16版。</block>
   <block id="0406c3e25004e3d1dddbc367d2c4010f" category="paragraph">Element 12.2管理節點為選用升級。現有部署不需要此功能。</block>
@@ -5371,7 +5367,6 @@
   <block id="ecc55b6181f4ecb3539629bb22408890" category="section-title">為標記的網路介面設定儲存網路介面控制器（NIC）</block>
   <block id="d40819e9e843e97335bf320aeb8d5ac1" category="summary">您可以使用管理節點來啟用NetApp支援存取、以進行疑難排解。</block>
   <block id="e606a329fd1c8e2f2543e5fd1dce6af5" category="doc">啟動遠端NetApp支援工作階段</block>
-  <block id="0d37152cb4d274796e3ac32a73cf3b30" category="paragraph">如果NetApp HCI 您需要支援您的整套或SolidFire 全快閃儲存系統的技術支援、NetApp支援中心可遠端連線至您的系統。若要啟動工作階段並取得遠端存取、NetApp支援可開啟與環境的反轉安全Shell（SSH）連線。</block>
   <block id="8e5cda5f4d9f852ba16378a9749b0fba" category="paragraph">您可以開啟TCP連接埠、以便透過NetApp支援進行SSH反向通道連線。此連線可讓NetApp Support登入您的管理節點。</block>
   <block id="38bfc79ee5a8c36f9e9a8af1c01ba34c" category="list-text">對於管理服務2.18及更新版本、預設會在管理節點上停用遠端存取功能。若要啟用遠端存取功能、請參閱 <block ref="b699ffaa70a5cdf708fca1e6ce6761c0" category="inline-link-macro-rx"></block>。</block>
   <block id="4767b00dd0eab027ad48a79407d1aeb5" category="list-text">如果您的管理節點位於Proxy伺服器後方、則在sshd.config檔案中需要下列TCP連接埠：</block>
@@ -6230,4 +6225,8 @@
   <block id="b56a80b47ffbf4eda21aa52a14a1c0d9" category="paragraph">這些步驟會因節點是獨立式或是叢集的一部分而有所不同。此程序大約需要25分鐘、包括關閉節點電源、上傳運算韌體套件、更新裝置、以及在升級後重新開啟節點電源。</block>
   <block id="94accfc9ce60fbdbc6b912533ff89998" category="list-text">在重新開機期間、按* F11 *選取開機選項並載入運算韌體套裝組合。</block>
   <block id="baac2557431cefc749efdd1d5a826b20" category="sidebar">VMware 1.9文件NetApp HCI</block>
+  <block id="1b0f1fe17217f456f0c7b1311a828304" category="paragraph">如果NetApp HCI 您需要支援您的整套系統、NetApp支援中心可遠端連線至您的系統。若要啟動工作階段並取得遠端存取、NetApp支援可開啟與環境的反轉安全Shell（SSH）連線。</block>
+  <block id="af6fe236a646e80d8ae873b7b19bbd32" category="paragraph">本手冊程序適用於NetApp HCI 未使用NetApp部署引擎進行管理節點安裝的管理員。</block>
+  <block id="7de1d355aeba73e5332d59c786d355f9" category="list-text">一個虛擬網路介面、可透過管理網路存取儲存叢集。如果您的儲存叢集與管理節點（eth0）位於不同的子網路上、且您想要使用持續磁碟區、請在儲存子網路（eth1）的VM上新增第二個網路介面控制器（NIC）、或確保管理網路可以路由傳送至儲存網路。</block>
+  <block id="50a6b66c3df70071e486b3d636f036b7" category="paragraph">如果您在安裝或升級期間尚未啟用支援功能的不支援功能、您可以啟用Active IQ 支援功能以NetApp HCI 監控功能的不支援功能。NetApp HCI如果您使用NetApp HCI NetApp Deployment Engine停用遙測功能、可能需要使用此程序。</block>
 </blocks>

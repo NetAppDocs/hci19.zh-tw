@@ -15,10 +15,21 @@ keywords: netapp, hci, element, new, whatsnew
 
 
 [role="lead"]
-NetApp會定期更新NetApp HCI 功能、為您帶來新功能、增強功能和錯誤修復。適用於儲存叢集的元素12.3.2。NetApp HCI
+NetApp會定期更新NetApp HCI 功能、為您帶來新功能、增強功能和錯誤修復。包含適用於儲存叢集的不含資料的軟體12.3.1。NetApp HCI NetApp Element
 
+[NOTE]
+====
+元素12.3.2包含的緩和措施可關閉元素軟體曝險於Apache log4j弱點。已啟用虛擬Volume（VVols）功能的NetApp SolidFire 支援區儲存叢集、會暴露於此弱點之中。
+
+如果您的儲存叢集位於Element 12.3.1、且VVols功能已啟用、強烈建議您升級至Element軟體12.3.2。
+
+如果您的儲存叢集位於元素12.3.1、且VVols功能已停用、則升級至Element軟體12.3.2是選用功能。
+
+除非是在升級期間、否則NetApp不建議在叢集中執行混合元素版本。
+
+====
 * 。 <<NetApp HCI 1.9P1>> 一節說明NetApp HCI 功能更新及更新功能、以更新版本1.9P1。
-* 。 <<Element 12.3.2>> 一節說明NetApp Element 功能更新資訊。
+* 。 <<Element 12.3.1>> 一節說明NetApp Element 功能更新資訊。
 
 
 
@@ -29,9 +40,32 @@ NetApp會定期更新NetApp HCI 功能、為您帶來新功能、增強功能和
 
 
 
-== 元素12.3.2
+== 元素12.3.1
 
-Element軟體12.3.2版本包含的緩和措施可關閉元素軟體曝險於Apache log4j弱點。已啟用虛擬Volume（VVols）功能的NetApp SolidFire 支援區儲存叢集、會暴露於此弱點之中。
+適用於儲存叢集的元素12.3.1包含在內。NetApp HCI
+
+
+
+=== 儲存韌體產品組合2.99.2
+
+Element 12.3.1版本包含儲存韌體套件2.99.2版。如果您的儲存叢集已位於Element 123、您可以選擇只安裝新的2.99.2韌體套裝組合。
+
+
+
+=== NetApp線上錯誤包含已知且已解決的問題
+
+已知和已解決的問題列在NetApp錯誤線上工具中。您可以瀏覽這些問題以取得Element和其他產品、網址為 https://mysupport.netapp.com/site/products/all/details/element-software/bugsonline-tab["NetApp線上錯誤"^]。
+
+.步驟
+. 前往 https://mysupport.netapp.com/site/products/all/details/element-software/bugsonline-tab["NetApp線上錯誤"^]。
+. 在*按關鍵字搜尋*欄位中、輸入產品名稱、例如「Element」。
+. 選取 image:icon_plus.PNG["加號圖示"]下，選擇*在版本中固定*篩選器，然後選擇*確定*。
++
+image:bol_filters.PNG["Bol篩選器align =「中心」"]
+
+. 選擇*新搜尋*。
+. 在「*修正於版本*」欄位中輸入版本。
+
 
 [discrete]
 == 如需詳細資訊、請參閱

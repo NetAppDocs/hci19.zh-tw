@@ -5,7 +5,12 @@ summary: 您可以使用REST API UI、將NetApp混合雲控制設定為使用多
 keywords: netapp, mnode, management node, multi-vcenter, hci 
 ---
 = 為多個vCenter設定NetApp混合雲控制
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

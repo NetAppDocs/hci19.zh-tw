@@ -5,7 +5,12 @@ summary: 瞭解如何設定、移除及疑難排解系統FQDN Web UI存取。
 keywords: netapp, hci, fqdn, ui, access, web, administration 
 ---
 = 設定完整網域名稱Web UI存取
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

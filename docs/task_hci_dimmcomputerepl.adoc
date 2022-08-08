@@ -17,7 +17,7 @@ keywords: netapp, hci, dimm, compute nodes
 您可以更換NetApp HCI 出現故障的雙列直插式記憶體模組（DIMM）、而非更換整個節點。
 
 .您需要的是 #8217 ；需要的是什麼
-* 在開始執行此程序之前、您應該已聯絡NetApp支援部門、並收到更換零件。在安裝替換產品時、將會提供相關支援。如果您尚未這麼做、請聯絡 https://www.netapp.com/us/contact-us/support.aspx["支援"]。
+* 在開始執行此程序之前、您應該已聯絡NetApp支援部門、並收到更換零件。在安裝替換產品時、將會提供相關支援。如果您尚未這麼做、請聯絡 https://www.netapp.com/us/contact-us/support.aspx["支援"^]。
 * 您已計畫系統停機、因為您需要關閉或循環節點、並將節點開機至NetApp安全模式、才能存取終端使用者介面（TUI）。
 
 

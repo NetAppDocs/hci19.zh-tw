@@ -5,7 +5,12 @@ summary: 您可以使用「混合雲控制磁碟區」頁面監控系統中的�
 keywords: netapp, hci, on premise, volumes, storage, access groups, initiators, capacity, data protection, QoS 
 ---
 = 監控儲存叢集上的磁碟區
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

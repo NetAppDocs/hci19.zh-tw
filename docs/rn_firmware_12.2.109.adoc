@@ -39,7 +39,7 @@ keywords: netapp, hci, compute firmware
 |===
 若要下載運算韌體產品組合、請前往 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["運算韌體套裝組合NetApp HCI"^] 頁面。
 
-請造訪 link:task_hcc_upgrade_compute_node_firmware.html#use-the-baseboard-management-controller-bmc-user-interface-ui["更新運算節點韌體"^] 以取得更新運算節點韌體的指示。
+請造訪 link:task_hcc_upgrade_compute_node_firmware.html#use-the-baseboard-management-controller-bmc-user-interface-ui["更新運算節點韌體"] 以取得更新運算節點韌體的指示。
 
 
 

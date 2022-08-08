@@ -5,7 +5,12 @@ summary: 開始使用NetApp HCI NetApp之前、您應該先正確安裝儲存設
 keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance, rails, h-series, nodes 
 ---
 = 安裝H系列硬體
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

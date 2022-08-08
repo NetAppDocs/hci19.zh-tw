@@ -5,7 +5,12 @@ summary: 您可以使用管理節點來啟用NetApp支援存取、以進行疑�
 keywords: netapp, mnode, management node, connect to support, support tunnel, rst 
 ---
 = 啟動遠端NetApp支援工作階段
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

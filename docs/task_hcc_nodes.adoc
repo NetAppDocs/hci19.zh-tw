@@ -5,13 +5,18 @@ summary: 您可以使用「混合雲控制節點」頁面、同時檢視系統�
 keywords: netapp, hci, on premise, cluster, inventory, nodes, storage, compute 
 ---
 = 在節點頁面上檢視您的庫存
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
 您可以檢視系統中的儲存設備和運算資產、並判斷其IP位址、名稱和軟體版本。
 
-您可以檢視多個節點系統的儲存資訊、以及NetApp HCI 任何與雙節點或三節點叢集相關聯的任何支援節點節點節點節點。如果 link:concept_hcc_custom_protection_domains.html["自訂保護網域"^] 您可以查看指派給特定節點的保護網域。
+您可以檢視多個節點系統的儲存資訊、以及NetApp HCI 任何與雙節點或三節點叢集相關聯的任何支援節點節點節點節點。如果 link:concept_hcc_custom_protection_domains.html["自訂保護網域"] 您可以查看指派給特定節點的保護網域。
 
 見證節點可管理叢集內的仲裁、不用於儲存。見證節點僅適用於NetApp HCI 不適用於All Flash儲存環境的部分。
 

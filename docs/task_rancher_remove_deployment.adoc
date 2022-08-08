@@ -5,7 +5,12 @@ summary: 瞭解如何移除NetApp HCI 有關支援功能部署的Rancher安裝�
 keywords: netapp, hci, api, REST, remove, Rancher, redeploy 
 ---
 = 移除NetApp HCI 在不支援的情況下安裝Rancher
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -85,7 +90,7 @@ https://[IP address]/k8sdeployer/api/
 [discrete]
 == 瞭解更多資訊
 
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Rancher部署疑難排解"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Rancher部署疑難排解"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
 

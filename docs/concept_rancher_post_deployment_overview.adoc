@@ -27,7 +27,7 @@ keywords: netapp, hci, Rancher, install, post installation, requirements, tasks
 == 如需詳細資訊、請參閱
 
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
-* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
 

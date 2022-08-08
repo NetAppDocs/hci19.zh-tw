@@ -5,7 +5,12 @@ summary: 瞭解如何使用REST API從系統移除運算節點資產。
 keywords: netapp, hci, api, REST, remove, compute, asset 
 ---
 = 從管理節點移除資產
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

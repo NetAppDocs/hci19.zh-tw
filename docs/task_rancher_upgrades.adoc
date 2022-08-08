@@ -5,7 +5,12 @@ summary: 您可以使用NetApp混合式雲端控制功能、將Rancher部署的�
 keywords: netapp, hci, rancher, upgrade, hcc 
 ---
 = 升級Rancher on NetApp HCI
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

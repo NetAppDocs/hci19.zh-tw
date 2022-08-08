@@ -5,7 +5,12 @@ summary: 瞭解如何建立使用者帳戶、並將其與磁碟區建立關聯�
 keywords: netapp, hci, on premise, cluster, element, account, user, volume, hybrid cloud control, hcc 
 ---
 = 使用NetApp混合雲控制來建立及管理使用者帳戶
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

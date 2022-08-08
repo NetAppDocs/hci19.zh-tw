@@ -24,6 +24,6 @@ L4負載平衡是一種技術、可將裝載應用程式的虛擬機器或容器
 == 如需詳細資訊、請參閱
 
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
-* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"^]
 * https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
 

@@ -16,13 +16,13 @@ keywords: netapp, hci, rancher, deploy, cluster, kubernetes, telemetry, monitori
 [role="lead"]
 在NetApp HCI 將Rancher部署至支援區之後、如果Active IQ 您在安裝或升級期間尚未執行此SolidFire 動作、您可以啟用支援功能不支援的儲存監控功能（用於支援整合式全快閃儲存與NetApp HCI 更新）和NetApp HCI 不支援的運算監控功能NetApp HCI （僅供參考）。
 
-如需如何啟用監控的指示、請參閱 link:task_mnode_enable_activeIQ.html["啟用Active IQ 支援功能和NetApp HCI 功能性監控"^]。
+如需如何啟用監控的指示、請參閱 link:task_mnode_enable_activeIQ.html["啟用Active IQ 支援功能和NetApp HCI 功能性監控"]。
 
 [discrete]
 == 如需詳細資訊、請參閱
 
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
-* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
 

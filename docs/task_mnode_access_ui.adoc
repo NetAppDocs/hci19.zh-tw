@@ -5,7 +5,12 @@ summary: 您可以存取管理UI或REST API UI。
 keywords: netapp, mnode, management node, api, hci 
 ---
 = 存取管理節點
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

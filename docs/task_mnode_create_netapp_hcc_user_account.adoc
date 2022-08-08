@@ -5,7 +5,12 @@ summary: 您必須先在vCenter中建立NetApp HCC角色、才能將vCenter資�
 keywords: netapp, mnode, management node, vcenter, hci, role 
 ---
 = 在vCenter中建立NetApp HCC角色
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

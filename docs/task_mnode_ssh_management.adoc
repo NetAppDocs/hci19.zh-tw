@@ -5,7 +5,12 @@ summary: 您可以使用NetApp混合雲控制UI或REST API UI、在管理節點�
 keywords: netapp, mnode, management node, ssh, disable, enable, rest api, hybrid, cloud, control, hcc 
 ---
 = 管理管理節點上的SSH功能
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

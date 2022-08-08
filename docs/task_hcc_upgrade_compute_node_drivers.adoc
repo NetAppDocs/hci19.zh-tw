@@ -5,7 +5,12 @@ summary: 在進行系統升級時、您需要升級運算節點驅動程式。Ne
 keywords: netapp, hci, on premise, cluster, element, compute node 
 ---
 = 更新運算節點驅動程式
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

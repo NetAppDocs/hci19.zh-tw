@@ -5,7 +5,12 @@ summary: 在進行升級時、您應該更新管理服務。NetApp HCI
 keywords: netapp, hci, on premise, cluster, management services 
 ---
 = 更新管理服務
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -18,7 +23,7 @@ keywords: netapp, hci, on premise, cluster, management services
 
 
 
-NOTE: 如需最新的管理服務版本注意事項、說明各服務套裝組合的主要服務、新功能、錯誤修正及因應措施、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["管理服務版本說明"^]
+NOTE: 如需最新的管理服務版本注意事項、說明各服務套裝組合的主要服務、新功能、錯誤修正及因應措施、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["管理服務版本說明"^]。
 
 從管理服務的2.20開始、您必須先接受並儲存終端使用者授權合約（EULA）、才能使用NetApp混合雲控制UI或API來升級管理服務：
 
@@ -90,6 +95,9 @@ NOTE: 如果您的安裝無法存取網際網路、則只會顯示目前的軟�
 +
 .. 請依照頁面上的指示、下載管理服務升級套件並將其儲存至您的電腦。
 .. 選取*瀏覽*以找出您儲存的套件並上傳。
++
+上傳套件後、系統會自動開始升級。
+
 
 
 

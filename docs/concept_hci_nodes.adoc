@@ -52,16 +52,16 @@ keywords: netapp, hci, storage nodes, volumes, compute nodes, witness nodes, man
 
 |===
 
-TIP: 深入瞭解 link:hci_prereqs_witness_nodes.html["見證節點資源需求"^] 和 link:hci_prereqs_ip_address.html["見證節點IP位址需求"^]。
+TIP: 深入瞭解 link:hci_prereqs_witness_nodes.html["見證節點資源需求"] 和 link:hci_prereqs_ip_address.html["見證節點IP位址需求"]。
 
 
-NOTE: 在雙節點儲存叢集中、在見證節點發生故障時、至少會部署兩個見證節點來提供備援。當安裝過程安裝見證節點時NetApp HCI 、VM範本會儲存在VMware vCenter中、您可以在見證節點意外移除、遺失或毀損時、使用該範本來重新部署見證節點。如果您需要更換裝載見證節點的故障運算節點、也可以使用範本來重新部署見證節點。如需相關指示、請參閱「*重新部署兩節點和三節點儲存叢集的見證節點*」一節 link:task_hci_h410crepl.html["請按這裡"^]。
+NOTE: 在雙節點儲存叢集中、在見證節點發生故障時、至少會部署兩個見證節點來提供備援。當安裝過程安裝見證節點時NetApp HCI 、VM範本會儲存在VMware vCenter中、您可以在見證節點意外移除、遺失或毀損時、使用該範本來重新部署見證節點。如果您需要更換裝載見證節點的故障運算節點、也可以使用範本來重新部署見證節點。如需相關指示、請參閱「*重新部署兩節點和三節點儲存叢集的見證節點*」一節 link:task_hci_h410crepl.html["請按這裡"]。
 
 
 
 == 如需詳細資訊、請參閱
 
-* https://www.netapp.com/us/media/tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"]
+* https://www.netapp.com/us/media/tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
 

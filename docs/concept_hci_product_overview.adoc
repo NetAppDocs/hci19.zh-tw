@@ -36,18 +36,18 @@ image::hci_prodoverview.png[影像顯示NetApp HCI 了整個過程中的各個�
 * *管理服務*或微服務包括Active IQ 《不確定性》收集器、適用於vCenter外掛程式的QoSSIOC及mNode服務；這些服務會隨著服務組合而頻繁更新。從Element 11.3版本開始、*管理服務*就託管在管理節點上、可在主要版本之外更快更新精選軟體服務。*管理節點*（mNode）是與一或多個元件軟體型儲存叢集平行執行的虛擬機器。它用於升級和提供系統服務、包括監控和遙測、管理叢集資產和設定、執行系統測試和公用程式、以及啟用NetApp支援存取來進行疑難排解。
 +
 
-TIP: 深入瞭解 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["管理服務版本"]。
+TIP: 深入瞭解 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["管理服務版本"^]。
 
 * * NetApp混合雲控管*可讓您管理NetApp HCI 功能。您可以使用NetApp SolidFire Active IQ 效益管理系統來升級管理服務、擴充系統、收集記錄、以及監控安裝。您可以瀏覽至管理節點的IP位址、登入NetApp混合雲控制。
-* vCenter Server*的*《VMware vCenter Plug-in》（VCP）NetApp Element 是整合vSphere使用者介面（UI）的網路型工具。外掛程式是VMware vSphere的擴充與可擴充且使用者友好的介面、可管理及監控執行* NetApp Element 《VMware vSphere軟體》*的儲存叢集。外掛程式提供元素UI的替代方案。您可以使用外掛程式使用者介面來探索及設定叢集、以及從叢集容量管理、監控及配置儲存設備、以設定資料存放區和虛擬資料存放區（適用於虛擬磁碟區）。叢集會以單一本機群組的形式出現在網路上、並以虛擬IP位址代表主機和系統管理員。您也可以即時報告來監控叢集活動、包括執行各種作業時可能發生的任何事件的錯誤和警示訊息。
+* vCenter Server*的*《VMware vCenter外掛程式》是整合vSphere使用者介面（UI）的網路型工具。NetApp Element外掛程式是VMware vSphere的擴充與可擴充且使用者友好的介面、可管理及監控執行* NetApp Element 《VMware vSphere軟體》*的儲存叢集。外掛程式提供元素UI的替代方案。您可以使用外掛程式使用者介面來探索及設定叢集、以及從叢集容量管理、監控及配置儲存設備、以設定資料存放區和虛擬資料存放區（適用於虛擬磁碟區）。叢集會以單一本機群組的形式出現在網路上、並以虛擬IP位址代表主機和系統管理員。您也可以即時報告來監控叢集活動、包括執行各種作業時可能發生的任何事件的錯誤和警示訊息。
 +
 
-TIP: 深入瞭解 https://docs.netapp.com/us-en/vcp/concept_vcp_product_overview.html["VCP"]。
+TIP: 深入瞭解 https://docs.netapp.com/us-en/vcp/concept_vcp_product_overview.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]。
 
 * 根據預設NetApp HCI 、將效能與警示統計資料傳送至* NetApp SolidFire Active IQ S更新*服務。在您的一般支援合約中、NetApp支援部門會監控此資料、並針對任何效能瓶頸或潛在的系統問題向您發出警示。如果您還沒有NetApp Support帳戶（即使您有SolidFire Active IQ 現有的版本）、您也需要建立該帳戶、以便充分利用此服務。
 +
 
-TIP: 深入瞭解 link:https://help.monitoring.solidfire.com/["NetApp SolidFire Active IQ"]。
+TIP: 深入瞭解 link:https://help.monitoring.solidfire.com/["NetApp SolidFire Active IQ"^]。
 
 
 
@@ -68,7 +68,7 @@ TIP: 深入瞭解 link:https://help.monitoring.solidfire.com/["NetApp SolidFire 
 | https://<ManagementNodeIP>` | 存取NetApp混合雲控制、即可升級、擴充及監控NetApp HCI 您的安裝、以及更新管理服務。 link:task_nde_access_hcc.html["深入瞭解。"] 
 
 
-| https://[IP地址：4442 | 從每個節點的UI存取網路和叢集設定、並利用系統測試和公用程式。 https://docs.netapp.com/us-en/hci/docs/task_mnode_access_ui.html#access-the-management-node-per-node-ui["深入瞭解。"] 
+| https://[IP地址：4442 | 從每個節點的UI存取網路和叢集設定、並利用系統測試和公用程式。 link:task_mnode_access_ui.html#access-the-management-node-per-node-ui["深入瞭解。"^] 
 
 
 | https://[management節點IP位址：9443 | 在vSphere Web Client中登錄vCenter外掛程式套件。 

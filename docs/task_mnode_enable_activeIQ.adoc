@@ -5,7 +5,12 @@ summary: 您可以使用管理節點（mNode）來啟用NetApp Active IQ 的遙�
 keywords: netapp, hci, api, enable, active iq, activeiq, hci monitoring 
 ---
 = 啟用Active IQ 支援功能和NetApp HCI 功能性監控
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

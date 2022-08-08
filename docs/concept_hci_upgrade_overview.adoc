@@ -5,7 +5,12 @@ summary: 您可以升級NetApp HCI 整個過程的所有元件。
 keywords: netapp, hci, on premise, cluster, upgrade, element 
 ---
 = 升級順序總覽
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

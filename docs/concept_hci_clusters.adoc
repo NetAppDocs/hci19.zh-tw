@@ -44,7 +44,7 @@ keywords: netapp, hci, storage nodes, clusters, two-node cluster, three-node clu
 
 從推出的功能區塊1.8開始NetApp HCI 、您可以設定具有兩個儲存節點的儲存叢集。
 
-* 您可以使用特定類型的節點來形成雙節點儲存叢集。請參閱 https://library.netapp.com/ecm/ecm_download_file/ECMLP2865021["發行說明NetApp HCI"]。
+* 您可以使用特定類型的節點來形成雙節點儲存叢集。請參閱 https://library.netapp.com/ecm/ecm_download_file/ECMLP2865021["發行說明NetApp HCI"^]。
 +
 
 NOTE: 在雙節點叢集中、儲存節點僅限於配備480GB和960GB磁碟機的節點、且節點必須為相同的機型類型。
@@ -87,7 +87,7 @@ TIP: 在具有兩個儲存節點和一個見證節點的三節點集合體中、
 
 == 如需詳細資訊、請參閱
 
-* https://www.netapp.com/us/media/tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"]
+* https://www.netapp.com/us/media/tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
 

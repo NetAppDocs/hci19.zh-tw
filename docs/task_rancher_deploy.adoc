@@ -155,8 +155,8 @@ IMPORTANT: 完成部署後、請勿修改Rancher伺服器虛擬機器叢集的�
 [discrete]
 == 如需詳細資訊、請參閱
 
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Rancher部署疑難排解"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Rancher部署疑難排解"^]
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
-* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"^]
 * https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
 

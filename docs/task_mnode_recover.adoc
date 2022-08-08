@@ -5,7 +5,12 @@ summary: 您可以為執行NetApp Element NetApp軟體的叢集恢復及重新�
 keywords: netapp, element, management node, mnode, disaster recovery, redeploy, VM 
 ---
 = 恢復管理節點
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -238,7 +243,7 @@ NOTE: 系統會提示您在安全提示中輸入密碼。如果叢集位於Proxy
 NOTE: 您可以新增使用者名稱、或允許指令碼提示您輸入資訊。
 
 .. 運行"REDeploy－mnode"命令。重新部署完成時、指令碼會顯示成功訊息。
-.. 如果NetApp HCI 您使用系統的完整網域名稱（FQDN）來存取元素或Web介面（例如管理節點或NetApp混合雲控制）、 link:task_hcc_upgrade_management_node.html#reconfigure-authentication-using-the-management-node-rest-api["重新設定管理節點的驗證"^]。
+.. 如果NetApp HCI 您使用系統的完整網域名稱（FQDN）來存取元素或Web介面（例如管理節點或NetApp混合雲控制）、 link:task_hcc_upgrade_management_node.html#reconfigure-authentication-using-the-management-node-rest-api["重新設定管理節點的驗證"]。
 
 
 

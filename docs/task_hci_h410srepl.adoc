@@ -263,7 +263,7 @@ NOTE: 將節點新增至叢集並顯示在節點>作用中下、可能需要2分
 
 +
 
-IMPORTANT: 一次新增所有磁碟機可能會導致中斷。如需新增和移除磁碟機的最佳實務做法、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/What_is_the_best_practice_on_adding_or_removing_drives_from_a_cluster_on_Element%3F["這篇知識庫文章"] （需要登入）。
+IMPORTANT: 一次新增所有磁碟機可能會導致中斷。如需新增和移除磁碟機的最佳實務做法、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/What_is_the_best_practice_on_adding_or_removing_drives_from_a_cluster_on_Element%3F["這篇知識庫文章"^] （需要登入）。
 
 . 選取*磁碟機*。
 . 從下拉式清單中選取*可用*以檢視可用的磁碟機。

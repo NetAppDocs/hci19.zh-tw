@@ -5,7 +5,12 @@ summary: 在進行升級時、您可以升級vCenter Server的Element外掛程�
 keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9 
 ---
 = 升級vCenter Server的Element外掛程式
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -81,9 +86,9 @@ image::vcp_shortcuts_page_accessing_plugin.png[說明成功升級或安裝後的
 +
 [NOTE]
 ====
-如果看不到vCenter外掛程式圖示、請參閱 link:https://review.docs.netapp.com/us-en/vcp_2.19_vcp4.8_release_vcp_repo/vcp_reference_troubleshoot_vcp.html#plug-in-registration-successful-but-icons-do-not-appear-in-web-client["vCenter Server的Element外掛程式"^] 外掛程式疑難排解的相關文件。
+如果看不到vCenter外掛程式圖示、請參閱 link:https://docs.netapp.com/us-en/vcp/vcp_reference_troubleshoot_vcp.html#plug-in-registration-successful-but-icons-do-not-appear-in-web-client["vCenter Server的Element外掛程式"^] 外掛程式疑難排解的相關文件。
 
-使用VMware vCenter Server 6.7U1升級至VCP 4.8或更新版本之後、如果未列出儲存叢集、或NetApp Element 是在「VMware vCenter組態」的「*叢集*」和「* QoSSIOC設定*」區段中出現伺服器錯誤、請參閱 link:https://review.docs.netapp.com/us-en/vcp_2.19_vcp4.8_release_vcp_repo/vcp_reference_troubleshoot_vcp.html#errors-after-vcp-4-8-upgrade-with-vmware-vcenter-server-6-7u1["vCenter Server的Element外掛程式"^] 疑難排解這些錯誤的相關文件。
+升級NetApp Element 至VMware vCenter Server 6.7U1的vCenter Server 4.8或更新版本時、如果儲存叢集未列出、或NetApp Element 伺服器錯誤出現在「VMware vCenter組態」的「*叢集*」和「* QoSSIOC設定*」區段中、請參閱 link:https://docs.netapp.com/us-en/vcp/vcp_reference_troubleshoot_vcp.html#error_vcp48_67u1["vCenter Server的Element外掛程式"^] 疑難排解這些錯誤的相關文件。
 
 ====
 . 確認NetApp Element 外掛程式*的「組態*」擴充點*「關於*」索引標籤中的版本變更。

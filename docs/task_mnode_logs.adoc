@@ -5,7 +5,12 @@ summary: 您可以使用REST API從管理ndoe上執行的服務擷取記錄。
 keywords: netapp, element, management node, management services, mnode, logs 
 ---
 = 從管理服務取得記錄
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

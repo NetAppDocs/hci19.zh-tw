@@ -5,7 +5,12 @@ summary: 您可以設定設定來監控NetApp HCI 您的功能完善系統上的
 keywords: netapp, element, management node, mnode, ui, alerts, alert monitoring 
 ---
 = 在NetApp HCI 不顯示的情況下設定警示監控
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

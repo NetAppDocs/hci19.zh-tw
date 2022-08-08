@@ -5,7 +5,12 @@ summary: 如果您使用額外的NIC進行儲存、則應設定無標記或有�
 keywords: netapp, element, management node, mnode, network, nic, storage nic 
 ---
 = 設定儲存網路介面控制器（NIC）
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -5,7 +5,12 @@ summary: 您可以使用NetApp混合雲控制系統從NetApp HCI 您的安裝過
 keywords: netapp, hci, logs, collection, troubleshooting, monitor 
 ---
 = 收集記錄以進行疑難排解
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

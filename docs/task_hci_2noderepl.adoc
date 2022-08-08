@@ -27,7 +27,7 @@ keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement
 當主機故障時、VMware vSphere Web Client中的警示會提醒您。您必須將VMware vSphere Web Client故障主機的序號與節點背面貼紙上的序號配對。
 
 .步驟
-. 從機架中實際移除故障節點。這些步驟取決於您擁有的儲存節點類型。請參閱 link:task_hci_h410srepl.html["更換H410S節點"^] 和 link:task_hci_h610srepl.html["更換H610S節點"^]。
+. 從機架中實際移除故障節點。這些步驟取決於您擁有的儲存節點類型。請參閱 link:task_hci_h410srepl.html["更換H410S節點"] 和 link:task_hci_h610srepl.html["更換H610S節點"]。
 +
 
 NOTE: 此時請勿從叢集移除節點。
@@ -44,7 +44,7 @@ NOTE: 此時請勿從叢集移除節點。
 
 . 將節點新增至叢集後、請新增磁碟機。
 . 同步完成後、請從叢集中移除故障磁碟機和故障節點。
-. 使用NetApp混合雲控制來設定您新增的新儲存節點。請參閱 link:https://docs.netapp.com/us-en/hci/docs/task_hcc_expand_storage.html["擴充NetApp HCI 功能"]。
+. 使用NetApp混合雲控制來設定您新增的新儲存節點。請參閱 link:task_hcc_expand_storage.html["擴充NetApp HCI 功能"]。
 
 
 

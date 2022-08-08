@@ -5,7 +5,12 @@ summary: 完成靜態部署之後NetApp HCI 、您可以NetApp HCI 使用NetApp�
 keywords: netapp, hci, on premise, expand, compute, cluster 
 ---
 = 擴充NetApp HCI 各種運算資源
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

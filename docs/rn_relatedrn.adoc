@@ -41,9 +41,9 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2877210["《軟件12.2.1發行說明》NetApp Element"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2873789["Software 12.2版本資訊NetApp Element"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2877208["《軟件12.0.1版發行說明》NetApp Element"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2865022["Software 12.0版本說明NetApp Element"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2865022["Software 12.0版本說明NetApp Element"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2864256["《軟件11.8發行說明》NetApp Element"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2861225["《軟件11.7發行說明》NetApp Element"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2861225["《軟件11.7發行說明》NetApp Element"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2863854["《軟件11.5.1發行說明》NetApp Element"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2859857["《軟件11.3P1發行說明》NetApp Element"^]
 

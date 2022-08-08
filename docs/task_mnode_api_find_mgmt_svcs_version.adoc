@@ -5,7 +5,12 @@ summary: 您可以使用REST API找到管理節點所使用的管理節點OS和�
 keywords: netapp, hci, management node, management services, version, bundle version, what is 
 ---
 = 驗證管理節點作業系統和服務版本
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -5,7 +5,12 @@ summary: 您可以使用REST API UI來新增、移除及變更管理節點儲存
 keywords: netapp, mnode, management node, rest api, hci, assets 
 ---
 = 建立及管理儲存叢集資產
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

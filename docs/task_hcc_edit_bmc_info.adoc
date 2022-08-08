@@ -5,7 +5,12 @@ summary: 您可以使用NetApp混合雲控制來編輯基礎板管理控制器�
 keywords: netapp, hci, BMC, connection, credentials, monitor 
 ---
 = 編輯基礎板管理控制器連線資訊
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

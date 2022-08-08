@@ -5,7 +5,12 @@ summary: 在升級版的過程中、您需要執行有關該軟件的健全狀�
 keywords: netapp, storage prechecks, element upgrade, healthtools, sfupgradecheck 
 ---
 = 升級儲存設備之前、請先執行Element儲存設備健全狀況檢查
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

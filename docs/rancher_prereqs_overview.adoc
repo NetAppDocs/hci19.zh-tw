@@ -17,7 +17,7 @@ keywords: netapp, hci, Rancher, install, installation, requirements
 在NetApp HCI 將Rancher安裝在支援的地方之前、請先確保您的環境和NetApp HCI 您的支援系統符合這些要求。
 
 
-NOTE: 如果您不小心將Rancher部署在NetApp HCI 包含不正確資訊的支援區（例如Rancher伺服器FQDN不正確）上、就無法在不移除和重新部署的情況下修正部署。您需要移除Rancher on NetApp HCI the Randi instance、然後NetApp HCI 從NetApp混合雲控制UI重新部署Rancher on the支援。請參閱 link:task_rancher_remove_deployment.html["移除NetApp HCI 在不支援的情況下安裝Rancher"^] 以取得更多資訊。
+NOTE: 如果您不小心將Rancher部署在NetApp HCI 包含不正確資訊的支援區（例如Rancher伺服器FQDN不正確）上、就無法在不移除和重新部署的情況下修正部署。您需要移除Rancher on NetApp HCI the Randi instance、然後NetApp HCI 從NetApp混合雲控制UI重新部署Rancher on the支援。請參閱 link:task_rancher_remove_deployment.html["移除NetApp HCI 在不支援的情況下安裝Rancher"] 以取得更多資訊。
 
 
 

@@ -18,7 +18,7 @@ keywords: netapp, hci, storage nodes, volumes
 
 * 支援各種H系列儲存節點機型、例如H300S、H500S、H700S、NetApp HCI H410S和H610S。
 +
-請參閱 https://www.netapp.com/us/products/converged-systems/hyper-converged-infrastructure.aspx#modelsAndSpecs["機型與規格NetApp HCI"]
+請參閱 https://www.netapp.com/us/products/converged-systems/hyper-converged-infrastructure.aspx#modelsAndSpecs["機型與規格NetApp HCI"^]
 
 * 包含在內的儲存層NetApp HCI 是NetApp Element 由VMware軟體提供、管理層則由NetApp Element 適用於vCenter Server的VMware vCenter外掛程式提供。
 * 儲存節點是一種伺服器、其中包含透過Bond10G網路介面彼此通訊的磁碟機集合。

@@ -5,7 +5,12 @@ summary: 在進行更新時、您可以升級與儲存節點相關的韌體。Ne
 keywords: netapp, element, hcc, firmware, storage firmware 
 ---
 = 升級儲存韌體
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -20,7 +25,7 @@ keywords: netapp, element, hcc, firmware, storage firmware
 
 
 
-IMPORTANT: 對於執行Element軟體12.0版的H610S儲存節點、在升級至儲存韌體套件2.27之前、您應該先套用D-PAT修補 程式的SUST-909。升級前、請聯絡NetApp支援部門以取得D-修補 程式。請參閱 link:http://docs.netapp.com/us-en/hci/docs/rn_storage_firmware_2.27.html["儲存韌體產品組合2.27版本說明"^]。
+IMPORTANT: 對於執行Element軟體12.0版的H610S儲存節點、在升級至儲存韌體套件2.27之前、您應該先套用D-PAT修補 程式的SUST-909。升級前、請聯絡NetApp支援部門以取得D-修補 程式。請參閱 link:rn_storage_firmware_2.27.html["儲存韌體產品組合2.27版本說明"]。
 
 
 IMPORTANT: 您必須先升級至最新的管理服務套裝組合、才能升級儲存節點上的韌體。如果您要將Element軟體更新至版本12．2或更新版本、則需要使用管理服務2．14．60或更新版本才能繼續。
@@ -29,7 +34,7 @@ IMPORTANT: 您必須先升級至最新的管理服務套裝組合、才能升級
 IMPORTANT: 若要更新IDC/BIOS韌體、請聯絡NetApp支援部門。如需詳細資訊、請參閱 link:https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/SF_Series/How_to_update_iDRAC%2F%2FBIOS_firmware_on_SF_Series_nodes["知識庫文章"^]。
 
 * *叢集健全狀況*：您已執行健全狀況檢查。請參閱 link:task_hcc_upgrade_element_prechecks.html["升級儲存設備之前、請先執行Element儲存設備健全狀況檢查"]。
-* *更新BMC for H610S nodes *：您已升級H610S節點的BMC版本。請參閱 link:rn_H610S_BMC_3.84.07.html["版本說明與升級指示"^]。
+* *更新BMC for H610S nodes *：您已升級H610S節點的BMC版本。請參閱 link:rn_H610S_BMC_3.84.07.html["版本說明與升級指示"]。
 
 
 

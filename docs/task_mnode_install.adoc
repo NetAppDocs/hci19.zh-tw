@@ -5,7 +5,12 @@ summary: 您可以為執行NetApp Element 不完善軟體的叢集安裝管理�
 keywords: netapp, element, management node, mnode, storage, install 
 ---
 = 安裝管理節點
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

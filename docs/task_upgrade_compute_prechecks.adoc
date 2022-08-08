@@ -5,7 +5,12 @@ summary: 在進行還原系統升級時NetApp HCI 、您需要先執行運算節
 keywords: netapp, compute prechecks, compute node upgrade, netapp hci 
 ---
 = 在升級運算韌體之前執行運算節點健全狀況檢查
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

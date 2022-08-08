@@ -16,7 +16,7 @@ keywords: netapp, hci, deployment, review, deploy
 [role="lead"]
 部署NetApp HCI 完VMware vSphere生命週期管理程式之後、您應該使用VMware vSphere生命週期管理程式、針對搭配NetApp HCI 使用的VMware vSphere版本套用最新的安全性修補程式。
 
-使用 https://mysupport.netapp.com/matrix/#welcome["互通性對照表工具"] 確保所有軟體版本均相容。請參閱 https://docs.vmware.com/en/VMware-vSphere/index.html["VMware vSphere生命週期管理程式文件"] 以取得更多資訊。
+使用 https://mysupport.netapp.com/matrix/#welcome["互通性對照表工具"^] 確保所有軟體版本均相容。請參閱 https://docs.vmware.com/en/VMware-vSphere/index.html["VMware vSphere生命週期管理程式文件"^] 以取得更多資訊。
 
 
 

@@ -5,7 +5,12 @@ summary: 在進行系統更新時、您需要升級運算節點韌體。NetApp H
 keywords: netapp, hci, on premise, cluster, element, compute node, vmware, upgrade firmware 
 ---
 = 升級運算節點韌體
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

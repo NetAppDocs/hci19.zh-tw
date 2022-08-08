@@ -5,7 +5,12 @@ summary: 您必須先授權、才能在REST API UI中使用API進行管理服務
 keywords: netapp, hci, management node, mnode, api, token 
 ---
 = 取得使用REST API的授權
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]

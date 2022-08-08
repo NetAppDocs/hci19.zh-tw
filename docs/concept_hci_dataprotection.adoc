@@ -159,7 +159,7 @@ Volume快照是Volume的時間點複本、您可以稍後用來將磁碟區還�
 
 
 
-您可以手動進行 https://docs.netapp.com/us-en/vcp/vcp_task_clusters_manage.html#set-protection-domain-monitoring["啟用保護網域監控"] 使用NetApp Element vCenter Server的VMware vCenter外掛程式。您可以根據節點或機箱網域選取保護網域臨界值。
+您可以手動進行 https://docs.netapp.com/us-en/vcp/vcp_task_clusters_manage.html#set-protection-domain-monitoring["啟用保護網域監控"^] 使用NetApp Element vCenter Server的VMware vCenter外掛程式。您可以根據節點或機箱網域選取保護網域臨界值。
 
 建立新叢集時、如果您使用位於共用機箱中的儲存節點、可能需要考慮使用保護網域功能來設計機箱層級的故障保護。
 

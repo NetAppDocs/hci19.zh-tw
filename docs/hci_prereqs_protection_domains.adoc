@@ -15,7 +15,7 @@ keywords: netapp, hci, element, storage, protection domains
 
 
 [role="lead"]
-支援的支援NetApp Element https://docs.netapp.com/us-en/hci/docs/concept_hci_dataprotection.html#protection-domains["保護網域"^] 功能、可最佳化儲存節點上的資料配置、以達到最佳的資料可用度。若要使用此功能、您應該將儲存容量平均分配至三個以上的NetApp H系列機箱、以獲得最佳的儲存可靠性。在此案例中、儲存叢集會自動啟用保護網域。
+支援的支援NetApp Element link:concept_hci_dataprotection.html#protection-domains["保護網域"] 功能、可最佳化儲存節點上的資料配置、以達到最佳的資料可用度。若要使用此功能、您應該將儲存容量平均分配至三個以上的NetApp H系列機箱、以獲得最佳的儲存可靠性。在此案例中、儲存叢集會自動啟用保護網域。
 
 [discrete]
 == 如需詳細資訊、請參閱

@@ -46,7 +46,7 @@ image::hcc_configure.png[Rancher組態頁面]
 TIP: 在Rancher UI中、管理叢集稱為「本機叢集」。
 
 . 使用Rancher部署結束時提供給您的URL存取Rancher UI。
-. 請參閱 https://rancher.com/docs/rancher/v2.x/en/monitoring-alerting/v2.5/["在Rancher v2.5中進行監控"]。
+. 請參閱 https://rancher.com/docs/rancher/v2.x/en/monitoring-alerting/v2.5/["在Rancher v2.5中進行監控"^]。
 
 
 
@@ -69,7 +69,7 @@ TIP: 在Rancher UI中、管理叢集稱為「本機叢集」。
 == 如需詳細資訊、請參閱
 
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
-* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
 

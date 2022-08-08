@@ -5,7 +5,12 @@ summary: 完成靜態部署之後NetApp HCI 、您可以NetApp HCI 使用NetApp�
 keywords: netapp, hci, on premise, expand, storage, compute, cluster 
 ---
 = 同時擴充NetApp HCI 功能豐富的支援資源
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -119,7 +124,7 @@ NOTE: 驗證輸入的IP位址可能需要一些時間。NetApp HCI當IP位址驗
 . *選用*：確認VMware vSphere Web Client（適用於運算節點）或Element Plug-in for vCenter Server（適用於儲存節點）中可見任何新節點。
 +
 
-NOTE: 如果您將雙節點儲存叢集擴充至四個或更多節點、儲存叢集先前使用的見證節點配對仍會在vSphere中顯示為待命虛擬機器。新擴充的儲存叢集並不會使用這些資源；如果您想回收VM資源、您可以使用這些資源 link:task_hci_removewn.html["手動移除"^] 見證節點虛擬機器。
+NOTE: 如果您將雙節點儲存叢集擴充至四個或更多節點、儲存叢集先前使用的見證節點配對仍會在vSphere中顯示為待命虛擬機器。新擴充的儲存叢集並不會使用這些資源；如果您想回收VM資源、您可以使用這些資源 link:task_hci_removewn.html["手動移除"] 見證節點虛擬機器。
 
 
 

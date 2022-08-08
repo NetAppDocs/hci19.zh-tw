@@ -17,12 +17,12 @@ keywords: netapp, hci, rancher, control plane, catalog, cluster, kubernetes
 瞭解有關Rancher on NetApp HCI 支援的基本概念。
 
 * * Rancher伺服器*或*控制面板*：Rancher控制面板、有時稱為_Rancher伺服器_、負責配置、管理及監控開發與營運團隊使用的Kubernetes叢集。
-* *目錄*：目錄是GitHub儲存庫或Helm圖表儲存庫、其中填入已做好部署準備的應用程式。Rancher能夠使用Helm圖表目錄、讓您輕鬆重複部署應用程式。Rancher包含兩種型錄：內建全域型錄和自訂型錄。Trident部署為目錄。請參閱 https://rancher.com/docs/rancher/v2.x/en/helm-charts/legacy-catalogs/["有關目錄的Rancher文件"]。
+* *目錄*：目錄是GitHub儲存庫或Helm圖表儲存庫、其中填入已做好部署準備的應用程式。Rancher能夠使用Helm圖表目錄、讓您輕鬆重複部署應用程式。Rancher包含兩種型錄：內建全域型錄和自訂型錄。Trident部署為目錄。請參閱 https://rancher.com/docs/rancher/v2.x/en/helm-charts/legacy-catalogs/["有關目錄的Rancher文件"^]。
 * *管理叢集*：Rancher on NetApp HCI VMware可在Rancher管理叢集上部署三部虛擬機器、您可以使用Rancher、混合雲控制和vCenter外掛程式來查看這些虛擬機器。管理叢集虛擬機器裝載Rancher伺服器、Rancher Kubernetes Engine（RKE）和Linux OS。
 * *使用者叢集*：這些下游的Kubernetes叢集會執行您的應用程式與服務。在Rancher的Kubernetes安裝中、管理叢集應與使用者叢集分開。任何由Rancher使用者從Rancher部署或匯入Rancher的叢集、均視為使用者叢集。
 * * Rancher節點範本*：混合式雲端控制使用Rancher節點範本來簡化部署。
 +
-請參閱  https://rancher.com/docs/rancher/v2.x/en/user-settings/node-templates/["有關節點範本的Rancher文件"]。
+請參閱  https://rancher.com/docs/rancher/v2.x/en/user-settings/node-templates/["有關節點範本的Rancher文件"^]。
 
 
 
@@ -40,12 +40,12 @@ Rancher可在NetApp HCI 使用者叢集上執行各種功能、並在其中提�
 
 請參閱 link:task_rancher_trident.html["將Trident with Rancher安裝在NetApp HCI 支援的範圍內"]。
 
-如需詳細資料、請造訪 https://netapp-trident.readthedocs.io/en/stable-v20.10/introduction.html["Trident文件"]。
+如需詳細資料、請造訪 https://netapp-trident.readthedocs.io/en/stable-v20.10/introduction.html["Trident文件"^]。
 
 [discrete]
 == 如需詳細資訊、請參閱
 
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["有關架構的Rancher文件"^]
-* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes的Rancher術語"^]
 * https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
 

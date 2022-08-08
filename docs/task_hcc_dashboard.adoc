@@ -5,7 +5,12 @@ summary: 您可以在NetApp混合雲控制儀表板上檢視儲存與運算資�
 keywords: netapp, hci, on premise, hcc, hybrid cloud control, storage, compute, storage performance, utilization, capacity 
 ---
 = 監控混合雲控制儀表板上的儲存與運算資源
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -115,7 +120,7 @@ NOTE: 總效率等於（最大使用空間*效率係數）/ 2、其中效率係�
 
 
 
-. 如需進一步分析和歷史背景、請參閱 https://activeiq.solidfire.com/["NetApp SolidFire Active IQ 產品詳細資料"]。
+. 如需進一步分析和歷史背景、請參閱 https://activeiq.solidfire.com/["NetApp SolidFire Active IQ 產品詳細資料"^]。
 
 
 
@@ -173,7 +178,7 @@ image::hcc_dashboard_compute_util_cpu.png[運算使用率窗格]
 .. *記憶體*索引標籤：請參閱運算叢集上目前的平均記憶體使用量。
 
 
-. 如需運算資訊的進一步分析、請參閱 https://activeiq.solidfire.com["NetApp SolidFire Active IQ 的歷史資料"]。
+. 如需運算資訊的進一步分析、請參閱 https://activeiq.solidfire.com["NetApp SolidFire Active IQ 的歷史資料"^]。
 
 
 [discrete]

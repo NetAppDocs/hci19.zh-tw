@@ -5,7 +5,12 @@ summary: 您可以執行硬體維護工作、例如更換節點、更換儲存�
 keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance, rails, h-series, nodes 
 ---
 = H系列硬體維護總覽
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -13,17 +18,17 @@ keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance, ra
 
 以下是硬體維護工作的連結：
 
-* link:task_hci_hserieschassisrepl.html["更換2U H系列機箱"^]
-* link:task_hci_dcpsurepl.html["更換H615C和H610S節點中的DC電源供應器"^]
-* link:task_hci_dimmcomputerepl.html["更換運算節點中的DIMM"^]
-* link:task_hci_driverepl.html["更換儲存節點的磁碟機"^]
-* link:task_hci_h410crepl.html["更換H410C節點"^]
-* link:task_hci_h410srepl.html["更換H410S節點"^]
-* link:task_hci_h610ch615crepl.html["更換H610C和H615C節點"^]
-* link:task_hci_h610srepl.html["更換H610S節點"^]
-* link:task_hci_psurepl.html["更換電源供應器"^]
+* link:task_hci_hserieschassisrepl.html["更換2U H系列機箱"]
+* link:task_hci_dcpsurepl.html["更換H615C和H610S節點中的DC電源供應器"]
+* link:task_hci_dimmcomputerepl.html["更換運算節點中的DIMM"]
+* link:task_hci_driverepl.html["更換儲存節點的磁碟機"]
+* link:task_hci_h410crepl.html["更換H410C節點"]
+* link:task_hci_h410srepl.html["更換H410S節點"]
+* link:task_hci_h610ch615crepl.html["更換H610C和H615C節點"]
+* link:task_hci_h610srepl.html["更換H610S節點"]
+* link:task_hci_psurepl.html["更換電源供應器"]
 * link:task_hci_snswitches.html["更換SN2010、SN2100和SN2700交換器"]
-* link:task_hci_2noderepl.html["更換雙節點叢集中的儲存節點"^]
+* link:task_hci_2noderepl.html["更換雙節點叢集中的儲存節點"]
 
 
 [discrete]

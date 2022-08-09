@@ -6185,7 +6185,6 @@
   <block id="be14526a26059bab9604a4dc5056ca86" category="list-text">vCenter Server*的*《VMware vCenter外掛程式》是整合vSphere使用者介面（UI）的網路型工具。NetApp Element外掛程式是VMware vSphere的擴充與可擴充且使用者友好的介面、可管理及監控執行* NetApp Element 《VMware vSphere軟體》*的儲存叢集。外掛程式提供元素UI的替代方案。您可以使用外掛程式使用者介面來探索及設定叢集、以及從叢集容量管理、監控及配置儲存設備、以設定資料存放區和虛擬資料存放區（適用於虛擬磁碟區）。叢集會以單一本機群組的形式出現在網路上、並以虛擬IP位址代表主機和系統管理員。您也可以即時報告來監控叢集活動、包括執行各種作業時可能發生的任何事件的錯誤和警示訊息。</block>
   <block id="2f071adefcac0181be5f4b8cd9a5ca38" category="admonition">深入瞭解<block ref="2bff74e0d72e73a3a1bf993744683a85" category="inline-link-rx"></block>。</block>
   <block id="69f62275c49d78f7ceac9db3f0497d6e" category="admonition">深入瞭解 <block ref="694d6bc2c166b8de5e6f59269ef5415e" category="inline-link-macro-rx"></block>。</block>
-  <block id="9807e313c10f18c9bdc4d7afb343a6f5" category="cell">從每個節點的UI存取網路和叢集設定、並利用系統測試和公用程式。 <block ref="c351abfe0a8a9e26c97442070cd8d97d" category="inline-link-macro-rx"></block></block>
   <block id="6185d522566bca6babef053c2bc1f53d" category="list-text">*目錄*：目錄是GitHub儲存庫或Helm圖表儲存庫、其中填入已做好部署準備的應用程式。Rancher能夠使用Helm圖表目錄、讓您輕鬆重複部署應用程式。Rancher包含兩種型錄：內建全域型錄和自訂型錄。Trident部署為目錄。請參閱<block ref="ba870d4de503a3f035878d62b86bb946" category="inline-link-rx"></block>。</block>
   <block id="499c79030e29f88105a315c240050806" category="paragraph">請參閱 <block ref="502a349939ea68203db76329f0b74f74" category="inline-link-rx"></block>。</block>
   <block id="b8ab206de7473fae6f35c2f16c0992e0" category="paragraph">如需詳細資料、請造訪<block ref="9488620c3498c6d0bb53483131890d10" category="inline-link-rx"></block>。</block>
@@ -6231,7 +6230,6 @@
   <block id="94fb62d9516863316b92e2bf53911bce" category="list-text"><block ref="d6a2d8b61be866ad09b286b7f2ff7d30" category="inline-link-macro-rx"></block>。</block>
   <block id="25bc0eaf24f05f014b5a22e6cb3c3ee0" category="list-text">對於H410C、H610C和H615C節點、 <block ref="003405940fb11fda7caa22bbd0900a62" category="inline-link-macro-rx"></block>。</block>
   <block id="76ef55f268f9e8c537a13a8bdcff4a23" category="list-text"><block ref="a7fdda79c0d112d1e20d7aa847382277" category="inline-link-macro-rx"></block>。</block>
-  <block id="c37fb68bdd4649a813bd854818e1c4f3" category="paragraph"><block ref="ea4dcaf7581d24250ed50342116f1e20" category="inline-link-macro-rx"></block>。</block>
   <block id="0ea391471e626f95079246bfd0ab48f9" category="paragraph">vCenter Server SIOC密碼的「功能」外掛程式也稱為_QoSSIOC密碼。NetApp Element </block>
   <block id="0ba7ef8feca0e0b45134473e9c3182d4" category="paragraph">檢閱｛url-peak｝[Element Plug-In for vCenter Server KB文章]。</block>
   <block id="7d25e05d224fca2eb306788617dd64c8" category="admonition">如果您不小心將Rancher部署在NetApp HCI 包含不正確資訊的支援區（例如Rancher伺服器FQDN不正確）上、就無法在不移除和重新部署的情況下修正部署。您需要移除Rancher on NetApp HCI the Randi instance、然後NetApp HCI 從NetApp混合雲控制UI重新部署Rancher on the支援。請參閱 <block ref="3121dc1b9111bb157a7a952ee2ca3268" category="inline-link-macro-rx"></block> 以取得更多資訊。</block>
@@ -6246,4 +6244,6 @@
   <block id="72bc06ff4e2b235a52b1bd8ed1e8201b" category="paragraph">您可以手動進行<block ref="51de2eecc77c7894734d39577009251b" category="inline-link-rx"></block> 使用NetApp Element vCenter Server的VMware vCenter外掛程式。您可以根據節點或機箱網域選取保護網域臨界值。</block>
   <block id="c887aa2abefbdf59345793bdbe530aa6" category="list-text">從機架中實際移除故障節點。這些步驟取決於您擁有的儲存節點類型。請參閱 <block ref="22268cae5c79b327558b5acefb524b62" category="inline-link-macro-rx"></block> 和 <block ref="04e6f25ecadf1d5213318ff0863162b7" category="inline-link-macro-rx"></block>。</block>
   <block id="6b488f4677081a24e52d30be5ea2fe98" category="list-text">使用NetApp混合雲控制來設定您新增的新儲存節點。請參閱 <block ref="f2feaea5d9b29c0df76acac116f3553b" category="inline-link-macro-rx"></block>。</block>
+  <block id="1b9cbe8bd24f138856d4a212cbd39ff3" category="cell">從每個節點的UI存取網路和叢集設定、並利用系統測試和公用程式。 <block ref="907072a6b11211e94a1d32770722061a" category="inline-link-macro-rx"></block></block>
+  <block id="bf98d31f43d10440f3b2fcae7d1772fa" category="paragraph"><block ref="5a5ec2237ded5a598f748fc2406eb309" category="inline-link-macro-rx"></block>。</block>
 </blocks>

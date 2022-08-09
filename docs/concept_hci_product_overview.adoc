@@ -68,7 +68,7 @@ TIP: 深入瞭解 link:https://help.monitoring.solidfire.com/["NetApp SolidFire 
 | https://<ManagementNodeIP>` | 存取NetApp混合雲控制、即可升級、擴充及監控NetApp HCI 您的安裝、以及更新管理服務。 link:task_nde_access_hcc.html["深入瞭解。"] 
 
 
-| https://[IP地址：4442 | 從每個節點的UI存取網路和叢集設定、並利用系統測試和公用程式。 link:task_mnode_access_ui.html#access-the-management-node-per-node-ui["深入瞭解。"^] 
+| https://[IP地址：4442 | 從每個節點的UI存取網路和叢集設定、並利用系統測試和公用程式。 link:task_mnode_access_ui.html#access-the-management-node-per-node-ui["深入瞭解。"] 
 
 
 | https://[management節點IP位址：9443 | 在vSphere Web Client中登錄vCenter外掛程式套件。 

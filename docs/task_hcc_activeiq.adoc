@@ -33,16 +33,19 @@ keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance
 https://<ManagementNodeIP>
 ----
 . 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
-. 在儀表板中、按一下右上角的功能表。
+. 從儀表板中、選取右上角的功能表。
 . 選擇* View Active IQ （查看）*。
 +
 。 link:https://activeiq.solidfire.com["資訊儀表板SolidFire Active IQ"^] 出現。
 
-. 若要深入瞭SolidFire Active IQ 解VMware、請從儀表板按一下右上角的功能表圖示、然後按一下*文件*。
+. 如需SolidFire Active IQ 瞭解有關資訊、請參閱 https://docs.netapp.com/us-en/solidfire-active-iq/index.html["資訊文件SolidFire Active IQ"^]。
++
+您也可以SolidFire Active IQ 從儀表板存取「介紹」文件、方法是選取右上角的功能表圖示、然後選取*「說明文件」*。
+
 . 在這個介面中、驗證「不實運算」和「儲存」節點是否正確向下列對象報告遙測資訊：SolidFire Active IQ NetApp HCI Active IQ
 +
-.. 如果您有一個NetApp HCI 以上的版本安裝、請按一下*選取叢集*、然後從清單中選擇叢集。
-.. 在左側導覽窗格中、按一下*節點*。
+.. 如果有多NetApp HCI 個版本的安裝、請選取*選取叢集*、然後從清單中選擇叢集。
+.. 在左側導覽窗格中、選取*節點*。
 
 
 . 如果清單中缺少節點、請聯絡NetApp支援部門。
@@ -54,7 +57,7 @@ TIP: 若要檢視儲存設備和運算資源的數量、請查看混合雲控制
 [discrete]
 == 如需詳細資訊、請參閱
 
-* https://help.monitoring.solidfire.com["NetApp SolidFire Active IQ 產品文件"^]
+* https://docs.netapp.com/us-en/solidfire-active-iq/index.html["NetApp SolidFire Active IQ 產品文件"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
 

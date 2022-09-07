@@ -47,7 +47,7 @@ TIP: 深入瞭解 https://docs.netapp.com/us-en/vcp/concept_vcp_product_overview
 * 根據預設NetApp HCI 、將效能與警示統計資料傳送至* NetApp SolidFire Active IQ S更新*服務。在您的一般支援合約中、NetApp支援部門會監控此資料、並針對任何效能瓶頸或潛在的系統問題向您發出警示。如果您還沒有NetApp Support帳戶（即使您有SolidFire Active IQ 現有的版本）、您也需要建立該帳戶、以便充分利用此服務。
 +
 
-TIP: 深入瞭解 link:https://help.monitoring.solidfire.com/["NetApp SolidFire Active IQ"^]。
+TIP: 深入瞭解 link:https://docs.netapp.com/us-en/solidfire-active-iq/index.html["NetApp SolidFire Active IQ"^]。
 
 
 

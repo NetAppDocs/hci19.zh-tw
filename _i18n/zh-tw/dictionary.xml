@@ -695,7 +695,6 @@
   <block id="1f9e8829ba3f07efa25b77f1eb0d6c07" category="inline-link">NetApp組態顧問</block>
   <block id="d1ba909955f7a2392ac07c215865424a" category="list-text"><block ref="8eb8242e05dec3c7873bd909a6d9def7" category="inline-link-rx"></block> 5.8.1或更新版本的網路驗證工具</block>
   <block id="642b57ae61fbf875dba06df638def96a" category="inline-link">NetApp SolidFire Active IQ 產品文件</block>
-  <block id="5fab97a8101ee7e9dd22a0c1807b267e" category="list-text"><block ref="5fab97a8101ee7e9dd22a0c1807b267e" category="inline-link-rx"></block></block>
   <block id="158f6a1d36f1b909e5a2856681ce6f42" category="summary">您必須先授權、才能在REST API UI中使用API進行管理服務。</block>
   <block id="223b5bfc7fd9ecabdd773228e6069bdd" category="doc">取得使用REST API的授權</block>
   <block id="b1ccc7e57db400d23b97089b6c6526f6" category="paragraph">您必須先授權、才能在REST API UI中使用API進行管理服務。您可以取得存取權杖來執行此作業。</block>
@@ -2554,13 +2553,9 @@
   <block id="7cee4fcf0150b764f614b9c92d93488e" category="list-text">選擇* View Active IQ （查看）*。</block>
   <block id="fa07ce8e9de64ab1ca55cc6d3b85cea5" category="inline-link-macro">資訊儀表板SolidFire Active IQ</block>
   <block id="ee9ec48ab8dae93963c5b5c07f420ed4" category="paragraph">。 <block ref="095a58fb83e7246b6e79a66a96e0f27d" category="inline-link-macro-rx"></block> 出現。</block>
-  <block id="63b0ea6672e4ac0cdbfd353e47a99673" category="list-text">若要深入瞭SolidFire Active IQ 解VMware、請從儀表板按一下右上角的功能表圖示、然後按一下*文件*。</block>
   <block id="18c94039f6a9a2bf969e0ddcad135957" category="list-text">在這個介面中、驗證「不實運算」和「儲存」節點是否正確向下列對象報告遙測資訊：SolidFire Active IQ NetApp HCI Active IQ</block>
-  <block id="2eca3789874739b2e107592e70e89570" category="list-text">如果您有一個NetApp HCI 以上的版本安裝、請按一下*選取叢集*、然後從清單中選擇叢集。</block>
-  <block id="f782d1135644961264a9464e713c708c" category="list-text">在左側導覽窗格中、按一下*節點*。</block>
   <block id="dd227545ce9014ef2f4c9d23fa80efc1" category="list-text">如果清單中缺少節點、請聯絡NetApp支援部門。</block>
   <block id="5438dea440e60cb95336002d251f0b29" category="admonition">若要檢視儲存設備和運算資源的數量、請查看混合雲控制（HCC）儀表板。請參閱 <block ref="7a163f57b183cb5fbbaf136afcd39704" category="inline-link-macro-rx"></block>。</block>
-  <block id="a433b823eb4cdcee96d4dfcff5931643" category="list-text"><block ref="a433b823eb4cdcee96d4dfcff5931643" category="inline-link-rx"></block></block>
   <block id="4ec87aa9f0a4cb08c65491141aa767bc" category="summary">取得NetApp HCI 鏈接、取得有關產品或元件的版本資訊、這些產品或元件都是屬於整個環境的一部分。</block>
   <block id="7350e80ebee797a0d2d2bdec4d4240b2" category="doc">其他版本資訊</block>
   <block id="618bdc2067940be634fb648432588c93" category="paragraph">您可以找到NetApp HCI 最新及早期版本說明的連結、以瞭解有關各種元件的資訊、包括各種元件儲存環境。</block>
@@ -6184,7 +6179,6 @@
   <block id="afb54c94a5e9aef322532eabe176c2d4" category="admonition">深入瞭解 <block ref="8a1a0a32384afdd6d93db2e7c4f512ad" category="inline-link-macro-rx"></block>。</block>
   <block id="be14526a26059bab9604a4dc5056ca86" category="list-text">vCenter Server*的*《VMware vCenter外掛程式》是整合vSphere使用者介面（UI）的網路型工具。NetApp Element外掛程式是VMware vSphere的擴充與可擴充且使用者友好的介面、可管理及監控執行* NetApp Element 《VMware vSphere軟體》*的儲存叢集。外掛程式提供元素UI的替代方案。您可以使用外掛程式使用者介面來探索及設定叢集、以及從叢集容量管理、監控及配置儲存設備、以設定資料存放區和虛擬資料存放區（適用於虛擬磁碟區）。叢集會以單一本機群組的形式出現在網路上、並以虛擬IP位址代表主機和系統管理員。您也可以即時報告來監控叢集活動、包括執行各種作業時可能發生的任何事件的錯誤和警示訊息。</block>
   <block id="2f071adefcac0181be5f4b8cd9a5ca38" category="admonition">深入瞭解<block ref="2bff74e0d72e73a3a1bf993744683a85" category="inline-link-rx"></block>。</block>
-  <block id="69f62275c49d78f7ceac9db3f0497d6e" category="admonition">深入瞭解 <block ref="694d6bc2c166b8de5e6f59269ef5415e" category="inline-link-macro-rx"></block>。</block>
   <block id="6185d522566bca6babef053c2bc1f53d" category="list-text">*目錄*：目錄是GitHub儲存庫或Helm圖表儲存庫、其中填入已做好部署準備的應用程式。Rancher能夠使用Helm圖表目錄、讓您輕鬆重複部署應用程式。Rancher包含兩種型錄：內建全域型錄和自訂型錄。Trident部署為目錄。請參閱<block ref="ba870d4de503a3f035878d62b86bb946" category="inline-link-rx"></block>。</block>
   <block id="499c79030e29f88105a315c240050806" category="paragraph">請參閱 <block ref="502a349939ea68203db76329f0b74f74" category="inline-link-rx"></block>。</block>
   <block id="b8ab206de7473fae6f35c2f16c0992e0" category="paragraph">如需詳細資料、請造訪<block ref="9488620c3498c6d0bb53483131890d10" category="inline-link-rx"></block>。</block>
@@ -6246,4 +6240,13 @@
   <block id="6b488f4677081a24e52d30be5ea2fe98" category="list-text">使用NetApp混合雲控制來設定您新增的新儲存節點。請參閱 <block ref="f2feaea5d9b29c0df76acac116f3553b" category="inline-link-macro-rx"></block>。</block>
   <block id="1b9cbe8bd24f138856d4a212cbd39ff3" category="cell">從每個節點的UI存取網路和叢集設定、並利用系統測試和公用程式。 <block ref="907072a6b11211e94a1d32770722061a" category="inline-link-macro-rx"></block></block>
   <block id="bf98d31f43d10440f3b2fcae7d1772fa" category="paragraph"><block ref="5a5ec2237ded5a598f748fc2406eb309" category="inline-link-macro-rx"></block>。</block>
+  <block id="d70c282924b717571aef1cee7fb90bda" category="list-text"><block ref="d70c282924b717571aef1cee7fb90bda" category="inline-link-rx"></block></block>
+  <block id="fff53faaacf5caf81205af3a5996a9cc" category="inline-link">NetApp SolidFire Active IQ 產品文件</block>
+  <block id="dbc20c2595760ee5c4db75a5e0f52262" category="list-text"><block ref="dbc20c2595760ee5c4db75a5e0f52262" category="inline-link-rx"></block></block>
+  <block id="fbbe254e45b4762e05a1addfd1b1da7b" category="admonition">深入瞭解 <block ref="e8537a9bbe8826a9f8e7b689e79abc77" category="inline-link-macro-rx"></block>。</block>
+  <block id="e41f733ab7b14b59356c114dc4bde28a" category="list-text">從儀表板中、選取右上角的功能表。</block>
+  <block id="5d7560eb59ba019f88b76ae3bf8580a7" category="inline-link">資訊文件SolidFire Active IQ</block>
+  <block id="8656c1812e255a290a0e3fb243bf9237" category="list-text">如需SolidFire Active IQ 瞭解有關資訊、請參閱<block ref="605461d6a442322fca0bcd236d381ac0" category="inline-link-rx"></block>。</block>
+  <block id="5de7b59e7468f72110ca5bd9b20f7d50" category="paragraph">您也可以SolidFire Active IQ 從儀表板存取「介紹」文件、方法是選取右上角的功能表圖示、然後選取*「說明文件」*。</block>
+  <block id="b742a27bbb38b6f0482e473afd7caf8e" category="list-text">如果有多NetApp HCI 個版本的安裝、請選取*選取叢集*、然後從清單中選擇叢集。</block>
 </blocks>

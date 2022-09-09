@@ -12,7 +12,7 @@ sidebar:
   - title: VMware 1.9文件NetApp HCI
     url: "/index.html"
   - title: 解決方案NetApp HCI
-    url: https://docs.netapp.com/us-en/hci-solutions/index.html
+    url: "/docs/hci_solutions_index.html"
   - title: 版本資訊
     entries:
     - title: 更新功能NetApp HCI

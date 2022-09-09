@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_solutions_index.html 
+summary: 利用NetApp、您可以跨多家公有雲供應商及內部部署部署雲端服務。NetApp HCI您可以使用NetApp HCI 支援功能來部署類似雲端供應商服務的服務、而無需IT介入、只需以自助服務模式即可完成。 
+keywords: netapp, hci, solutions, performance, scale, multiple, workloads 
+---
+= 解決方案NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+利用同一個基礎架構上的多個工作負載、而不產生摩擦、因此支援各種規模的效能。NetApp HCI
+
+利用NetApp、您可以跨多家公有雲供應商及內部部署部署雲端服務。NetApp HCI您可以使用NetApp HCI 支援功能來部署類似雲端供應商服務的服務、而無需IT介入、只需以自助服務模式即可完成。
+
+如需NetApp HCI 瞭解有關解決方案的資訊、請參閱 https://docs.netapp.com/us-en/hci-solutions/index.html["解決方案文件NetApp HCI"^]。
+
+[discrete]
+== 如需詳細資訊、請參閱
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
+

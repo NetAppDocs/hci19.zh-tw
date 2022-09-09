@@ -6249,4 +6249,8 @@
   <block id="8656c1812e255a290a0e3fb243bf9237" category="list-text">如需SolidFire Active IQ 瞭解有關資訊、請參閱<block ref="605461d6a442322fca0bcd236d381ac0" category="inline-link-rx"></block>。</block>
   <block id="5de7b59e7468f72110ca5bd9b20f7d50" category="paragraph">您也可以SolidFire Active IQ 從儀表板存取「介紹」文件、方法是選取右上角的功能表圖示、然後選取*「說明文件」*。</block>
   <block id="b742a27bbb38b6f0482e473afd7caf8e" category="list-text">如果有多NetApp HCI 個版本的安裝、請選取*選取叢集*、然後從清單中選擇叢集。</block>
+  <block id="3d57c700c41601cb011883231fb4e5b8" category="summary">利用NetApp、您可以跨多家公有雲供應商及內部部署部署雲端服務。NetApp HCI您可以使用NetApp HCI 支援功能來部署類似雲端供應商服務的服務、而無需IT介入、只需以自助服務模式即可完成。</block>
+  <block id="4f8fc3e1fce78186b06dfda99cdedd17" category="paragraph">利用同一個基礎架構上的多個工作負載、而不產生摩擦、因此支援各種規模的效能。NetApp HCI</block>
+  <block id="921c0975b352bf1530a52271d2abf5c6" category="inline-link">解決方案文件NetApp HCI</block>
+  <block id="705d4d08d5af2e9dd1c4616188dd681f" category="paragraph">如需NetApp HCI 瞭解有關解決方案的資訊、請參閱<block ref="80564718f738f8f02fcd8afb2a3d09de" category="inline-link-rx"></block>。</block>
 </blocks>

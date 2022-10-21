@@ -30,7 +30,7 @@ IMPORTANT: 您必須先升級至最新的管理服務套裝組合、才能將Ele
 
 * *叢集健全狀況*：您已確認叢集已準備好升級。請參閱 link:task_hcc_upgrade_element_prechecks.html["升級儲存設備之前、請先執行Element儲存設備健全狀況檢查"]。
 * *更新BMC for H610S nodes *：您已升級H610S節點的BMC版本。請參閱 link:rn_H610S_BMC_3.84.07.html["版本說明與升級指示"]。
-* *終端使用者授權合約（EULA）*：從管理服務的2.20開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來升級Element軟體：
+* *終端使用者授權合約（EULA）*：從管理服務2.20.69開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來升級Element軟體：
 +
 .. 在Web瀏覽器中開啟管理節點的IP位址：
 +
@@ -51,14 +51,14 @@ NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動�
 
 請選擇下列其中一個元素軟體升級選項：
 
-* <<Use NetApp Hybrid Cloud Control UI to upgrade Element storage>>
-* <<Use NetApp Hybrid Cloud Control API to upgrade Element storage>>
-* <<Upgrade Element software at connected sites using HealthTools>>
-* <<Upgrade Element software at dark sites using HealthTools>>
+*  NetApp Hybrid Cloud Control UI to upgrade Element storage
+*  NetApp Hybrid Cloud Control API to upgrade Element storage
+*  Element software at connected sites using HealthTools
+*  Element software at dark sites using HealthTools
 
 
 
-IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<<Upgrading H610S storage nodes to Element 12.3.x (phase 2),第2階段>>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（ H610S storage nodes to Element 12.3.x (phase 2),第2階段）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
 
 
 
@@ -100,7 +100,7 @@ https://<ManagementNodeIP>
 
 
 
-TIP: 升級期間*升級狀態*會變更、以反映程序的狀態。它也會因應您採取的行動而變更、例如暫停升級、或升級傳回錯誤。請參閱 <<Upgrade status changes>>。
+TIP: 升級期間*升級狀態*會變更、以反映程序的狀態。它也會因應您採取的行動而變更、例如暫停升級、或升級傳回錯誤。請參閱  status changes。
 
 
 NOTE: 在升級進行期間、您可以離開頁面、稍後再返回頁面、繼續監控進度。如果叢集列收合、頁面不會動態更新狀態和目前版本。叢集列必須展開以更新表格、否則您可以重新整理頁面。
@@ -127,7 +127,7 @@ CAUTION: 如果您離開瀏覽器視窗、檔案上傳將會遺失。
 .. 完成中所需的其他步驟（階段2） https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure["知識庫文章"^]並在UI中確認您已完成階段2。
 
 
-您可以在升級完成後下載記錄。如需各種升級狀態變更的相關資訊、請參閱 <<Upgrade status changes>>。
+您可以在升級完成後下載記錄。如需各種升級狀態變更的相關資訊、請參閱  status changes。
 
 |===
 
@@ -420,7 +420,7 @@ https://<ManagementNodeIP>/storage/1/
 
 
 | 如果您要升級執行11.8之前元素版本的H610S叢集、您會在回應本文中看到「finishedNeedsAck」狀態。您需要為每個H610S儲存節點執行額外的升級步驟（階段2）。  a| 
-... 請參閱 <<Upgrading H610S storage nodes to Element 12.3.x or later (phase 2)>> 並完成每個節點的程序。
+... 請參閱  H610S storage nodes to Element 12.3.x or later (phase 2) 並完成每個節點的程序。
 ... 視需要重新驗證、然後選取*「PGE」（更新）/「｛upgradeId｝」*。
 ... 選擇*試用*。
 ... 在* upgradeId*中輸入上一步的升級ID。
@@ -633,7 +633,7 @@ Starting light cluster block service check
 
 
 
-IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<<Upgrading H610S storage nodes to Element 12.3.x (phase 2),第2階段>>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（ H610S storage nodes to Element 12.3.x (phase 2),第2階段）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
 
 
 
@@ -701,7 +701,7 @@ sfinstall -u admin 10.117.78.244 /tmp/solidfire-rtfi-11.3.0.345.iso --metadata=/
 
 
 
-IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<<Upgrading H610S storage nodes to Element 12.3.x (phase 2),第2階段>>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（ H610S storage nodes to Element 12.3.x (phase 2),第2階段）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
 
 
 

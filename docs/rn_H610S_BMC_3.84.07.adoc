@@ -23,7 +23,7 @@ keywords: netapp, hci, compute firmware
 
 H610S BMC 3.84.07包含各種錯誤修復和新功能。此版本在後續的Element軟體與儲存韌體套裝組合版本推出之前、會先為現場關鍵更新BMC韌體、同時也會為H610S節點提供此更新的BMC韌體。
 
-Element 11.8、12.0及12.2版支援此韌體套件。您可以直接在頻外升級H610S BMC韌體、如需升級指示、請參閱 <<Upgrading BMC firmware on H610S nodes>>。
+Element 11.8、12.0及12.2版支援此韌體套件。您可以直接在頻外升級H610S BMC韌體、如需升級指示、請參閱  BMC firmware on H610S nodes。
 
 
 

@@ -25,8 +25,8 @@ keywords: netapp, hci, chassis replacement,2U chassis replacement, h-series
 * 移除故障機箱中的運算節點時、您的虛擬機器（VM）和ESXi叢集能否處理工作負載？
 
 
-請從下列選項中選擇一項：<<Replace the chassis when additional unused space is available in the rack>>
-<<Replace the chassis when additional unused space is not available in the rack>>
+請從下列選項中選擇一項： the chassis when additional unused space is available in the rack
+ the chassis when additional unused space is not available in the rack
 
 
 
@@ -198,7 +198,7 @@ NOTE: 如需移轉步驟、請參閱VMware文件。
 
 === 關閉儲存節點
 
-請參閱步驟 <<move a storage node,請按這裡>>。
+請參閱步驟  a storage node,請按這裡。
 
 
 

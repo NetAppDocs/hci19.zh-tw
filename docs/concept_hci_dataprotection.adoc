@@ -18,12 +18,12 @@ keywords: netapp, hci, data protection, ha, snapshots, replication, cloning, hel
 
 資料保護包括下列概念：NetApp HCI
 
-* <<Remote replication types>>
-* <<Volume snapshots for data protection>>
-* <<Volume clones>>
-* <<Backup and restore process overview for SolidFire storage>>
-* <<Protection domains>>
-* <<Double Helix high availability>>
+*  replication types
+*  snapshots for data protection
+*  clones
+*  and restore process overview for SolidFire storage
+*  domains
+*  Helix high availability
 
 
 
@@ -32,9 +32,9 @@ keywords: netapp, hci, data protection, ha, snapshots, replication, cloning, hel
 
 遠端複寫資料的形式如下：
 
-* <<Synchronous and asynchronous replication between clusters>>
-* <<Snapshot-only replication>>
-* <<Replication between Element and ONTAP clusters using SnapMirror>>
+*  and asynchronous replication between clusters
+*  replication
+*  between Element and ONTAP clusters using SnapMirror
 
 
 請參閱 https://www.netapp.com/us/media/tr-4741.pdf["TR-4741：NetApp Element 《The》、《The》、《The》、《The》、《"^]。

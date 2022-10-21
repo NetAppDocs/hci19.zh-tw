@@ -36,11 +36,11 @@ NOTE: vCenter外掛程式4.4或更新版本需要以模組化架構建立的管�
 
 NOTE: 如果您選擇在使用NDE部署的管理節點123上繼續升級、則升級至12.3.x將會完成。不過、在重新啟動期間、升級可能會發生錯誤。如果發生這種情況、請重新啟動管理節點、使其正確顯示12.3.x
 
-* 如果要從管理節點12．2升級：<<Upgrade a management node to version 12.3.x from 12.2>>
-* 如果要從管理節點12升級：<<Upgrade a management node to version 12.3.x from 12.0>>
-* 如果要從管理節點11.3、11.5、11.7或11.8進行升級：<<Upgrade a management node to version 12.3.x from 11.3 through 11.8>>
-* 如果您要從管理節點11.0或11.1升級：<<Upgrade a management node to version 12.3.x from 11.1 or 11.0>>
-* 如果要從管理節點10.x版升級：<<Migrating from management node version 10.x to 11.x>>
+* 如果要從管理節點12．2升級： a management node to version 12.3.x from 12.2
+* 如果要從管理節點12升級： a management node to version 12.3.x from 12.0
+* 如果要從管理節點11.3、11.5、11.7或11.8進行升級： a management node to version 12.3.x from 11.3 through 11.8
+* 如果您要從管理節點11.0或11.1升級： a management node to version 12.3.x from 11.1 or 11.0
+* 如果要從管理節點10.x版升級： from management node version 10.x to 11.x
 
 
 如果您已*連續*更新管理服務版本（1）、以及（2）您的元素儲存版本、而且想要*保留*現有的管理節點、請選擇下列選項：
@@ -48,7 +48,7 @@ NOTE: 如果您選擇在使用NDE部署的管理節點123上繼續升級、則�
 
 NOTE: 如果您未依序更新管理服務、接著更新元素儲存設備、則無法使用此程序重新設定重新驗證。請改為執行適當的升級程序。
 
-* 如果您要保留現有的管理節點：<<Reconfigure authentication using the management node REST API>>
+* 如果您要保留現有的管理節點： authentication using the management node REST API
 
 
 

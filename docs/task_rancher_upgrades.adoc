@@ -27,7 +27,7 @@ keywords: netapp, hci, rancher, upgrade, hcc
 IMPORTANT: 您必須升級至最新的管理服務套件2.17或更新版本、才能使用Rancher功能。
 
 * *系統連接埠*：如果您使用NetApp混合式雲端控制進行升級、您已確保所需的連接埠已開啟。請參閱 link:rancher_prereqs_overview.html#required-ports["網路連接埠"] 以取得更多資訊。
-* *終端使用者授權合約（EULA）*：從管理服務的2.20開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來升級Rancher部署：
+* *終端使用者授權合約（EULA）*：從管理服務2.20.69開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來升級Rancher部署：
 +
 .. 在Web瀏覽器中開啟管理節點的IP位址：
 +
@@ -48,8 +48,8 @@ NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動�
 
 請選擇下列其中一個升級程序：
 
-* <<Use NetApp Hybrid Cloud Control UI to upgrade a Rancher deployment>>
-* <<Use NetApp Hybrid Cloud Control API to upgrade a Rancher deployment>>
+*  NetApp Hybrid Cloud Control UI to upgrade a Rancher deployment
+*  NetApp Hybrid Cloud Control API to upgrade a Rancher deployment
 
 
 
@@ -107,9 +107,9 @@ NOTE: 對於節點作業系統、安全性修補程式的無人值守升級會�
 您可以使用所選的自動化工具來執行管理節點上可用的API或REST API UI。
 
 .選項
-* <<Upgrade Rancher Server>>
-* <<Upgrade RKE>>
-* <<Apply node OS security updates>>
+*  Rancher Server
+*  RKE
+*  node OS security updates
 +
 
 NOTE: 對於節點作業系統、安全性修補程式的無人值守升級會每日執行、但節點不會自動重新開機。套用升級之後、您會重新啟動每個節點、使安全性更新生效。

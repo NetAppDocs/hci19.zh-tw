@@ -18,7 +18,7 @@ keywords: netapp, hci, on premise, cluster, upgrade, element
 
 這些元件包括管理服務、HealthTools、NetApp混合雲控制、Element軟體、管理節點、運算韌體、運算驅動程式、 以及vCenter Server的Element外掛程式
 
-。 <<sys_upgrade_seq,系統升級順序>> 內容說明完成NetApp HCI 更新功能所需的工作。理想情況下、您可以執行這些程序、做為較大規模升級順序的一部分、而非隔離。如果需要元件型升級或更新、請參閱程序先決條件、以確保解決更多複雜性問題。
+。 ,系統升級順序 內容說明完成NetApp HCI 更新功能所需的工作。理想情況下、您可以執行這些程序、做為較大規模升級順序的一部分、而非隔離。如果需要元件型升級或更新、請參閱程序先決條件、以確保解決更多複雜性問題。
 
 。 xref:task_hci_upgrade_all_vsphere.adoc[vSphere升級順序] 包含Element Plug-in for vCenter Server內容、說明重新安裝Element Plug-in for vCenter Server所需的其他升級前和升級後步驟。
 

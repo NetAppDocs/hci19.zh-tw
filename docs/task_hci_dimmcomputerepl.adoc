@@ -38,8 +38,8 @@ NOTE: 在H610C和H615C的情況下、「機箱」和「節點」這兩個詞彙�
 
 以下是更換運算節點中DIMM的步驟：
 
-* <<Prepare to replace the DIMM>>
-* <<Replace the DIMM from the chassis>>
+*  to replace the DIMM
+*  the DIMM from the chassis
 
 
 

@@ -28,10 +28,10 @@ NOTE: 對於H610C和H615C、「節點」和「機箱」這兩個詞彙可互換�
 
 當主機故障時、VMware vSphere Web Client中的警示會提醒您。您必須將VMware vSphere Web Client故障主機的序號與節點背面貼紙上的序號配對。
 
-以下是本程序步驟的深度概觀：<<Prepare to replace the node>>
-<<Replace the node>>
-<<Add the node to the cluster>>
-<<Install the GPU drivers>>
+以下是本程序步驟的深度概觀： to replace the node
+ the node
+ the node to the cluster
+ the GPU drivers
 
 
 

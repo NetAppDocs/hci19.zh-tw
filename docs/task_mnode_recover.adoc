@@ -48,10 +48,10 @@ keywords: netapp, element, management node, mnode, disaster recovery, redeploy, 
 
 
 .步驟
-. <<Download ISO or OVA and deploy the VM>>
-. <<Configure the network>>
-. <<Configure time sync>>
-. <<Configure the management node>>
+.  ISO or OVA and deploy the VM
+.  the network
+.  time sync
+.  the management node
 
 
 
@@ -119,7 +119,7 @@ NOTE: 如果您需要額外的NIC來隔離儲存流量、請參閱設定其他NI
 
 
 
-NOTE: 從元件12.3.1開始、會自動執行子步驟（A）至（e）。若為管理節點12.3.1、請繼續執行 <<substep_f_recover_config_time_sync,子步驟（f）>> 以完成時間同步組態。
+NOTE: 從元件12.3.1開始、會自動執行子步驟（A）至（e）。若為管理節點12.3.1、請繼續執行 ,子步驟（f） 以完成時間同步組態。
 
 . 使用SSH或Hypervisor提供的主控台登入管理節點。
 . 停止ntpd：
@@ -186,7 +186,7 @@ NOTE: 如果您日後對VM進行變更、請勿啟用此選項。
 
 
 
-NOTE: 請勿在完成時間同步組態之後編輯NTP、因為它會在您執行時影響NTP <<step_6_recover_mnode_redeploy,重新部署命令>> 在管理節點上。
+NOTE: 請勿在完成時間同步組態之後編輯NTP、因為它會在您執行時影響NTP ,重新部署命令 在管理節點上。
 
 
 

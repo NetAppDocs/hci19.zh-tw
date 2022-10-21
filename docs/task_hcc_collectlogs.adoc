@@ -23,8 +23,8 @@ keywords: netapp, hci, logs, collection, troubleshooting, monitor
 
 請選擇下列其中一個選項：
 
-* <<Use NetApp Hybrid Cloud Control to collect logs>>
-* <<Use the REST API to collect logs>>
+*  NetApp Hybrid Cloud Control to collect logs
+*  the REST API to collect logs
 
 
 

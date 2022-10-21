@@ -24,7 +24,7 @@ IMPORTANT: 您必須先升級至最新的管理服務套裝組合、才能升級
 
 * *管理節點*：您執行的是管理節點11.3或更新版本。
 * * Element軟體*：您的叢集版本執行NetApp Element 的是功能不全的軟體11.3或更新版本。
-* *終端使用者授權合約（EULA）*：從管理服務的2.20開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來執行元素儲存健全狀況檢查：
+* *終端使用者授權合約（EULA）*：從管理服務2.20.69開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來執行元件儲存健全狀況檢查：
 +
 .. 在Web瀏覽器中開啟管理節點的IP位址：
 +
@@ -45,14 +45,14 @@ NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動�
 
 您可以使用NetApp混合雲控制（HCC）UI、HCCAPI或HealthTools套件執行健全狀況檢查：
 
-* <<Use NetApp Hybrid Cloud Control to run Element storage health checks prior to upgrading storage>> （偏好的方法）
-* <<Use API to run Element storage health checks prior to upgrading storage>>
-* <<Use HealthTools to run Element storage health checks prior to upgrading storage>>
+*  NetApp Hybrid Cloud Control to run Element storage health checks prior to upgrading storage （偏好的方法）
+*  API to run Element storage health checks prior to upgrading storage
+*  HealthTools to run Element storage health checks prior to upgrading storage
 
 
 您也可以深入瞭解服務執行的儲存健全狀況檢查：
 
-* <<Storage health checks made by the service>>
+*  health checks made by the service
 
 
 

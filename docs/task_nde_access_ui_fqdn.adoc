@@ -28,11 +28,11 @@ keywords: netapp, hci, fqdn, ui, access, web, administration
 
 您可以使用NetApp混合雲控制和REST API來設定或移除FQDN Web UI存取。您也可以疑難排解設定不正確的FQDN。
 
-* <<Configure FQDN web UI access using NetApp Hybrid Cloud Control>>
-* <<Configure FQDN web UI access using the REST API>>
-* <<Remove FQDN web UI access using NetApp Hybrid Cloud Control>>
-* <<Remove FQDN web UI access using the REST API>>
-* <<Troubleshooting>>
+*  FQDN web UI access using NetApp Hybrid Cloud Control
+*  FQDN web UI access using the REST API
+*  FQDN web UI access using NetApp Hybrid Cloud Control
+*  FQDN web UI access using the REST API
+* 
 
 
 

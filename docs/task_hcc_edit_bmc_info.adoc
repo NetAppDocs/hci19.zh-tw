@@ -23,8 +23,8 @@ NOTE: 如果您在健全狀況檢查期間設定BMC認證、則在「*節點*」
 
 選擇下列其中一個選項來變更BMC認證：
 
-* <<Use NetApp Hybrid Cloud Control to edit BMC information>>
-* <<Use the REST API to edit BMC information>>
+*  NetApp Hybrid Cloud Control to edit BMC information
+*  the REST API to edit BMC information
 
 
 

@@ -48,12 +48,12 @@ image::SN2700.png[SN2700前後,600,400]
 
 NOTE: 如需指引、請聯絡NetApp支援部門。
 
-以下是程序步驟的總覽：<<Prepare to replace the faulty switch>>
-<<Create the configuration file>>
-<<Remove the faulty switch and install the replacement>>
-<<Verify the operating system version on the switch>>
-<<Configure the replacement switch>>
-<<Complete the replacement>>
+以下是程序步驟的總覽： to replace the faulty switch
+ the configuration file
+ the faulty switch and install the replacement
+ the operating system version on the switch
+ the replacement switch
+ the replacement
 
 
 

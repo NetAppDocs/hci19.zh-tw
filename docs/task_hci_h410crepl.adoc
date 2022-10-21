@@ -39,15 +39,15 @@ VMware vSphere Web Client中的警示會在節點故障時發出警示。您應�
 * H410C運算節點只能以高線電壓（200-240 VAC）運作。將H410C節點新增至現有NetApp HCI 的作業系統時、您應確保符合電源需求。
 
 
-以下是本程序步驟的深度概觀：<<Prepare to replace the compute node>>
-<<Replace the compute node in the chassis>>
-<<Remove the compute node asset in NetApp HCI 1.7 and later>>
-<<Add the compute node to the cluster>>
-<<Redeploy Witness Nodes for two and three-node storage clusters>>
+以下是本程序步驟的深度概觀： to replace the compute node
+ the compute node in the chassis
+ the compute node asset in NetApp HCI 1.7 and later
+ the compute node to the cluster
+ Witness Nodes for two and three-node storage clusters
 
 以下是一些其他工作、如果您的系統具備適用於下列項目的特定條件、您可能需要執行這些工作：link:task_hci_removewn.html["移除見證節點以釋放運算資源"]
-<<Change the password if you received a replacement node with a non-standard BMC password>>
-<<Upgrade the BMC firmware on your node>>
+ the password if you received a replacement node with a non-standard BMC password
+ the BMC firmware on your node
 
 
 

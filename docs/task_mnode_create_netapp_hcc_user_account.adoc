@@ -92,7 +92,7 @@ NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用�
 
 +
 .. 選取「vSphere.local」或您的LDAP網域
-.. 使用搜尋來尋找您在中建立的新使用者 <<Set up a new user account in vCenter>>。
+.. 使用搜尋來尋找您在中建立的新使用者  up a new user account in vCenter。
 .. 選擇「NetApp角色」。
 +
 
@@ -120,7 +120,7 @@ image::mnode_new_HCC_role_vcenter.PNG[說明「新增權限」視窗]
 
 +
 .. 選取「vSphere.local」或您的LDAP網域。
-.. 使用搜尋來尋找您在中建立的新的HCC.使用者 <<Set up a new user account in vCenter>>。
+.. 使用搜尋來尋找您在中建立的新的HCC.使用者  up a new user account in vCenter。
 .. 選取「ReadOnly role」。
 +
 
@@ -148,7 +148,7 @@ IMPORTANT: Do * Not *選取* Propagate to子系*。
 
 +
 .. 選取「vSphere.local」或您的LDAP網域。
-.. 使用搜尋來尋找您在中建立的新的HCC.使用者 <<Set up a new user account in vCenter>>。
+.. 使用搜尋來尋找您在中建立的新的HCC.使用者  up a new user account in vCenter。
 .. 選取「管理員角色」。
 .. 選擇*衍生至子項*。
 
@@ -170,7 +170,7 @@ IMPORTANT: Do * Not *選取* Propagate to子系*。
 
 +
 .. 選取「vSphere.local」或您的LDAP網域。
-.. 使用搜尋來尋找您在中建立的新的HCC.使用者 <<Set up a new user account in vCenter>>。
+.. 使用搜尋來尋找您在中建立的新的HCC.使用者  up a new user account in vCenter。
 .. 選擇「NetApp角色」或「系統管理員」。
 .. 選擇*衍生至子項*。
 
@@ -199,7 +199,7 @@ IMPORTANT: Do * Not *選取* Propagate to子系*。
 
 +
 .. 選取「vSphere.local」或您的LDAP網域。
-.. 使用搜尋來尋找您在中建立的新使用者 <<Set up a new user account in vCenter>>。
+.. 使用搜尋來尋找您在中建立的新使用者  up a new user account in vCenter。
 .. 選擇「NetApp角色」或「系統管理員」。
 
 
@@ -221,7 +221,7 @@ IMPORTANT: Do * Not *選取* Propagate to子系*。
 
 +
 .. 選取「vSphere.local」或您的LDAP網域。
-.. 使用搜尋來尋找您在中建立的新使用者 <<Set up a new user account in vCenter>>。
+.. 使用搜尋來尋找您在中建立的新使用者  up a new user account in vCenter。
 .. 選擇「NetApp角色」。
 +
 
@@ -237,7 +237,7 @@ IMPORTANT: Do * Not *選取* Propagate to子系*。
 
 +
 .. 選取「vSphere.local」或您的LDAP網域。
-.. 使用搜尋來尋找您在中建立的新使用者 <<Set up a new user account in vCenter>>。
+.. 使用搜尋來尋找您在中建立的新使用者  up a new user account in vCenter。
 .. 選擇「NetApp角色」或「系統管理員」。
 .. 選擇*衍生至子項*。
 
@@ -269,7 +269,7 @@ https://<ManagementNodeIP>/mnode`
 
 == 將資產或運算節點新增至管理節點
 
-如果您需要在安裝後手動新增資產或運算節點（及BMC Assets）、請使用您在中建立的新的「期後」使用者帳戶 <<Set up a new user account in vCenter>>。如需詳細資訊、請參閱 link:task_mnode_add_assets.html["將運算和控制器資產新增至管理節點"]。
+如果您需要在安裝後手動新增資產或運算節點（及BMC Assets）、請使用您在中建立的新的「期後」使用者帳戶  up a new user account in vCenter。如需詳細資訊、請參閱 link:task_mnode_add_assets.html["將運算和控制器資產新增至管理節點"]。
 
 
 

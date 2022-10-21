@@ -55,12 +55,12 @@ Element 12.2管理節點為選用升級。現有部署不需要此功能。
 在執行此程序之前、您應該先瞭解 link:concept_hci_volumes.html#persistent-volumes["持續磁碟區"] 以及您是否要使用它們。持續磁碟區為選用功能、但建議在VM遺失時、用於管理節點組態資料恢復。
 
 .步驟
-. <<Download ISO or OVA and deploy the VM>>
-. <<Create the management node admin and configure the network>>
-. <<Configure time sync>>
-. <<Set up the management node>>
-. <<Configure controller assets>>
-. <<Configure compute node assets,（僅供參考）設定運算節點資產NetApp HCI>>
+.  ISO or OVA and deploy the VM
+.  the management node admin and configure the network
+.  time sync
+.  up the management node
+.  controller assets
+.  compute node assets,（僅供參考）設定運算節點資產NetApp HCI
 
 
 
@@ -132,7 +132,7 @@ NOTE: 如果您需要額外的NIC來隔離儲存流量、請參閱設定其他NI
 . 使用NTP確保管理節點與儲存叢集之間的時間同步：
 +
 
-NOTE: 從元件12.3.1開始、會自動執行子步驟（A）至（e）。若為管理節點12.3.1、請繼續執行 <<substep_f_install_config_time_sync,子步驟（f）>> 以完成時間同步組態。
+NOTE: 從元件12.3.1開始、會自動執行子步驟（A）至（e）。若為管理節點12.3.1、請繼續執行 ,子步驟（f） 以完成時間同步組態。
 
 +
 .. 使用SSH或Hypervisor提供的主控台登入管理節點。

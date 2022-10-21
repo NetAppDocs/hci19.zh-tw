@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: docs/task_vcp_upgrade_plugin.html 
 summary: 在進行升級時、您可以升級vCenter Server的Element外掛程式。NetApp HCI 
-keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9 
+keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10 
 ---
 = 升級vCenter Server的Element外掛程式
 :hardbreaks:
@@ -20,7 +20,7 @@ keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9
 
 此升級程序涵蓋下列升級案例：
 
-* 您正在升級至Element Plug-in for VMware vCenter Server 4.9、4.8、4.7、4.6、4.5或4.4。
+* 您正在升級至Element Plug-in for VMware vCenter Server 4.10、4.9、4.8、4.7、4.6、 4.5或4.4。
 * 您正在升級至7.0、6.7或6.5 HTML5 vSphere Web Client。
 +
 
@@ -99,8 +99,8 @@ image::vcp_shortcuts_page_accessing_plugin.png[說明成功升級或安裝後的
 
 [listing]
 ----
-NetApp Element Plug-in Version: 4.9
-NetApp Element Plug-in Build Number: 14
+NetApp Element Plug-in Version: 4.10
+NetApp Element Plug-in Build Number: 12
 ----
 
 NOTE: vCenter外掛程式包含線上說明內容。若要確保您的「說明」包含最新內容、請在升級外掛程式之後清除瀏覽器快取。

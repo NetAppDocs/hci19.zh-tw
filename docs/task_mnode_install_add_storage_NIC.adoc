@@ -24,8 +24,8 @@ keywords: netapp, element, management node, mnode, network, nic, storage nic
 
 選擇與您的環境相關的選項：
 
-* <<Configure a storage Network Interface Controller (NIC) for an untagged network interface>>
-* <<Configure a storage Network Interface Controller (NIC) for a tagged network interface>>
+*  a storage Network Interface Controller (NIC) for an untagged network interface
+*  a storage Network Interface Controller (NIC) for a tagged network interface
 
 
 

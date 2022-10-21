@@ -20,7 +20,7 @@ keywords: netapp, compute prechecks, compute node upgrade, netapp hci
 * *管理服務*：您已更新至最新的管理服務套裝組合（2.11或更新版本）。
 * *管理節點*：您執行的是管理節點11.3或更新版本。
 * * Element軟體*：您的儲存叢集執行NetApp Element 的是功能不全的軟體11.3或更新版本。
-* *終端使用者授權合約（EULA）*：從管理服務的2.20開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API執行運算節點健全狀況檢查：
+* *終端使用者授權合約（EULA）*：從管理服務2.20.69開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API執行運算節點健全狀況檢查：
 +
 .. 在Web瀏覽器中開啟管理節點的IP位址：
 +
@@ -41,13 +41,13 @@ NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動�
 
 您可以使用NetApp混合雲控制UI或NetApp混合雲控制API執行健全狀況檢查：
 
-* <<Use NetApp Hybrid Cloud Control to run compute node health checks prior to upgrading firmware>> （偏好的方法）
-* <<Use API to run compute node health checks prior to upgrading firmware>>
+*  NetApp Hybrid Cloud Control to run compute node health checks prior to upgrading firmware （偏好的方法）
+*  API to run compute node health checks prior to upgrading firmware
 
 
 您也可以深入瞭解由服務執行的運算節點健全狀況檢查：
 
-* <<Compute node health checks made by the service>>
+*  node health checks made by the service
 
 
 

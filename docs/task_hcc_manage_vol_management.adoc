@@ -15,14 +15,14 @@ keywords: netapp, hci, cluster, element, volume
 
 您可以透過下列方式在NetApp混合雲控制中管理磁碟區：
 
-* <<Create a volume>>
-* <<Apply a QoS policy to a volume>>
-* <<Edit a volume>>
-* <<Clone volumes>>
-* <<Add volumes to a volume access group>>
-* <<Delete a volume>>
-* <<Restore a deleted volume>>
-* <<Purge a deleted volume>>
+*  a volume
+*  a QoS policy to a volume
+*  a volume
+*  volumes
+*  volumes to a volume access group
+*  a volume
+*  a deleted volume
+*  a deleted volume
 
 
 
@@ -71,7 +71,7 @@ NOTE: 如果帳戶超過50個、則不會顯示清單。開始輸入、自動完
 
 == 將QoS原則套用至磁碟區
 
-您可以使用NetApp混合雲控制、將QoS原則套用至現有的儲存磁碟區。如果您需要為磁碟區設定自訂QoS值、您可以 <<Edit a volume>>。若要建立新的QoS原則、請參閱 link:task_hcc_qos_policies.html["建立及管理Volume QoS原則"^]。
+您可以使用NetApp混合雲控制、將QoS原則套用至現有的儲存磁碟區。如果您需要為磁碟區設定自訂QoS值、您可以  a volume。若要建立新的QoS原則、請參閱 link:task_hcc_qos_policies.html["建立及管理Volume QoS原則"^]。
 
 .步驟
 . 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。

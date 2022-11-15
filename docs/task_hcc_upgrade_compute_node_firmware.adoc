@@ -104,7 +104,7 @@ TIP: 如果運算韌體套裝組合和管理節點都是本機的、則可在進
 NOTE: 視管理節點與BMC主機之間的網路連線速度而定、每個節點升級NIC、BIOS和BMC可能需要約60分鐘的時間。
 
 
-NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 ,USB磁碟機 或 ,BMC UI 以掛載運算韌體套裝組合。
+NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、您應該使用 ,USB磁碟機 或 ,BMC UI 以掛載運算韌體套裝組合。
 
 .您需要的是 #8217 ；需要的是什麼
 * 如果您的管理節點未連線至網際網路、則表示您已從下載運算韌體套裝組合 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp 支援網站"^]。
@@ -210,7 +210,7 @@ TIP: 如果在升級期間發生故障、NetApp混合雲控制系統會重新啟
 您可以使用API將叢集中的每個運算節點升級至最新的韌體版本。您可以使用自己選擇的自動化工具來執行API。此處記錄的API工作流程使用管理節點上可用的REST API UI作為範例。
 
 
-NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、建議您使用 ,USB磁碟機 或 ,BMC UI 以掛載運算韌體套裝組合。
+NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、您應該使用 ,USB磁碟機 或 ,BMC UI 以掛載運算韌體套裝組合。
 
 管理節點資產必須知道運算節點資產、包括vCenter和硬體資產。您可以使用庫存服務API來驗證資產（「https://<ManagementNodeIP>/inventory/1/`」）。
 

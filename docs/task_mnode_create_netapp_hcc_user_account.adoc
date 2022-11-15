@@ -14,7 +14,7 @@ keywords: netapp, mnode, management node, vcenter, hci, role
 
 
 [role="lead"]
-建議您在vCenter中建立NetApp HCC角色、以便在安裝後、手動將vCenter資產（控制器）或運算節點（節點）新增至管理節點、或是修改現有的控制器或節點。
+您應該在vCenter中建立NetApp的「HCC」角色、以便在安裝後、將vCenter資產（控制器）或運算節點（節點）手動新增至管理節點、或是修改現有的控制器或節點。
 
 此NetApp的「高效能」角色會將您的管理節點服務檢視限制在僅適用於NetApp的資產上。
 
@@ -80,9 +80,13 @@ keywords: netapp, mnode, management node, vcenter, hci, role
 ** 頂級vCenter。
 ** 您所需的vCenter（如果您處於連結模式）。
 +
+[NOTE]
+====
+*** 從NetApp Element vCenter Server 5.0的VMware vCenter外掛程式開始使用 https://docs.netapp.com/us-en/vcp/vcp_concept_linkedmode.html["vCenter連結模式"^]、您可以從個別管理節點登錄Element外掛程式、以管理管理NetApp SolidFire VMware儲存叢集的每個vCenter Server（建議）。
+*** 使用NetApp Element vCenter Server 4．10及更早版本的支援程式、從其他vCenter Server管理叢集資源、使用 https://docs.netapp.com/us-en/vcp/vcp_concept_linkedmode.html["vCenter連結模式"^] 僅限於本機儲存叢集。
 
-NOTE: 使用NetApp Element vCenter Server的VMware vCenter外掛程式、使用管理其他vCenter Server的叢集資源 link:https://docs.netapp.com/us-en/vcp/vcp_concept_linkedmode.html["vCenter連結模式"^] 僅限於本機儲存叢集。
 
+====
 
 
 . 在右導覽窗格中、選取*權限*。

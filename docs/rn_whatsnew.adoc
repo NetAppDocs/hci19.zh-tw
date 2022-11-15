@@ -21,7 +21,7 @@ NetApp會定期更新NetApp HCI 功能、為您帶來新功能、增強功能和
 ====
 元素12.3.2包含的緩和措施可關閉元素軟體曝險於Apache log4j弱點。已啟用虛擬Volume（VVols）功能的NetApp SolidFire 支援區儲存叢集、會暴露於此弱點之中。
 
-如果您的儲存叢集位於Element 12.3.1、且VVols功能已啟用、強烈建議您升級至Element軟體12.3.2。
+如果您的儲存叢集位於Element 12.3.1、且VVols功能已啟用、則應升級Element軟體12.3.2。
 
 如果您的儲存叢集位於元素12.3.1、且VVols功能已停用、則升級至Element軟體12.3.2是選用功能。
 

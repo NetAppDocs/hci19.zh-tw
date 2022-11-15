@@ -227,6 +227,9 @@ image::network_ports.PNG[檢查連接埠連線能力]
 | vCenter Server | 儲存叢集MVIP | 443.. | vCenter外掛程式API存取 
 
 
+| vCenter Server | 遠端外掛程式 | 8333 | 遠端vCenter外掛程式服務 
+
+
 | vCenter Server | 管理節點 | 8443. | （選用）vCenter外掛程式QoSSIOC服務。 
 
 

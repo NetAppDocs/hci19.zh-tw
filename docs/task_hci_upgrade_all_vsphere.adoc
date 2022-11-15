@@ -21,9 +21,13 @@ keywords: netapp, hci, vSphere components, upgrade, vCenter, ESXi
 . 對於vCSA和Windows升級、 https://docs.netapp.com/us-en/vcp/task_vcp_unregister.html["取消登錄"^] 與vCenter Server相關聯的外掛程式、使用登錄公用程式。
 . https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vcenter.upgrade.doc/GUID-7AFB6672-0B0B-4902-B254-EE6AE81993B2.html["升級vSphere、包括vCenter Server、ESXi、VM及其他VMware元件"^]。
 +
+[IMPORTANT]
+====
+您應該升級NetApp Element 至vCenter Server 5.0的VMware vCenter外掛程式、讓您能夠使用VMware vCenter 7.0 Update 3部署外掛程式、而無需套用因應措施。
 
-IMPORTANT: 升級至VMware vCenter Server 7.0 U3時、Element外掛程式無法部署。若要使用Spring Framework 4解決此問題、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["這篇知識庫文章"^]。
+使用適用於vCenter Server 4.x的Element外掛程式、當您升級至VMware vCenter Server 7.0 Update 3時、外掛程式4.x無法部署。若要使用Spring Framework 4解決此問題、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["這篇知識庫文章"^]。
 
+====
 +
 
 NOTE: 升級適用於運算節點的ESXi時 https://www.netapp.com/us/media/tr-4823.pdf["雙節點叢集"^]、一次只升級一個運算節點、因此只有一個見證節點暫時無法使用、而且叢集仲裁也能維持不變。
@@ -34,7 +38,8 @@ NOTE: 升級適用於運算節點的ESXi時 https://www.netapp.com/us/media/tr-4
 . https://docs.netapp.com/us-en/vcp/vcp_task_qossioc.html#enabling-qossioc-automation-on-datastores["啟用QoSSIOC"^] 適用於所有由外掛程式控制的資料存放區。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

@@ -6246,7 +6246,6 @@
   <block id="07800d7fa4e084c955b9006d30b6eed1" category="cell">遠端外掛程式</block>
   <block id="b8ffa41d4e492f0fad2f13e29e1762eb" category="cell">8333</block>
   <block id="5b3a5766ccd94c0ef0148e61340c831e" category="cell">遠端vCenter外掛程式服務</block>
-  <block id="286f53b31c582a023d851a7a85dcda06" category="paragraph">如果您的儲存叢集位於Element 12.3.1、且VVols功能已啟用、則應升級Element軟體12.3.2。</block>
   <block id="ce02290d452fe7b936543abc774ea33a" category="list-text">管理節點12.3.2包含已啟用虛擬磁碟區（VVols）功能之儲存叢集的安全防護措施。如果您的儲存叢集已位於元件123、且VVols功能已啟用、則應升級至12.3.2。</block>
   <block id="a362557c8df01a4a86eda6338af59907" category="admonition">不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、您應該使用 <block ref="4d9d1e5487766b88d4d71ed7b5cbc3b9" category="inline-xref-macro-rx"></block> 或 <block ref="1f3fb96b93183df027058d51b91b7971" category="inline-xref-macro-rx"></block> 以掛載運算韌體套裝組合。</block>
   <block id="6b777567daa827d5b0665b94c630539f" category="inline-link">vCenter Plug-in 5.0版本說明</block>
@@ -6274,18 +6273,13 @@
   <block id="924861571eeb51fd5eb1d806da0f0e5e" category="list-text">*元素儲存設備升級*：</block>
   <block id="b9ad9c0000e5c2b012be9c9ba83b7cff" category="list-text">從Element vCenter外掛程式5.0開始、您的叢集執行NetApp Element 的是VMware軟體12.3.x或更新版本。</block>
   <block id="02738f63a80a594ad3ab131f3a7298f2" category="list-text">對於Element vCenter外掛程式4.10或更早版本、您的叢集執行NetApp Element 的是VMware軟體11.3或更新版本。</block>
-  <block id="e8b1bdd38a7601206cf400f05fbdc57d" category="paragraph">從vCenter Server 5：0的元素外掛開始：</block>
   <block id="f1b4824619210c84aa04d2783d1f908e" category="image-alt">說明遠端外掛程式的登錄公用程式UI</block>
-  <block id="05c0e13a813e930c3eab807f98959379" category="paragraph">vCenter Server 4．10或更早版本的Element外掛程式：</block>
   <block id="cbe647d2b7e55a533fb2f01689441181" category="image-alt">說明本機外掛程式的登錄公用程式UI</block>
-  <block id="23fa7915a24406758b2d7b2b274fe1f3" category="list-text">（適用於內部伺服器/黑點）視您的Element Plug-in for vCenter版本而定、外掛程式Json檔案或外掛程式ZIP的自訂URL：</block>
   <block id="1e35767408ad5bd29ecc61c301c556ef" category="list-text">從Element Plug-in for vCenter Server 5.0開始、這是外掛程式Json檔案的自訂URL。</block>
   <block id="b9d11c83e937a9ece9e8b7051bc68606" category="admonition">如果您使用HTTP或HTTPS伺服器（黑網站）或修改Json檔案名稱或網路設定、您可以選取*自訂URL*來自訂URL。如需自訂URL的其他組態步驟、請參閱Element Plug-In for vCenter Server文件、瞭解如何修改內部（暗站）HTTP伺服器的vCenter內容。</block>
   <block id="ba85baaa049f62983a89ac7da1647abd" category="list-text">對於vCenter Server 4.10或更早版本的元素外掛程式、則為外掛程式ZIP的自訂URL。</block>
   <block id="d471727ba1fb423986701d5307906d08" category="list-text">確認外掛程式擴充點顯示在vSphere Web Client的*捷徑*索引標籤和側邊面板中。</block>
-  <block id="290b380ec7760347344e9055b68f217d" category="paragraph">從Element Plug-in for vCenter Server 5.0開始、NetApp Element 就是「VMware遠端外掛程式」的延伸點：</block>
   <block id="a00eed84eaa5a9a20d9aaa7f39c5e19e" category="image-alt">說明在元素外掛程式5.10或更新版本成功升級或安裝之後的外掛程式擴充點</block>
-  <block id="7bf63d049a5ff0e7522ac0eb51350e50" category="paragraph">對於vCenter Server 4.10或更早版本的Element外掛程式、NetApp Element 《VMware vCenter組態與管理》擴充點如下：</block>
   <block id="85406fb94df2ff523b7477f229b1c9c8" category="image-alt">說明在元素外掛程式4.10或更早版本成功升級或安裝之後的外掛程式擴充點</block>
   <block id="b220ec4e47107c76be4a952b590dce4a" category="paragraph">您應該在vCenter中建立NetApp的「HCC」角色、以便在安裝後、將vCenter資產（控制器）或運算節點（節點）手動新增至管理節點、或是修改現有的控制器或節點。</block>
   <block id="89e4c8f92f7c3506781613b3dbd40e89" category="list-text">從NetApp Element vCenter Server 5.0的VMware vCenter外掛程式開始使用<block ref="b9ce345290cb228a35dd424c40eebf37" category="inline-link-rx"></block>、您可以從個別管理節點登錄Element外掛程式、以管理管理NetApp SolidFire VMware儲存叢集的每個vCenter Server（建議）。</block>
@@ -6293,4 +6287,14 @@
   <block id="ec78c54d60054bc44ae2e26c00313bdb" category="list-text">管理服務2.22.7包含NetApp Element VMware vCenter Server 5.0的VMware vCenter外掛程式、其中包含遠端外掛程式。如果您使用Element外掛程式、則應升級至5.0版、以符合VMware指令、該指令會移除對本機外掛程式的支援。<block ref="3eff1b8505d27ff6caa23fbbb1b7b25c" category="inline-link-rx"></block>。如果您不使用外掛程式、這是選擇性的升級。</block>
   <block id="b142e9d9b67c7c4504bd1ab09fd15db2" category="list-text">如需最新的管理服務版本注意事項、說明各服務套裝組合的主要服務、新功能、錯誤修正及因應措施、請參閱<block ref="51c56ce961e981301a44342800a6fcbd" category="inline-link-rx"></block></block>
   <block id="9db4acd10c15ec173e6516c347342e25" category="admonition">您應在vCenter中建立新的NetApp HCC角色、以新增控制器子資產。這項新的NetApp HCC-角色會將管理節點服務檢視限制為僅適用於NetApp的資產。請參閱 <block ref="8fe5279440ee3c239e840ed9b8e10ddd" category="inline-link-macro-rx"></block>。</block>
+  <block id="2e4fe9cef5b49ad23180da86877e63cb" category="cell">運算節點BMC/IPMI H410和H600系列</block>
+  <block id="59f1e3a87c5b329f2a5a951d9bf325f8" category="cell">HTTPS UI和API存取節點遠端控制</block>
+  <block id="1381491a5bb8087f95db0601150c5c28" category="cell">儲存節點BMC/IPMI H410和H600系列</block>
+  <block id="291dd45cc603b1047e92bf5a13259357" category="cell">RMCP連接埠。這是管理已啟用IPMI的系統所需的。</block>
+  <block id="7b62456477fe482fad0de3c51aabd5d1" category="paragraph">如果您的儲存叢集位於Element 12.3.1、且VVols功能已啟用、則應升級至Element軟體12.3.2。</block>
+  <block id="3ef00ef1af91bf9fe0b72f4052a67f59" category="list-text">vCenter Server 5.0元素外掛程式的vCenter外掛程式登錄頁面：</block>
+  <block id="1875d143de1e9be70dc9e780b41377fe" category="list-text">vCenter Server 4．10或更早版本之Element Plug-in的vCenter外掛程式登錄頁面：</block>
+  <block id="b8b146fd1e1ecdf074536a02bfe40871" category="list-text">（適用於內部伺服器/黑點）視您的Element Plug-in for vCenter版本而定、外掛程式Json檔案或外掛程式ZIP的自訂URL：</block>
+  <block id="1993643c12bb4ee547f04d8d85f8c4bf" category="list-text">從Element Plug-in for vCenter Server 5.0開始、NetApp Element 畫面會出現「VMware遠端外掛程式」擴充點：</block>
+  <block id="1c63b3cd9a6d3bdf8b9b31aca68672d7" category="list-text">對於vCenter Server 4．10或更早版本的Element Plug-in、NetApp Element 將會顯示「VMware組態與管理」擴充點：</block>
 </blocks>

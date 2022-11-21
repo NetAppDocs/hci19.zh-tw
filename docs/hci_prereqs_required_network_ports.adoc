@@ -212,13 +212,25 @@ image::network_ports.PNG[檢查連接埠連線能力]
 | 系統管理員PC | 儲存節點MIP | 442-44 | HTTPS UI和API存取儲存節點、NetApp HCI （僅供參考）NetApp部署引擎中的組態與部署監控 
 
 
+| 系統管理員PC | 運算節點BMC/IPMI H410和H600系列 | 443.. | HTTPS UI和API存取節點遠端控制 
+
+
 | 系統管理員PC | 管理節點 | 443.. | HTTPS UI和API存取管理節點 
 
 
 | 系統管理員PC | 儲存叢集MVIP | 443.. | HTTPS UI和API存取儲存叢集 
 
 
+| 系統管理員PC | 儲存節點BMC/IPMI H410和H600系列 | 443.. | HTTPS UI和API存取節點遠端控制 
+
+
 | 系統管理員PC | 儲存節點MIP | 443.. | HTTPS儲存叢集建立、部署後UI存取儲存叢集 
+
+
+| 系統管理員PC | 運算節點BMC/IPMI H410和H600系列 | 623 udp | RMCP連接埠。這是管理已啟用IPMI的系統所需的。 
+
+
+| 系統管理員PC | 儲存節點BMC/IPMI H410和H600系列 | 623 udp | RMCP連接埠。這是管理已啟用IPMI的系統所需的。 
 
 
 | 系統管理員PC | 見證節點 | 8080 | 見證節點個別節點的Web UI 
@@ -238,7 +250,8 @@ image::network_ports.PNG[檢查連接埠連線能力]
 
 | vCenter Server | 管理節點 | 9443 | vCenter外掛程式登錄。登錄完成後、即可關閉連接埠。 
 |===
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]

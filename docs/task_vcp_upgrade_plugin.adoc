@@ -90,16 +90,15 @@ image::vcp_registration_utility_ui_qossioc.png[說明外掛程式的登錄公用
 
 . 選取* vCenter外掛程式登錄*。
 +
-從vCenter Server 5：0的元素外掛開始：
-
+** vCenter Server 5.0元素外掛程式的vCenter外掛程式登錄頁面：
 +
 image::vcp_remote_plugin_registration_ui.png[說明遠端外掛程式的登錄公用程式UI]
 
-+
-vCenter Server 4．10或更早版本的Element外掛程式：
-
+** vCenter Server 4．10或更早版本之Element Plug-in的vCenter外掛程式登錄頁面：
 +
 image::vcp_registration_utility_ui.png[說明本機外掛程式的登錄公用程式UI]
+
+
 
 . 在*管理vCenter外掛程式*中、選取*更新外掛程式*。
 . 確認或更新下列資訊：
@@ -139,14 +138,11 @@ NOTE: 此動作會建立新的資料庫、並在vSphere Web Client中完成安�
 . 在vSphere Web Client中、請在工作監控器中尋找下列已完成的工作、以確保安裝完成：「下載外掛程式」和「部署外掛程式」。
 . 確認外掛程式擴充點顯示在vSphere Web Client的*捷徑*索引標籤和側邊面板中。
 +
-從Element Plug-in for vCenter Server 5.0開始、NetApp Element 就是「VMware遠端外掛程式」的延伸點：
-
+** 從Element Plug-in for vCenter Server 5.0開始、NetApp Element 畫面會出現「VMware遠端外掛程式」擴充點：
 +
 image::vcp_remote_plugin_icons_home_page.png[說明在元素外掛程式5.10或更新版本成功升級或安裝之後的外掛程式擴充點]
 
-+
-對於vCenter Server 4.10或更早版本的Element外掛程式、NetApp Element 《VMware vCenter組態與管理》擴充點如下：
-
+** 對於vCenter Server 4．10或更早版本的Element Plug-in、NetApp Element 將會顯示「VMware組態與管理」擴充點：
 +
 image::vcp_shortcuts_page_accessing_plugin.png[說明在元素外掛程式4.10或更早版本成功升級或安裝之後的外掛程式擴充點]
 
@@ -158,17 +154,20 @@ image::vcp_shortcuts_page_accessing_plugin.png[說明在元素外掛程式4.10�
 升級NetApp Element 至VMware vCenter Server 6.7U1的vCenter Server 4.8或更新版本時、如果儲存叢集未列出、或NetApp Element 伺服器錯誤出現在「VMware vCenter組態」的「*叢集*」和「* QoSSIOC設定*」區段中、請參閱 link:https://docs.netapp.com/us-en/vcp/vcp_reference_troubleshoot_vcp.html#error_vcp48_67u1["vCenter Server的Element外掛程式"^] 疑難排解這些錯誤的相關文件。
 
 ====
+
+
 . 確認NetApp Element 外掛程式*的「組態*」擴充點*「關於*」索引標籤中的版本變更。
 +
 您應該會看到下列版本詳細資料或較新版本的詳細資料：
 
-
-
++
 [listing]
 ----
 NetApp Element Plug-in Version: 5.0
 NetApp Element Plug-in Build Number: 37
 ----
+
+
 
 NOTE: vCenter外掛程式包含線上說明內容。若要確保您的「說明」包含最新內容、請在升級外掛程式之後清除瀏覽器快取。
 

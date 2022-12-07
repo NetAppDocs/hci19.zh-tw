@@ -16,6 +16,7 @@ keywords: netapp, hci, netapp, networking, clusters, user, trident, rancher
 [role="lead"]
 如果NetApp HCI 您的靜態環境在管理和儲存網路之間沒有路由、而且您部署的使用者叢集需要Trident支援、則在安裝Trident之後、您需要進一步設定使用者叢集網路。對於每個使用者叢集、您都需要啟用管理網路與儲存網路之間的通訊。您可以修改使用者叢集中每個節點的網路組態、以達成此目的。
 
+.關於這項工作
 請遵循下列一般步驟、修改使用者叢集中每個節點的網路組態。這些步驟假設您已使用預設節點範本建立使用者叢集、而此範本是與Rancher一起安裝NetApp HCI 在整個系統上。
 
 

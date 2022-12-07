@@ -16,15 +16,17 @@ keywords: netapp, hci, BMC, connection, credentials, monitor
 [role="lead"]
 您可以在NetApp混合雲控制中、針對每個運算節點變更基礎板管理控制器（BMC）管理員認證。您可能需要在升級BMC韌體之前變更認證資料、或是解決NetApp混合雲控制系統中指出的「Hardware ID Not Available（硬體ID無法使用）」或「unable to Detect（無法偵測）」錯誤。
 
+.您需要的產品
 叢集管理員變更BMC認證的權限。
 
 
 NOTE: 如果您在健全狀況檢查期間設定BMC認證、則在「*節點*」頁面上反映變更之前、最多可能會有2分鐘的延遲。
 
+.選項
 選擇下列其中一個選項來變更BMC認證：
 
-*  NetApp Hybrid Cloud Control to edit BMC information
-*  the REST API to edit BMC information
+* <<使用NetApp混合雲控制來編輯BMC資訊>>
+* <<使用REST API編輯BMC資訊>>
 
 
 

@@ -48,11 +48,13 @@ https://mysupport.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["NetA
 
 在瀏覽器視窗中執行、收集網路和環境的相關資訊、並產生報告、供您用來解決可能會干擾到非執行功能部署的任何網路或組態問題。Active IQ Config Advisor NetApp HCI
 
+.開始之前
 您已在Active IQ Config Advisor 可存取管理網路、VMware vCenter Server網路（如果您正在加入現有的VMware安裝）和NetApp HCI 交換器的裝置上安裝了VMware。
 
 
 NOTE: 如果您使用Mellanox交換器、而NetApp專業服務將其設定為部署的一部分、則不需要提供交換器資訊。
 
+.關於這項工作
 僅執行唯讀檢查以收集資訊。Active IQ Config Advisor集合中不會修改任何組態。
 
 .步驟

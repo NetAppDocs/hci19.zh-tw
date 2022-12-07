@@ -28,8 +28,8 @@ NetApp會定期更新NetApp HCI 功能、為您帶來新功能、增強功能和
 除非是在升級期間、否則NetApp不建議在叢集中執行混合元素版本。
 
 ====
-* 。  HCI 1.9P1 一節說明NetApp HCI 功能更新及更新功能、以更新版本1.9P1。
-* 。  12.3.1 一節說明NetApp Element 功能更新資訊。
+* 。 <<資料編號1.9P1 NetApp HCI>> 一節說明NetApp HCI 功能更新及更新功能、以更新版本1.9P1。
+* 。 <<元素12.3.1>> 一節說明NetApp Element 功能更新資訊。
 
 
 

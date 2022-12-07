@@ -57,6 +57,7 @@ NOTE: 如果部署失敗、請儲存任何錯誤訊息文字、並聯絡NetApp�
 
 
 
+.完成後
 選擇* Launch vSpher*即可開始使用NetApp HCI 此功能。
 
 [NOTE]

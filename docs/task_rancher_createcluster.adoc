@@ -19,7 +19,7 @@ keywords: netapp, hci, rancher, kubernetes clusters, create cluster
 
 TIP: 如需建立叢集需求的詳細資訊、請參閱 https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Rancher文件"^]。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您已在NetApp HCI 支援的過程中安裝Rancher。
 * 您擁有必要的靜態IP位址。每個使用者叢集需要三個靜態IP位址。
 * 您已熟悉中所列的需求 https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Rancher文件"^]。

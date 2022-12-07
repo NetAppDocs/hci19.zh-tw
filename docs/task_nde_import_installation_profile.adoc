@@ -16,6 +16,7 @@ keywords: netapp, hci, deployment, compatibility, nodes, installation, profile, 
 [role="lead"]
 如果您取得NetApp https://configbuilder.netapp.com/["ConfigBuilder"^] 您可以在NetApp HCI 安裝過程中匯入設定檔輸出、以自動填寫NetApp部署引擎中的欄位。這是選用步驟。
 
+.關於這項工作
 如果您匯入安裝設定檔、仍需在NetApp HCI NetApp部署引擎的*認證*頁面輸入認證資料以供使用。
 
 

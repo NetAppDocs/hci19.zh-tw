@@ -17,6 +17,7 @@ keywords: netapp, hci, netapp deployment engine, deployment, vsphere
 [role="lead"]
 在佈線NetApp HCI 過程中、您可以根據需求選擇使用不同的網路纜線組態。對於每個運算節點、您可以使用所有六個網路連接埠、並將不同類型的流量指派給每對連接埠、也可以使用兩個連接埠來處理指派給連接埠的所有類型流量。儲存節點使用標準的四纜線組態。您的選擇會影響庫存中可選取的運算節點。
 
+.您需要的產品
 如果您為運算節點選擇雙纜線網路拓撲、請考慮下列需求：
 
 * 部署完成後、您可以立即申請VMware vSphere Enterprise Plus授權。

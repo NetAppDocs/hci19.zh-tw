@@ -18,7 +18,7 @@ keywords: netapp, hci, rancher, upgrade, hcc
 
 可透過元件進行升級、而非使用累計套件。因此、有些元件升級（例如Ubuntu OS）的執行速度更快。升級只會影響您的Rancher伺服器執行個體和部署Rancher伺服器的管理叢集。升級至管理叢集節點的Ubuntu作業系統僅適用於關鍵的安全性修補程式、不會升級作業系統。無法從NetApp混合雲控制升級使用者叢集。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * *管理權限*：您有儲存叢集管理員權限可執行升級。
 * *管理服務*：您已將管理服務套裝組合更新為最新版本。
 
@@ -46,10 +46,11 @@ NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動�
 
 
 
+.升級選項
 請選擇下列其中一個升級程序：
 
-*  NetApp Hybrid Cloud Control UI to upgrade a Rancher deployment
-*  NetApp Hybrid Cloud Control API to upgrade a Rancher deployment
+* <<使用NetApp混合雲控制UI來升級Rancher部署>>
+* <<使用NetApp混合雲控制API升級Rancher部署>>
 
 
 
@@ -63,7 +64,7 @@ NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動�
 * 節點OS安全性更新
 
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 良好的網際網路連線。無法進行暗站升級（在沒有外部連線的站台進行升級）。
 
 
@@ -107,9 +108,9 @@ NOTE: 對於節點作業系統、安全性修補程式的無人值守升級會�
 您可以使用所選的自動化工具來執行管理節點上可用的API或REST API UI。
 
 .選項
-*  Rancher Server
-*  RKE
-*  node OS security updates
+* <<升級Rancher伺服器>>
+* <<升級RKE>>
+* <<套用節點OS安全性更新>>
 +
 
 NOTE: 對於節點作業系統、安全性修補程式的無人值守升級會每日執行、但節點不會自動重新開機。套用升級之後、您會重新啟動每個節點、使安全性更新生效。

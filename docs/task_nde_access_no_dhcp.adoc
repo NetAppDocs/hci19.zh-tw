@@ -17,7 +17,7 @@ keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, acc
 [role="lead"]
 當網路上未使用DHCP時、您需要在其中一個儲存節點（也稱為控制儲存節點）的Bond1G介面上設定靜態的IPV4位址、以便用來存取NetApp部署引擎。控制儲存節點上的NetApp部署引擎將會使用在所有節點的Bond10G介面上自動設定的IPv4位址、探索並與其他運算和儲存節點通訊。除非您的網路有特殊需求、否則應使用此方法。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您或您的網路管理員已完成安裝與設定說明文件中的工作。
 * 您可以實體存取NetApp HCI 物件節點。
 * 所有的支援節點都已開啟。NetApp HCI

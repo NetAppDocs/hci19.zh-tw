@@ -16,11 +16,12 @@ keywords: netapp, hci, dimm, compute nodes
 [role="lead"]
 您可以更換NetApp HCI 出現故障的雙列直插式記憶體模組（DIMM）、而非更換整個節點。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 在開始執行此程序之前、您應該已聯絡NetApp支援部門、並收到更換零件。在安裝替換產品時、將會提供相關支援。如果您尚未這麼做、請聯絡 https://www.netapp.com/us/contact-us/support.aspx["支援"^]。
 * 您已計畫系統停機、因為您需要關閉或循環節點、並將節點開機至NetApp安全模式、才能存取終端使用者介面（TUI）。
 
 
+.關於這項工作
 此程序適用於下列運算節點機型：
 
 * H410C節點。H410C節點已插入2U NetApp HCI 的機箱中。
@@ -38,8 +39,8 @@ NOTE: 在H610C和H615C的情況下、「機箱」和「節點」這兩個詞彙�
 
 以下是更換運算節點中DIMM的步驟：
 
-*  to replace the DIMM
-*  the DIMM from the chassis
+* <<準備更換DIMM>>
+* <<從機箱裝回DIMM>>
 
 
 
@@ -264,6 +265,7 @@ IMPORTANT: 請確定只觸碰DIMM的後端。如果您按下DIMM的其他部分�
 
 
 
+.下一步
 節點恢復正常作業後、請在vCenter中檢查摘要索引標籤、以確保記憶體容量符合預期。
 
 

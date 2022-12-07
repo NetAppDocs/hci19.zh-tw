@@ -16,7 +16,7 @@ keywords: netapp, hci, HealthTools, cluster, element, H610S upgrade, hcc
 [role="lead"]
 若要升級NetApp Element VMware軟體、您可以使用NetApp混合雲控制UI、REST API或HealthTools套裝工具。某些作業會在元素軟體升級期間受到抑制、例如新增和移除節點、新增和移除磁碟機、以及與啟動器、Volume存取群組和虛擬網路相關的命令等。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * *管理權限*：您有儲存叢集管理員權限可執行升級。
 * *有效的升級路徑*：您已檢查要升級的元素版本的升級路徑資訊、並確認升級路徑有效。https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/What_is_the_upgrade_matrix_for_storage_clusters_running_NetApp_Element_software%3F["NetApp知識庫：執行NetApp Element 「更新軟體」之儲存叢集的升級對照表"^]
 * *系統時間同步*：您已確保所有節點上的系統時間均已同步、且儲存叢集和節點的NTP設定正確。每個節點都必須在每個節點的Web UI（「https://[IP位址」：442`）中設定DNS名稱伺服器、且不會發生與時間偏移相關的未解決叢集故障。
@@ -49,16 +49,17 @@ NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動�
 
 
 
+.升級選項
 請選擇下列其中一個元素軟體升級選項：
 
-*  NetApp Hybrid Cloud Control UI to upgrade Element storage
-*  NetApp Hybrid Cloud Control API to upgrade Element storage
-*  Element software at connected sites using HealthTools
-*  Element software at dark sites using HealthTools
+* <<使用NetApp混合雲控制UI來升級元素儲存設備>>
+* <<使用NetApp混合雲控制API來升級元素儲存設備>>
+* <<使用HealthTools升級連線站台的Element軟體>>
+* <<使用HealthTools升級黑暗站台的Element軟體>>
 
 
 
-IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（ H610S storage nodes to Element 12.3.x (phase 2),第2階段）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<<將H610S儲存節點升級至Element 12.3.x（階段2）,第2階段>>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
 
 
 
@@ -66,6 +67,7 @@ IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點�
 
 您可以使用NetApp混合雲控制UI來升級儲存叢集。
 
+.您需要的產品
 如果您的管理節點未連線至網際網路、則表示您已下載 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["適用於不含資源的儲存叢集的軟體套件NetApp HCI NetApp HCI"^]。
 
 
@@ -100,7 +102,7 @@ https://<ManagementNodeIP>
 
 
 
-TIP: 升級期間*升級狀態*會變更、以反映程序的狀態。它也會因應您採取的行動而變更、例如暫停升級、或升級傳回錯誤。請參閱  status changes。
+TIP: 升級期間*升級狀態*會變更、以反映程序的狀態。它也會因應您採取的行動而變更、例如暫停升級、或升級傳回錯誤。請參閱 <<升級狀態變更>>。
 
 
 NOTE: 在升級進行期間、您可以離開頁面、稍後再返回頁面、繼續監控進度。如果叢集列收合、頁面不會動態更新狀態和目前版本。叢集列必須展開以更新表格、否則您可以重新整理頁面。
@@ -127,7 +129,7 @@ CAUTION: 如果您離開瀏覽器視窗、檔案上傳將會遺失。
 .. 完成中所需的其他步驟（階段2） https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure["知識庫文章"^]並在UI中確認您已完成階段2。
 
 
-您可以在升級完成後下載記錄。如需各種升級狀態變更的相關資訊、請參閱  status changes。
+您可以在升級完成後下載記錄。如需各種升級狀態變更的相關資訊、請參閱 <<升級狀態變更>>。
 
 |===
 
@@ -420,7 +422,7 @@ https://<ManagementNodeIP>/storage/1/
 
 
 | 如果您要升級執行11.8之前元素版本的H610S叢集、您會在回應本文中看到「finishedNeedsAck」狀態。您需要為每個H610S儲存節點執行額外的升級步驟（階段2）。  a| 
-... 請參閱  H610S storage nodes to Element 12.3.x or later (phase 2) 並完成每個節點的程序。
+... 請參閱 <<Upgrading H610S storage nodes to Element 12.3.x or later (phase 2)>> 並完成每個節點的程序。
 ... 視需要重新驗證、然後選取*「PGE」（更新）/「｛upgradeId｝」*。
 ... 選擇*試用*。
 ... 在* upgradeId*中輸入上一步的升級ID。
@@ -633,7 +635,7 @@ Starting light cluster block service check
 
 
 
-IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（ H610S storage nodes to Element 12.3.x (phase 2),第2階段）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<<將H610S儲存節點升級至Element 12.3.x（階段2）,第2階段>>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
 
 
 
@@ -641,7 +643,7 @@ IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點�
 
 您可以使用HealthTools工具套件、在NetApp Element 沒有外部連線的暗處更新VMware軟體。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 . 移至NetApp HCI 「軟件」 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["下載頁面"^]。
 . 選取正確的軟體版本、並將最新的儲存節點映像下載到不是管理節點的電腦。
 +
@@ -701,7 +703,7 @@ sfinstall -u admin 10.117.78.244 /tmp/solidfire-rtfi-11.3.0.345.iso --metadata=/
 
 
 
-IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（ H610S storage nodes to Element 12.3.x (phase 2),第2階段）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+IMPORTANT: 如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<<將H610S儲存節點升級至Element 12.3.x（階段2）,第2階段>>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
 
 
 

@@ -16,7 +16,7 @@ keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement
 [role="lead"]
 在更換屬於雙節點叢集的儲存節點之前、您應該先新增第三個儲存節點（需要一組新的IP位址）、讓同步作業完成、然後移除故障節點。叢集會維持降級狀態、直到替換節點加入叢集為止。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您有新的管理IP和儲存IP位址。
 * 您已確認叢集在節點離線後顯示「ClusterCannotSync」警示。如此可確保叢集在新節點新增回叢集時、執行完整的重新同步。此警示會在儲存節點離線約六分鐘後顯示。
 * 您已聯絡NetApp支援部門。如果您訂購的是更換產品、您應該可以透過NetApp支援部門開啟案例。
@@ -24,6 +24,7 @@ keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement
 * 您有一個防靜電（ESD）腕帶、或是您已採取其他防靜電保護措施。
 
 
+.關於這項工作
 當主機故障時、VMware vSphere Web Client中的警示會提醒您。您必須將VMware vSphere Web Client故障主機的序號與節點背面貼紙上的序號配對。
 
 .步驟

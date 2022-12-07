@@ -15,4 +15,5 @@ keywords: netapp, hci, HCC, configuration, capabilities, limits, maximums
 
 如果您超過這些測試的上限、則可能會遇到NetApp混合雲控制的問題、例如使用者介面速度變慢、API回應速度變慢或功能無法使用。如果您在設定超過組態上限的環境中、使用NetApp混合式雲端控制技術來支援NetApp產品、NetApp支援部門會要求您將組態變更為記錄的組態上限範圍內的組態。
 
+.組態上限
 NetApp混合雲控制系統支援VMware vSphere環境、最多可支援500個NetApp運算節點。它支援最多20 NetApp Element 個以軟體為基礎的儲存叢集、每個叢集有40個儲存節點。

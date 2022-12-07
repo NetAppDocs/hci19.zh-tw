@@ -16,17 +16,18 @@ keywords: netapp, mnode, management node, rest api, hci, assets
 [role="lead"]
 您可以將新的儲存叢集資產新增至管理節點、編輯已知儲存叢集資產的儲存認證、以及使用REST API從管理節點刪除儲存叢集資產。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 確保您的儲存叢集版本執行NetApp Element 的是更新版本的軟件、即不含任何更新版本。
 * 請確定您已部署執行11.3版或更新版本的管理節點。
 
 
+.儲存叢集資產管理選項
 請選擇下列其中一個選項：
 
-*  the installation ID and cluster ID of a storage cluster asset
-*  a new storage cluster asset
-*  the stored credentials for a storage cluster asset
-*  a storage cluster asset
+* <<擷取儲存叢集資產的安裝ID和叢集ID>>
+* <<新增儲存叢集資產>>
+* <<編輯儲存叢集資產的儲存認證資料>>
+* <<刪除儲存叢集資產>>
 
 
 
@@ -101,8 +102,8 @@ API會傳回此安裝中所有已知儲存叢集的清單。
 
 您可以使用REST API將一或多個新的儲存叢集資產新增至管理節點庫存。當您新增儲存叢集資產時、它會自動登錄到管理節點。
 
-.您需要的是 #8217 ；需要的是什麼
-* 您已複製  the installation ID and cluster ID of a storage cluster asset,儲存叢集ID和安裝ID 適用於您要新增的任何儲存叢集。
+.您需要的產品
+* 您已複製 <<擷取儲存叢集資產的安裝ID和叢集ID,儲存叢集ID和安裝ID>> 適用於您要新增的任何儲存叢集。
 * 如果您要新增一個以上的儲存節點、您已閱讀並瞭解的限制 link:concept_hci_clusters.html#authoritative-storage-clusters["驗證叢集"] 以及多個儲存叢集支援。
 +
 
@@ -167,7 +168,7 @@ API會傳回包含新增儲存叢集資產相關資訊的物件、例如名稱�
 您可以編輯管理節點用來登入儲存叢集的已儲存認證。您選擇的使用者必須擁有叢集管理存取權。
 
 
-NOTE: 請確定您已遵循中的步驟  the installation ID and cluster ID of a storage cluster asset 然後繼續。
+NOTE: 請確定您已遵循中的步驟 <<擷取儲存叢集資產的安裝ID和叢集ID>> 然後繼續。
 
 .步驟
 . 輸入管理節點IP位址、然後輸入「/storage / 1/'：
@@ -216,7 +217,7 @@ https://<ManagementNodeIP>/storage/1/
 如果儲存叢集不再服務、您可以刪除儲存叢集資產。當您移除儲存叢集資產時、它會自動從管理節點取消註冊。
 
 
-NOTE: 請確定您已遵循中的步驟  the installation ID and cluster ID of a storage cluster asset 然後繼續。
+NOTE: 請確定您已遵循中的步驟 <<擷取儲存叢集資產的安裝ID和叢集ID>> 然後繼續。
 
 .步驟
 . 輸入管理節點IP位址、然後輸入「/storage / 1/'：

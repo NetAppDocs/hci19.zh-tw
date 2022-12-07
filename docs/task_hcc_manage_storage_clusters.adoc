@@ -15,7 +15,7 @@ keywords: netapp, hci, element, storage cluster, hybrid cloud control, hcc, main
 
 從元件12開始、您可以使用 link:concept_hci_storage_maintenance_mode.html["維護模式"] 功能選項可啟用和停用儲存叢集節點的維護模式。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * *叢集管理員權限*：您具有的管理員權限 link:concept_hci_clusters.html#authoritative-storage-clusters["授權儲存叢集"]。驗證叢集是系統設定期間新增至管理節點資源清冊的第一個叢集。
 * * Element軟體*：您的儲存叢集版本執行NetApp Element 的是功能不全的軟體11.3或更新版本。
 * *管理節點*：您已部署執行11.3版或更新版本的管理節點。
@@ -23,11 +23,11 @@ keywords: netapp, hci, element, storage cluster, hybrid cloud control, hcc, main
 
 
 .選項
-*  a storage cluster
-*  storage cluster status
-*  storage cluster credentials
-*  a storage cluster
-*  and disable maintenance mode
+* <<新增儲存叢集>>
+* <<確認儲存叢集狀態>>
+* <<編輯儲存叢集認證資料>>
+* <<移除儲存叢集>>
+* <<啟用和停用維護模式>>
 
 
 
@@ -111,9 +111,9 @@ CAUTION: 按一下「*是*」下一步、即可從安裝中移除叢集。
 [discrete]
 == 啟用和停用維護模式
 
-這 link:concept_hci_storage_maintenance_mode.html["維護模式"] 功能選項可讓您實現 ,啟用 和 ,停用 儲存叢集節點的維護模式。
+這 link:concept_hci_storage_maintenance_mode.html["維護模式"] 功能選項可讓您實現 <<enable_main_mode,啟用>> 和 <<disable_main_mode,停用>> 儲存叢集節點的維護模式。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * * Element軟體*：您的儲存叢集版本執行NetApp Element 的是功能不全的軟體12、2或更新版本。
 * *管理節點*：您已部署執行版本12．2或更新版本的管理節點。
 * *管理服務*：您已將管理服務套裝組合更新為2.19版或更新版本。
@@ -122,7 +122,7 @@ CAUTION: 按一下「*是*」下一步、即可從安裝中移除叢集。
 
 
 
-=== 啟用維護模式
+=== [[ene_main_mode]]啟用維護模式
 
 您可以使用下列程序來啟用儲存叢集節點的維護模式。
 
@@ -167,7 +167,7 @@ image:hcc_enable_maintenance_mode.PNG["啟用維護模式"]
 
 
 
-=== 停用維護模式
+=== [[disable_main_mode]停用維護模式
 
 在節點成功置於維護模式之後、此節點可使用*停用維護模式*動作。其他節點上的動作將無法使用、直到正在進行維護的節點上成功停用維護模式為止。
 

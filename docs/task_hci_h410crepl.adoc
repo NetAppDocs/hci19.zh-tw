@@ -19,7 +19,7 @@ keywords: netapp, hci, H410C nodes, replacement, node replacement
 
 NOTE: 更換節點的NetApp HCI 版本應與NetApp HCI 安裝時的其他運算節點相同。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您已確定需要更換運算節點。
 * 您有替換的運算節點。若要訂購替換節點、請聯絡NetApp支援部門。運算節點隨附於已安裝Bootstrap作業系統的產品。節點是從原廠隨附最新版Bootstrap作業系統。在下列情況下、您可能需要在節點上執行恢復原廠映像（RTFI）程序：
 +
@@ -31,6 +31,7 @@ NOTE: 更換節點的NetApp HCI 版本應與NetApp HCI 安裝時的其他運算�
 * 您已標記每條連接至運算節點的纜線。
 
 
+.關於這項工作
 VMware vSphere Web Client中的警示會在節點故障時發出警示。您應該將VMware vSphere Web Client故障節點的序號與節點背面貼紙上的序號配對。
 
 更換H410C運算節點時、請考慮下列事項：
@@ -39,15 +40,16 @@ VMware vSphere Web Client中的警示會在節點故障時發出警示。您應�
 * H410C運算節點只能以高線電壓（200-240 VAC）運作。將H410C節點新增至現有NetApp HCI 的作業系統時、您應確保符合電源需求。
 
 
-以下是本程序步驟的深度概觀： to replace the compute node
- the compute node in the chassis
- the compute node asset in NetApp HCI 1.7 and later
- the compute node to the cluster
- Witness Nodes for two and three-node storage clusters
+.步驟總覽
+以下是本程序步驟的深度概觀：<<準備更換運算節點>>
+<<更換機箱中的運算節點>>
+<<移除NetApp HCI 以更新版本更新的運算節點資產>>
+<<將運算節點新增至叢集>>
+<<為兩個和三個節點的儲存叢集重新部署見證節點>>
 
 以下是一些其他工作、如果您的系統具備適用於下列項目的特定條件、您可能需要執行這些工作：link:task_hci_removewn.html["移除見證節點以釋放運算資源"]
- the password if you received a replacement node with a non-standard BMC password
- the BMC firmware on your node
+<<如果您收到使用非標準BMC密碼的替換節點、請變更密碼>>
+<<升級節點上的BMC韌體>>
 
 
 
@@ -177,7 +179,7 @@ NOTE: 如果您在嘗試授權後收到「驗證錯誤類型錯誤：無法擷�
 
 只有NetApp HCI 當您的安裝執行於1.6P1或更新版本時、才能使用NetApp混合雲控制。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 如果NetApp HCI 您使用虛擬分散式交換器來擴充部署、請確保vSphere執行個體使用vSphere Enterprise Plus授權。
 * 請確認使用NetApp HCI 中的vCenter或vSphere執行個體均未過期授權。
 * 請確定現有節點所在的網路區段中有可用且未使用的IPv4位址（每個新節點必須安裝在與其類型現有節點相同的網路上）。
@@ -262,7 +264,7 @@ TIP: 對於某些運算節點、您可能需要在vCenter版本所支援的最�
 
 如果您的安裝執行1.4P2、1.4或1.3版、您可以使用NetApp部署引擎將節點新增至叢集。NetApp HCI
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 如果NetApp HCI 您使用虛擬分散式交換器來擴充部署、請確保vSphere執行個體使用vSphere Enterprise Plus授權。
 * 請確認使用NetApp HCI 中的vCenter或vSphere執行個體均未過期授權。
 * 請確定現有節點所在的網路區段中有可用且未使用的IPv4位址（每個新節點必須安裝在與其類型現有節點相同的網路上）。
@@ -576,7 +578,7 @@ image::rescan.gif[顯示儲存介面卡的重新掃描圖示。]
 
 在實體更換故障的運算節點之後、如果NetApp HCI 故障的運算節點裝載見證節點、您應該重新部署該節點VM。這些指示僅適用於NetApp HCI 安裝有兩個或三個節點儲存叢集的執行環境中的運算節點。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 收集下列資訊：
 +
 ** 儲存叢集的叢集名稱
@@ -597,6 +599,7 @@ NOTE: 如果叢集只停機至兩個實體儲存節點（且無見證節點）�
 
 
 
+.何時應重新部署見證節點？
 您應該在下列案例中重新部署見證節點：
 
 * 您更換了NetApp HCI 一個故障的運算節點、該節點是安裝過程中的一部分、其中有兩個或三個節點的儲存叢集、而且故障的運算節點正在裝載見證節點VM。

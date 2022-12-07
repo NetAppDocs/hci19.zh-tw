@@ -21,7 +21,7 @@ redirect: hci/index.html
 
 
 
-== 瞭解新功能
+== 瞭解最新資訊
 
 * link:rn_whatsnew.html["更新功能NetApp HCI"]
 * https://docs.netapp.com/us-en/element-software/concepts/concept_rn_whats_new_element.html["更新功能NetApp Element"^]

@@ -16,6 +16,7 @@ keywords: netapp, hci, witness nodes, two-node cluster, four-node cluster, compu
 [role="lead"]
 將雙節點儲存叢集擴充至四個或更多節點之後、您可以刪除見證節點配對、以便在NetApp HCI 安裝時釋放運算資源。儲存叢集先前使用的見證節點仍會在vSphere Web Client中顯示為待命虛擬機器（VM）。
 
+.關於這項工作
 擁有四個以上儲存節點的叢集不需要見證節點。如果您想要在將雙節點叢集擴充至四個或更多節點之後、釋放CPU和記憶體、請選用此程序。
 
 

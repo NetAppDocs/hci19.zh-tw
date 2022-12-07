@@ -16,7 +16,7 @@ keywords: netapp, element, management node, management services, mnode, logs
 [role="lead"]
 您可以使用REST API從管理節點上執行的服務擷取記錄。您可以從所有公有服務提取記錄、或指定特定服務、並使用查詢參數來更妥善定義傳回結果。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您的叢集版本執行NetApp Element 的是更新版本的Software 11.3。
 * 您已部署執行11.3版或更新版本的管理節點。
 

@@ -19,13 +19,14 @@ keywords: netapp, hci, rancher, install, trident, persistent volumes, pv
 
 TIP: 如需Trident的詳細資訊、請參閱 https://netapp-trident.readthedocs.io/en/stable-v20.10/introduction.html["Trident文件"^]。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您已在NetApp HCI 支援的過程中安裝Rancher。
 * 您已部署使用者叢集。
 * 您已將使用者叢集網路設定為Trident。請參閱 link:task_trident_configure_networking.html["啟用使用者叢集的Trident支援"] 以取得相關指示。
 * 您已完成工作節點準備Trident所需的必要先決條件步驟。請參閱 https://netapp-trident.readthedocs.io/en/stable-v20.10/kubernetes/operations/tasks/worker.html["Trident文件"^]。
 
 
+.關於這項工作
 Trident安裝程式目錄是以NetApp混合雲控制系統安裝Rancher的一部分。在此工作中、您可以使用安裝程式目錄來安裝及設定Trident。在Rancher安裝過程中、NetApp提供了一個節點範本。如果您不打算使用NetApp提供的節點範本、而想要在RHEL或CentOS上進行資源配置、則可能需要額外的需求。如果您將工作節點變更為RHEL或CentOS、則必須符合多項先決條件。請參閱 https://netapp-trident.readthedocs.io/en/stable-v20.10/kubernetes/operations/tasks/worker.html["Trident文件"^]。
 
 .步驟

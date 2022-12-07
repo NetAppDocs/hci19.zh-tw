@@ -17,6 +17,7 @@ keywords: netapp, hci, netapp deployment engine, deployment, vsphere
 [role="lead"]
 當您關閉NetApp HCI 用於支援功能的儲存資源時、您需要使用「停機」元素API方法來正確停止儲存節點。
 
+.步驟
 關閉運算資源之後、您可以使用網頁瀏覽器來關閉NetApp HCI 該儲存叢集的所有節點。
 
 . 登入儲存叢集、確認您已連線至正確的MVIP。

@@ -11,9 +11,9 @@ keywords: netapp, management node ui, mnode ui, network settings, test network, 
 [role="lead"]
 您可以修改及測試管理節點網路、叢集及系統設定。
 
-*  management node network settings
-*  management node cluster settings
-*  the management node settings
+* <<更新管理節點網路設定>>
+* <<更新管理節點叢集設定>>
+* <<測試管理節點設定>>
 
 
 

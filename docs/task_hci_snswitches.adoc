@@ -16,7 +16,7 @@ keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S
 [role="lead"]
 您可以依照NetApp提供的最佳實務做法和步驟、在不中斷營運的情況下更換故障的SN2000系列交換器。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 請確定Putty已安裝在筆記型電腦上、而且您已擷取輸出。請觀看此影片、瞭解如何設定Putty以擷取輸出工作階段。
 
 
@@ -43,17 +43,18 @@ image::sn2010_rear.png[SN2010和SN2100後端,600,400]
 .SN2700開關前後
 image::SN2700.png[SN2700前後,600,400]
 
+.關於這項工作
 您應依照下列順序執行本程序中的步驟。這是為了確保停機時間最短、更換交換器之前已預先設定更換交換器。
 
 
 NOTE: 如需指引、請聯絡NetApp支援部門。
 
-以下是程序步驟的總覽： to replace the faulty switch
- the configuration file
- the faulty switch and install the replacement
- the operating system version on the switch
- the replacement switch
- the replacement
+以下是程序步驟的總覽：<<準備更換故障的交換器>>
+<<建立組態檔>>
+<<移除故障的交換器、然後安裝更換裝置>>
+<<驗證交換器上的作業系統版本>>
+<<設定替換交換器>>
+<<完成更換>>
 
 
 

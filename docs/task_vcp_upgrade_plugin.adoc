@@ -63,7 +63,7 @@ IMPORTANT: 外掛程式與版本6.7 U2 build 130074221的HTML5 vSphere Web Clien
 
 --
 ====
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * *管理權限*：您有vCenter管理員角色權限可安裝外掛程式。
 * * vSphere升級*：您在升級NetApp Element 適用於vCenter Server的VMware vCenter外掛程式之前、已執行任何必要的vCenter升級。此程序假設vCenter升級已完成。
 * * vCenter Server*：您的vCenter外掛程式5.x或4.x版已在vCenter Server中註冊。從登錄公用程式 (`https://[management node IP]:9443`）、選取* Registration Status（登錄狀態）*、填寫必要欄位、然後選取* Check Status（檢查狀態）*以確認vCenter外掛程式已登錄、以及目前安裝的版本編號。

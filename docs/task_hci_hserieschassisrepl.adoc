@@ -16,6 +16,7 @@ keywords: netapp, hci, chassis replacement,2U chassis replacement, h-series
 [role="lead"]
 如果您的機箱發生風扇故障或電源問題、請盡快更換。機箱更換程序的步驟取決於NetApp HCI 您的不一致組態和叢集容量、因此需要仔細考量和規劃。您應聯絡NetApp支援部門以取得指引、並訂購替換機箱。
 
+.關於這項工作
 在更換機箱之前、您應該考慮下列事項：
 
 * 您的機架是否有額外空間可容納新機箱？
@@ -25,8 +26,9 @@ keywords: netapp, hci, chassis replacement,2U chassis replacement, h-series
 * 移除故障機箱中的運算節點時、您的虛擬機器（VM）和ESXi叢集能否處理工作負載？
 
 
-請從下列選項中選擇一項： the chassis when additional unused space is available in the rack
- the chassis when additional unused space is not available in the rack
+.更換選項
+請從下列選項中選擇一項：<<當機架中有其他未使用的空間可用時、請更換機箱>>
+<<如果機架中沒有其他未使用的空間、請更換機箱>>
 
 
 
@@ -43,7 +45,7 @@ NOTE: 移動運算節點的步驟與移動儲存節點的步驟不同。在移�
 
 您可以將新機箱安裝到可用的機架空間、然後將節點移入其中。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您有一個防靜電（ESD）腕帶、或是您已採取其他防靜電保護措施。
 * 您有替換的機箱。
 * 您有一兩人或兩人以上的人員可以執行這些步驟。
@@ -170,6 +172,7 @@ NOTE: 新增節點可能需要2分鐘的時間、並顯示在*節點> Active*下
 
 如果您的機架沒有額外空間、而且部署中的機箱沒有未使用的節點插槽、您應該在執行更換程序之前、先判斷哪些項目可以保持線上狀態（如果有的話）。
 
+.關於這項工作
 在更換機箱之前、您應該先考量以下幾點：
 
 * 您的儲存叢集是否可以在故障機箱中沒有儲存節點的情況下保持連線？如果答案為否、您應該關閉NetApp HCI 整個部署過程中的所有節點（運算和儲存）。如果答案為「是」、您只能關閉故障機箱中的儲存節點。
@@ -198,7 +201,7 @@ NOTE: 如需移轉步驟、請參閱VMware文件。
 
 === 關閉儲存節點
 
-請參閱步驟  a storage node,請按這裡。
+請參閱步驟 <<move a storage node,請按這裡>>。
 
 
 

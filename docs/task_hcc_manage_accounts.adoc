@@ -18,8 +18,8 @@ keywords: netapp, hci, on premise, cluster, element, account, user, volume, hybr
 
 管理下列類型的帳戶：
 
-*  authoritative cluster accounts
-*  volume accounts
+* <<管理授權叢集帳戶>>
+* <<管理Volume帳戶>>
 
 
 
@@ -62,7 +62,7 @@ link:concept_cg_hci_accounts.html#authoritative-user-accounts["驗證使用者�
 ** 如果您選取LDAP、請輸入DN。
 +
 
-TIP: 若要使用LDAP、您必須先啟用LDAP或LDAPS。請參閱  LDAP。
+TIP: 若要使用LDAP、您必須先啟用LDAP或LDAPS。請參閱 <<啟用LDAP>>。
 
 ** 如果您選取叢集做為驗證類型、請輸入新帳戶的名稱和密碼。
 

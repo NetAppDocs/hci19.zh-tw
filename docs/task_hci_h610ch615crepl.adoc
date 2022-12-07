@@ -19,19 +19,21 @@ keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement
 
 NOTE: 對於H610C和H615C、「節點」和「機箱」這兩個詞彙可互換使用、因為節點和機箱不是獨立的元件。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您已確認節點已故障。
 * 您有替換的機箱。若要訂購替換產品、請聯絡NetApp支援部門。
 * 您有一個防靜電（ESD）腕帶、或是您已採取其他防靜電保護措施。
 * 您已標記每條連接至機箱的纜線。
 
 
+.關於這項工作
 當主機故障時、VMware vSphere Web Client中的警示會提醒您。您必須將VMware vSphere Web Client故障主機的序號與節點背面貼紙上的序號配對。
 
-以下是本程序步驟的深度概觀： to replace the node
- the node
- the node to the cluster
- the GPU drivers
+.步驟總覽
+以下是本程序步驟的深度概觀：<<準備更換節點>>
+<<更換節點>>
+<<將節點新增至叢集>>
+<<安裝GPU驅動程式>>
 
 
 
@@ -101,7 +103,7 @@ CAUTION: 如果機箱背面的通風孔被纜線或標籤阻塞、可能會因�
 
 您應該設定NetApp HCI 使用新運算節點的功能。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 如果NetApp HCI 您使用虛擬分散式交換器將節點新增至部署、vSphere執行個體VMware會使用vSphere Enterprise Plus授權。
 * 搭配使用的vCenter或vSphere執行個體均NetApp HCI 未過期授權。
 * 您在現有節點所在的相同網路區段上有可用和未使用的IPv4位址（新節點必須安裝在與其類型現有節點相同的網路上）。

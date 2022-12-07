@@ -16,7 +16,7 @@ keywords: netapp, hci, deployment, review, GPU, install, driver, drivers
 [role="lead"]
 NetApp混合雲控制可讓您管理NetApp HCI 功能。您可以升級NetApp HCI 管理服務和其他的元件、並擴充及監控安裝。您可以瀏覽至管理節點的IP位址、登入NetApp混合雲控制。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * *叢集管理員權限*：您具有儲存叢集管理員權限。
 * *管理服務*：您已將管理服務升級至至少2.1.326版。NetApp混合雲控制不適用於舊版服務組合。如需目前服務套裝組合版本的相關資訊、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["管理服務版本說明"^]。
 

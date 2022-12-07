@@ -18,7 +18,7 @@ keywords: netapp, hci, on premise, cluster, element, compute node, vmware, upgra
 
 升級之後、運算節點會開機進入ESXi、並與之前一樣運作、保留組態。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * *運算驅動程式*：您已升級運算節點驅動程式。如果運算節點驅動程式與新韌體不相容、升級將不會啟動。請參閱 https://mysupport.netapp.com/matrix["互通性對照表工具IMT （不含）"^] 如需驅動程式與韌體相容性資訊、請參閱最新資訊 link:rn_relatedrn.html["運算節點韌體版本說明"] 以取得最新的重要韌體與驅動程式詳細資料。
 * *管理權限*：您擁有叢集管理員和BMC管理員權限來執行升級。
 * *系統連接埠*：如果您使用NetApp混合式雲端控制進行升級、您已確保所需的連接埠已開啟。請參閱 link:hci_prereqs_required_network_ports.html["網路連接埠"] 以取得更多資訊。
@@ -70,6 +70,7 @@ NOTE: 當您接受EULA時、系統會記錄所有未來更新、並啟用自動�
 
 
 
+.關於這項工作
 在正式作業環境中、一次升級一個運算節點上的韌體。
 
 
@@ -80,12 +81,13 @@ NOTE: 執行健全狀況檢查並繼續韌體升級之前、ESXi主機必須先�
 
 NOTE: 在升級之前、請務必檢查目前的ESXi驅動程式版本。如果驅動程式已過期、請先升級驅動程式。然後升級運算節點的運算韌體。
 
+.升級選項
 選擇與升級案例相關的選項：
 
-*  NetApp Hybrid Cloud Control UI to upgrade a compute node （建議）
-*  NetApp Hybrid Cloud Control API to upgrade a compute node
-*  a USB drive imaged with the latest compute firmware bundle
-*  the Baseboard Management Controller (BMC) user interface (UI)
+* <<使用NetApp混合雲控制UI來升級運算節點>> （建議）
+* <<使用NetApp混合雲控制API來升級運算節點>>
+* <<使用以最新運算韌體套裝組合建立映像的USB磁碟機>>
+* <<使用基礎板管理控制器（BMC）使用者介面（UI）>>
 
 
 
@@ -104,9 +106,9 @@ TIP: 如果運算韌體套裝組合和管理節點都是本機的、則可在進
 NOTE: 視管理節點與BMC主機之間的網路連線速度而定、每個節點升級NIC、BIOS和BMC可能需要約60分鐘的時間。
 
 
-NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、您應該使用 ,USB磁碟機 或 ,BMC UI 以掛載運算韌體套裝組合。
+NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、您應該使用 <<manual_method_USB,USB磁碟機>> 或 <<manual_method_BMC,BMC UI>> 以掛載運算韌體套裝組合。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 如果您的管理節點未連線至網際網路、則表示您已從下載運算韌體套裝組合 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp 支援網站"^]。
 +
 
@@ -167,7 +169,7 @@ CAUTION: 在H610C和H615C運算節點上升級韌體時、請勿透過BMC Web UI
 
 TIP: 如果您離開瀏覽器視窗、檔案會在背景中上傳。
 
-檔案成功上傳及驗證後、畫面上會顯示一則訊息。驗證可能需要幾分鐘的時間。您可以在升級完成後下載記錄。如需各種升級狀態變更的相關資訊、請參閱  status changes。
+檔案成功上傳及驗證後、畫面上會顯示一則訊息。驗證可能需要幾分鐘的時間。您可以在升級完成後下載記錄。如需各種升級狀態變更的相關資訊、請參閱 <<升級狀態變更>>。
 
 |===
 
@@ -210,8 +212,9 @@ TIP: 如果在升級期間發生故障、NetApp混合雲控制系統會重新啟
 您可以使用API將叢集中的每個運算節點升級至最新的韌體版本。您可以使用自己選擇的自動化工具來執行API。此處記錄的API工作流程使用管理節點上可用的REST API UI作為範例。
 
 
-NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、您應該使用 ,USB磁碟機 或 ,BMC UI 以掛載運算韌體套裝組合。
+NOTE: 不再支援使用NetApp混合雲控制UI來升級H300E/H500E/H700E運算節點上的運算韌體。若要升級、您應該使用 <<manual_method_USB,USB磁碟機>> 或 <<manual_method_BMC,BMC UI>> 以掛載運算韌體套裝組合。
 
+.您需要的產品
 管理節點資產必須知道運算節點資產、包括vCenter和硬體資產。您可以使用庫存服務API來驗證資產（「https://<ManagementNodeIP>/inventory/1/`」）。
 
 .步驟
@@ -471,7 +474,7 @@ https://<ManagementNodeIP>/hardware/2/
 
 您可以將下載最新運算韌體套件的USB磁碟機插入運算節點的USB連接埠。除了使用本程序中所述的USB隨身碟方法、您也可以使用基礎板管理控制器（BMC）介面中虛擬主控台的*虛擬CD/DVD*選項、將運算韌體套件掛載到運算節點上。BMC方法比USB隨身碟方法所需的時間長得多。確保您的工作站或伺服器擁有必要的網路頻寬、且您與BMC的瀏覽器工作階段不會逾時。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 如果您的管理節點未連線至網際網路、則表示您已從下載運算韌體套裝組合 https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp 支援網站"^]。
 +
 
@@ -510,8 +513,8 @@ TIP: 建議將系統或VM和節點放在同一個網路上。
 
 NOTE: 透過BMC UI進行升級約需25至30分鐘。
 
-*  firmware on H410C and H300E/H500E/H700E nodes
-*  firmware on H610C/H615C nodes
+* <<在H410C和H300E/H500E/H700E節點上升級韌體>>
+* <<升級H610C/H615C節點上的韌體>>
 
 
 

@@ -22,8 +22,8 @@ keywords: netapp, hci, api, REST, remove, Rancher, redeploy
 TIP: 您可能需要保留使用者叢集。如果您保留了這些資料、您可以稍後將其移轉至另一個Rancher實作。如果您想要刪除使用者叢集、則應先刪除使用者叢集、再刪除Rancher伺服器；否則、刪除Rancher伺服器之後刪除使用者叢集會更困難。
 
 .選項
-*  Rancher on NetApp HCI using NetApp Hybrid Cloud Control （建議）
-*  Rancher on NetApp HCI using the REST API
+* <<使用NetApp HCI NetApp混合雲控管技術移除Rancher on>> （建議）
+* <<使用NetApp HCI REST API移除靜態的Rancher>>
 
 
 

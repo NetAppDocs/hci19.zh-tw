@@ -21,11 +21,11 @@ NOTE: 如NetApp HCI 需使用的詳細資訊、請參閱《概念》內容 link:
 
 使用NetApp混合雲控制、您可以完成下列工作來建立及管理QoS原則：
 
-*  a QoS policy
-*  a QoS policy to a volume
-*  the QoS policy assignment of a volume
-*  a QoS policy
-*  a QoS policy
+* <<建立QoS原則>>
+* <<將QoS原則套用至磁碟區>>
+* <<變更Volume的QoS原則指派>>
+* <<編輯QoS原則>>
+* <<刪除QoS原則>>
 
 
 
@@ -61,8 +61,10 @@ TIP: 使用描述性命名最佳實務做法。如果您的環境中使用多個
 
 您可以使用NetApp混合雲控制、將現有的QoS原則指派給Volume。
 
-您要指派的QoS原則已經存在  a QoS policy,已建立。
+.您需要的產品
+您要指派的QoS原則已經存在 <<建立QoS原則,已建立>>。
 
+.關於這項工作
 本工作說明如何透過變更個別Volume的設定、將QoS原則指派給該磁碟區。最新版本的NetApp混合雲控制系統沒有適用於多個Volume的大量指派選項。在未來版本中提供大量指派功能之前、您可以使用元素Web UI或vCenter外掛程式UI來大量指派QoS原則。
 
 .步驟
@@ -88,7 +90,8 @@ NOTE: 指派QoS會覆寫先前套用的任何個別Volume QoS值。
 
 您可以從磁碟區移除QoS原則指派、或選取不同的QoS原則或自訂QoS。
 
-您要修改的Volume是  a QoS policy to a volume,已指派 QoS原則。
+.您需要的產品
+您要修改的Volume是 <<將QoS原則套用至磁碟區,已指派>> QoS原則。
 
 .步驟
 . 提供NetApp HCI 支援功能不全的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。

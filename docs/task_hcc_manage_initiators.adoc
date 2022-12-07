@@ -11,16 +11,16 @@ keywords: netapp, hci, initiator, storage, element, access group
 [role="lead"]
 您可以使用 link:concept_hci_initiators.html["啟動器"] 以CHAP為基礎、而非以帳戶為基礎存取磁碟區。您可以建立及刪除啟動器、並為其提供易記的別名、以簡化管理和Volume存取。當您將啟動器新增至Volume存取群組時、該啟動器可讓您存取群組中的所有磁碟區。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 您擁有叢集管理員認證資料。
 * 您已將管理服務升級至至少2.17版。NetApp混合雲控制啟動器管理功能不適用於舊版服務組合。
 
 
 .選項
-*  an initiator
-*  initiators to a volume access group
-*  an initiator alias
-*  initiators
+* <<建立啟動器>>
+* <<將啟動器新增至Volume存取群組>>
+* <<變更啟動器別名>>
+* <<刪除啟動器>>
 
 
 
@@ -29,6 +29,7 @@ keywords: netapp, hci, initiator, storage, element, access group
 
 您可以建立iSCSI或Fibre Channel啟動器、並選擇性地指派別名。
 
+.關於這項工作
 啟動器IQN的可接受格式為「iqn.edy-mm"、其中y和m是數字、後面接著只能包含數字、大小寫字母、句點（'.'）、分號（':'）或破折號（'-'）的文字。格式範例如下：
 
 [listing]

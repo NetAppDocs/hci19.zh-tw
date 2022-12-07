@@ -17,13 +17,14 @@ keywords: netapp, hci, netapp deployment engine, deployment, vsphere
 [role="lead"]
 您可以提供NetApp HCI vCenter Server網路資訊和認證、設定使用VMware vCenter以充分利用現有的vSphere部署。
 
-.您需要的是 #8217 ；需要的是什麼
+.您需要的產品
 * 如果您要加入現有的vSphere 6.7部署、請確定vCenter Server執行的是6.7 Update 1版。
 * 如果您要加入現有的vSphere 6.5部署、請確定vCenter Server執行的是6.5 Update 2或更新版本。
 * 取得現有vSphere部署的網路詳細資料和管理員認證資料。
 * 如果NetApp Element vCenter Server的VMware vCenter外掛程式已登錄至現有的vCenter執行個體、您必須執行以下操作 https://docs.netapp.com/us-en/vcp/task_vcp_unregister.html["取消登錄"^] 然後繼續。外掛程式會在NetApp HCI 完成還原部署後重新登錄。
 
 
+.關於這項工作
 如果您加入使用vCenter連結模式連線的多個vCenter Server系統、NetApp HCI 則僅能辨識其中一個vCenter Server系統。
 
 [NOTE]

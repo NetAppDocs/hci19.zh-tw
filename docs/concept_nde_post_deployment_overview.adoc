@@ -19,6 +19,7 @@ keywords: netapp, hci, deployment, review, deploy
 * link:task_nde_supported_net_changes.html["支援的網路變更"]
 * link:task_nde_disable_smartd.html["停用NetApp HCI 在各個運算節點上的smartd服務"]
 * link:task_nde_disable_lacp_individual.html["在已設定的交換器上停用「lacp個別」命令"]
+* link:task_mnode_create_netapp_hcc_role_vcenter.html["在vCenter中建立NetApp HCC角色"]
 * link:task_nde_update_vsphere.html["讓VMware vSphere保持最新狀態"]
 * link:task_nde_install_GPU_drivers.html["安裝GPU運算節點的GPU驅動程式"]
 * link:task_nde_access_hcc.html["存取NetApp混合雲控管"]

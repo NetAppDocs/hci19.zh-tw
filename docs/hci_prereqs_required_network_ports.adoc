@@ -125,6 +125,9 @@ image::network_ports.PNG[檢查連接埠連線能力]
 | 管理節點 | 運算節點BMC / IPMI | 623 udp | 遠端管理控制傳輸協定（RMCP）連接埠。NetApp混合雲控制運算韌體升級所需。 
 
 
+| 管理節點 | 儲存節點BMC / IPMI | 623 udp | RMCP連接埠。這是管理已啟用IPMI的系統所需的。 
+
+
 | 管理節點 | VMware vCenter | 5988-5989 | NetApp混合雲控制HTTPS通訊 
 
 
@@ -138,6 +141,9 @@ image::network_ports.PNG[檢查連接埠連線能力]
 
 
 | SNMP伺服器 | 儲存節點MIP | 161udp | SNMP輪詢 
+
+
+| 儲存節點BMC / IPMI | 管理節點 | 623 udp | RMCP連接埠。這是管理已啟用IPMI的系統所需的。 
 
 
 | 儲存節點MIP | DNS伺服器 | 53個TCP / udp | DNS查詢 

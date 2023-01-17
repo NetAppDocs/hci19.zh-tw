@@ -234,7 +234,7 @@ NOTE: 系統會提示您在安全提示中輸入密碼。如果叢集位於Proxy
 +
 [listing]
 ----
-/sf/packages/mnode/redeploy-mnode --mnode_admin_user [username]
+sudo /sf/packages/mnode/redeploy-mnode --mnode_admin_user [username]
 ----
 +
 .. 將[]方括弧中的值（包括方括弧）取代為管理節點系統管理員帳戶的使用者名稱。這可能是您用來登入管理節點的使用者帳戶使用者名稱。

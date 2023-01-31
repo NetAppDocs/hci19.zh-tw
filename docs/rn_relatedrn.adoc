@@ -78,6 +78,7 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 * link:rn_compute_firmware_2.76.html["運算韌體套裝組合2.76版本說明"]
 * link:rn_compute_firmware_2.27.html["運算韌體套裝組合2.27版本說明"]
 * link:rn_firmware_12.2.109.html["運算韌體產品組合12.2.109版本說明"]
+* link:firmware_driver_versions.html["支援的韌體和ESXi驅動程式版本"] _新_
 
 
 
@@ -89,4 +90,5 @@ NOTE: 系統會提示您使用NetApp支援網站認證登入。
 * link:rn_storage_firmware_2.76.html["儲存韌體產品組合2.76版本說明"]
 * link:rn_storage_firmware_2.27.html["儲存韌體產品組合2.27版本說明"]
 * link:rn_H610S_BMC_3.84.07.html["H610S BMC 3.84.07版本說明"]
+* link:firmware_driver_versions.html["支援的韌體和ESXi驅動程式版本"] _新_
 

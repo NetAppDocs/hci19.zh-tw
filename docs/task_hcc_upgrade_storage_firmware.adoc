@@ -38,7 +38,7 @@ IMPORTANT: 若要更新IDC/BIOS韌體、請聯絡NetApp支援部門。如需詳�
 
 
 
-NOTE: 如需硬體的韌體和驅動程式韌體完整對照表、請參閱此 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["知識庫文章"^] （需要登入）。
+NOTE: 如需硬體的韌體和驅動程式韌體完整對照表、請參閱 link:firmware_driver_versions.html["支援的韌體版本、適用於NetApp HCI 不支援的儲存節點"]。
 
 * *終端使用者授權合約（EULA）*：從管理服務2.20.69開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來升級儲存韌體：
 +

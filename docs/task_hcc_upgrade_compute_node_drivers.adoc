@@ -17,7 +17,7 @@ keywords: netapp, hci, on premise, cluster, element, compute node
 對於任何H系列運算節點、您都可以使用VMware Update Manager來更新節點上使用的驅動程式。
 
 .您需要的產品
-請參閱中硬體的韌體和驅動程式對照表 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["這篇NetApp知識庫文章"^] （需要登入）。
+請參閱硬體的韌體與驅動程式對照表、網址為 link:firmware_driver_versions.html["支援的韌體和ESXi驅動程式版本"]。
 
 .關於這項工作
 一次只執行其中一項更新作業。

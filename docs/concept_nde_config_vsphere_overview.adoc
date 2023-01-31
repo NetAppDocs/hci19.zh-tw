@@ -31,5 +31,5 @@ NOTE: 如果vSphere庫存組態使用資料夾將NetApp HCI VMware叢集儲存�
 [discrete]
 == 如需詳細資訊、請參閱
 
-* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["韌體與驅動程式版本、以NetApp HCI 更新版本為目標NetApp Element"^]
+* link:firmware_driver_versions.html["支援的韌體和ESXi驅動程式版本NetApp HCI 、適用於支援NetApp HCI 的VMware及韌體版本、適用於各種儲存節點"]
 

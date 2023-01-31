@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: docs/firmware_driver_versions.html 
+keywords: documentation, earlier, previous, versions 
+summary: 支援的韌體與驅動程式版本NetApp HCI 、可在支援的支援功能中使用。NetApp Element 
+---
+= 支援的韌體和ESXi驅動程式版本NetApp HCI 、適用於支援NetApp HCI 的VMware及韌體版本、適用於各種儲存節點
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, earlier, documentation, versions
+
+
+[role="lead"]
+支援的韌體和ESXi驅動程式版本NetApp HCI 、適用於支援NetApp HCI 的VMware及韌體版本、適用於各種儲存節點。
+
+link:fw_storage_nodes.html["儲存節點"]* H610S * H410S
+
+link:fw_compute_nodes.html["運算節點"]* H615C * H610C * H410C * H300E/H500E/H700E

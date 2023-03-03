@@ -4938,7 +4938,6 @@
   <block id="58a52fbda63276026c2618b0f43d5bfe" category="list-text">登入儲存叢集、確認您已連線至正確的MVIP。</block>
   <block id="5893e9a018c1b1a1d512a0185ce81928" category="list-text">確認iSCSI工作階段計數為零。</block>
   <block id="3f1291e4a033df94b729b1b4f2f98180" category="list-text">瀏覽至*叢集&gt;節點&gt; Active*、並記錄叢集中所有作用中節點的節點ID。</block>
-  <block id="4946afec1638f740d391cce22ca9d383" category="list-text">若要關閉NetApp HCI 支援功能的儲存叢集、請開啟網頁瀏覽器、然後使用下列URL來叫用關機和停止程序、 其中、「｛MVIP｝」是NetApp HCI 指介紹整個儲存系統的管理IP位址、而「nodes=[]」陣列則包含您在步驟2中記錄的節點ID。例如：</block>
   <block id="c221d53c4bd8e82dbb6d5c729ae18dec" category="list-text">輸入叢集管理員使用者名稱和密碼。</block>
   <block id="df2a4b92aa65e89d6a69ac777d6e1966" category="list-text">驗證API呼叫是否成功傳回、方法是驗證所有儲存叢集節點是否都包含在API結果的「成功」區段中。</block>
   <block id="0329cdf242b826758b5f146f803697de" category="paragraph">您已成功關閉所有NetApp HCI 的支援中心儲存節點。</block>
@@ -6551,4 +6550,16 @@
   <block id="0e8cf642a589908959f336f3b9178ba7" category="paragraph"><block ref="0e8cf642a589908959f336f3b9178ba7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="22e88e4089c8681eb3fe26ebca3e4cc5" category="cell">*運算韌體套裝組合2.150.4到NetApp HCI 更新版本1.10*</block>
   <block id="a6bbe5a2ef47a653214029cd4a762104" category="cell">*運算韌體套裝組合2.146.2*</block>
+  <block id="811c3e17cdcbc0d2918ccd135b702fad" category="list-text">（選用）確認主機的所有I/O作業均已停止：</block>
+  <block id="49fd465e6accbc44477708b2756a0289" category="list-text">使用適當的命令來停止主機端的I/O、以供使用中的一或多個Hypervisor使用。</block>
+  <block id="47aa9240e90a7b94289f8a7cf08853f9" category="list-text">在叢集UI中、選取*報告*&gt;*總覽*。「叢集輸入/輸出」圖表上不應有任何活動。</block>
+  <block id="b024a0dfe5c2df4ef82fcfbd2177b6b1" category="list-text">在所有I/O作業停止之後、請等待20分鐘再關閉叢集。</block>
+  <block id="c8561c42a30e6fcda84bba58a5dbb84c" category="list-text">若要關閉NetApp HCI 支援功能的儲存叢集、請開啟網頁瀏覽器、然後使用下列URL來叫用關機和停止程序、例如<block ref="00aa3917f94a85909099442cdf1f914c" prefix=" " category="inline-code"></block> 是NetApp HCI 指不支援的系統及的管理IP位址<block ref="f5058d08365e441f6806289968bdd801" prefix=" " category="inline-code"></block> 陣列包含您在步驟4中記錄的節點ID。例如：</block>
+  <block id="84238b2d8b7319262b2e3d61a903e693" category="admonition">您可以在無痕式視窗中執行命令、避免在稍後階段從儲存的URL再次執行。</block>
+  <block id="6eb2aff6a3f188fb6f4a2e9fa0f75cdb" category="list-text">關閉瀏覽器或索引標籤、以避免選取「上一步」按鈕並重複API呼叫。</block>
+  <block id="391aec42faef3b52d4eaaefa153733b2" category="paragraph">重新啟動叢集時、您必須遵循特定步驟來驗證所有節點是否都已上線：</block>
+  <block id="56312700a2d03ce6cacae049f3294807" category="list-text">確認所有的「嚴重」嚴重性和<block ref="945c53fff9195b4e69a31c30b6a268c6" prefix=" " category="inline-code"></block> 叢集故障已解決。</block>
+  <block id="6331b65d2bb9f0f39b6e8331e5b2c669" category="list-text">等待10至15分鐘、讓叢集穩定運作。</block>
+  <block id="301bf6ea727a40a8d5cc8608cc0c41d7" category="list-text">開始啟動主機以存取資料。</block>
+  <block id="c192e3c2dbd374233d4685406db01520" category="paragraph">如果您想在開啟節點電源並在維護後驗證節點是否正常運作時、留出更多時間、請聯絡技術支援部門以協助延遲資料同步、以避免不必要的Bin同步。</block>
 </blocks>

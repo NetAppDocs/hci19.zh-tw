@@ -23,7 +23,7 @@ keywords: netapp, hci, vSphere components, upgrade, vCenter, ESXi
 +
 [IMPORTANT]
 ====
-您應該升級NetApp Element 至vCenter Server 5.0的VMware vCenter外掛程式、讓您能夠使用VMware vCenter 7.0 Update 3部署外掛程式、而無需套用因應措施。
+您應該升級NetApp Element 至適用於vCenter Server 5.0或更新版本的VMware vCenter 7.0外掛程式、讓您能夠使用VMware vCenter 7.0 Update 3部署外掛程式、而無需套用因應措施。
 
 使用適用於vCenter Server 4.x的Element外掛程式、當您升級至VMware vCenter Server 7.0 Update 3時、外掛程式4.x無法部署。若要使用Spring Framework 4解決此問題、請參閱 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["這篇知識庫文章"^]。
 

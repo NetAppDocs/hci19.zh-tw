@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: docs/task_vcp_upgrade_plugin.html 
 summary: 在進行升級時、您可以升級vCenter Server的Element外掛程式。NetApp HCI 
-keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 5.0 
+keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 5.0, 5.1 
 ---
 = 升級vCenter Server的Element外掛程式
 :hardbreaks:
@@ -21,15 +21,15 @@ keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4
 此升級程序涵蓋下列升級案例。
 
 
-NOTE: 管理服務2.22.7包含NetApp Element vCenter Server 5.0版的VMware vCenter外掛程式、其中包含遠端外掛程式。如果您使用Element外掛程式、則應升級至5.0版、以符合VMware指令、該指令會移除對本機外掛程式的支援。 https://kb.vmware.com/s/article/87880["深入瞭解"^]。如果您不使用外掛程式、這是選擇性的升級。
+NOTE: 管理服務2.22.7包含vCenter Server 5.0的Element外掛程式、其中包含遠端外掛程式。如果您使用Element外掛程式、則應升級至管理服務2.22.7或更新版本、以符合VMware指令、該指令會移除對本機外掛程式的支援。 https://kb.vmware.com/s/article/87880["深入瞭解"^]。
 
 [role="tabbed-block"]
 ====
 .適用於vCenter 5.0及更新版本的Element外掛程式
 --
-從Element Plug-in for vCenter Server 5.0開始、此升級程序涵蓋下列升級案例：
+此升級程序涵蓋下列升級案例：
 
-* 您正在升級至Element Plug-in for vCenter Server 5.0。
+* 您正在升級至Element Plug-in for vCenter Server 5.1或5.0。
 * 您正在升級至8.0或7.0 HTML5 vSphere Web Client。
 
 
@@ -37,12 +37,12 @@ NOTE: 管理服務2.22.7包含NetApp Element vCenter Server 5.0版的VMware vCen
 IMPORTANT: vCenter 5.0及更新版本的Element外掛程式與vCenter Server 6.7及6.5不相容。
 
 
-NOTE: 當您從Element Plug-in for vCenter Server 4.x升級至5.0時、已使用外掛程式設定的叢集將會遺失、因為無法將資料從vCenter執行個體複製到遠端外掛程式。您必須將叢集重新新增至遠端外掛程式。這是從本機外掛程式升級至遠端外掛程式的一次性活動。
+NOTE: 當您從Element Plug-in for vCenter Server 4.x升級至5.x時、已使用外掛程式設定的叢集將會遺失、因為無法將資料從vCenter執行個體複製到遠端外掛程式。您必須將叢集重新新增至遠端外掛程式。這是從本機外掛程式升級至遠端外掛程式的一次性活動。
 
 --
 .適用於vCenter 4.10及更早版本的Element外掛程式
 --
-對於vCenter Server 4.10或更早版本的Element外掛程式、此升級程序涵蓋下列升級案例：
+此升級程序涵蓋下列升級案例：
 
 * 您正在升級至Element Plug-in for VMware vCenter Server 4.10、4.9、4.8、4.7、4.6、 4.5或4.4。
 * 您正在升級至7.0、6.7或6.5 HTML5 vSphere Web Client。
@@ -90,7 +90,7 @@ image::vcp_registration_utility_ui_qossioc.png[說明外掛程式的登錄公用
 
 . 選取* vCenter外掛程式登錄*。
 +
-** vCenter Server 5.0元素外掛程式的vCenter外掛程式登錄頁面：
+** vCenter Server 5.x元素外掛程式的vCenter外掛程式登錄頁面：
 +
 image::vcp_remote_plugin_registration_ui.png[說明遠端外掛程式的登錄公用程式UI]
 
@@ -140,7 +140,7 @@ NOTE: 此動作會建立新的資料庫、並在vSphere Web Client中完成安�
 +
 ** 從Element Plug-in for vCenter Server 5.0開始、NetApp Element 畫面會出現「VMware遠端外掛程式」擴充點：
 +
-image::vcp_remote_plugin_icons_home_page.png[說明在元素外掛程式5.10或更新版本成功升級或安裝之後的外掛程式擴充點]
+image::vcp_remote_plugin_icons_home_page.png[說明在元素外掛程式5.0或更新版本成功升級或安裝之後的外掛程式擴充點]
 
 ** 對於vCenter Server 4．10或更早版本的Element Plug-in、NetApp Element 將會顯示「VMware組態與管理」擴充點：
 +
@@ -163,8 +163,8 @@ image::vcp_shortcuts_page_accessing_plugin.png[說明在元素外掛程式4.10�
 +
 [listing]
 ----
-NetApp Element Plug-in Version: 5.0
-NetApp Element Plug-in Build Number: 37
+NetApp Element Plug-in Version: 5.1
+NetApp Element Plug-in Build Number: 12
 ----
 
 

@@ -6516,4 +6516,24 @@
   <block id="04bac97a16b610a555c29c398dc04860" category="paragraph">「*儲存設備*」索引標籤會列出您安裝時所需的儲存叢集。如果NetApp混合雲控制無法存取叢集、則不會顯示在「*升級*」頁面上。如果叢集執行元件12或更新版本、您會看到這些叢集目前列出的韌體套裝組合版本。如果單一叢集中的節點上有不同的韌體版本、或是在升級過程中、您會在*目前的韌體產品組合版本*欄中看到*多個*。您可以選取*多重*來瀏覽至*節點*頁面、以比較韌體版本。如果所有叢集都執行的元件版本早於12.0、您將看不到任何韌體套裝軟體版本編號的相關資訊。此資訊也可在*節點*頁面上找到。請參閱 <block ref="4d8bfbcb84a29a1601595359b67752e6" category="inline-link-macro-rx"></block>。</block>
   <block id="df3b4418989705f2099ec054a495c6ff" category="paragraph">如果叢集是最新的且/或沒有可用的升級套件、則不會顯示* Element *和* Firmwareonly *索引標籤。升級進行時、也不會顯示這些索引標籤。如果顯示* Element *（元素*）索引標籤、但未顯示*韌體Only（僅限韌體）*索引標籤、則沒有可用的韌體套件。</block>
   <block id="c7f3047b6654f1cb88fcfe6e47c92593" category="cell">當儲存服務API傳回的升級狀態不在可能的升級狀態列舉清單中時、就會顯示此狀態。</block>
+  <block id="f3239c80004833605a44320f76f29a78" category="paragraph">變更預設SSL憑證：</block>
+  <block id="00b6f5df795659d436d482ffd81033aa" category="inline-link-macro">變更管理節點的預設SSL憑證</block>
+  <block id="fe6a80fba2305243dd21703b873b6d51" category="list-text"><block ref="fe6a80fba2305243dd21703b873b6d51" category="inline-link-macro-rx"></block></block>
+  <block id="f6e1cbdb2c7e86d550e022623d7c9169" category="summary">您可以使用NetApp Element NetApp API變更叢集中儲存節點的預設SSL憑證和私密金鑰。</block>
+  <block id="96c37e9c5684e9f2a7ffd6a79512cde2" category="paragraph">您可以使用NetApp Element 效益分析API來變更管理節點的預設SSL憑證和私密金鑰。</block>
+  <block id="d311117e36e090462c70d49316078938" category="paragraph">當您設定管理節點時、它會建立獨特的自我簽署安全通訊端層（SSL）憑證和私密金鑰、以元素UI、每節點UI或API的方式、用於所有HTTPS通訊。Element軟體支援自我簽署的憑證、以及由信任的憑證授權單位（CA）核發和驗證的憑證。</block>
+  <block id="774ce4e623f683d68865c30ea0ac37fa" category="paragraph">您可以使用下列API方法取得有關預設SSL憑證的詳細資訊、並進行變更。</block>
+  <block id="8fff04b1c0c323ac1aac0d43f5e6b4f8" category="list-text">* GetNodeSSLCertificate *</block>
+  <block id="a07612f154836b90b33c91e3d4becfe8" category="inline-link">GetNodeSSLCertificate方法</block>
+  <block id="82dbb37b6e9a2077987c0f59bb5d915c" category="paragraph">您可以使用<block ref="6b57dff7c4826c966a42c49802a3deb0" category="inline-link-rx"></block> 擷取目前安裝之SSL憑證的相關資訊、包括所有憑證詳細資料。</block>
+  <block id="58f6e4a954eca307131e675eba49accc" category="list-text">* SetNodeSSLCertificate *</block>
+  <block id="123b81eef3f2300f60e089e9078ee7c3" category="inline-link">SetNodeSSLCertificate方法</block>
+  <block id="ce93a023e7cdde76b41063e5fcaa191b" category="paragraph">您可以使用<block ref="da3ab47be31170d5453f00843cc9d581" category="inline-link-rx"></block> 可將叢集和每節點SSL憑證設為您提供的憑證和私密金鑰。系統會驗證憑證和私密金鑰、以防止套用無效的憑證。</block>
+  <block id="6f54d04f05c4e4a65ca53b1028d1207b" category="list-text">*遠端節點SSLCertificate *</block>
+  <block id="9b65a6a78c1794a21bc06b75e90962bb" category="inline-link">RemoveNodeSSLCertificate方法</block>
+  <block id="9e08f10312f3eaa134087c34ad076d92" category="paragraph">這<block ref="f76e21c4f97e9ef2eb0114383d271ddf" category="inline-link-rx"></block> 移除目前安裝的SSL憑證和私密金鑰。然後叢集會產生新的自我簽署憑證和私密金鑰。</block>
+  <block id="f056eadecebc58790da8eb91b5211492" category="inline-link">在Element Software中設定自訂SSL憑證有哪些要求？</block>
+  <block id="e3b4df69e2fe4e8545e5e0240eada6a2" category="list-text"><block ref="e3b4df69e2fe4e8545e5e0240eada6a2" category="inline-link-rx"></block></block>
+  <block id="631923a687ff82d68973d99b95597b47" category="inline-link">「元件與元素資源」頁面SolidFire</block>
+  <block id="238c5b123e3473c57e2925edccb205c2" category="list-text"><block ref="238c5b123e3473c57e2925edccb205c2" category="inline-link-rx"></block></block>
 </blocks>

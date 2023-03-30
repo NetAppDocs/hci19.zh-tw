@@ -32,6 +32,11 @@ NOTE: 最佳實務做法是、僅將一個管理節點與一個VMware vCenter執
 * link:task_mnode_access_ui.html["存取管理節點（UI或REST API）"]
 
 
+變更預設SSL憑證：
+
+* link:reference_change_mnode_default_ssl_certificate.html["變更管理節點的預設SSL憑證"]
+
+
 使用管理節點UI執行工作：
 
 * link:task_mnode_work_overview_UI.html["管理節點UI總覽"]

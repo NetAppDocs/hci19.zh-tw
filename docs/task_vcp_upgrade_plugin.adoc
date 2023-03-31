@@ -18,8 +18,6 @@ keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4
 
 您可以使用登錄公用程式、在vCenter Server Virtual Appliance（vCSA）或Windows上更新外掛程式登錄。您必須在需要使用外掛程式的每個vCenter Server上變更vCenter外掛程式的登錄。
 
-此升級程序涵蓋下列升級案例。
-
 
 NOTE: 管理服務2.22.7包含vCenter Server 5.0的Element外掛程式、其中包含遠端外掛程式。如果您使用Element外掛程式、則應升級至管理服務2.22.7或更新版本、以符合VMware指令、該指令會移除對本機外掛程式的支援。 https://kb.vmware.com/s/article/87880["深入瞭解"^]。
 

@@ -194,7 +194,7 @@ sidebar:
       - title: 存取管理節點
         url: "/docs/task_mnode_access_ui.html"
       - title: 變更管理節點的預設SSL憑證
-        url: "/mnode/reference_change_mnode_default_ssl_certificate.html"
+        url: "/docs/reference_change_mnode_default_ssl_certificate.html"
       - title: 使用管理節點UI
         entries:
         - title: 管理節點UI總覽

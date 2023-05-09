@@ -37,7 +37,7 @@ NOTE: 與管理服務相關的持續磁碟區會在安裝或升級期間建立�
 
 == 如需詳細資訊、請參閱
 
-* link:hci_task_manage_vol_management.html["管理磁碟區"]
+* link:task_hcc_manage_vol_management.html["管理磁碟區"]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
 

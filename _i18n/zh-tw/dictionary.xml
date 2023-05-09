@@ -685,8 +685,6 @@
   <block id="85dcef363aee58216fb5391e1fe35922" category="list-text"><block ref="85dcef363aee58216fb5391e1fe35922" category="inline-link-rx"></block></block>
   <block id="da3eb0bd8c882a21931739ac39ce915a" category="inline-link">vCenter Server文件的適用插件NetApp Element</block>
   <block id="412377cf78b07a27c835e112fdfa7507" category="list-text"><block ref="412377cf78b07a27c835e112fdfa7507" category="inline-link-rx"></block></block>
-  <block id="1f9e8829ba3f07efa25b77f1eb0d6c07" category="inline-link">NetApp組態顧問</block>
-  <block id="d1ba909955f7a2392ac07c215865424a" category="list-text"><block ref="8eb8242e05dec3c7873bd909a6d9def7" category="inline-link-rx"></block> 5.8.1或更新版本的網路驗證工具</block>
   <block id="642b57ae61fbf875dba06df638def96a" category="inline-link">NetApp SolidFire Active IQ 產品文件</block>
   <block id="158f6a1d36f1b909e5a2856681ce6f42" category="summary">您必須先授權、才能在REST API UI中使用API進行管理服務。</block>
   <block id="223b5bfc7fd9ecabdd773228e6069bdd" category="doc">取得使用REST API的授權</block>
@@ -1273,7 +1271,6 @@
   <block id="a4da6a7298a51c03437fe8215d4cd7dc" category="admonition">與管理服務相關的持續磁碟區會在安裝或升級期間指派給新帳戶。如果您使用的是持續磁碟區、請勿修改或刪除磁碟區或其相關帳戶。如果您確實刪除這些帳戶、可能會使管理節點無法使用。</block>
   <block id="b12641981b1007fecfaf498bd16ae5d5" category="list-text">在表格的「*動作*」欄中、展開該帳戶的功能表、然後選取「*刪除*」。</block>
   <block id="1326a41ad4b26f3395b0f54dd9172b2b" category="inline-link-macro">深入瞭解客戶</block>
-  <block id="469d7f183f29ad292b8937af8903b1dc" category="list-text"><block ref="469d7f183f29ad292b8937af8903b1dc" category="inline-link-macro-rx"></block></block>
   <block id="7e5784de66821e5068bc24c9a5c6d1d6" category="inline-link">使用使用者帳戶</block>
   <block id="9197cc48c8ddd2d400f10cc220189fb2" category="list-text"><block ref="9197cc48c8ddd2d400f10cc220189fb2" category="inline-link-rx"></block></block>
   <block id="5fdb538f00d44b4e663cc26d707fee0d" category="doc">運算韌體套裝組合2.76.10版本說明</block>
@@ -1719,7 +1716,6 @@
   <block id="eddbea64540d3f03b2661d8ecd4ac2a7" category="list-text">SetProtectionDomainLayout：允許將自訂保護網域指派給每個節點。</block>
   <block id="03540783615c6f29364ad461ea3aa641" category="paragraph">如需使用自訂保護網域的詳細資訊、請聯絡NetApp支援部門。</block>
   <block id="afc48abd77915d4342bb6d52750ca477" category="inline-link-macro">使用Element API管理儲存設備</block>
-  <block id="8e078db9f02bd406ca631ba2825dd629" category="paragraph"><block ref="8e078db9f02bd406ca631ba2825dd629" category="inline-link-macro-rx"></block></block>
   <block id="599e1a6809dc1d900ef010f35876e742" category="summary">您可以升級VMware元件NetApp HCI 以利執行VMware、並採取其他步驟重新安裝vCenter外掛程式。</block>
   <block id="7c77d1cd8cf59e7967bc28ab7e2b5510" category="doc">利用NetApp HCI vCenter Server的Element外掛程式、為支援VMware的系統升級vSphere元件</block>
   <block id="1dde7381a082a94c2b207b46bd2bcf27" category="paragraph">當您升級NetApp HCI 安裝的VMware vSphere元件時、您需要採取一些額外步驟來安裝vCenter Server的Element Plug-in。</block>
@@ -3613,7 +3609,6 @@
   <block id="5a5285cbae65a3a4e6d2325887861e01" category="inline-link-macro">使用Ansible將運算韌體升級作業自動化</block>
   <block id="7cb9171d2e41fd487907a91fb38fae31" category="list-text"><block ref="9c1d2a43cd65a3c0eacb2a0469676bce" category="inline-link-macro-rx"></block> 或 <block ref="ea7bc6be827f510faa492af963f76183" category="inline-link-macro-rx"></block>。</block>
   <block id="0c44c4e22a7e5a446ab9db51be083194" category="inline-link">升級NetApp SolidFire 的All Flash儲存系統</block>
-  <block id="0a9bb27e26601025f1f2f83ed531e6f2" category="list-text"><block ref="0a9bb27e26601025f1f2f83ed531e6f2" category="inline-link-rx"></block></block>
   <block id="65e6adcff1000b03a078e05d54c700f1" category="summary">深入瞭解如何在Rancher進行NetApp HCI 不完整部署後設定監控功能。</block>
   <block id="729e3399d869de5540bc06d71a6bcf81" category="doc">啟用監控</block>
   <block id="aad6cd40798f943aaf25e268a77af03c" category="paragraph">在NetApp HCI 將Rancher部署至支援區之後、如果Active IQ 您在安裝或升級期間尚未執行此SolidFire 動作、您可以啟用支援功能不支援的儲存監控功能（用於支援整合式全快閃儲存與NetApp HCI 更新）和NetApp HCI 不支援的運算監控功能NetApp HCI （僅供參考）。</block>
@@ -3709,7 +3704,6 @@
   <block id="6f5983880dad4e85e696acaacf3a185b" category="paragraph">持續磁碟區功能（如果在安裝或升級期間啟用）會自動建立多個磁碟區、並將NetApp-HCI預先置於指派叢集上的名稱。這些磁碟區和任何元件軟體型磁碟區一樣、都可以使用Element軟體Web UI、NetApp Element vCenter Server的支援功能或API來檢視、視您的偏好和安裝而定。持續磁碟區必須以iSCSI連線至管理節點來啟動和執行、才能維持目前可用於還原的組態資料。</block>
   <block id="055a5661c230e542ad2a37a3d951d4fd" category="admonition">與管理服務相關的持續磁碟區會在安裝或升級期間建立並指派給新帳戶。如果您使用的是持續磁碟區、請勿修改或刪除磁碟區或其相關帳戶</block>
   <block id="e2439a8512b353f75391ba9c346bc84d" category="inline-link-macro">管理磁碟區</block>
-  <block id="9e69e35241eb196e84b4b8c5230c84b9" category="list-text"><block ref="9e69e35241eb196e84b4b8c5230c84b9" category="inline-link-macro-rx"></block></block>
   <block id="4dd2a5a1a2b6e0460ab3348dd584d1ea" category="doc">擴充NetApp HCI 功能</block>
   <block id="9fbc65e3085421d946ed1df665334512" category="admonition">擴充儲存資源時、儲存容量應平均分配至所有機箱、以獲得最佳可靠性。</block>
   <block id="1ca31be899446d53a6c18003ad9bb98c" category="list-text">在「*歡迎*」頁面上、按一下「*否*」、然後按一下「*繼續*」。</block>
@@ -4586,7 +4580,6 @@
   <block id="091d9ffd182526624821c249c3335c90" category="list-text"><block ref="091d9ffd182526624821c249c3335c90" category="inline-link-macro-rx"></block></block>
   <block id="c9676e9b030c94e7e828a060b343f3db" category="list-text"><block ref="c9676e9b030c94e7e828a060b343f3db" category="inline-link-macro-rx"></block></block>
   <block id="b8ce529cfc2b9255a783e211ddb57996" category="list-text"><block ref="b8ce529cfc2b9255a783e211ddb57996" category="inline-link-macro-rx"></block></block>
-  <block id="d422fe7cf0f32ce6c7b8426538c06795" category="list-text"><block ref="d422fe7cf0f32ce6c7b8426538c06795" category="inline-link-macro-rx"></block></block>
   <block id="0b9f382bf593a3a25e5173264b3e45f0" category="summary">您可以使用REST API UI、將NetApp混合雲控制設定為使用多個vCenter。</block>
   <block id="28315137d10bfda5aa6175d449b196cb" category="paragraph">您可以設定NetApp混合雲控制、從兩個或多個vCenter管理未使用連結模式的資產。</block>
   <block id="0b48980124c47b4e4a60e939d9298e9d" category="paragraph">當您需要新增資產以進行最近擴充的安裝、或是新資產未自動新增至組態時、您應該在初始安裝之後使用此程序。使用這些API新增最近新增至安裝的資產。</block>
@@ -6174,7 +6167,6 @@
   <block id="67a13cf9dcb3321b59f28def3726ce13" category="list-text"><block ref="67a13cf9dcb3321b59f28def3726ce13" category="inline-link-macro-rx"></block></block>
   <block id="3e15463df093d30427e71f517fbcb0b0" category="paragraph">使用適用於vCenter Server 4.x的Element外掛程式、當您升級至VMware vCenter Server 7.0 Update 3時、外掛程式4.x無法部署。若要使用Spring Framework 4解決此問題、請參閱<block ref="770c119932f7fa962a47dc0795db1af6" category="inline-link-rx"></block>。</block>
   <block id="9b50fd8de96fcf38bc35a026df14fbc4" category="paragraph">針對已註冊NetApp Element 的VMware vCenter Server適用的VMware vSphere環境、您可以在第一次更新包含外掛程式服務的管理服務套件之後、更新外掛程式登錄。</block>
-  <block id="56f4bca23bb3dd45148dc7171511b7e5" category="paragraph">此升級程序涵蓋下列升級案例。</block>
   <block id="04e630ae5e9700f09b6ca3715246283d" category="open-title">適用於vCenter 5.0及更新版本的Element外掛程式</block>
   <block id="61517793d4523320c7cd75e303ad36ff" category="list-text">您正在升級至8.0或7.0 HTML5 vSphere Web Client。</block>
   <block id="787e0e54cc17d9dd6bbd7cf4c4fbc14d" category="admonition">vCenter 5.0及更新版本的Element外掛程式與vCenter Server 6.7及6.5不相容。</block>
@@ -6536,4 +6528,12 @@
   <block id="e3b4df69e2fe4e8545e5e0240eada6a2" category="list-text"><block ref="e3b4df69e2fe4e8545e5e0240eada6a2" category="inline-link-rx"></block></block>
   <block id="631923a687ff82d68973d99b95597b47" category="inline-link">「元件與元素資源」頁面SolidFire</block>
   <block id="238c5b123e3473c57e2925edccb205c2" category="list-text"><block ref="238c5b123e3473c57e2925edccb205c2" category="inline-link-rx"></block></block>
+  <block id="bc2a79198b157bed1c1eaa43da985e00" category="cell">* 運算韌體套件 2.174.0*</block>
+  <block id="def5f641ad1584ffe19a578902c863ee" category="cell">04/12/2023</block>
+  <block id="0b67b64b71fa04f23305e691b81ba252" category="cell">07.02.00</block>
+  <block id="ba3433b658d56109d8826f49ee0a8064" category="list-text"><block ref="ba3433b658d56109d8826f49ee0a8064" category="inline-link-rx"></block></block>
+  <block id="d5147898f653b5500d1ba07c4204c743" category="list-text"><block ref="9d6606ad3ff5278801234da0e6746362" category="inline-link-rx"></block> 5.8.1或更新版本的網路驗證工具</block>
+  <block id="c411aac8cf32395c454762934e85315b" category="list-text"><block ref="c411aac8cf32395c454762934e85315b" category="inline-link-macro-rx"></block></block>
+  <block id="3f8636b2ed4be15cc908d52557ffc327" category="list-text"><block ref="3f8636b2ed4be15cc908d52557ffc327" category="inline-link-macro-rx"></block></block>
+  <block id="78997922bf48b612914b49bc22e40752" category="paragraph"><block ref="78997922bf48b612914b49bc22e40752" category="inline-link-rx"></block></block>
 </blocks>

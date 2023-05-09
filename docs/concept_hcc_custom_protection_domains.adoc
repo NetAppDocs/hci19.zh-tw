@@ -36,4 +36,4 @@ NOTE: 使用自訂保護網域時、假設沒有節點共用機箱。
 
 == 如需詳細資訊、請參閱
 
-link:api/index.html["使用Element API管理儲存設備"]
+https://docs.netapp.com/us-en/element-software/api/index.html["使用Element API管理儲存設備"^]

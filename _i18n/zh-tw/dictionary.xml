@@ -2333,7 +2333,6 @@
 <block ref="85d7ff8f1e3fd6efa440dcd74d3d3e02" category="inline-xref-macro-rx"></block>
 <block ref="74302f10271a48c9df46742d43d08db8" category="inline-xref-macro-rx"></block></block>
   <block id="d7f6ba0367c50b236e879580284dfabe" category="section-title">準備更換節點</block>
-  <block id="15e52a108fb327eeb4e05584634031a8" category="paragraph">在更換節點之前、您應該先將節點上裝載的虛擬機器（VM）移轉至可用的主機、然後從叢集移除節點。您應該可以取得節點的詳細資料、例如序號和網路資訊。</block>
   <block id="597e3a12fc6d68edf2363fc3a1d9ff06" category="admonition">如果節點仍在線上且運作正常的元件故障（例如雙列直插式記憶體模組（DIMM）故障）、您應該在移除故障節點之前、先從叢集中移除磁碟機。</block>
   <block id="b3cead0e8121cac5eaa77199cb96bf4b" category="list-text">記下故障節點的序號。下列螢幕快照僅為範例：</block>
   <block id="c52f4f387b86885b3321d0184a872a28" category="image-alt">顯示VMware vSphere Web Client中故障節點的序號。</block>
@@ -6586,4 +6585,5 @@
   <block id="bc1db729f0157876d24fd3c55560294c" category="list-text">重新掃描完成後、確認叢集中的磁碟區和資料存放區是否顯示在新的運算節點（主機）上。</block>
   <block id="f096b63658cb95d8f43a07e2d68c70b3" category="paragraph">對於 vCenter 4.10 及更早版本的 Element 外掛程式、請將節點（主機）新增至叢集。</block>
   <block id="fc4dbbaeabdf5700f373a65d12b45108" category="list-text">在您要新增節點的叢集上按一下滑鼠右鍵、然後選取*「Add Host*（新增主機*）」。</block>
+  <block id="a4b367d6a2f57fe52d770b2264b7d2d8" category="paragraph">在更換節點之前、您應該先將節點上裝載的虛擬機器（VM）移轉至可用的主機、然後從叢集移除節點。您應該記錄有關節點的詳細資料、例如序號和網路資訊。移轉 VM 並記錄節點詳細資料、也適用於元件故障的情況、例如節點仍在線上且運作正常、例如雙列直插式記憶體模組（ DIMM ）故障。</block>
 </blocks>

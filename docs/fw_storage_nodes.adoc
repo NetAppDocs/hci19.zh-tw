@@ -42,18 +42,6 @@ NOTE: 下表中的破折號（*-*）表示該特定的硬體元件不受該特�
 | 釋放車輛 | 推出日期 | BIOS | BMC | CPLD | 10/25 GbE NIC cx4 | 10/25 GbE NIC CX5 | 快取NVDIMM NVDIMM模組智慧型（第1代） | 快取NVDIMM能源（BPM）智慧型（Gen1） | 快取NVDIMM NVDIMM模組智慧型（第2代） | 快取NVDIMM能源（BPM）智慧型（Gen2） | 快取NVDIMM NVDIMM模組Michron（第1代） | 快取NVDIMM能源（PGEM）Agigatech（Gen1） | 快取NVDIMM NVDIMM模組Michron（第2代） | 快取NVDIMM能源（PGEM）Agigatech（Gen2） | 快取NVDIMM能源（PGEM）Agigatech（Gen3） | 磁碟機Samsung PM963（SED） | 磁碟機Samsung PM963（N-SED） | 磁碟：Samsung PM983（SED） | 磁碟：Samsung PM983（N-SED） | 磁碟Kioxia CD5（SED） | 磁碟Kioxia CD5（N-SED） | 磁碟機CD5（FIPS） | 磁碟：Samsung PM9A3（SED） | 推動SK Hynix PE8010（SED） | 推動SK Hynix PE8010（N-SED） 
 
 
-| *儲存韌體套裝組合2.164.0* | 10/20/2022 | 3B11. | 3.94.07 | 122. | 14.25.1020 | 16.32.1010 | 3.1 | 2.16 | 26.2C | 1.30 | 25-3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109. | 0109. | 0108 | GDC5602Q | 11092A10 | 110B2A10 
-
-
-| *儲存韌體套裝組合2.164.0到NetApp Element 更新版本12.7* | 10/20/2022 | 3B11. | 3.94.07 | 122. | 14.25.1020 | 16.32.1010 | 3.1 | 2.16 | 26.2C | 1.30 | 25-3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109. | 0109. | 0108 | GDC5602Q | 11092A10 | 110B2A10 
-
-
-| *儲存韌體套裝組合2.150.4 * | 2022年6月8日 | 3B11. | 3.94.07 | 122. | 14.25.1020 | - | 3.1 | 2.16 | 26.2C | 1.30 | 25-3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109. | 0109. | 0108 | GDC5502Q | 11092A10 | 110B2A10 
-
-
-| *儲存韌體套裝組合2.150.4到NetApp Element 版本12.5* | 2022年6月8日 | 3B11. | 3.94.07 | 122. | 14.25.1020 | - | 3.1 | 2.16 | 26.2C | 1.30 | 25-3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109. | 0109. | 0108 | GDC5502Q | 11092A10 | 110B2A10 
-
-
 | *儲存韌體套裝組合2.146.2* | 02/2/2022 | 3B11. | 3.94.07 | 122. | 14.25.1020 | - | 3.1 | 2.16 | 26.2C | 1.30 | 25-3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109. | 0109. | 0108 | GDC5502Q | 11092A10 | 110B2A10 
 
 
@@ -152,15 +140,6 @@ NOTE: 下表中的破折號（*-*）表示該特定的硬體元件不受該特�
 | 釋放車輛 | 推出日期 | BIOS | BMC | 10/25 GbE NIC SMCI Mellanox | 快取NVDIMM RMS200 | 快取NVDIMM RMS300 | 磁碟：Samsung PM863（SED） | 磁碟：Samsung PM863（N-SED） | 磁碟機Toshiba Hawk-4（SED） | 磁碟機Toshiba Hawk-4（N-SED） | 磁碟：Samsung PM883（SED） 
 
 
-| *儲存韌體套裝組合2.164.0* | 10/20/2022 | NAT3.4 | 6.98.00 | 14.25.1020 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
-
-
-| *儲存韌體套裝組合2.164.0到NetApp Element 更新版本12.7* | 10/20/2022 | NAT3.4 | 6.98.00 | 14.25.1020 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
-
-
-| *儲存韌體套裝組合2.150.4到NetApp Element 版本12.5* | 2022年6月8日 | NAT3.4 | 6.98.00 | 14.25.1020 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
-
-
 | *儲存韌體套裝組合2.99到NetApp Element 2.3* | 04/15/2021 | NA2.1 | 6.84.00 | 14.25.1020 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
 
 
@@ -257,15 +236,6 @@ NOTE: 下表中的破折號（*-*）表示該特定的硬體元件不受該特�
 
 
 | *儲存韌體套裝組合2.164.0* | 10/20/2022 | 7.10.18 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
-
-
-| *儲存韌體套裝組合2.164.0到NetApp Element 更新版本12.7* | 10/20/2022 | 7.10.18 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
-
-
-| *儲存韌體套裝組合2.150.4 * | 2022年6月8日 | 7.10.18 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
-
-
-| *儲存韌體套裝組合2.150.4到NetApp Element 版本12.5* | 2022年6月8日 | 7.10.18 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
 
 
 | *儲存韌體套裝組合2.146.2* | 02/2/2022 | 7.10.18 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 

@@ -235,9 +235,6 @@ NOTE: 下表中的破折號（*-*）表示該特定的硬體元件不受該特�
 | 釋放車輛 | 推出日期 | NIC | 快取NVDIMM RMS200（RMS200） | 快取NVDIMM RMS200（RMS300） | 磁碟：Samsung PM863（SED） | 磁碟：Samsung PM863（N-SED） | 磁碟機Toshiba Hawk-4（SED） | 磁碟機Toshiba Hawk-4（N-SED） | 磁碟：Samsung PM883（SED） 
 
 
-| *儲存韌體套裝組合2.164.0* | 10/20/2022 | 7.10.18 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
-
-
 | *儲存韌體套裝組合2.146.2* | 02/2/2022 | 7.10.18 | ae3b8cc | 7d842bc | GX T54404Q | GX T59103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
 
 

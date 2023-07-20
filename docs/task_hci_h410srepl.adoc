@@ -157,7 +157,11 @@ https://<ManagementNodeIP>/manager/login
 ----
 . 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。
 . 在「展開安裝」窗格中、選取*展開*。
-. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp部署引擎。
+. 提供本機 NetApp HCI 儲存叢集管理員認證、以登入 NetApp 部署引擎。
++
+
+NOTE: 您無法使用輕量型目錄存取傳輸協定認證登入。
+
 . 在歡迎頁面上、選取*否*。
 . 選擇*繼續*。
 . 在「Available Inventory」（可用資源清冊）頁面上、選取您要新增至現有NetApp HCI 的版本安裝的儲存節點。
@@ -193,7 +197,11 @@ NOTE: 驗證輸入的IP位址可能需要一些時間。NetApp HCIIP位址驗證
 
 .步驟
 . 瀏覽至其中一個現有儲存節點的管理IP位址：「http://<storage_node_management_IP_address>/`」
-. 提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp部署引擎。
+. 提供本機 NetApp HCI 儲存叢集管理員認證、以登入 NetApp 部署引擎。
++
+
+NOTE: 您無法使用輕量型目錄存取傳輸協定認證登入。
+
 . 選擇*展開您的安裝*。
 . 在歡迎頁面上、選取*否*。
 . 按一下 * 繼續 * 。

@@ -851,7 +851,6 @@
   <block id="a0ff16ccd8b4e8012b9e6f21f1254afb" category="list-text">如果您新增的運算節點的CPU世代與現有運算節點的CPU世代不同、而且控制vCenter執行個體上的增強型VMotion相容性（EVC）已停用、則必須先啟用EVC、才能繼續。如此可確保在擴充完成後、能夠執行VMotion功能。</block>
   <block id="9b6c54a62f57f89342aae003cf762345" category="list-text">按一下介面右上角的*展開*。</block>
   <block id="c279fa7b9df4852c4e23caa58f534561" category="paragraph">瀏覽器會開啟NetApp部署引擎。</block>
-  <block id="053ab309f18a77ef5149424304d1c86d" category="list-text">提供NetApp HCI 不實的儲存叢集管理員認證資料、以登入NetApp部署引擎。</block>
   <block id="9c949590f3665d51de542591b1677bea" category="list-text">在「*歡迎*」頁面上、按一下「*是*」、然後按一下「*繼續*」。</block>
   <block id="81ca71999d078ea8378ca36814ab29e3" category="list-text">在「*終端使用者授權*」頁面上、閱讀VMware終端使用者授權合約、然後按一下「*我接受*」接受條款、再按一下「*繼續*」。</block>
   <block id="736a8559e93194c56ffc906d359a1fcc" category="list-text">在* vCenter*頁面上、完成下列步驟：</block>
@@ -6224,8 +6223,6 @@
   <block id="16b9f71cefad997cad5ec24fbb7a4db1" category="list-text"><block ref="16b9f71cefad997cad5ec24fbb7a4db1" category="inline-link-macro-rx"></block></block>
   <block id="a61d8a4fcaa8b59b1d8f1d63aada7783" category="summary">支援的韌體與驅動程式版本NetApp HCI 、可在支援的支援功能中使用。NetApp Element</block>
   <block id="6563446976572a0b32d68f15a2be569f" category="paragraph">支援的韌體和ESXi驅動程式版本NetApp HCI 、適用於支援NetApp HCI 的VMware及韌體版本、適用於各種儲存節點。</block>
-  <block id="bf44a0123ec45362af49b3862557cdd8" category="paragraph"><block ref="f4e8c07388940da9080e74e50960909d" category="inline-link-macro-rx"></block>* H610S * H410S</block>
-  <block id="a82f3d9d22bfe1382d03945f3377eb65" category="paragraph"><block ref="4fe99558e9030b1914f3007a88f2f74d" category="inline-link-macro-rx"></block>* H615C * H610C * H410C * H300E/H500E/H700E</block>
   <block id="99fb5cb075d1550b2052133c142d5726" category="inline-link-macro">支援的韌體和ESXi驅動程式版本</block>
   <block id="25d337a3a47a3f167e1c18f0472e2f97" category="paragraph">請參閱硬體的韌體與驅動程式對照表、網址為 <block ref="913963bf89b539ef788a8e09cb649658" category="inline-link-macro-rx"></block>。</block>
   <block id="f9b8ab4f362b47d973e3a4421687f93f" category="summary">運算節點支援的韌體和驅動程式版本。</block>
@@ -6244,15 +6241,8 @@
   <block id="a04ab49fbc99800499a31fd6daad50d7" category="cell">VMware ESXi 6.5驅動程式版本</block>
   <block id="92dad43acf6caddcef6a11187ef43de4" category="cell">VMware ESXi 6.7驅動程式版本</block>
   <block id="ebc7b9bd5df46748a021059450c652a9" category="cell">VMware ESXi 7.0驅動程式版本</block>
-  <block id="bea2aab7715bd285e6448fdfd2c9ef64" category="cell">*運算韌體套裝組合2.154.4*</block>
-  <block id="b0c9867bdf153402438ba4d694d73ada" category="cell">2022年6月8日</block>
   <block id="aba28e7740c0a5dcdb98b111eea839a8" category="cell">3B12.CO</block>
   <block id="b37301451c2b79b500bfd38628f1abeb" category="cell">4.72.07</block>
-  <block id="0ff7b002ad8e0963d8e5de5fcdef1b8e" category="cell">14.29.1016</block>
-  <block id="989bedd4e408d8af19987dfefb57c8ba" category="cell">4.16.71.1</block>
-  <block id="e11215e9a3c962ba326e4f7d5b37ab83" category="cell">4.17.71.1</block>
-  <block id="47b51736fc613e938e34cf9279aa080a" category="cell">4.21.71.1</block>
-  <block id="f92b215e1551241f1b580bdc46d3b4a2" category="cell">*儲存韌體套裝組合2.150.4到NetApp HCI 更新版本1.10*</block>
   <block id="0dcc10c5a615de87d1a63982b57968cb" category="cell">4.16.13.5%</block>
   <block id="9274ed8f3da729fa3ccb9501aabe7b1e" category="cell">4.17.16.15</block>
   <block id="c46a08345b2035ee8ab756b20e94f710" category="cell">*儲存韌體套裝組合2.146.2*</block>
@@ -6366,12 +6356,9 @@
   <block id="5cfd33f46dd1f74b29ddee43372c8c66" category="cell">磁碟：Samsung PM9A3（SED）</block>
   <block id="6df3968cc040ad2cb904b1a6ba10ad7b" category="cell">推動SK Hynix PE8010（SED）</block>
   <block id="80dddcfece551adcfa2c64f7d0c7e904" category="cell">推動SK Hynix PE8010（N-SED）</block>
-  <block id="2ee8e09999beeee54d2bd467af8fa223" category="cell">*儲存韌體套裝組合2.164.0*</block>
-  <block id="d4b212557e55b6e6583c0d02ccccd6eb" category="cell">10/20/2022</block>
   <block id="9671fe0cd1cee15ffc6e623894e0c90c" category="cell">3B11.</block>
   <block id="d7d76e22f94a7f97f91de8b48bb8e450" category="cell">3.94.07</block>
   <block id="a0a080f42e6f13b3a2df133f073095dd" category="cell">122.</block>
-  <block id="51de44f160b8b55c4e5d2ce02998d259" category="cell">16.32.1010</block>
   <block id="b90192b2aeb39444852ac0e41788ae24" category="cell">26.2C</block>
   <block id="2d079c532c696d6fea892213dcc69907" category="cell">1.30</block>
   <block id="89769faf6029849ab91bac0aeb7f672f" category="cell">25-3C</block>
@@ -6379,13 +6366,9 @@
   <block id="bca66716b9ca2d13a4c28be69b276777" category="cell">3.3</block>
   <block id="0150391f6be250d4938acbe27c8a6334" category="cell">EDA5602Q</block>
   <block id="d2a3d6fbce3a3051dfc130e0011c1e3f" category="cell">EDA5900Q</block>
-  <block id="b480fd4504480e5139a20c8cc66fcf79" category="cell">GDC5602Q</block>
   <block id="37ac0290be70b74cc8f652c94b244484" category="cell">11092A10</block>
   <block id="223b1fa9e807b6e3241516bda5bf6d35" category="cell">110B2A10</block>
-  <block id="68ed34bb8a8f8b7d7a0942f7a94cd4f2" category="cell">*儲存韌體套裝組合2.164.0到NetApp Element 更新版本12.7*</block>
-  <block id="76b32d0df4efa424b2efa6728e2b5da7" category="cell">*儲存韌體套裝組合2.150.4 *</block>
   <block id="f9eaf28d7f6afbf4436dc40e7bcd160d" category="cell">GDC5502Q</block>
-  <block id="096d3b928cb77d0fdc812bee8c099ba0" category="cell">*儲存韌體套裝組合2.150.4到NetApp Element 版本12.5*</block>
   <block id="a631cac3230223bc3f32cb5e4546a73f" category="cell">*儲存韌體套裝組合2.99.4到NetApp Element 更新版本12.3.2*</block>
   <block id="4879051613c070fa9236dc2575bc2430" category="cell">2021年9月16日</block>
   <block id="2af2c7d8343fff71b5f952a344782d55" category="cell">*儲存韌體套裝組合2.99.4到NetApp Element 版本12.3.1.165*</block>
@@ -6471,7 +6454,6 @@
   <block id="6c4726c34859eabb5a8f79877442596b" category="open-title">VMware vSphere 6.7與6.5</block>
   <block id="bc0fdc78d569da6b846fbab387c72daa" category="paragraph">在VMware vSphere Web Client 6.7和6.5中找出運算節點的硬體標籤。</block>
   <block id="0e8cf642a589908959f336f3b9178ba7" category="paragraph"><block ref="0e8cf642a589908959f336f3b9178ba7" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="22e88e4089c8681eb3fe26ebca3e4cc5" category="cell">*運算韌體套裝組合2.150.4到NetApp HCI 更新版本1.10*</block>
   <block id="a6bbe5a2ef47a653214029cd4a762104" category="cell">*運算韌體套裝組合2.146.2*</block>
   <block id="811c3e17cdcbc0d2918ccd135b702fad" category="list-text">（選用）確認主機的所有I/O作業均已停止：</block>
   <block id="49fd465e6accbc44477708b2756a0289" category="list-text">使用適當的命令來停止主機端的I/O、以供使用中的一或多個Hypervisor使用。</block>
@@ -6525,9 +6507,6 @@
   <block id="e3b4df69e2fe4e8545e5e0240eada6a2" category="list-text"><block ref="e3b4df69e2fe4e8545e5e0240eada6a2" category="inline-link-rx"></block></block>
   <block id="631923a687ff82d68973d99b95597b47" category="inline-link">「元件與元素資源」頁面SolidFire</block>
   <block id="238c5b123e3473c57e2925edccb205c2" category="list-text"><block ref="238c5b123e3473c57e2925edccb205c2" category="inline-link-rx"></block></block>
-  <block id="bc2a79198b157bed1c1eaa43da985e00" category="cell">* 運算韌體套件 2.174.0*</block>
-  <block id="def5f641ad1584ffe19a578902c863ee" category="cell">04/12/2023</block>
-  <block id="0b67b64b71fa04f23305e691b81ba252" category="cell">07.02.00</block>
   <block id="ba3433b658d56109d8826f49ee0a8064" category="list-text"><block ref="ba3433b658d56109d8826f49ee0a8064" category="inline-link-rx"></block></block>
   <block id="d5147898f653b5500d1ba07c4204c743" category="list-text"><block ref="9d6606ad3ff5278801234da0e6746362" category="inline-link-rx"></block> 5.8.1或更新版本的網路驗證工具</block>
   <block id="c411aac8cf32395c454762934e85315b" category="list-text"><block ref="c411aac8cf32395c454762934e85315b" category="inline-link-macro-rx"></block></block>
@@ -6586,4 +6565,8 @@
   <block id="f096b63658cb95d8f43a07e2d68c70b3" category="paragraph">對於 vCenter 4.10 及更早版本的 Element 外掛程式、請將節點（主機）新增至叢集。</block>
   <block id="fc4dbbaeabdf5700f373a65d12b45108" category="list-text">在您要新增節點的叢集上按一下滑鼠右鍵、然後選取*「Add Host*（新增主機*）」。</block>
   <block id="a4b367d6a2f57fe52d770b2264b7d2d8" category="paragraph">在更換節點之前、您應該先將節點上裝載的虛擬機器（VM）移轉至可用的主機、然後從叢集移除節點。您應該記錄有關節點的詳細資料、例如序號和網路資訊。移轉 VM 並記錄節點詳細資料、也適用於元件故障的情況、例如節點仍在線上且運作正常、例如雙列直插式記憶體模組（ DIMM ）故障。</block>
+  <block id="f4e8c07388940da9080e74e50960909d" category="paragraph"><block ref="f4e8c07388940da9080e74e50960909d" category="inline-link-macro-rx"></block></block>
+  <block id="4fe99558e9030b1914f3007a88f2f74d" category="paragraph"><block ref="4fe99558e9030b1914f3007a88f2f74d" category="inline-link-macro-rx"></block></block>
+  <block id="d44403a904c0446f29d8bc5c2ed4770e" category="list-text">提供本機 NetApp HCI 儲存叢集管理員認證、以登入 NetApp 部署引擎。</block>
+  <block id="60099f97c4a82ba2ee2d4a4d593b844b" category="admonition">您無法使用輕量型目錄存取傳輸協定認證登入。</block>
 </blocks>

@@ -6161,7 +6161,6 @@
   <block id="9b50fd8de96fcf38bc35a026df14fbc4" category="paragraph">針對已註冊NetApp Element 的VMware vCenter Server適用的VMware vSphere環境、您可以在第一次更新包含外掛程式服務的管理服務套件之後、更新外掛程式登錄。</block>
   <block id="04e630ae5e9700f09b6ca3715246283d" category="open-title">適用於vCenter 5.0及更新版本的Element外掛程式</block>
   <block id="61517793d4523320c7cd75e303ad36ff" category="list-text">您正在升級至8.0或7.0 HTML5 vSphere Web Client。</block>
-  <block id="787e0e54cc17d9dd6bbd7cf4c4fbc14d" category="admonition">vCenter 5.0及更新版本的Element外掛程式與vCenter Server 6.7及6.5不相容。</block>
   <block id="f156e2c2564d8d92e0cea1d77dbc95aa" category="open-title">適用於vCenter 4.10及更早版本的Element外掛程式</block>
   <block id="c0e80cf197d1adf76fef790848a92f8f" category="list-text">外掛程式與VMware vCenter Server 8.0 for Element Plug-in for VMware vCenter Server 4.x不相容</block>
   <block id="0a1a98a47c8f97cc6376f09687a1801f" category="list-text">* vCenter Server*：您的vCenter外掛程式5.x或4.x版已在vCenter Server中註冊。從登錄公用程式 <block ref="95eed0d846a235b32511f995c34bae39" prefix="(" category="inline-code"></block>）、選取* Registration Status（登錄狀態）*、填寫必要欄位、然後選取* Check Status（檢查狀態）*以確認vCenter外掛程式已登錄、以及目前安裝的版本編號。</block>
@@ -6177,7 +6176,6 @@
   <block id="b9d11c83e937a9ece9e8b7051bc68606" category="admonition">如果您使用HTTP或HTTPS伺服器（黑網站）或修改Json檔案名稱或網路設定、您可以選取*自訂URL*來自訂URL。如需自訂URL的其他組態步驟、請參閱Element Plug-In for vCenter Server文件、瞭解如何修改內部（暗站）HTTP伺服器的vCenter內容。</block>
   <block id="ba85baaa049f62983a89ac7da1647abd" category="list-text">對於vCenter Server 4.10或更早版本的元素外掛程式、則為外掛程式ZIP的自訂URL。</block>
   <block id="d471727ba1fb423986701d5307906d08" category="list-text">確認外掛程式擴充點顯示在vSphere Web Client的*捷徑*索引標籤和側邊面板中。</block>
-  <block id="85406fb94df2ff523b7477f229b1c9c8" category="image-alt">說明在元素外掛程式4.10或更早版本成功升級或安裝之後的外掛程式擴充點</block>
   <block id="b220ec4e47107c76be4a952b590dce4a" category="paragraph">您應該在vCenter中建立NetApp的「HCC」角色、以便在安裝後、將vCenter資產（控制器）或運算節點（節點）手動新增至管理節點、或是修改現有的控制器或節點。</block>
   <block id="89e4c8f92f7c3506781613b3dbd40e89" category="list-text">從NetApp Element vCenter Server 5.0的VMware vCenter外掛程式開始使用<block ref="b9ce345290cb228a35dd424c40eebf37" category="inline-link-rx"></block>、您可以從個別管理節點登錄Element外掛程式、以管理管理NetApp SolidFire VMware儲存叢集的每個vCenter Server（建議）。</block>
   <block id="307d07425c54bb4aa0778a14487a9a93" category="list-text">使用NetApp Element vCenter Server 4．10及更早版本的支援程式、從其他vCenter Server管理叢集資源、使用<block ref="b9ce345290cb228a35dd424c40eebf37" category="inline-link-rx"></block> 僅限於本機儲存叢集。</block>
@@ -6320,7 +6318,6 @@
   <block id="8b3bfab20f63e97f107866a9f6bd44cc" category="cell">14.17.2020年</block>
   <block id="a95e19455391023e27800f1a8ba4be22" category="cell">01.A1.06.</block>
   <block id="4b8861a11346d673205d074f862db70a" category="inline-link-macro">支援的韌體和ESXi驅動程式版本</block>
-  <block id="e5f0019a70375a2e883b7840f439118a" category="list-text"><block ref="732713df3c4c58fb19fab37e747f6f0d" category="inline-link-macro-rx"></block> _新_</block>
   <block id="43e34bcd62fca2ef36509ec2613974a0" category="admonition">如需硬體的韌體和驅動程式韌體完整對照表、請參閱 <block ref="913963bf89b539ef788a8e09cb649658" category="inline-link-macro-rx"></block>。</block>
   <block id="12b23b4c09d649df7ce5a85073a16761" category="inline-link-macro">支援的韌體版本、適用於NetApp HCI 不支援的儲存節點</block>
   <block id="70e945411317a488defaf4452814955d" category="admonition">如需硬體的韌體和驅動程式韌體完整對照表、請參閱 <block ref="5044654178b92d05d74ce63fd089f27a" category="inline-link-macro-rx"></block>。</block>
@@ -6467,7 +6464,6 @@
   <block id="adb27ccd96e9d86f5b808b75377f9b5d" category="list-text"><block ref="adb27ccd96e9d86f5b808b75377f9b5d" category="inline-link-macro-rx"></block></block>
   <block id="f77430f8b3c4f14f1dcd175dca1d54cf" category="paragraph">您應該升級NetApp Element 至適用於vCenter Server 5.0或更新版本的VMware vCenter 7.0外掛程式、讓您能夠使用VMware vCenter 7.0 Update 3部署外掛程式、而無需套用因應措施。</block>
   <block id="54db42757b5d75d2f660dc70f35850cf" category="inline-link">vCenter Plug-in 5.1版本說明</block>
-  <block id="61ad36f15eb6ab7927cdc50f6e089a98" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block> _新_</block>
   <block id="0e051271241f0648ba45a8ad135d030c" category="list-text"><block ref="0e051271241f0648ba45a8ad135d030c" category="inline-link-rx"></block></block>
   <block id="4af99aa6c1be006a7c064cb06b9464ac" category="cell">執行元素11.8及更新版本的所有叢集</block>
   <block id="12ffbea7792ac5af1573eb795fa30107" category="list-text">選取*瀏覽*上傳您從下載的運算韌體套裝組合<block ref="ce507e854bf63284b201c23bebfddfb9" category="inline-link-rx"></block>。</block>
@@ -6476,10 +6472,8 @@
   <block id="bb302a9267f84957da0f70eec21ac710" category="cell">當運算節點資產沒有硬體標籤時、如果NetApp混合雲控制無法查詢運算節點、則會顯示此狀態。</block>
   <block id="ea52eab386a36623963eee64d8468c76" category="list-text">管理服務2.22.7包含vCenter Server 5.0的Element外掛程式、其中包含遠端外掛程式。如果您使用Element外掛程式、則應升級至管理服務2.22.7或更新版本、以符合VMware指令、該指令會移除對本機外掛程式的支援。<block ref="3eff1b8505d27ff6caa23fbbb1b7b25c" category="inline-link-rx"></block>。</block>
   <block id="badb045d93b6de2fe8d2a1a664b92d6f" category="paragraph">此升級程序涵蓋下列升級案例：</block>
-  <block id="3a2bbd221f9a6d667af34b16ef1c1a32" category="list-text">您正在升級至Element Plug-in for vCenter Server 5.1或5.0。</block>
   <block id="609cfd925544c2aaccb703dcb95eed4d" category="admonition">當您從Element Plug-in for vCenter Server 4.x升級至5.x時、已使用外掛程式設定的叢集將會遺失、因為無法將資料從vCenter執行個體複製到遠端外掛程式。您必須將叢集重新新增至遠端外掛程式。這是從本機外掛程式升級至遠端外掛程式的一次性活動。</block>
   <block id="4edf62fd94cfb84b727afbee52aa8128" category="list-text">vCenter Server 5.x元素外掛程式的vCenter外掛程式登錄頁面：</block>
-  <block id="a59c1c8488703068757c713fc8a225be" category="image-alt">說明在元素外掛程式5.0或更新版本成功升級或安裝之後的外掛程式擴充點</block>
   <block id="04bac97a16b610a555c29c398dc04860" category="paragraph">「*儲存設備*」索引標籤會列出您安裝時所需的儲存叢集。如果NetApp混合雲控制無法存取叢集、則不會顯示在「*升級*」頁面上。如果叢集執行元件12或更新版本、您會看到這些叢集目前列出的韌體套裝組合版本。如果單一叢集中的節點上有不同的韌體版本、或是在升級過程中、您會在*目前的韌體產品組合版本*欄中看到*多個*。您可以選取*多重*來瀏覽至*節點*頁面、以比較韌體版本。如果所有叢集都執行的元件版本早於12.0、您將看不到任何韌體套裝軟體版本編號的相關資訊。此資訊也可在*節點*頁面上找到。請參閱 <block ref="4d8bfbcb84a29a1601595359b67752e6" category="inline-link-macro-rx"></block>。</block>
   <block id="df3b4418989705f2099ec054a495c6ff" category="paragraph">如果叢集是最新的且/或沒有可用的升級套件、則不會顯示* Element *和* Firmwareonly *索引標籤。升級進行時、也不會顯示這些索引標籤。如果顯示* Element *（元素*）索引標籤、但未顯示*韌體Only（僅限韌體）*索引標籤、則沒有可用的韌體套件。</block>
   <block id="c7f3047b6654f1cb88fcfe6e47c92593" category="cell">當儲存服務API傳回的升級狀態不在可能的升級狀態列舉清單中時、就會顯示此狀態。</block>
@@ -6573,4 +6567,14 @@
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="eea7cb3a63edf642e1f15162351dfce7" category="list-text">您正在升級至適用於 vCenter Server 5.2 、 5.1 或 5.0 的 Element 外掛程式。</block>
+  <block id="474ed7ffbbc0fc1d58ad983e7ef700f6" category="admonition">適用於 vCenter 5.0 或更新版本的 Element 外掛程式與 vCenter Server 6.7 和 6.5 不相容。</block>
+  <block id="2553e35e4b345db1c1e3175a10539fdf" category="image-alt">說明在成功升級或安裝 Element Plug-In 5.0 或更新版本之後的外掛程式擴充點</block>
+  <block id="f35f89119a6374d18bd89e0103590c61" category="image-alt">說明成功升級或安裝 Element Plug-in 4.10 或更早版本之後的外掛擴充點</block>
+  <block id="faf6c38631911f7840c3498b4ec9f746" category="inline-link-macro">管理服務 2.24.40 注意事項（適用於 VMware vCenter Server 5.2.12 的 NetApp Element 外掛程式）</block>
+  <block id="1f3c662e49f317f7c70a24adc13870a1" category="list-text"><block ref="1f3c662e49f317f7c70a24adc13870a1" category="inline-link-macro-rx"></block></block>
+  <block id="ce397f79b5032c3e327db3efe5a6048a" category="inline-link">vCenter Plug-in 5.2 版本資訊</block>
+  <block id="4718467fa890cd0dcf159b3d461cedbe" category="list-text"><block ref="6bd87cf3d55c2ead3ab585e965bea4db" category="inline-link-rx"></block> _新_</block>
+  <block id="410ecb079e286058eeb2bc6b56d9379c" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block></block>
+  <block id="732713df3c4c58fb19fab37e747f6f0d" category="list-text"><block ref="732713df3c4c58fb19fab37e747f6f0d" category="inline-link-macro-rx"></block></block>
 </blocks>

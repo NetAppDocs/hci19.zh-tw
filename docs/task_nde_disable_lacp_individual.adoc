@@ -4,7 +4,7 @@ permalink: docs/task_nde_disable_lacp_individual.html
 summary: 瞭解如何在部署NetApp HCI 完整套功能後、在已設定的交換器上停用「LACP個別」命令。 
 keywords: netapp, hci, deployment, review, deploy 
 ---
-= 在已設定的交換器上停用LACP個別命令
+= 在已設定的交換器上停用「lacp個別」命令
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -1377,16 +1377,7 @@
   <block id="0d5228cf80832928fe934652a94cdf4f" category="paragraph">VMware vSphere Web Client中的警示會在節點故障時發出警示。您應該將VMware vSphere Web Client故障節點的序號與節點背面貼紙上的序號配對。</block>
   <block id="51345fe1ab5e7f7efb63a32d183cdda9" category="paragraph">更換H410C運算節點時、請考慮下列事項：</block>
   <block id="5d6b6b077cfdeafcbe028bddcb655d4d" category="list-text">H410C運算節點只能以高線電壓（200-240 VAC）運作。將H410C節點新增至現有NetApp HCI 的作業系統時、您應確保符合電源需求。</block>
-  <block id="9726e8dc43a3741dbccc204feb2a9dda" category="paragraph">以下是本程序步驟的深度概觀：<block ref="417a9ef94ddd6fb6079bf181e8da50c6" category="inline-xref-macro-rx"></block>
-<block ref="450dee795ede92f968238358045ee72c" category="inline-xref-macro-rx"></block>
-<block ref="302025b37ed9a655d26cb02c1523b2a4" category="inline-xref-macro-rx"></block>
-<block ref="133c0f35bcfb7bec627508ed13eaf913" category="inline-xref-macro-rx"></block>
-<block ref="3e9667909114056c0816cabcad3091ec" category="inline-xref-macro-rx"></block></block>
   <block id="cd4a531fb438950b1b12718c24e3a003" category="inline-link-macro">移除見證節點以釋放運算資源</block>
-  <block id="693ac156676e30f319b9cd3e020727f7" category="paragraph">以下是一些其他工作、如果您的系統具備適用於下列項目的特定條件、您可能需要執行這些工作：<block ref="6f2e0dd9461f023001b32f634a66ca39" category="inline-link-macro-rx"></block>
-<block ref="96458e97c135f9cdca1845fd2743e79f" category="inline-xref-macro-rx"></block>
-<block ref="d095c71c5d51f56f74c0c624a25acdfc" category="inline-xref-macro-rx"></block></block>
-  <block id="bdf21dc543b5ab0b0d4037a3b86f500e" category="section-title">準備更換運算節點</block>
   <block id="49de3917417cb7a9d4c88a097084490f" category="paragraph">您應該將節點上託管的虛擬機器（VM）移轉到可用的主機、然後從叢集移除故障節點。您應該會取得故障節點的詳細資料、例如序號和網路資訊。</block>
   <block id="d8d7c90a9eba54aa51121a64132d7c53" category="list-text">在VMware vSphere Web Client中、執行將VM移轉至其他可用主機的步驟。</block>
   <block id="e2477b6b77307705f07f9d4a9bce00f5" category="admonition">如需移轉步驟、請參閱VMware文件。</block>
@@ -1402,7 +1393,6 @@
   <block id="030be96a2580787247ec3061b2771b9c" category="list-text">在節點上按一下滑鼠右鍵、然後選取「*從庫存移除*」。</block>
   <block id="99795f9ed04c0bb6ca3b66f13bde3f1d" category="list-text">請注意Node 0序號、這是故障節點的序號。這可讓節點背面的貼紙上的序號與您記下的序號相符、協助您識別機箱中的節點。</block>
   <block id="7a323f53d4e64c45f636ac4a7040e243" category="list-text">選取故障節點後、選取*管理&gt;網路&gt; VMkernel介面卡*、然後複製所列的四個IP位址。當您在VMware ESXi中執行初始網路組態步驟時、可以重複使用此資訊。</block>
-  <block id="c4aee125828819cff98e36e2ce8cb1a1" category="section-title">更換機箱中的運算節點</block>
   <block id="cf9dd3afde945016d53ec0a6ee2b2237" category="paragraph">從叢集移除故障節點之後、您可以從機箱移除節點、然後安裝替換節點。</block>
   <block id="a48a58fb7b047fe3c92a6b8ef8c8b880" category="admonition">執行此步驟之前、請務必先提供防靜電保護。</block>
   <block id="a300fbfd884ff458fb7de4f74e2cc07c" category="list-text">提供防靜電保護。</block>
@@ -1422,7 +1412,6 @@
   <block id="3913668fe99dfd5c0efac354d1dd57e7" category="list-text">將纜線重新連接至原本拔下纜線的連接埠。您在拔下纜線時所附加的標籤、有助於引導您。</block>
   <block id="2425222ca6c04a8497599ba50e5b39b1" category="admonition">如果機箱背面的通風孔被纜線或標籤阻塞、可能會因為過熱而導致元件提早故障。請勿將纜線強制插入連接埠、否則可能會損壞纜線、連接埠或兩者。</block>
   <block id="4274645a2e2667daa5122269fa953970" category="admonition">請確定替換節點的纜線方式與機箱中的其他節點相同。</block>
-  <block id="3611828f40bf631c043f2a1f9b7d8d80" category="section-title">移除NetApp HCI 以更新版本更新的運算節點資產</block>
   <block id="fd3ac6bf15d6190cc923c4eac0662f3a" category="paragraph">在實體更換節點之後的版本中、您應該使用管理節點API來移除運算節點資產。NetApp HCI若要使用REST API、您的儲存叢集必須執行NetApp Element 版本為11．5或更新版本的軟體、而且您應該已部署執行版本為11．5或更新版本的管理節點。</block>
   <block id="65a4d29cbb5e1c44baa414f5cf2dc489" category="list-text">輸入管理節點IP位址、然後輸入/mnode:「https://[IP address]/mnode'</block>
   <block id="49de61ab68074de5da296d48ffde4acb" category="list-text">選取*授權*或任何鎖定圖示、然後輸入叢集管理認證、以取得使用API的權限。</block>
@@ -1434,7 +1423,6 @@
   <block id="b9bc6e4f464a0c8b1538f9995b92a895" category="list-text">選擇*執行*。在回應本文中向下捲動至運算區段、然後複製故障運算節點的父和識別碼值。</block>
   <block id="149ab1533be009942aca64f58c4e6d19" category="list-text">選取*刪除/資產/｛asset_id｝/運算節點/｛compute _id｝*。</block>
   <block id="79ec8a7988ef4e63af167fe84122742f" category="list-text">選擇*試用*。輸入您在步驟7中取得的父值和ID值。</block>
-  <block id="4cf099434af6b1eb3de3a02c4d7343f4" category="section-title">將運算節點新增至叢集</block>
   <block id="39b2525fb75e02c64814c90f2cbf3407" category="paragraph">您應該將運算節點新增回叢集。步驟視NetApp HCI 您執行的版本而有所不同。</block>
   <block id="870bd874847cca4294c93fdb50347662" category="section-title">更新版本NetApp HCI</block>
   <block id="80fe8777d7b15097b7f93768f900d2f0" category="paragraph">只有NetApp HCI 當您的安裝執行於1.6P1或更新版本時、才能使用NetApp混合雲控制。</block>
@@ -1597,7 +1585,6 @@
   <block id="2d7b1bce570cfad61bcea75e56445e4c" category="list-text">在「Adapter Details（介面卡詳細資料）」下、選取「* Network Port Binding *（*網路連接埠繫結*）」、然後選取</block>
   <block id="09814996c945834d0173335b143561ec" category="list-text">選取isciSCSI-B和isciSCSI-A的核取方塊、然後按一下「OK（確定）」。畫面會顯示建議重新掃描儲存介面卡的訊息。</block>
   <block id="aeffbcab16d409629a6f42a11f66bf51" category="list-text">選取重新掃描圖示。重新掃描完成後、請確認叢集中的磁碟區是否可在新的運算節點（主機）上看到。</block>
-  <block id="9c9a41bc801502e6500c79ea7586ba95" category="section-title">為兩個和三個節點的儲存叢集重新部署見證節點</block>
   <block id="cec682e94e3f77f9a4e97bcc8d93f2c4" category="paragraph">在實體更換故障的運算節點之後、如果NetApp HCI 故障的運算節點裝載見證節點、您應該重新部署該節點VM。這些指示僅適用於NetApp HCI 安裝有兩個或三個節點儲存叢集的執行環境中的運算節點。</block>
   <block id="284dc6d1de61ec5c2a96db8bc40dd3ab" category="list-text">收集下列資訊：</block>
   <block id="0b579df7695c3410f10a561f05959978" category="list-text">儲存叢集的叢集名稱</block>
@@ -2323,17 +2310,11 @@
   <block id="7dc71fc1ba8b3b46bc5aa180659fd0c4" category="list-text">您有一個防靜電（ESD）腕帶、或是您已採取其他防靜電保護措施。</block>
   <block id="4177894d92f9956a6f7250cb8b52d834" category="list-text">您已標記每條連接至機箱的纜線。</block>
   <block id="af230ec2183265faedfc900d2b43745d" category="paragraph">當主機故障時、VMware vSphere Web Client中的警示會提醒您。您必須將VMware vSphere Web Client故障主機的序號與節點背面貼紙上的序號配對。</block>
-  <block id="b1579568b723cfa21964d9882eb934fb" category="paragraph">以下是本程序步驟的深度概觀：<block ref="8b400d38091051616c1c5cc1808de640" category="inline-xref-macro-rx"></block>
-<block ref="3bbd6094cc077cc68f8084464864b066" category="inline-xref-macro-rx"></block>
-<block ref="85d7ff8f1e3fd6efa440dcd74d3d3e02" category="inline-xref-macro-rx"></block>
-<block ref="74302f10271a48c9df46742d43d08db8" category="inline-xref-macro-rx"></block></block>
-  <block id="d7f6ba0367c50b236e879580284dfabe" category="section-title">準備更換節點</block>
   <block id="597e3a12fc6d68edf2363fc3a1d9ff06" category="admonition">如果節點仍在線上且運作正常的元件故障（例如雙列直插式記憶體模組（DIMM）故障）、您應該在移除故障節點之前、先從叢集中移除磁碟機。</block>
   <block id="b3cead0e8121cac5eaa77199cb96bf4b" category="list-text">記下故障節點的序號。下列螢幕快照僅為範例：</block>
   <block id="c52f4f387b86885b3321d0184a872a28" category="image-alt">顯示VMware vSphere Web Client中故障節點的序號。</block>
   <block id="c2073896d66c7bb59af743cabc382009" category="paragraph">您需要序號來識別機箱、方法是將您記下的編號與節點背面貼紙上的序號進行比對。</block>
   <block id="7ab682c31b3906d62159c2f9d858b798" category="list-text">按一下「*是*」以確認此動作。</block>
-  <block id="4bf11adaae89a783a7925f82b81963ee" category="section-title">更換節點</block>
   <block id="0284c3c24e20ba25bd655bfa5902da86" category="paragraph">從叢集移除故障節點之後、您可以移除故障的機箱、然後安裝替換機箱。</block>
   <block id="ef3f79bdcf9f4d42d419e2b9c45d5393" category="list-text">打開新機箱的包裝、並將其放在平坦的表面上。將故障機箱歸還給NetApp時、請保留包裝材料。</block>
   <block id="bfc31a5b7c0c06e46b597db93cca8594" category="list-text">標示要移除之機箱背面的每條纜線。安裝新機箱之後、您必須將纜線插回原始連接埠。</block>
@@ -2346,13 +2327,11 @@
   <block id="8daca91d830ace0c305c774cb41e9ecd" category="list-text">在故障機箱的任一側卸下兩個電源供應器、然後將其插入替換機箱。</block>
   <block id="48609f85b6f3b162f84d5b7d5d7677ae" category="list-text">將纜線重新連接至原本拔下纜線的連接埠。拔下纜線時、您在纜線上新增的標籤將有助於引導您。</block>
   <block id="8d0dad879dbd06ad1f5f1f5acf51f28b" category="list-text">開啟機箱電源。</block>
-  <block id="ff29627b32e07511ae92253ec85e9e61" category="section-title">將節點新增至叢集</block>
   <block id="1f2c6dfe21555b473dc802e5b22a343a" category="paragraph">您應該設定NetApp HCI 使用新運算節點的功能。</block>
   <block id="c056c0bf5b425a395761cd37de9ac4e3" category="list-text">如果NetApp HCI 您使用虛擬分散式交換器將節點新增至部署、vSphere執行個體VMware會使用vSphere Enterprise Plus授權。</block>
   <block id="d57d6d6a586f9c13fbd97a299e3dfe3a" category="list-text">搭配使用的vCenter或vSphere執行個體均NetApp HCI 未過期授權。</block>
   <block id="9a0e16aaba5fc23029c3fe1684661ae2" category="list-text">您在現有節點所在的相同網路區段上有可用和未使用的IPv4位址（新節點必須安裝在與其類型現有節點相同的網路上）。</block>
   <block id="94220c63d490d69862d0b6bd8c55bc36" category="list-text">您已準備好vCenter系統管理員帳戶認證。</block>
-  <block id="81dc4810c71d7b8507b965d26011ef81" category="list-text">在「展開安裝」窗格中、選取*展開*。瀏覽器會開啟NetApp部署引擎。</block>
   <block id="1dbe43ca80d44abbf871801ea5aefb93" category="list-text">按一下「繼續」。</block>
   <block id="ac9c7e2c5fd81b24c59b07707afae5c5" category="list-text">選取要新增運算節點的現有vSphere資料中心、或選取建立新資料中心、將新的運算節點新增至新的資料中心。</block>
   <block id="923d755bd18c8099d341640f86f5615e" category="admonition">如果NetApp HCI 無法辨識您選擇要擴充的叢集網路設定、請確定管理、儲存設備和VMotion網路的vmkernel和vmnic對應已設定為部署預設值。</block>
@@ -2360,7 +2339,6 @@
   <block id="b8439da1d3bc0c45b81136dd3a07533a" category="list-text">在「網路設定」頁面上、從初始部署中偵測到部分網路資訊。每個新的運算節點都會依序號列出、您應該為其指派新的網路資訊。針對每個新的運算節點、請執行下列步驟：</block>
   <block id="bdbca9155105fa70b02878fe37dcd59d" category="list-text">在「網路設定」區段的「審查」頁面上、新節點會以粗體顯示。如果您需要變更任何區段的資訊、請執行下列步驟：</block>
   <block id="e8972e60e4ed1d76df0feffb68866e46" category="list-text">選用：確認vCenter中是否顯示任何新的運算節點。</block>
-  <block id="e8ddb30cd234af505251fddfe210e770" category="section-title">安裝GPU驅動程式</block>
   <block id="34a9fb6a8c162efa753bd66e9b87e554" category="paragraph">使用NVIDIA圖形處理單元（GPU）（例如H610C節點）的運算節點、需要安裝在VMware ESXi中的NVIDIA軟體驅動程式、才能充分發揮更強大的處理能力。若要安裝GPU驅動程式、運算節點必須有GPU卡。</block>
   <block id="d7dc44e401260dbcb4fba3e3f12c02e3" category="list-text">開啟瀏覽器並瀏覽至NVIDIA授權入口網站、網址為：「https://nvid.nvidia.com/dashboard/`」</block>
   <block id="c8d7d8b784ab1d748bdb0f7f739baeb7" category="cell">vSphere 6.0</block>
@@ -2368,7 +2346,6 @@
   <block id="77b0f9ffcb30a7f70c02e260497b2e1b" category="paragraph">NVIDIA-GRID-vSphere-6.5-410.92-410.91-412.16.zip</block>
   <block id="ba2a9a549d747a47e02e9b887742d185" category="paragraph">NVIDIA-GRID-vSphere-6.7-410.92-410.91-412.16.zip</block>
   <block id="b9e90fd8805746049212e3a607805ca8" category="list-text">將驅動程式套件解壓縮到電腦上。產生的.VIB檔案是未壓縮的驅動程式檔案。</block>
-  <block id="69e7c0efe52761dba85359c9648bc4c6" category="list-text">將.VIB驅動程式檔案從電腦複製到運算節點上執行的ESXi。下列每個版本的命令範例假設驅動程式位於管理主機上的$home/nvidia/ESX6.x/目錄中。大多數的Linux版本都能使用scp公用程式、或是所有Windows版本的可下載公用程式：</block>
   <block id="054b4f3ea543c990f6b125f41af6ebf7" category="cell">選項</block>
   <block id="2b66f3a1e27f17f479018be59a0cc7d7" category="cell">ESXi 6.0</block>
   <block id="f0d858488904d8587f0a9f9286dceb97" category="paragraph">scp $home/nvidia/ESX6.0/nvia**.vibroot@&lt;esxi_ip_ADDR&gt;//。</block>
@@ -6491,8 +6468,6 @@
   <block id="9e08f10312f3eaa134087c34ad076d92" category="paragraph">這<block ref="f76e21c4f97e9ef2eb0114383d271ddf" category="inline-link-rx"></block> 移除目前安裝的SSL憑證和私密金鑰。然後叢集會產生新的自我簽署憑證和私密金鑰。</block>
   <block id="f056eadecebc58790da8eb91b5211492" category="inline-link">在Element Software中設定自訂SSL憑證有哪些要求？</block>
   <block id="e3b4df69e2fe4e8545e5e0240eada6a2" category="list-text"><block ref="e3b4df69e2fe4e8545e5e0240eada6a2" category="inline-link-rx"></block></block>
-  <block id="631923a687ff82d68973d99b95597b47" category="inline-link">「元件與元素資源」頁面SolidFire</block>
-  <block id="238c5b123e3473c57e2925edccb205c2" category="list-text"><block ref="238c5b123e3473c57e2925edccb205c2" category="inline-link-rx"></block></block>
   <block id="ba3433b658d56109d8826f49ee0a8064" category="list-text"><block ref="ba3433b658d56109d8826f49ee0a8064" category="inline-link-rx"></block></block>
   <block id="d5147898f653b5500d1ba07c4204c743" category="list-text"><block ref="9d6606ad3ff5278801234da0e6746362" category="inline-link-rx"></block> 5.8.1或更新版本的網路驗證工具</block>
   <block id="c411aac8cf32395c454762934e85315b" category="list-text"><block ref="c411aac8cf32395c454762934e85315b" category="inline-link-macro-rx"></block></block>
@@ -6575,4 +6550,29 @@
   <block id="732713df3c4c58fb19fab37e747f6f0d" category="list-text"><block ref="732713df3c4c58fb19fab37e747f6f0d" category="inline-link-macro-rx"></block></block>
   <block id="7149d03eb62017e7cc5192a67ff56c1c" category="paragraph">您可能需要允許下列連接埠透過資料中心的邊緣防火牆、以便遠端管理系統、允許資料中心外部的用戶端連線至資源、並確保內部服務能正常運作。視您使用系統的方式而定、可能不需要這些連接埠、URL或IP位址。</block>
   <block id="331d6d490990c63b2cee0dc04fe2589b" category="paragraph">除非另有說明、否則所有連接埠都是 TCP 、而且所有 TCP 連接埠都必須支援 NetApp 支援伺服器、管理節點和執行 Element 軟體的節點之間的三向信號交換通訊。例如、管理節點來源上的主機透過 TCP 連接埠 443 與儲存叢集 MVIP 目的地上的主機通訊、而目的地主機則透過任何連接埠回傳給來源主機。</block>
+  <block id="b0c85ded726a3c8e46cbaafa60707f98" category="inline-link">如何手動在 NetApp HCI 運算節點上安裝 ESXi</block>
+  <block id="280e8a9497f3d56d4812b7ef2ce31fc6" category="paragraph">NetApp 建議使用 NetApp 部署引擎來新增替換運算節點。如果您無法繼續使用 NetApp Deployment Engine for ESXi 安裝、請參閱 NetApp 知識庫文件<block ref="d673ea2f9a1bf5256cf7dd0779becf21" category="inline-link-rx"></block>。</block>
+  <block id="4e5f0133d50930ab8acffdd21544c950" category="section-title">步驟 1 ：準備更換節點</block>
+  <block id="9385a8fdfdd5ec6a7a983c13d83b5d55" category="section-title">步驟 2 ：更換節點</block>
+  <block id="bf96948cb523bea2d786273b1d9e3726" category="section-title">步驟 3 ：將節點新增至叢集</block>
+  <block id="667494acc646db65248acfcbfe2a10ab" category="section-title">步驟 4 ：安裝 GPU 驅動程式</block>
+  <block id="524202cb16f1d9b45d55ae3cf01846a9" category="list-text">視您的環境而定、將驅動程式套件版本下載至您的電腦。</block>
+  <block id="cdf9b80a781028cfcd33975c9b549a66" category="paragraph">以下範例顯示 vSphere 6.0 、 6.5 和 6.7 的驅動程式套件版本：</block>
+  <block id="42531de91f94d49640c00256e0aa3ceb" category="list-text">將.VIB驅動程式檔案從電腦複製到運算節點上執行的ESXi。安全複製傳輸協定（ SCP ）公用程式可在大多數 Linux 套裝作業系統中輕鬆取得、也可作為所有 Windows 版本的可下載公用程式使用。</block>
+  <block id="7a144dd231d33708e9980e0a26cb3083" category="paragraph">以下範例顯示 ESXi 6.0 、 6.5 和 6.7 的命令。這些命令假設驅動程式位於管理主機上的 $home/nVIDIA / ESX6.x/ 目錄中：</block>
+  <block id="d908683c495cc5cc655f7cd09695c523" category="paragraph">以下是本程序步驟的深度概觀：
+<block ref="b3fddefb8533cc7fc260062e1b11797b" category="inline-xref-macro-rx"></block>
+<block ref="7fbd89059403f3c320101b5b73d264e9" category="inline-xref-macro-rx"></block>
+<block ref="a1a1a48df94086d036719fc33e283f5e" category="inline-xref-macro-rx"></block>
+<block ref="e2315890dcab7fdfd216149d3ebc535d" category="inline-xref-macro-rx"></block>
+<block ref="f15458d9685a9671cd038c3a408d2679" category="inline-xref-macro-rx"></block></block>
+  <block id="6a1419cffec796a0cf9688c584b108e5" category="paragraph">以下是一些其他工作、如果您的系統具備適用於下列項目的特定條件、您可能需要執行這些工作：</block>
+  <block id="6f2e0dd9461f023001b32f634a66ca39" category="list-text"><block ref="6f2e0dd9461f023001b32f634a66ca39" category="inline-link-macro-rx"></block></block>
+  <block id="d5e0ed137993fa47f6c52eaba475f986" category="list-text"><block ref="96458e97c135f9cdca1845fd2743e79f" category="inline-xref-macro-rx"></block></block>
+  <block id="27e4d3a5ce33dd22d6512ac546804968" category="list-text"><block ref="d095c71c5d51f56f74c0c624a25acdfc" category="inline-xref-macro-rx"></block></block>
+  <block id="fefc802a17eb78beb3791d194d57c778" category="section-title">步驟 1 ：準備更換運算節點</block>
+  <block id="c5fe75a9a5a9f7b0e4279644ad5bba34" category="section-title">步驟 2 ：更換機箱中的運算節點</block>
+  <block id="527e6719cbc58f7527999477eaac0dd2" category="section-title">步驟 3 ：移除 NetApp HCI 1.7 及更新版本中的運算節點資產</block>
+  <block id="714f787cf5a78abe3413cd3fa33c6c6b" category="section-title">步驟 4 ：將運算節點新增至叢集</block>
+  <block id="4b07d1c342b03364f7120990720b53ef" category="section-title">步驟 5 ：為兩個和三個節點的儲存叢集重新部署見證節點</block>
 </blocks>

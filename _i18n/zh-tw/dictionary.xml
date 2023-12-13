@@ -6575,4 +6575,6 @@
   <block id="527e6719cbc58f7527999477eaac0dd2" category="section-title">步驟 3 ：移除 NetApp HCI 1.7 及更新版本中的運算節點資產</block>
   <block id="714f787cf5a78abe3413cd3fa33c6c6b" category="section-title">步驟 4 ：將運算節點新增至叢集</block>
   <block id="4b07d1c342b03364f7120990720b53ef" category="section-title">步驟 5 ：為兩個和三個節點的儲存叢集重新部署見證節點</block>
+  <block id="df0f8acf74958be223bdd3dabcce5038" category="inline-link">由於升級套件上傳錯誤、 SolidFire 和 HCI 升級無法啟動</block>
+  <block id="b9bbae8efe5c0f15ffba3f05d619b861" category="admonition">自 2023 年 11 月起、您無法使用 NetApp 混合雲控制或 REST API 來開始元件升級、因為簽署金鑰憑證（私有和公有）已於 2023 年 11 月 5 日到期。您可以依照知識庫文件中所述的因應措施來解決此問題<block ref="43e83b9864cac922c7475bad0e74a40f" category="inline-link-rx"></block>。</block>
 </blocks>

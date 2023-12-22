@@ -11,7 +11,6 @@ summary: 若您未執行最新版本、則可取得先前版本NetApp HCI 的更
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:keywords: hci, earlier, documentation, versions
 
 
 [role="lead"]

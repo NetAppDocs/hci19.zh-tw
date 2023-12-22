@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: docs/hci_prereqs_final_prep.html 
 summary: 瞭解在部署NetApp HCI 完整套功能之前、您需要完成的最終準備和組態。 
-keywords: netapp, hci, final preparations, requirements 
+keywords: netapp, hci, final preparations, requirements, IPMI 
 ---
 = 為每個節點設定IPMI
 :hardbreaks:
@@ -11,7 +11,6 @@ keywords: netapp, hci, final preparations, requirements
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:keywords: netapp, hci, final preparations, IPMI
 
 
 [role="lead"]

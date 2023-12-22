@@ -1,0 +1,4770 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head class="at-element-marker">
+  <title>升級Element軟體</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="升級Element軟體" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-tw/hci19/docs/task_hcc_upgrade_element_software.html" />
+	<meta property="og:description" content="在升級版的過程中、您需要升級一套功能完善的功能。NetApp HCI NetApp Element" />
+  <meta property="og:image" content="https://docs.netapp.com/zh-tw/hci19/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="在升級版的過程中、您需要升級一套功能完善的功能。NetApp HCI NetApp Element">
+  <meta name="keywords" content=" netapp, hci, HealthTools, cluster, element, H610S upgrade, hcc"><!-- Icons -->
+  <link rel="icon" href="/zh-tw/hci19/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/zh-tw/hci19/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/zh-tw/hci19/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/zh-tw/hci19/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/zh-tw/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/hci19/docs/task_hcc_upgrade_element_software.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-tw/hci19/js/na-search.js'></script><script src='/zh-tw/hci19/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/zh-tw/hci19/js/custom-dropdown.js'></script>
+  <script src='/zh-tw/hci19/js/FileSaver.min.js'></script>
+  <script src='/zh-tw/hci19/js/jszip-utils.min.js'></script>
+  <script src='/zh-tw/hci19/js/jszip.min.js'></script><script src='/zh-tw/hci19/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/zh-tw/hci19/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/tw">
+                <image id="ie-header-logo" src="/zh-tw/hci19/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/support-and-training/documentation/">文件</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/zh-tw/hci19/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">繁體中文</span>
+                    <img src="/zh-tw/hci19/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/zh-tw/hci19/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/zh-tw/hci19/docs/task_hcc_upgrade_element_software.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/hci19/docs/task_hcc_upgrade_element_software.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ja-jp/hci19/docs/task_hcc_upgrade_element_software.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ko-kr/hci19/docs/task_hcc_upgrade_element_software.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/hci19/docs/task_hcc_upgrade_element_software.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/de-de/hci19/docs/task_hcc_upgrade_element_software.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/hci19/docs/task_hcc_upgrade_element_software.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/fr-fr/hci19/docs/task_hcc_upgrade_element_software.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/it-it/hci19/docs/task_hcc_upgrade_element_software.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/zh-tw/hci19/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">所有 NetApp</span>
+                    <img src="/zh-tw/hci19/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/zh-tw/hci19/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">支援</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">知識庫</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">訓練</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/zh-tw/hci19/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/zh-tw/hci19/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">所有文件</a>
+    </li>
+    
+    
+
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/zh-tw/hci19/">-->
+      HCI
+    <!--</a>-->
+  </div>
+</div>
+
+            
+<div id="ie-selectors"><div id="version-dropdown-new" class="custom-dropdown" >
+  <div class="custom-dropdown-select unselected" title=" 1.9">
+    <label>版本</label>
+    <span translate="no" class="notranslate">1.9</span>
+    <img src="/zh-tw/hci19/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown version invisible" />
+    <img src="/zh-tw/hci19/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup version" />
+  </div>
+
+  <ul class="custom-dropdown-menu"><li>
+      
+      <a href="https://docs.netapp.com/zh-tw/hci19/docs/task_hcc_upgrade_element_software.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 1.9</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/zh-tw/hci/docs/task_hcc_upgrade_element_software.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 1.10</span></span>
+      </a>
+                     
+    </li>
+    <li>
+      
+      <a href="https://docs.netapp.com/zh-tw/hci18/docs/task_hcc_upgrade_element_software.html" target="_self">
+        <span translate="no" class="notranslate"><span class="version"> 1.8</span></span>
+      </a>
+                     
+    </li>
+    
+  </ul>
+</div></div>
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/zh-tw/hci19/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/zh-tw/hci19/search.html" 
+        data-type="widget"
+        data-placeholder="搜尋說明文件"
+        data-no-results-found="找不到 {query} 的結果"
+        data-did-you-mean="搜尋 {suggestion}。"
+        data-no-results-found-did-you-mean="找不到 {query} 的結果。您的意思是 {suggestion} 嗎？"
+        data-results-found="找到 {hitCount} 個結果"
+        data-error-message="發生錯誤。請再試一次。"
+        data-error-reset="重設搜尋"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="資訊文件NetApp HCI"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/hci19/index.html">
+        資訊文件NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="解決方案NetApp HCI"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_solutions_index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/hci19/docs/hci_solutions_index.html">
+        解決方案NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="版本資訊"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 版本資訊</div>-->
+         版本資訊
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更新功能NetApp HCI"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/rn_whatsnew.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/rn_whatsnew.html">
+        更新功能NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="其他版本資訊"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/rn_relatedrn.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/rn_relatedrn.html">
+        其他版本資訊
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="概念"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 概念</div>-->
+         概念
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="產品總覽"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_product_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_hci_product_overview.html">
+        產品總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="帳戶"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_cg_hci_accounts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_cg_hci_accounts.html">
+        帳戶
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="資料保護"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_dataprotection.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_hci_dataprotection.html">
+        資料保護
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="叢集"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_clusters.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_hci_clusters.html">
+        叢集
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="節點"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_nodes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_hci_nodes.html">
+        節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="儲存設備"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 儲存設備</div>-->
+         儲存設備
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="維護模式"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_storage_maintenance_mode.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_hci_storage_maintenance_mode.html">
+        維護模式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="磁碟區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_volumes.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_hci_volumes.html">
+        磁碟區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Volume存取群組"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_volume_access_groups.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_hci_volume_access_groups.html">
+        Volume存取群組
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="啟動器"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_initiators.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_hci_initiators.html">
+        啟動器
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="自訂保護網域"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hcc_custom_protection_domains.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_hcc_custom_protection_domains.html">
+        自訂保護網域
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="授權"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_cg_hci_licensing.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_cg_hci_licensing.html">
+        授權
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp混合雲控制組態上限"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/reference_hcc_config_maximums.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/reference_hcc_config_maximums.html">
+        NetApp混合雲控制組態上限
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安全性"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_cg_hci_security.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_cg_hci_security.html">
+        安全性
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="效能"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_performance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_hci_performance.html">
+        效能
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="需求與部署前工作"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 需求與部署前工作</div>-->
+         需求與部署前工作
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="需求NetApp HCI"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_overview.html">
+        需求NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理節點需求"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_management_node.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_management_node.html">
+        管理節點需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="網路連接埠需求"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_required_network_ports.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_required_network_ports.html">
+        網路連接埠需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="網路與交換器需求"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_network_switch.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_network_switch.html">
+        網路與交換器需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="網路纜線需求"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_network_cables.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_network_cables.html">
+        網路纜線需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="IP位址需求"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_ip_address.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_ip_address.html">
+        IP位址需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="網路組態"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 網路組態</div>-->
+         網路組態
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="網路組態選項總覽"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_network_configuration.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/hci_prereqs_network_configuration.html">
+        網路組態選項總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="網路組態選項A"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_network_configuration_option_A.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/hci_prereqs_network_configuration_option_A.html">
+        網路組態選項A
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="網路組態選項B"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_network_configuration_option_B.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/hci_prereqs_network_configuration_option_B.html">
+        網路組態選項B
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="網路組態選項C"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_network_configuration_option_C.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/hci_prereqs_network_configuration_option_C.html">
+        網路組態選項C
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="DNS與時間保留需求"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_timekeeping.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_timekeeping.html">
+        DNS與時間保留需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="環境需求"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_environmental.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_environmental.html">
+        環境需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="保護網域"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_protection_domains.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_protection_domains.html">
+        保護網域
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="兩節點儲存叢集的見證節點資源需求"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_witness_nodes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_witness_nodes.html">
+        兩節點儲存叢集的見證節點資源需求
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="立即開始NetApp HCI 使用"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 立即開始NetApp HCI 使用</div>-->
+         立即開始NetApp HCI 使用
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安裝與部署概述NetApp HCI"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_getstarted.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_getstarted.html">
+        安裝與部署概述NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安裝H系列硬體"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_installhw.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_installhw.html">
+        安裝H系列硬體
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定LACP以獲得最佳儲存效能"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_LACP_configuration.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_LACP_configuration.html">
+        設定LACP以獲得最佳儲存效能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="利用Active IQ Config Advisor 功能驗證您的環境"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_task_validate_config_advisor.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_task_validate_config_advisor.html">
+        利用Active IQ Config Advisor 功能驗證您的環境
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="為每個節點設定IPMI"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/hci_prereqs_final_prep.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/hci_prereqs_final_prep.html">
+        為每個節點設定IPMI
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署NetApp HCI"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 部署NetApp HCI</div>-->
+         部署NetApp HCI
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="存取NetApp部署引擎"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 存取NetApp部署引擎</div>-->
+         存取NetApp部署引擎
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp部署引擎存取選項總覽"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_nde_access_overview.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_nde_access_overview.html">
+        NetApp部署引擎存取選項總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在沒有DHCP的環境中存取NetApp部署引擎"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_access_no_dhcp.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_access_no_dhcp.html">
+        在沒有DHCP的環境中存取NetApp部署引擎
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在使用DHCP的環境中存取NetApp部署引擎"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_access_dhcp.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_access_dhcp.html">
+        在使用DHCP的環境中存取NetApp部署引擎
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="手動指派IP位址以存取NetApp部署引擎"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_access_manual_ip.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_access_manual_ip.html">
+        手動指派IP位址以存取NetApp部署引擎
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="開始部署"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_start_deployment.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_nde_start_deployment.html">
+        開始部署
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="匯入安裝設定檔"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_import_installation_profile.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_nde_import_installation_profile.html">
+        匯入安裝設定檔
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定VMware vSphere"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 設定VMware vSphere</div>-->
+         設定VMware vSphere
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vSphere組態總覽"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_nde_config_vsphere_overview.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_nde_config_vsphere_overview.html">
+        vSphere組態總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定新的VMware vSphere環境"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_configure_new_vsphere.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_configure_new_vsphere.html">
+        設定新的VMware vSphere環境
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="加入現有的VMware vSphere部署"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_join_existing_vsphere.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_join_existing_vsphere.html">
+        加入現有的VMware vSphere部署
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定NetApp HCI 驗證資料"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_configure_credentials.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_nde_configure_credentials.html">
+        設定NetApp HCI 驗證資料
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="選取網路拓撲"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_select_net_topology.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_nde_select_net_topology.html">
+        選取網路拓撲
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="庫存選擇"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 庫存選擇</div>-->
+         庫存選擇
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="庫存選擇與節點相容性"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_nde_node_compatibility.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_nde_node_compatibility.html">
+        庫存選擇與節點相容性
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="選取庫存"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_select_inventory.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_select_inventory.html">
+        選取庫存
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定網路設定"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_configure_net_settings.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_nde_configure_net_settings.html">
+        設定網路設定
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="審查與部署"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_review_deploy.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_nde_review_deploy.html">
+        審查與部署
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署後工作"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 部署後工作</div>-->
+         部署後工作
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署後工作總覽"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_nde_post_deployment_overview.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_nde_post_deployment_overview.html">
+        部署後工作總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="支援的網路變更"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_supported_net_changes.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_supported_net_changes.html">
+        支援的網路變更
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="停用NetApp HCI 在各個運算節點上的smartd服務"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_disable_smartd.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_disable_smartd.html">
+        停用NetApp HCI 在各個運算節點上的smartd服務
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在已設定的交換器上停用「lacp個別」命令"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_disable_lacp_individual.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_disable_lacp_individual.html">
+        在已設定的交換器上停用「lacp個別」命令
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在vCenter中建立NetApp HCC角色"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_create_netapp_hcc_role_vcenter.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_mnode_create_netapp_hcc_role_vcenter.html">
+        在vCenter中建立NetApp HCC角色
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="讓VMware vSphere保持最新狀態"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_update_vsphere.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_update_vsphere.html">
+        讓VMware vSphere保持最新狀態
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安裝GPU運算節點的GPU驅動程式"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_install_GPU_drivers.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_install_GPU_drivers.html">
+        安裝GPU運算節點的GPU驅動程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="存取NetApp混合雲控管"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_access_hcc.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_access_hcc.html">
+        存取NetApp混合雲控管
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="減少NetApp HCI 在一個運算節點上的開機媒體損耗"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_reduce_boot_media_wear.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_reduce_boot_media_wear.html">
+        減少NetApp HCI 在一個運算節點上的開機媒體損耗
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理NetApp HCI"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 管理NetApp HCI</div>-->
+         管理NetApp HCI
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理NetApp HCI 功能概述"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_manage_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_manage_overview.html">
+        管理NetApp HCI 功能概述
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定完整網域名稱Web UI存取"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_access_ui_fqdn.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_nde_access_ui_fqdn.html">
+        設定完整網域名稱Web UI存取
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="變更NetApp HCI 身分證明"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_post_deploy_credentials.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_post_deploy_credentials.html">
+        變更NetApp HCI 身分證明
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更新vCenter和ESXi認證資料"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_credentials_vcenter_esxi.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_credentials_vcenter_esxi.html">
+        更新vCenter和ESXi認證資料
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理NetApp HCI 此儲存設備"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 管理NetApp HCI 此儲存設備</div>-->
+         管理NetApp HCI 此儲存設備
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理NetApp HCI 本產品儲存概述"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_manage_storage_overview.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_manage_storage_overview.html">
+        管理NetApp HCI 本產品儲存概述
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理使用者帳戶"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_manage_accounts.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_manage_accounts.html">
+        建立及管理使用者帳戶
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="新增及管理儲存叢集"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_manage_storage_clusters.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_manage_storage_clusters.html">
+        新增及管理儲存叢集
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理磁碟區"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_manage_vol_management.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_manage_vol_management.html">
+        建立及管理磁碟區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理Volume存取群組"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_manage_vol_access_groups.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_manage_vol_access_groups.html">
+        建立及管理Volume存取群組
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理啟動器"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_manage_initiators.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_manage_initiators.html">
+        建立及管理啟動器
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理Volume QoS原則"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_qos_policies.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_qos_policies.html">
+        建立及管理Volume QoS原則
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用管理節點"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 使用管理節點</div>-->
+         使用管理節點
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理節點總覽"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_work_overview.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_mnode_work_overview.html">
+        管理節點總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安裝或恢復管理節點"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-3  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 安裝或恢復管理節點</div>-->
+         安裝或恢復管理節點
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安裝管理節點"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_install.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_install.html">
+        安裝管理節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定儲存網路介面控制器（NIC）"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_install_add_storage_NIC.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_install_add_storage_NIC.html">
+        設定儲存網路介面控制器（NIC）
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="恢復管理節點"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_recover.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_recover.html">
+        恢復管理節點
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="存取管理節點"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_access_ui.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_mnode_access_ui.html">
+        存取管理節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="變更管理節點的預設SSL憑證"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/reference_change_mnode_default_ssl_certificate.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/reference_change_mnode_default_ssl_certificate.html">
+        變更管理節點的預設SSL憑證
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用管理節點UI"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-3  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 使用管理節點UI</div>-->
+         使用管理節點UI
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理節點UI總覽"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_work_overview_UI.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_work_overview_UI.html">
+        管理節點UI總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在NetApp HCI 不顯示的情況下設定警示監控"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_enable_alerts.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_enable_alerts.html">
+        在NetApp HCI 不顯示的情況下設定警示監控
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="修改及測試管理節點網路、叢集及系統設定"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_settings.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_settings.html">
+        修改及測試管理節點網路、叢集及系統設定
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="從管理節點執行系統公用程式"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_run_system_utilities.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_run_system_utilities.html">
+        從管理節點執行系統公用程式
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用管理節點REST API"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-3  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 使用管理節點REST API</div>-->
+         使用管理節點REST API
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理節點REST API UI總覽"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_work_overview_API.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_work_overview_API.html">
+        管理節點REST API UI總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="取得使用REST API的授權"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_api_get_authorizationtouse.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_api_get_authorizationtouse.html">
+        取得使用REST API的授權
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="啟用Active IQ 支援功能和NetApp HCI 功能性監控"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_enable_activeIQ.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_enable_activeIQ.html">
+        啟用Active IQ 支援功能和NetApp HCI 功能性監控
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="為多個vCenter設定NetApp混合雲控制"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_multi_vcenter_config.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_multi_vcenter_config.html">
+        為多個vCenter設定NetApp混合雲控制
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="將運算和控制器資產新增至管理節點"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_add_assets.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_add_assets.html">
+        將運算和控制器資產新增至管理節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="如何找出運算節點的硬體標籤"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_locate_hardware_tag.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_locate_hardware_tag.html">
+        如何找出運算節點的硬體標籤
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="建立及管理儲存叢集資產"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_manage_storage_cluster_assets.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_manage_storage_cluster_assets.html">
+        建立及管理儲存叢集資產
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="檢視或編輯現有的控制器資產"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_edit_vcenter_assets.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_edit_vcenter_assets.html">
+        檢視或編輯現有的控制器資產
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="從管理節點移除資產"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_remove_assets.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_remove_assets.html">
+        從管理節點移除資產
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定管理節點的Proxy伺服器"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_configure_proxy_server.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_configure_proxy_server.html">
+        設定管理節點的Proxy伺服器
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="驗證管理節點作業系統和服務版本"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_api_find_mgmt_svcs_version.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_api_find_mgmt_svcs_version.html">
+        驗證管理節點作業系統和服務版本
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="從管理服務取得記錄"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_logs.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_logs.html">
+        從管理服務取得記錄
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理支援連線"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-3  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 管理支援連線</div>-->
+         管理支援連線
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="啟動遠端NetApp支援工作階段"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_enable_remote_support_connections.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_enable_remote_support_connections.html">
+        啟動遠端NetApp支援工作階段
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理管理節點上的SSH功能"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_mnode_ssh_management.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/zh-tw/hci19/docs/task_mnode_ssh_management.html">
+        管理管理節點上的SSH功能
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="關閉NetApp HCI 或開啟您的系統電源"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 關閉NetApp HCI 或開啟您的系統電源</div>-->
+         關閉NetApp HCI 或開啟您的系統電源
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="功能概述NetApp HCI"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_nde_hci_power_off_on.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_nde_hci_power_off_on.html">
+        功能概述NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="關閉NetApp HCI 適用於某個非系統的運算資源"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_hci_power_off_compute.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_hci_power_off_compute.html">
+        關閉NetApp HCI 適用於某個非系統的運算資源
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="關閉NetApp HCI 適用於某個非系統的儲存資源"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_hci_power_off_storage.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_hci_power_off_storage.html">
+        關閉NetApp HCI 適用於某個非系統的儲存資源
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="開啟NetApp HCI 適用於某個不支援的系統的儲存資源"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_hci_power_on_storage.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_hci_power_on_storage.html">
+        開啟NetApp HCI 適用於某個不支援的系統的儲存資源
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="開啟NetApp HCI 運算資源以供支援一個不必要的系統"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_nde_hci_power_on_compute.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_nde_hci_power_on_compute.html">
+        開啟NetApp HCI 運算資源以供支援一個不必要的系統
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="利用NetApp HCI NetApp混合雲控管監控您的系統"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 利用NetApp HCI NetApp混合雲控管監控您的系統</div>-->
+         利用NetApp HCI NetApp混合雲控管監控您的系統
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在NetApp混合雲控制儀表板上檢視資源"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_dashboard.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hcc_dashboard.html">
+        在NetApp混合雲控制儀表板上檢視資源
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="請在NetApp混合雲控管的節點頁面上檢視您的庫存"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_nodes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hcc_nodes.html">
+        請在NetApp混合雲控管的節點頁面上檢視您的庫存
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用NetApp混合雲控制編輯BMC連線資訊"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_edit_bmc_info.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hcc_edit_bmc_info.html">
+        使用NetApp混合雲控制編輯BMC連線資訊
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="利用NetApp混合雲控制功能監控儲存叢集上的磁碟區"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_volumes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hcc_volumes.html">
+        利用NetApp混合雲控制功能監控儲存叢集上的磁碟區
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="透過NetApp混合雲控制連線Active IQ 至VMware、監控效能、容量及叢集健全狀況"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_activeiq.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hcc_activeiq.html">
+        透過NetApp混合雲控制連線Active IQ 至VMware、監控效能、容量及叢集健全狀況
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="收集記錄以進行疑難排解"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_collectlogs.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hcc_collectlogs.html">
+        收集記錄以進行疑難排解
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級NetApp HCI 您的1.9或1.9P1版"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 升級NetApp HCI 您的1.9或1.9P1版</div>-->
+         升級NetApp HCI 您的1.9或1.9P1版
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級順序總覽"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hci_upgrade_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_hci_upgrade_overview.html">
+        升級順序總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="系統升級程序"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 系統升級程序</div>-->
+         系統升級程序
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更新管理服務"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_update_management_services.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_update_management_services.html">
+        更新管理服務
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級至最新的HealthTools"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_upgrade_element_latest_healthtools.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_upgrade_element_latest_healthtools.html">
+        升級至最新的HealthTools
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級儲存設備之前、請先執行Element儲存設備健全狀況檢查"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_upgrade_element_prechecks.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_upgrade_element_prechecks.html">
+        升級儲存設備之前、請先執行Element儲存設備健全狀況檢查
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級Element軟體"
+      data-li-level="3#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_upgrade_element_software.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_upgrade_element_software.html">
+        升級Element軟體
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級儲存韌體"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_upgrade_storage_firmware.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_upgrade_storage_firmware.html">
+        升級儲存韌體
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級管理節點"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_upgrade_management_node.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_upgrade_management_node.html">
+        升級管理節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級NetApp Element vCenter Server的VMware vCenter外掛程式"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_vcp_upgrade_plugin.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_vcp_upgrade_plugin.html">
+        升級NetApp Element vCenter Server的VMware vCenter外掛程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在升級運算韌體之前執行運算節點健全狀況檢查"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_upgrade_compute_prechecks.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_upgrade_compute_prechecks.html">
+        在升級運算韌體之前執行運算節點健全狀況檢查
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更新運算節點驅動程式"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_upgrade_compute_node_drivers.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_upgrade_compute_node_drivers.html">
+        更新運算節點驅動程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級運算節點韌體"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_upgrade_compute_node_firmware.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_upgrade_compute_node_firmware.html">
+        升級運算節點韌體
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用Ansible自動執行運算節點韌體升級"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_upgrade_compute_firmware_ansible.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_hcc_upgrade_compute_firmware_ansible.html">
+        使用Ansible自動執行運算節點韌體升級
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="利用NetApp HCI vCenter Server的Element外掛程式、為支援VMware的系統升級vSphere元件"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_upgrade_all_vsphere.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_upgrade_all_vsphere.html">
+        利用NetApp HCI vCenter Server的Element外掛程式、為支援VMware的系統升級vSphere元件
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="擴充NetApp HCI 您的系統"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 擴充NetApp HCI 您的系統</div>-->
+         擴充NetApp HCI 您的系統
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="展開總覽"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_hcc_expandoverview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_hcc_expandoverview.html">
+        展開總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="擴充NetApp HCI 功能"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_expand_storage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hcc_expand_storage.html">
+        擴充NetApp HCI 功能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="擴充NetApp HCI 各種運算資源"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_expand_compute.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hcc_expand_compute.html">
+        擴充NetApp HCI 各種運算資源
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="擴充NetApp儲存與運算資源"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hcc_expand_compute_and_storage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hcc_expand_compute_and_storage.html">
+        擴充NetApp儲存與運算資源
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="擴充叢集後移除見證節點"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_removewn.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_removewn.html">
+        擴充叢集後移除見證節點
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用Rancher on NetApp HCI 支援"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 使用Rancher on NetApp HCI 支援</div>-->
+         使用Rancher on NetApp HCI 支援
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Rancher on NetApp HCI 》概述"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_rancher_product_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_rancher_product_overview.html">
+        Rancher on NetApp HCI 》概述
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="概念"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_rancher_concepts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/concept_rancher_concepts.html">
+        概念
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Rancher on NetApp HCI 支援需求"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/rancher_prereqs_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/rancher_prereqs_overview.html">
+        Rancher on NetApp HCI 支援需求
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="將Rancher部署在NetApp HCI"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_deploy.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_rancher_deploy.html">
+        將Rancher部署在NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署後工作"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 部署後工作</div>-->
+         部署後工作
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署後工作總覽"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/concept_rancher_post_deployment_overview.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/concept_rancher_post_deployment_overview.html">
+        部署後工作總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="確保Rancher支援同位元檢查"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_ensure_rancher_support_parity.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_rancher_ensure_rancher_support_parity.html">
+        確保Rancher支援同位元檢查
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="改善Rancher VM恢復能力"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_config_anti_affinity.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_rancher_config_anti_affinity.html">
+        改善Rancher VM恢復能力
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定監控"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_enable_monitoring.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_rancher_enable_monitoring.html">
+        設定監控
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="安裝Trident"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_trident.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_rancher_trident.html">
+        安裝Trident
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="啟用使用者叢集的Trident支援"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_trident_configure_networking.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/zh-tw/hci19/docs/task_trident_configure_networking.html">
+        啟用使用者叢集的Trident支援
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="部署使用者叢集與應用程式"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_deploy_user_clusters.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_rancher_deploy_user_clusters.html">
+        部署使用者叢集與應用程式
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="在NetApp HCI 支援的基礎上管理Rancher"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_manage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_rancher_manage.html">
+        在NetApp HCI 支援的基礎上管理Rancher
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="監控Rancher on NetApp HCI"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_monitor.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_rancher_monitor.html">
+        監控Rancher on NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="升級Rancher on NetApp HCI"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_upgrades.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_rancher_upgrades.html">
+        升級Rancher on NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="移除NetApp HCI 在不支援的情況下安裝Rancher"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_rancher_remove_deployment.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_rancher_remove_deployment.html">
+        移除NetApp HCI 在不支援的情況下安裝Rancher
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="維護H系列硬體"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/zh-tw/hci19/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/zh-tw/hci19/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 維護H系列硬體</div>-->
+         維護H系列硬體
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="H系列硬體維護總覽"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_hwmainoverview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_hwmainoverview.html">
+        H系列硬體維護總覽
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換2U H系列機箱"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_hserieschassisrepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_hserieschassisrepl.html">
+        更換2U H系列機箱
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換H615C和H610S節點中的DC電源供應器"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_dcpsurepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_dcpsurepl.html">
+        更換H615C和H610S節點中的DC電源供應器
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換運算節點中的DIMM"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_dimmcomputerepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_dimmcomputerepl.html">
+        更換運算節點中的DIMM
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換儲存節點的磁碟機"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_driverepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_driverepl.html">
+        更換儲存節點的磁碟機
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換H410C節點"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_h410crepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_h410crepl.html">
+        更換H410C節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換H410S節點"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_h410srepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_h410srepl.html">
+        更換H410S節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換H610C和H615C節點"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_h610ch615crepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_h610ch615crepl.html">
+        更換H610C和H615C節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換H610S節點"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_h610srepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_h610srepl.html">
+        更換H610S節點
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換電源供應器"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_psurepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_psurepl.html">
+        更換電源供應器
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換SN2010、SN2100和SN2700交換器"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_snswitches.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_snswitches.html">
+        更換SN2010、SN2100和SN2700交換器
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="更換雙節點叢集中的儲存節點"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/task_hci_2noderepl.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/zh-tw/hci19/docs/task_hci_2noderepl.html">
+        更換雙節點叢集中的儲存節點
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="舊版"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/reference_earlier_versions.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/hci19/docs/reference_earlier_versions.html">
+        舊版
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="法律聲明"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/docs/task_hcc_upgrade_element_software.html" 
+      dale-entry-url="/docs/reference_notices_hci.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/zh-tw/hci19/docs/reference_notices_hci.html">
+        法律聲明
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/zh-tw/hci19"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/zh-tw/hci19"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      
+  <div class="ie-info-disclaimer" id="downlevel-banner">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/zh-tw/hci19/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span>此產品有較新版本可以使用。</span><br>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div>
+<div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/zh-tw/hci19/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> 本繁體中文版使用機器翻譯，譯文僅供參考，若與英文版本牴觸，應以英文版本為準。 </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">升級Element軟體</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2023-03-27 18:29:51 +0000">03/27/2023</time>
+        
+    
+    
+        <span>貢獻者
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/zh-tw/hci19/images/discuss-sm.svg" alt="" class="github-icon" />建議變更</span>
+        <img src="/zh-tw/hci19/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/zh-tw/hci19/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/hci19.zh-tw/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/zh-tw/hci19/docs/task_hcc_upgrade_element_software.html&page-title=升級Element軟體" class="page-nav-contribute-link" role="button">請求文件變更</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/hci19/blob/main/docs/task_hcc_upgrade_element_software.adoc" class="page-nav-contribute-link" role="button">編輯本頁</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >瞭解如何貢獻</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>PDF<img src="/zh-tw/hci19/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/zh-tw/hci19/pdfs/fullsite-sidebar/資訊文件NetApp_HCI.pdf" >
+                    <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>此文件 PDF 的網站</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/版本資訊.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            版本資訊
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/概念.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            概念
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/儲存設備.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            儲存設備
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/需求與部署前工作.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            需求與部署前工作
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/網路組態.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            網路組態
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/立即開始NetApp_HCI_使用.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            立即開始NetApp HCI 使用
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/部署NetApp_HCI.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            部署NetApp HCI
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/存取NetApp部署引擎.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            存取NetApp部署引擎
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/設定VMware_vSphere.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            設定VMware vSphere
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/庫存選擇.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            庫存選擇
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/部署後工作.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            部署後工作
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/管理NetApp_HCI.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            管理NetApp HCI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/管理NetApp_HCI_此儲存設備.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            管理NetApp HCI 此儲存設備
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/使用管理節點.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            使用管理節點
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/安裝或恢復管理節點.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            安裝或恢復管理節點
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/使用管理節點UI.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            使用管理節點UI
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/使用管理節點REST_API.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            使用管理節點REST API
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/管理支援連線.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            管理支援連線
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/關閉NetApp_HCI_或開啟您的系統電源.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            關閉NetApp HCI 或開啟您的系統電源
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/利用NetApp_HCI_NetApp混合雲控管監控您的系統.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            利用NetApp HCI NetApp混合雲控管監控您的系統
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/升級NetApp_HCI_您的1_9或1_9P1版.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            升級NetApp HCI 您的1.9或1.9P1版
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/系統升級程序.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            系統升級程序
+          </a>
+          
+
+
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/擴充NetApp_HCI_您的系統.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            擴充NetApp HCI 您的系統
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/使用Rancher_on_NetApp_HCI_支援.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            使用Rancher on NetApp HCI 支援
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/部署後工作.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            部署後工作
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/zh-tw/hci19/pdfs/sidebar/維護H系列硬體.pdf" 
+            
+          >
+            <img src="/zh-tw/hci19/images/pdf-icon.png" alt="" width="16" height="16"/>
+            維護H系列硬體
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/zh-tw/hci19/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>個別的 PDF 文件集合<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>若要升級NetApp Element VMware軟體、您可以使用NetApp混合雲控制UI、REST API或HealthTools套裝工具。某些作業會在元素軟體升級期間受到抑制、例如新增和移除節點、新增和移除磁碟機、以及與啟動器、Volume存取群組和虛擬網路相關的命令等。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要的產品</div>
+<ul>
+<li>
+<p><strong>管理權限</strong>：您有儲存叢集管理員權限可執行升級。</p>
+</li>
+<li>
+<p><strong>有效的升級路徑</strong>：您已檢查要升級的元素版本的升級路徑資訊、並確認升級路徑有效。https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/What_is_the_upgrade_matrix_for_storage_clusters_running_NetApp_Element_software%3F["NetApp知識庫：執行NetApp Element 「更新軟體」之儲存叢集的升級對照表"^]</p>
+</li>
+<li>
+<p><strong>系統時間同步</strong>：您已確保所有節點上的系統時間均已同步、且儲存叢集和節點的NTP設定正確。每個節點都必須在每個節點的Web UI（「https://[IP位址」：442`）中設定DNS名稱伺服器、且不會發生與時間偏移相關的未解決叢集故障。</p>
+</li>
+<li>
+<p><strong>系統連接埠</strong>：如果您使用NetApp混合式雲端控制進行升級、您已確保所需的連接埠已開啟。請參閱 <a href="hci_prereqs_required_network_ports.html">"網路連接埠"</a> 以取得更多資訊。</p>
+</li>
+<li>
+<p><strong>管理節點</strong>：對於NetApp混合雲控制UI和API、您環境中的管理節點執行版本11.3。</p>
+</li>
+<li>
+<p><strong>管理服務</strong>：您已將管理服務套裝組合更新為最新版本。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/important.svg" alt="重要">
+</td>
+<td class="content">
+您必須先升級至最新的管理服務套裝組合、才能將Element軟體升級至12.3.x版如果您要將Element軟體更新至12.3.x版、則需要使用管理服務2.14.60或更新版本才能繼續。
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>叢集健全狀況</strong>：您已確認叢集已準備好升級。請參閱 <a href="task_hcc_upgrade_element_prechecks.html">"升級儲存設備之前、請先執行Element儲存設備健全狀況檢查"</a>。</p>
+</li>
+<li>
+<p>*更新BMC for H610S nodes *：您已升級H610S節點的BMC版本。請參閱 <a href="rn_H610S_BMC_3.84.07.html">"版本說明與升級指示"</a>。</p>
+</li>
+<li>
+<p><strong>終端使用者授權合約（EULA）</strong>：從管理服務2.20.69開始、您必須先接受並儲存EULA、才能使用NetApp混合雲控制UI或API來升級Element軟體：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>在Web瀏覽器中開啟管理節點的IP位址：</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;ManagementNodeIP&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。</p>
+</li>
+<li>
+<p>選取介面右上角附近的*升級*。</p>
+</li>
+<li>
+<p>隨即顯示EULA。向下捲動、選取*我接受目前及所有未來更新*、然後選取*儲存*。</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">升級選項</div>
+<p>請選擇下列其中一個元素軟體升級選項：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#使用netapp混合雲控制ui來升級元素儲存設備">使用NetApp混合雲控制UI來升級元素儲存設備</a></p>
+</li>
+<li>
+<p><a href="#使用netapp混合雲控制api來升級元素儲存設備">使用NetApp混合雲控制API來升級元素儲存設備</a></p>
+</li>
+<li>
+<p><a href="#使用healthtools升級連線站台的element軟體">使用HealthTools升級連線站台的Element軟體</a></p>
+</li>
+<li>
+<p><a href="#使用healthtools升級黑暗站台的element軟體">使用HealthTools升級黑暗站台的Element軟體</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<a href="#將h610s儲存節點升級至element-12-3-x階段2">第2階段</a>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="使用netapp混合雲控制ui來升級元素儲存設備">使用NetApp混合雲控制UI來升級元素儲存設備</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以使用NetApp混合雲控制UI來升級儲存叢集。</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/caution.svg" alt="警告">
+</td>
+<td class="content">
+如需使用NetApp混合式雲端控制及其因應措施升級儲存叢集的潛在問題、請參閱 <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Potential_issues_and_workarounds_when_running_storage_upgrades_using_NetApp_Hybrid_Cloud_Control" target="_blank" rel="noopener">"知識庫文章"</a>。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+對於非H610S平台、每個節點的升級程序約需30分鐘。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>在Web瀏覽器中開啟管理節點的IP位址：</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;ManagementNodeIP&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>提供儲存叢集管理員認證資料、以登入NetApp混合雲控制系統。</p>
+</li>
+<li>
+<p>選取介面右上角附近的*升級*。</p>
+</li>
+<li>
+<p>在「<strong>升級</strong>」頁面上、選取「<strong>儲存設備</strong>」。</p>
+<div class="paragraph">
+<p>「<strong>儲存設備</strong>」索引標籤會列出您安裝時所需的儲存叢集。如果NetApp混合雲控制無法存取叢集、則不會顯示在「<strong>升級</strong>」頁面上。</p>
+</div>
+</li>
+<li>
+<p>從下列選項中選擇、然後執行適用於您叢集的一組步驟：</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">選項</th>
+<th class="tableblock halign-left valign-top">步驟</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">執行元素11.8及更新版本的所有叢集</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>選擇*瀏覽*上傳您下載的升級套件。</p>
+</li>
+<li>
+<p>等待上傳完成。進度列會顯示上傳狀態。</p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/caution.svg" alt="警告">
+</td>
+<td class="content">
+如果您離開瀏覽器視窗、檔案上傳將會遺失。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>檔案成功上傳及驗證後、畫面上會顯示一則訊息。驗證可能需要幾分鐘的時間。如果您在此階段離開瀏覽器視窗、檔案上傳會保留下來。</p>
+</div>
+</li>
+<li>
+<p>選擇*開始升級*。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+升級期間*升級狀態*會變更、以反映程序的狀態。它也會因應您採取的行動而變更、例如暫停升級、或升級傳回錯誤。請參閱 <a href="#升級狀態變更">升級狀態變更</a>。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="註">
+</td>
+<td class="content">
+在升級進行期間、您可以離開頁面、稍後再返回頁面、繼續監控進度。如果叢集列收合、頁面不會動態更新狀態和目前版本。叢集列必須展開以更新表格、否則您可以重新整理頁面。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>您可以在升級完成後下載記錄。</p>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">您正在升級執行元素11.8之前版本的H610S叢集。</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>選取您要升級之叢集旁的下拉式箭頭、然後從可用的升級版本中選取。</p>
+</li>
+<li>
+<p>選擇*開始升級*。升級完成後、UI會提示您執行程序的階段2。</p>
+</li>
+<li>
+<p>完成中所需的其他步驟（階段2） <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure" target="_blank" rel="noopener">"知識庫文章"</a>並在UI中確認您已完成階段2。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>您可以在升級完成後下載記錄。如需各種升級狀態變更的相關資訊、請參閱 <a href="#升級狀態變更">升級狀態變更</a>。</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="升級狀態變更">升級狀態變更</h3>
+<div class="paragraph">
+<p>以下是使用者介面中「<strong>升級狀態</strong>」欄在升級前、期間及之後顯示的不同狀態：</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">升級狀態</th>
+<th class="tableblock halign-left valign-top">說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">最新</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">叢集已升級至可用的最新元素版本。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">提供版本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">有更新版本的Element和/或儲存韌體可供升級。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">進行中</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">升級正在進行中。進度列會顯示升級狀態。畫面上的訊息也會顯示節點層級的故障、並在升級過程中顯示叢集中每個節點的節點ID。您可以使用Element UI或NetApp Element vCenter Server UI的VMware外掛程式來監控每個節點的狀態。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">升級暫停</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">您可以選擇暫停升級。視升級程序的狀態而定、暫停作業可能會成功或失敗。您會看到UI提示、要求您確認暫停作業。為了確保叢集在暫停升級之前處於安全位置、升級作業可能需要兩小時才能完全暫停。若要繼續升級、請選取*恢復*。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">已暫停</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">您已暫停升級。選取*恢復*以繼續處理程序。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">錯誤</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">升級期間發生錯誤。您可以下載錯誤記錄並將其傳送至NetApp支援部門。解決錯誤之後、您可以返回頁面、然後選取*恢復*。當您繼續升級時、進度列會在系統執行健全狀況檢查並檢查升級的目前狀態時、向後移幾分鐘。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">完成後續追蹤</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">僅適用於從11.8之前的元素版本升級的H610S節點。完成升級程序的階段1之後、此狀態會提示您執行升級的階段2（請參閱 <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure" target="_blank" rel="noopener">"知識庫文章"</a>）。完成階段2並確認您已完成、狀態會變更為*最新*。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="使用netapp混合雲控制api來升級元素儲存設備">使用NetApp混合雲控制API來升級元素儲存設備</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以使用API將叢集中的儲存節點升級至最新的Element軟體版本。您可以使用自己選擇的自動化工具來執行API。此處記錄的API工作流程使用管理節點上可用的REST API UI作為範例。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>將儲存設備升級套件下載至管理節點可存取的裝置、前往NetApp HCI 該軟體 <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab" target="_blank" rel="noopener">"下載頁面"</a> 並下載最新的儲存節點映像。</p>
+</li>
+<li>
+<p>將儲存升級套件上傳至管理節點：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>在管理節點上開啟管理節點REST API UI：</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;ManagementNodeIP&gt;/package-repository/1/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>選擇*授權*並完成下列項目：</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>輸入叢集使用者名稱和密碼。</p>
+</li>
+<li>
+<p>輸入用戶端ID為「mnode-client」。</p>
+</li>
+<li>
+<p>選取*授權*以開始工作階段。</p>
+</li>
+<li>
+<p>關閉授權視窗。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>從REST API UI中、選取* POST /套件*。</p>
+</li>
+<li>
+<p>選擇*試用*。</p>
+</li>
+<li>
+<p>選擇*瀏覽*並選擇升級套件。</p>
+</li>
+<li>
+<p>選取*執行*以啟動上傳。</p>
+</li>
+<li>
+<p>從回應中、複製並儲存套件ID（「id」）以供後續步驟使用。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>確認上傳狀態。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>從REST API UI中、選取* GETRIVE/套件SESI/｛id｝/狀態*。</p>
+</li>
+<li>
+<p>選擇*試用*。</p>
+</li>
+<li>
+<p>在「* id*」中輸入您在上一個步驟中複製的套件ID。</p>
+</li>
+<li>
+<p>選取*執行*以啟動狀態要求。</p>
+<div class="paragraph">
+<p>回答顯示「成功」。</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>找出儲存叢集ID：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>在管理節點上開啟管理節點REST API UI：</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;ManagementNodeIP&gt;/inventory/1/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>選擇*授權*並完成下列項目：</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>輸入叢集使用者名稱和密碼。</p>
+</li>
+<li>
+<p>輸入用戶端ID為「mnode-client」。</p>
+</li>
+<li>
+<p>選取*授權*以開始工作階段。</p>
+</li>
+<li>
+<p>關閉授權視窗。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>從REST API UI中、選取* Get /Installations *。</p>
+</li>
+<li>
+<p>選擇*試用*。</p>
+</li>
+<li>
+<p>選擇*執行*。</p>
+</li>
+<li>
+<p>從回應中、複製安裝資產ID（「id」）。</p>
+</li>
+<li>
+<p>從REST API UI中選取* Get /Installations/{id}*。</p>
+</li>
+<li>
+<p>選擇*試用*。</p>
+</li>
+<li>
+<p>將安裝資產ID貼到* id*欄位。</p>
+</li>
+<li>
+<p>選擇*執行*。</p>
+</li>
+<li>
+<p>根據回應、複製並儲存您打算升級以供後續步驟使用的叢集儲存叢集ID（「id」）。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>執行儲存設備升級：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>在管理節點上開啟儲存REST API UI：</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;ManagementNodeIP&gt;/storage/1/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>選擇*授權*並完成下列項目：</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>輸入叢集使用者名稱和密碼。</p>
+</li>
+<li>
+<p>輸入用戶端ID為「mnode-client」。</p>
+</li>
+<li>
+<p>選取*授權*以開始工作階段。</p>
+</li>
+<li>
+<p>關閉授權視窗。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>選擇* POST /升級*。</p>
+</li>
+<li>
+<p>選擇*試用*。</p>
+</li>
+<li>
+<p>在參數欄位中輸入升級套件ID。</p>
+</li>
+<li>
+<p>在參數欄位中輸入儲存叢集ID。</p>
+<div class="paragraph">
+<p>有效負載應類似下列範例：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "config": {},
+  "packageId": "884f14a4-5a2a-11e9-9088-6c0b84e211c4",
+  "storageId": "884f14a4-5a2a-11e9-9088-6c0b84e211c4"
+}</pre>
+</div>
+</div>
+</li>
+<li>
+<p>選擇*執行*以啟動升級。</p>
+<div class="paragraph">
+<p>回應應指出「initializing」（正在初始化）狀態：</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "_links": {
+    "collection": "https://localhost:442/storage/upgrades",
+    "self": "https://localhost:442/storage/upgrades/3fa85f64-1111-4562-b3fc-2c963f66abc1",
+    "log": https://localhost:442/storage/upgrades/3fa85f64-1111-4562-b3fc-2c963f66abc1/log
+  },
+  "storageId": "114f14a4-1a1a-11e9-9088-6c0b84e200b4",
+  "upgradeId": "334f14a4-1a1a-11e9-1055`-6c0b84e2001b4",
+  "packageId": "774f14a4-1a1a-11e9-8888-6c0b84e200b4",
+  "config": {},
+  "state": "initializing",
+  "status": {
+    "availableActions": [
+      "string"
+    ],
+    "message": "string",
+    "nodeDetails": [
+      {
+        "message": "string",
+        "step": "NodePreStart",
+        "nodeID": 0,
+        "numAttempt": 0
+      }
+    ],
+    "percent": 0,
+    "step": "ClusterPreStart",
+    "timestamp": "2020-04-21T22:10:57.057Z",
+    "failedHealthChecks": [
+      {
+        "checkID": 0,
+        "name": "string",
+        "displayName": "string",
+        "passed": true,
+        "kb": "string",
+        "description": "string",
+        "remedy": "string",
+        "severity": "string",
+        "data": {},
+        "nodeID": 0
+      }
+    ]
+  },
+  "taskId": "123f14a4-1a1a-11e9-7777-6c0b84e123b2",
+  "dateCompleted": "2020-04-21T22:10:57.057Z",
+  "dateCreated": "2020-04-21T22:10:57.057Z"
+}</pre>
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>複製做為回應一部分的升級ID（「upgradeId」）。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>驗證升級進度和結果：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>選取*「Get」（取得）/「upgrade/eId」*。</p>
+</li>
+<li>
+<p>選擇*試用*。</p>
+</li>
+<li>
+<p>在* upgradeId*中輸入上一步的升級ID。</p>
+</li>
+<li>
+<p>選擇*執行*。</p>
+</li>
+<li>
+<p>如果升級期間發生問題或特殊需求、請執行下列其中一項：</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">選項</th>
+<th class="tableblock halign-left valign-top">步驟</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">您需要修正回應本文中的「失敗狀況檢查」訊息所造成的叢集健全狀況問題。</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>請前往每個問題所列的特定KB文章、或執行指定的補救措施。</p>
+</li>
+<li>
+<p>如果指定KB、請完成相關KB文章中所述的程序。</p>
+</li>
+<li>
+<p>解決叢集問題之後、視需要重新驗證、然後選取*「PE/upgrades/｛upgradeId｝*」。</p>
+</li>
+<li>
+<p>選擇*試用*。</p>
+</li>
+<li>
+<p>在* upgradeId*中輸入上一步的升級ID。</p>
+</li>
+<li>
+<p>在申請本文中輸入「action」：「resume」（繼續）。</p>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "action": "resume"
+}</pre>
+</div>
+</div>
+</li>
+<li>
+<p>選擇*執行*。</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">您需要暫停升級、因為維護時間已經關閉或是因為其他原因。</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>視需要重新驗證、然後選取*「PGE」（更新）/「｛upgradeId｝」*。</p>
+</li>
+<li>
+<p>選擇*試用*。</p>
+</li>
+<li>
+<p>在* upgradeId*中輸入上一步的升級ID。</p>
+</li>
+<li>
+<p>在申請本文中輸入「action」：「Pause」（暫停）。</p>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "action": "pause"
+}</pre>
+</div>
+</div>
+</li>
+<li>
+<p>選擇*執行*。</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">如果您要升級執行11.8之前元素版本的H610S叢集、您會在回應本文中看到「finishedNeedsAck」狀態。您需要為每個H610S儲存節點執行額外的升級步驟（階段2）。</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>請參閱 <a href="#Upgrading H610S storage nodes to Element 12.3.x or later (phase 2)">[Upgrading H610S storage nodes to Element 12.3.x or later (phase 2)]</a> 並完成每個節點的程序。</p>
+</li>
+<li>
+<p>視需要重新驗證、然後選取*「PGE」（更新）/「｛upgradeId｝」*。</p>
+</li>
+<li>
+<p>選擇*試用*。</p>
+</li>
+<li>
+<p>在* upgradeId*中輸入上一步的升級ID。</p>
+</li>
+<li>
+<p>在申請本文中輸入「action」：「Acknowledge」（確認）。</p>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "action": "acknowledge"
+}</pre>
+</div>
+</div>
+</li>
+<li>
+<p>選擇*執行*。</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>視需要多次執行*「Get」（取得）/「upgradeId」* API（升級/｛upgradeId｝* API）、直到程序完成為止。</p>
+<div class="paragraph">
+<p>在升級期間、如果沒有發生錯誤、「狀態」會指出「執行中」。當每個節點升級時、「命令」值會變更為「節點已完成」。</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>如果將“百分點”值定爲“100”，而“板塊”表示“已完成”，則升級已成功完成。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="如果使用netapp混合式雲端控制進行升級失敗會發生什麼情況">如果使用NetApp混合式雲端控制進行升級失敗、會發生什麼情況</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果磁碟機或節點在升級期間故障、則元素UI會顯示叢集故障。升級程序不會繼續到下一個節點、而是等待叢集故障解決。UI中的進度列顯示升級正在等待叢集故障解決。在此階段、在UI中選取* Pause*將無法運作、因為升級會等待叢集正常運作。您需要與NetApp支援部門接洽、以協助調查故障。</p>
+</div>
+<div class="paragraph">
+<p>NetApp混合雲控制系統有預先設定的三小時等候時間、在此期間可能發生下列其中一種情況：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>叢集故障會在三小時內解決、並恢復升級。您不需要在此案例中採取任何行動。</p>
+</li>
+<li>
+<p>三小時後問題仍然存在、升級狀態會顯示*錯誤*並顯示紅色橫幅。您可以在問題解決後選取*恢復*來繼續升級。</p>
+</li>
+<li>
+<p>NetApp支援部門已決定、必須在三小時前暫時中止升級、以便採取修正行動。支援人員將使用API中止升級。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/caution.svg" alt="警告">
+</td>
+<td class="content">
+在更新節點時中止叢集升級、可能會導致磁碟機無法正常移除節點。如果未正常移除磁碟機、在升級期間重新新增磁碟機將需要NetApp支援人員手動介入。節點執行韌體更新或更新後同步活動可能需要較長時間。如果升級進度似乎停滯、請聯絡NetApp支援部門以尋求協助。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="使用healthtools升級連線站台的element軟體">使用HealthTools升級連線站台的Element軟體</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>下載儲存設備升級套件；前往NetApp HCI 更新軟體 <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab" target="_blank" rel="noopener">"下載頁面"</a> 並將最新的儲存節點映像下載至非管理節點的裝置。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="註">
+</td>
+<td class="content">
+您需要最新版本的HealthTools來升級Element儲存軟體。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>將ISO檔案複製到管理節點的可存取位置、例如/tmp.</p>
+<div class="paragraph">
+<p>上傳ISO檔案時、請確定檔案名稱未變更、否則後續步驟將會失敗。</p>
+</div>
+</li>
+<li>
+<p><strong>選用</strong>：升級前、請從管理節點下載ISO至叢集節點。</p>
+<div class="paragraph">
+<p>此步驟可在儲存節點上預先執行ISO、並執行額外的內部檢查、以確保叢集處於良好的升級狀態、進而縮短升級時間。執行此作業不會使叢集進入「升級」模式、也不會限制任何叢集作業。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sfinstall &lt;MVIP&gt; -u &lt;cluster_username&gt; &lt;path-toinstall-file-ISO&gt; --stage</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="註">
+</td>
+<td class="content">
+在命令行中省略密碼以允許"finshat"提示輸入信息。對於包含特殊字元的密碼、請在每個特殊字元之前加上反斜槓（`\）。例如、「mypass!@1」應輸入為「mypass\!@」。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>*範例*請參閱下列範例輸入：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sfinstall 10.117.0.244 -u admin /tmp/solidfire-rtfisodium-11.0.0.345.iso --stage</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>範例的輸出顯示、「最小」嘗試驗證是否有較新版的「最小」可用：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sfinstall 10.117.0.244 -u admin
+/tmp/solidfire-rtfisodium-11.0.0.345.iso 2018-10-01 16:52:15:
+Newer version of sfinstall available.
+This version: 2018.09.01.130, latest version: 2018.06.05.901.
+The latest version of the HealthTools can be downloaded from:
+https:// mysupport.netapp.com/NOW/cgi-bin/software/
+or rerun with --skip-version-check</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>請參閱以下成功的準備作業摘錄範例：</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="註">
+</td>
+<td class="content">
+當接移完成時、訊息會在升級事件後顯示「儲存節點升級接移成功」。
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>flabv0004 ~ # sfinstall -u admin
+10.117.0.87 solidfire-rtfi-sodium-patch3-11.3.0.14171.iso --stage
+2019-04-03 13:19:58: sfinstall Release Version: 2019.01.01.49 Management Node Platform:
+Ember Revision: 26b042c3e15a Build date: 2019-03-12 18:45
+2019-04-03 13:19:58: Checking connectivity to MVIP 10.117.0.87
+2019-04-03 13:19:58: Checking connectivity to node 10.117.0.86
+2019-04-03 13:19:58: Checking connectivity to node 10.117.0.87
+...
+2019-04-03 13:19:58: Successfully connected to cluster and all nodes
+...
+2019-04-03 13:20:00: Do you want to continue? ['Yes', 'No']: Yes
+...
+2019-04-03 13:20:55: Staging install pack on cluster nodes
+2019-04-03 13:20:55: newVersion: 11.3.0.14171
+2019-04-03 13:21:01: nodeToStage: nlabp2814, nlabp2815, nlabp2816, nlabp2813
+2019-04-03 13:21:02: Staging Node nlabp2815 mip=[10.117.0.87] nodeID=[2] (1 of 4 nodes)
+2019-04-03 13:21:02: Node Upgrade serving image at
+http://10.117.0.204/rtfi/solidfire-rtfisodium-
+patch3-11.3.0.14171/filesystem.squashfs
+...
+2019-04-03 13:25:40: Staging finished. Repeat the upgrade command without the --stage option to start the upgrade.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>升級完成後、階段性ISO會自動刪除。不過、如果升級尚未啟動、需要重新排程、則可使用下列命令手動取消工位ISO：</p>
+</div>
+<div class="paragraph">
+<p>「finfest&lt;MVIP&gt;-u &lt;cluster使用者名稱&gt;--destage'</p>
+</div>
+<div class="paragraph">
+<p>升級開始後、取消階段選項將不再可用。</p>
+</div>
+</li>
+<li>
+<p>使用「shfinsh停滯」命令和ISO檔案路徑開始升級：</p>
+<div class="paragraph">
+<p>「finfl攤位&lt;MVIP&gt;-u &lt;cluster使用者名稱&gt;&lt;path-toinstall-file-iso&gt;'</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>範例 *</p>
+<div class="paragraph">
+<p>請參閱下列輸入命令範例：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sfinstall 10.117.0.244 -u admin /tmp/solidfire-rtfi-sodium-11.0.0.345.iso</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>範例的輸出顯示、「最小」嘗試驗證是否有較新版的「最小」可用：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sfinstall 10.117.0.244 -u admin /tmp/solidfire-rtfi-sodium-11.0.0.345.iso
+2018-10-01 16:52:15: Newer version of sfinstall available.
+This version: 2018.09.01.130, latest version: 2018.06.05.901.
+The latest version of the HealthTools can be downloaded from:
+https://mysupport.netapp.com/NOW/cgi-bin/software/ or rerun with --skip-version-check</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>請參閱下列成功升級的摘錄範例。升級事件可用於監控升級進度。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># sfinstall 10.117.0.161 -u admin solidfire-rtfi-sodium-11.0.0.761.iso
+2018-10-11 18:28
+Checking connectivity to MVIP 10.117.0.161
+Checking connectivity to node 10.117.0.23
+Checking connectivity to node 10.117.0.24
+...
+Successfully connected to cluster and all nodes
+###################################################################
+You are about to start a new upgrade
+10.117.0.161
+10.3.0.161
+solidfire-rtfi-sodium-11.0.0.761.iso
+Nodes:
+10.117.0.23 nlabp1023 SF3010 10.3.0.161
+10.117.0.24 nlabp1025 SF3010 10.3.0.161
+10.117.0.26 nlabp1027 SF3010 10.3.0.161
+10.117.0.28 nlabp1028 SF3010 10.3.0.161
+###################################################################
+Do you want to continue? ['Yes', 'No']: yes
+...
+Watching for new network faults. Existing fault IDs are set([]).
+Checking for legacy network interface names that need renaming
+Upgrading from 10.3.0.161 to 11.0.0.761 upgrade method=rtfi
+Waiting 300 seconds for cluster faults to clear
+Waiting for caches to fall below threshold
+...
+Installing mip=[10.117.0.23] nodeID=[1] (1 of 4 nodes)
+Starting to move primaries.
+Loading volume list
+Moving primary slice=[7] away from mip[10.117.0.23] nodeID[1] ssid[11] to new ssid[15]
+Moving primary slice=[12] away from mip[10.117.0.23] nodeID[1] ssid[11] to new ssid[15]
+...
+Installing mip=[10.117.114.24] nodeID=[2] (2 of 4 nodes)
+Starting to move primaries.
+Loading volume list
+Moving primary slice=[5] away from mip[10.117.114.24] nodeID[2] ssid[7] to new ssid[11]
+...
+Install of solidfire-rtfi-sodium-11.0.0.761 complete.
+Removing old software
+No staged builds present on nodeID=[1]
+No staged builds present on nodeID=[2]
+...
+Starting light cluster block service check</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<a href="#將h610s儲存節點升級至element-12-3-x階段2">第2階段</a>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="使用healthtools升級黑暗站台的element軟體">使用HealthTools升級黑暗站台的Element軟體</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以使用HealthTools工具套件、在NetApp Element 沒有外部連線的暗處更新VMware軟體。</p>
+</div>
+<div class="olist arabic">
+<div class="title">您需要的產品</div>
+<ol class="arabic">
+<li>
+<p>移至NetApp HCI 「軟件」 <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab" target="_blank" rel="noopener">"下載頁面"</a>。</p>
+</li>
+<li>
+<p>選取正確的軟體版本、並將最新的儲存節點映像下載到不是管理節點的電腦。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="註">
+</td>
+<td class="content">
+您需要最新版本的HealthTools來升級Element儲存軟體。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>請下載 <a href="https://library.netapp.com/ecm/ecm_get_file/ECMLP2840740" target="_blank" rel="noopener">"Json 檔案"</a> 從非管理節點的電腦上的NetApp支援網站、將其重新命名為「metadata.json」。</p>
+</li>
+<li>
+<p>將ISO檔案複製到可存取位置的管理節點、例如「/tmp」。</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+例如、您可以使用scp來執行此作業。上傳ISO檔案時、請確定檔案名稱未變更、否則後續步驟將會失敗。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>執行「shfupdate-healtools-command：</p>
+<div class="listingblock">
+<div class="content">
+<pre>sfupdate-healthtools &lt;path-to-healthtools-package&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>檢查安裝的版本：</p>
+<div class="listingblock">
+<div class="content">
+<pre>sfupdate-healthtools -v</pre>
+</div>
+</div>
+</li>
+<li>
+<p>對照中繼資料Json檔案檢查最新版本：</p>
+<div class="listingblock">
+<div class="content">
+<pre>sfupdate-healthtools -l --metadata=&lt;path-to-metadata-json&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>確保叢集已就緒：</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo sfupgradecheck -u &lt;cluster_username&gt; -p &lt;cluster_password&gt; MVIP --metadata=&lt;path-to-metadata-json&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>使用ISO檔案路徑和中繼資料Json檔案路徑執行「shfinshet'」命令：</p>
+<div class="listingblock">
+<div class="content">
+<pre>sfinstall -u &lt;cluster_username&gt; &lt;MVIP&gt; &lt;path-toinstall-file-ISO&gt; --metadata=&lt;path-to-metadata-json-file&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>請參閱下列輸入命令範例：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sfinstall -u admin 10.117.78.244 /tmp/solidfire-rtfi-11.3.0.345.iso --metadata=/tmp/metadata.json</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>*可選*您可以將"--site"標記添加到"shfinshl"命令中，以便預先準備升級。</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/important.svg" alt="重要">
+</td>
+<td class="content">
+如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元件版本早於11.8、則需要執行其他升級步驟（<a href="#將h610s儲存節點升級至element-12-3-x階段2">第2階段</a>）。如果您執行的是元素11.8或更新版本、則不需要執行其他升級步驟（階段2）。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="如果使用healthtools升級失敗會發生什麼情況">如果使用HealthTools升級失敗、會發生什麼情況</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果軟體升級失敗、您可以暫停升級。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+您只能使用Ctrl-C暫停升級這可讓系統自行清理。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>當「finsh延遲」等待叢集故障清除、如果任何故障導致故障持續存在、「finsh延遲」將不會繼續到下一個節點。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>您應該使用Ctrl+C來停止「finshtrl」</p>
+</li>
+<li>
+<p>請聯絡NetApp支援部門、以協助調查故障。</p>
+</li>
+<li>
+<p>使用相同的"shfinsh回 寫"命令繼續升級。</p>
+</li>
+<li>
+<p>使用Ctrl+C暫停升級時、如果升級目前正在升級節點、請選擇下列其中一個選項：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>* wait*：在重設叢集常量之前、請先讓目前升級的節點完成。</p>
+</li>
+<li>
+<p><strong>繼續</strong>：繼續升級、取消暫停。</p>
+</li>
+<li>
+<p><strong>中止</strong>：重設叢集常量、並立即中止升級。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="註">
+</td>
+<td class="content">
+在更新節點時中止叢集升級、可能會導致磁碟機無法正常移除節點。如果未正常移除磁碟機、在升級期間重新新增磁碟機將需要NetApp支援人員手動介入。節點執行韌體更新或更新後同步活動可能需要較長時間。如果升級進度似乎停滯、請聯絡NetApp支援部門以尋求協助。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="將h610s儲存節點升級至element-12-3-x階段2">將H610S儲存節點升級至Element 12.3.x（階段2）</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果您要將H610S系列節點升級至Element 12.3.x、且節點執行的元素版本早於11.8、則升級程序需要兩個階段。</p>
+</div>
+<div class="paragraph">
+<p>第1階段先執行、步驟與標準升級至元件12.3.x程序相同。它一次在叢集的一個節點上、以循環方式安裝Element Software和所有5個韌體更新。由於韌體有效負載的關係、此程序預計每個H610S節點約需1.5至2小時、包括在升級結束時為每個節點執行單一冷開機週期。</p>
+</div>
+<div class="paragraph">
+<p>第2階段包括完成步驟、為所需的每個H610S節點執行完整的節點關機和電源中斷 <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure" target="_blank" rel="noopener">"KB"</a>。此階段預計每個H610S節點約需一小時。</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/important.svg" alt="重要">
+</td>
+<td class="content">
+完成階段1之後、五個韌體更新中的四個會在每個H610S節點的冷開機期間啟動；不過、複雜的可程式化邏輯裝置（CPLD）韌體需要完全中斷電源並重新連線才能完全安裝。CPLD韌體更新可在未來重新開機或重新開機期間、防止NVDIMM故障和中繼資料磁碟機被逐出。此電力重設預計每個H610S節點約需一小時。它需要關閉節點、拔下電源線或透過智慧型PDU中斷電源、等待約3分鐘、然後重新連接電源。
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">開始之前</div>
+<ul>
+<li>
+<p>您已完成H610S升級程序的第1階段、並已使用標準元素儲存升級程序之一來升級儲存節點。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="註">
+</td>
+<td class="content">
+第2階段需要現場人員。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步驟</div>
+<ol class="arabic">
+<li>
+<p>（階段2）完成叢集中每個H610S節點所需的電源重設程序：</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="註">
+</td>
+<td class="content">
+如果叢集也有非H610S節點、則這些非H610S節點可免除階段2的限制、不需要關閉或中斷電源。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>請聯絡NetApp支援部門以取得協助、並安排此升級。</p>
+</li>
+<li>
+<p>請遵循本節中的第2階段升級程序 <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure" target="_blank" rel="noopener">"KB"</a> 這是完成每個H610S節點升級所需的條件。</p>
+</li>
+</ol>
+</div>
+<h2 id="如需詳細資訊請參閱" class="discrete">如需詳細資訊、請參閱</h2>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/vcp/index.html" target="_blank" rel="noopener">"vCenter Server的VMware vCenter外掛程式NetApp Element"</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/hybrid-cloud/hci-documentation/" target="_blank" rel="noopener">"參考資源頁面NetApp HCI"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/zh-tw/hci19/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/zh-tw/hci19/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">在本頁</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">使用條款</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">隱私權政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie 政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie 設定</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">傳送有關本網頁的意見反應</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/zh-tw/hci19/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/zh-tw/hci19/js/prism.js'></script>
+      <script type="text/javascript" src='/zh-tw/hci19/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/zh-tw/hci19/js/ie-tabbed-blocks.js'></script>
+    <script src='/zh-tw/hci19/js/ie-sidebar.js'></script>
+  </body>
+
+</html>

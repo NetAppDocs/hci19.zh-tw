@@ -41,7 +41,7 @@ image::vcp-witnessnode.gif[顯示NetApp Element 包含所列節點的「《不�
 
 == 如需詳細資訊、請參閱
 
-* https://www.netapp.com/us/media/tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"^]
+* https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * https://www.netapp.com/us/documentation/hci.aspx["「資源」頁面NetApp HCI"^]
 * http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]

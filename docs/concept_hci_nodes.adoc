@@ -61,7 +61,7 @@ NOTE: 在雙節點儲存叢集中、在見證節點發生故障時、至少會�
 
 == 如需詳細資訊、請參閱
 
-* https://www.netapp.com/us/media/tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"^]
+* https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["鏈節雙節點儲存叢集| TR-4823 NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * http://docs.netapp.com/sfe-122/index.jsp["元件與元件軟體文件中心SolidFire"^]
 

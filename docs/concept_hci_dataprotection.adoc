@@ -37,7 +37,7 @@ keywords: netapp, hci, data protection, ha, snapshots, replication, cloning, hel
 * <<使用SnapMirror在元素ONTAP 叢集與叢集之間進行複寫>>
 
 
-請參閱 https://www.netapp.com/us/media/tr-4741.pdf["TR-4741：NetApp Element 《The》、《The》、《The》、《The》、《"^]。
+請參閱。 https://www.netapp.com/pdf.html?item=/media/10607-tr4741pdf.pdf["TR-4741：NetApp Element 《The》、《The》、《The》、《The》、《"^]
 
 
 

@@ -567,7 +567,6 @@
   <block id="c94f753aa1baf797e0eea49696404564" category="inline-link">_TR-4820：NetApp HCI 《鏈路》快速規劃指南</block>
   <block id="886bc05c9156ba9a0ef0e59bbe922cc0" category="inline-link">_《安裝與設定說明》_ NetApp HCI</block>
   <block id="edeed001a7f09dfe7e394923f01fabcb" category="inline-link">_TR-4823：NetApp HCI 《SURF2-Node Storage Clust集中》</block>
-  <block id="800b3008a6000b89c3546a67908cb985" category="list-text">如需NetApp HCI 有關小於四個儲存節點的不完整組態資訊、請參閱<block ref="1f9877144b35a10963cfdabe34a39b35" category="inline-link-rx"></block>。</block>
   <block id="2ddcd8d0a81226eb8f35042ac6c6e593" category="inline-link-macro">設定LTAP以獲得最佳儲存效能</block>
   <block id="405abbf068b60685bf7c22dc59b5838a" category="list-text">如需在每個儲存節點所使用的交換器連接埠上設定連結集合控制傳輸協定（LACP）的詳細資訊、請參閱 <block ref="ca38e0bcccdbd590268fcccffc4dab9a" category="inline-link-macro-rx"></block>。</block>
   <block id="192476cda33667b77205e5378299fce7" category="paragraph">這項設定將所有流量整合到兩個實體備援連接埠、減少纜線佈線並簡化網路組態。此組態需要儲存設備、VMotion和任何虛擬機器網路區段使用VLAN標記。管理網路區段可以使用原生或標記的VLAN；不過、原生VLAN是偏好的模式、因此NetApp部署引擎（NDE）可以自動指派網路資源（零會議）。</block>
@@ -682,7 +681,6 @@
   <block id="3664bb4df59eca4395d94a7c6384dfc0" category="inline-link-macro">《安裝與設定說明》NetApp HCI</block>
   <block id="07b021dc180c131c18c2e77e5fa1150f" category="list-text"><block ref="07b021dc180c131c18c2e77e5fa1150f" category="inline-link-macro-rx"></block></block>
   <block id="f62052d22b7c5c8f9a15b0afff504755" category="inline-link">TR-4820：NetApp HCI 《鏈路》快速規劃指南</block>
-  <block id="85dcef363aee58216fb5391e1fe35922" category="list-text"><block ref="85dcef363aee58216fb5391e1fe35922" category="inline-link-rx"></block></block>
   <block id="da3eb0bd8c882a21931739ac39ce915a" category="inline-link">vCenter Server文件的適用插件NetApp Element</block>
   <block id="412377cf78b07a27c835e112fdfa7507" category="list-text"><block ref="412377cf78b07a27c835e112fdfa7507" category="inline-link-rx"></block></block>
   <block id="642b57ae61fbf875dba06df638def96a" category="inline-link">NetApp SolidFire Active IQ 產品文件</block>
@@ -1067,7 +1065,6 @@
   <block id="932efe935dd6bbfb074e6fac27f850a8" category="list-text">使用用戶名"root"和密碼"calin"登錄。</block>
   <block id="25ded102bd7108bf2ad7ccdfb451169c" category="list-text">在節點管理畫面中、瀏覽至*設定&gt;網路設定*、然後設定頻外管理連接埠的網路參數。</block>
   <block id="56e2546f6d8d4f46bdb3d14153ad92ee" category="paragraph">如果H615C節點中有GPU、請在ESXi中為您安裝的每個H615C節點安裝GPU驅動程式、並驗證其功能。</block>
-  <block id="42f1d5fbe05e1bdd25e119b9262b7dbd" category="list-text"><block ref="42f1d5fbe05e1bdd25e119b9262b7dbd" category="inline-link-rx"></block></block>
   <block id="f77963c528aa19e59cf9f7c9d5b4a19d" category="summary">在進行系統升級時、您需要升級運算節點驅動程式。NetApp HCI</block>
   <block id="0c13e0dd6ebaa11c814ce3c5b29ab7f1" category="paragraph">對於任何H系列運算節點、您都可以使用VMware Update Manager來更新節點上使用的驅動程式。</block>
   <block id="cae4b286c77e42f24641d126e94e3848" category="paragraph">一次只執行其中一項更新作業。</block>
@@ -1716,7 +1713,6 @@
   <block id="b4c5d7523b472861778f2afd883b2b2b" category="inline-link">啟用QoSSIOC</block>
   <block id="e9649f789dba33069d65dd43f646890f" category="list-text"><block ref="ab3ca5933bb57bf5671eabef88a511cb" category="inline-link-rx"></block> 適用於所有由外掛程式控制的資料存放區。</block>
   <block id="c238cdf4d684fe1ceb6e88d6f4b60ebe" category="inline-link">《雙節點儲存叢集技術報告》NetApp HCI</block>
-  <block id="6a718d1cc3413213dbf56882de72ccb2" category="list-text"><block ref="6a718d1cc3413213dbf56882de72ccb2" category="inline-link-rx"></block></block>
   <block id="0e68b38eaff7123dcc12ce395a147a48" category="summary">提供儲存與運算資源、結合這些資源、打造出以VMware軟體功能為後盾的VMware vSphere環境。NetApp HCI NetApp Element</block>
   <block id="2bfee064de23abb29a29ad16b90c3080" category="doc">組態與管理文件NetApp HCI</block>
   <block id="2d2319a467144bf3a0e5baabca9ea680" category="paragraph">您可以使用NetApp混合雲控制介面來升級、擴充及監控系統、NetApp HCI 並使用NetApp Element 適用於vCenter Server的VMware外掛程式來管理各種VMware資源。</block>
@@ -2093,7 +2089,6 @@
   <block id="99494896be55aff6e412f1ef0dd3ca4c" category="list-text"><block ref="1f3c51825f286c5250086b5376a2ce29" category="inline-xref-macro-rx"></block></block>
   <block id="e56841e919b23e1af6ae192bcf82f545" category="list-text"><block ref="b85ef421159ab16d832d7cee8cebee71" category="inline-xref-macro-rx"></block></block>
   <block id="e73fbad1f8418c19025f40cdb1b36fc8" category="inline-link">TR-4741：NetApp Element 《The》、《The》、《The》、《The》、《</block>
-  <block id="4295c2c146dffb0e501aa5660faa08a6" category="paragraph">請參閱<block ref="248edd64302142b459fba4dec31bdb70" category="inline-link-rx"></block>。</block>
   <block id="ff5dd3355a0a16a7f2fc734ab2229851" category="section-title">叢集之間的同步與非同步複寫</block>
   <block id="697cef1ff0b4e36164796a8a21f78548" category="paragraph">對於執行NetApp Element Real-Software的叢集、即時複寫功能可讓您快速建立Volume資料的遠端複本。</block>
   <block id="0389e516b3bf2b6b34e9309ede779a02" category="paragraph">您可以將儲存叢集與最多四個其他儲存叢集配對。您可以從叢集配對中的任一叢集同步或非同步複寫磁碟區資料、以進行容錯移轉和容錯回復。</block>
@@ -5229,7 +5224,6 @@
   <block id="4da92c7240bcf479967105033d357a35" category="summary">深入瞭NetApp HCI 解關於NetApp環境的要求。</block>
   <block id="11144d4ff9f1c8879c32b13d1fe55516" category="paragraph">請確定NetApp HCI AC電源插座供應安裝支援的機架電力、並確保資料中心能為NetApp HCI 安裝的尺寸提供足夠的冷卻效果。</block>
   <block id="05a04100a1c10fafc9e93be86bb13553" category="inline-link">資料表</block>
-  <block id="6c16ead3b4e36b80345f1e68a56b5630" category="paragraph">如需NetApp HCI 瞭解每個元件的詳細功能、請參閱NetApp HCI 《關於》<block ref="3893914a6d59fe23537d16c9f9b61af3" category="inline-link-rx"></block>。</block>
   <block id="ac54e75ab9caed383d040ca6a1ec8507" category="admonition">H410C運算節點只能以高線電壓（200-240 VAC）運作。將H410C節點新增至現有NetApp HCI 的版本安裝時、您必須確保符合電源需求。</block>
   <block id="675d896ff4fd6c84e6b48f1bb67de9f8" category="summary">瞭解如何建立磁碟區、並將磁碟區與特定帳戶建立關聯。</block>
   <block id="ab25945de4e1b322e51d67719ecd58e1" category="doc">使用NetApp混合雲控制來建立及管理磁碟區</block>
@@ -6016,13 +6010,11 @@
   <block id="ec60b1fc169f63d74fb4b22710d4770a" category="admonition">在開啟的頁面上、您可以選取*詳細說明*箭頭、以深入瞭解Trident應用程式、也可以找到的連結<block ref="9488620c3498c6d0bb53483131890d10" category="inline-link-rx"></block>。</block>
   <block id="3120ce0d00a4b86a5ba12e93a4c31f79" category="paragraph">請參閱<block ref="40cbf9d1e7027c2bcb6695a5a1c05717" category="inline-link-rx"></block></block>
   <block id="818bec8299e4b608cc96a66549bf940d" category="list-text">*韌體升級的整備度和先決條件*：NetApp HCI 您的安裝必須準備好進行韌體升級、如的說明所述 <block ref="032fdaf1008d9c5b1594091e01fa6a40" category="inline-link-macro-rx"></block>。</block>
-  <block id="4fc3110ffa80f16c08c41963de559312" category="admonition">升級適用於運算節點的ESXi時<block ref="c40679731a13cea0e8ba16410d87ab2b" category="inline-link-rx"></block>、一次只升級一個運算節點、因此只有一個見證節點暫時無法使用、而且叢集仲裁也能維持不變。</block>
   <block id="6a1963c30f9c0d2c687641bd503fbc60" category="paragraph">如需如何啟用監控的指示、請參閱 <block ref="f0c3d1a05db024d7d19e48b5f5584b1b" category="inline-link-macro-rx"></block>。</block>
   <block id="a9003fbd8d635ea82e36a99b75403340" category="paragraph">您可以檢視多個節點系統的儲存資訊、以及NetApp HCI 任何與雙節點或三節點叢集相關聯的任何支援節點節點節點節點。如果 <block ref="3eaaa26badaf5c2948e63a436f8a303b" category="inline-link-macro-rx"></block> 您可以查看指派給特定節點的保護網域。</block>
   <block id="9e7f85792d512cae6438c01093dd8f13" category="admonition">在升級至版本2.27之前、請務必檢查目前的ESXi驅動程式版本。如果驅動程式已過期、請先升級驅動程式。然後將運算節點的運算韌體升級至2.27版。請造訪 <block ref="ba79adf2a648aae596ba5c5e0a50002c" category="inline-link-macro-rx"></block> 如需更新運算節點驅動程式的說明、請參閱內含ESXi驅動程式的說明。</block>
   <block id="2558aa1c4b088a01ebbd23c6a72472a3" category="admonition">深入瞭解 <block ref="0614c1798bfcf6fa1dd2b630cd83d6d6" category="inline-link-macro-rx"></block> 和 <block ref="9f9f24cd869308f40f7cad49c3f42972" category="inline-link-macro-rx"></block>。</block>
   <block id="88b68b205e674e3025849d8b5b19d8d0" category="admonition">在雙節點儲存叢集中、在見證節點發生故障時、至少會部署兩個見證節點來提供備援。當安裝過程安裝見證節點時NetApp HCI 、VM範本會儲存在VMware vCenter中、您可以在見證節點意外移除、遺失或毀損時、使用該範本來重新部署見證節點。如果您需要更換裝載見證節點的故障運算節點、也可以使用範本來重新部署見證節點。如需相關指示、請參閱「*重新部署兩節點和三節點儲存叢集的見證節點*」一節 <block ref="29ec30455b40779461eab8434f6212ca" category="inline-link-macro-rx"></block>。</block>
-  <block id="23d36a99e35a6625ac76fe1f034e722a" category="list-text"><block ref="23d36a99e35a6625ac76fe1f034e722a" category="inline-link-rx"></block></block>
   <block id="89cf55eeb9f34a1a360f23ce53a22331" category="paragraph">上傳套件後、系統會自動開始升級。</block>
   <block id="5b03e02f493134c5e8cead0b86b3b358" category="paragraph">使用<block ref="b77f230f2effb14751e6164ceee6da3f" category="inline-link-rx"></block> 確保所有軟體版本均相容。請參閱<block ref="ae9ce20e74e3db4b16220de45ebf2fd0" category="inline-link-rx"></block> 以取得更多資訊。</block>
   <block id="5e98629f8afe2eee1c27355eb45a80e0" category="paragraph">如果看不到vCenter外掛程式圖示、請參閱 <block ref="ab9b282dbdbe327f4195d1f5d71c406f" category="inline-link-macro-rx"></block> 外掛程式疑難排解的相關文件。</block>
@@ -6030,7 +6022,6 @@
   <block id="c36b368af7c827d8bb3a4d8c46e97a75" category="admonition">在升級至版本2.76.10之前、請務必檢查目前的ESXi驅動程式版本。如果驅動程式已過期、請先升級驅動程式。然後將運算節點的運算韌體升級至2.99版。請造訪 <block ref="ba79adf2a648aae596ba5c5e0a50002c" category="inline-link-macro-rx"></block> 如需更新運算節點驅動程式的說明、請參閱內含ESXi驅動程式的說明。</block>
   <block id="7ea876a6c1e6e26458a429794b25cdb3" category="list-text"><block ref="7ea876a6c1e6e26458a429794b25cdb3" category="inline-link-rx"></block></block>
   <block id="c70e7fb85a0bbb75d626cb1d7966ab03" category="admonition">如果您將雙節點儲存叢集擴充至四個或更多節點、儲存叢集先前使用的見證節點配對仍會在vSphere中顯示為待命虛擬機器。新擴充的儲存叢集並不會使用這些資源；如果您想回收VM資源、您可以使用這些資源 <block ref="b068a43ec0931fd63c3030d857c1d3cb" category="inline-link-macro-rx"></block> 見證節點虛擬機器。</block>
-  <block id="82fd08126fae06d6277e6d275f22adee" category="list-text">如需詳細資料及其他支援的組態、請參閱<block ref="6bea819619d5f9270163ce0543e87e1e" category="inline-link-rx"></block> 和<block ref="a72ae021af8843b5883c31a3cf48fdbb" category="inline-link-rx"></block>。</block>
   <block id="d921f4dac25eaa654020043661ebf1d8" category="paragraph">如需詳細資訊、請參閱 <block ref="aadf487819eba2c7633cf481d9cde909" category="inline-link-macro-rx"></block>。</block>
   <block id="dd41e54aa84e335e4ee862a13b5e6a0c" category="paragraph">如需啟用和停用靜止加密的相關資訊、請參閱<block ref="599a70c288c4ec9eda9a2cc053c403eb" category="inline-link-rx"></block> 在VMware及Element文件中心。SolidFire</block>
   <block id="e64faf772063d25cbb0caf6a1bb47d1f" category="paragraph">如需設定外部金鑰管理的詳細資訊、請參閱<block ref="64b5968354f6f57943cb4a3dfcc320f7" category="inline-link-rx"></block> 在VMware及Element文件中心。SolidFire</block>
@@ -6582,4 +6573,13 @@
   <block id="a310588c148d934b9b30c31802d4a30b" category="sidebar">NetApp社群</block>
   <block id="213686afc3803be7caa09348765467fe" category="sidebar">取得協助的地方</block>
   <block id="389672366ff11f72a82c5c495b9b5159" category="sidebar">本文檔資料NetApp HCI</block>
+  <block id="de9f9af3b709ace792d8704d5d9b105f" category="list-text"><block ref="de9f9af3b709ace792d8704d5d9b105f" category="inline-link-rx"></block></block>
+  <block id="68f63921fdce687db3c7510ea1f63df3" category="paragraph">請參閱。<block ref="5fe7d084aafda4fb5c53715a85948ffe" category="inline-link-rx"></block></block>
+  <block id="75f97cab9e9de14d25c05846e421361a" category="paragraph">有關 NetApp HCI 每個組件的詳細功能，請參閱 NetApp HCI<block ref="cf48105a0f3c2479f34bbdfad268bcc0" category="inline-link-rx"></block> 。</block>
+  <block id="5824ec67f2e84250bfcd931d8f2d6a16" category="list-text">如需詳細資料及其他支援的組態<block ref="be0a1633f05f833fc37598e3b5d7e95e" category="inline-link-rx"></block><block ref="a72ae021af8843b5883c31a3cf48fdbb" category="inline-link-rx"></block>、請參閱和。</block>
+  <block id="8a91fe255efcffde80021047735fd330" category="list-text">有關小於四個儲存節點的 NetApp HCI 組態資訊<block ref="54d37355d9369a629af27e51f6998cd4" category="inline-link-rx"></block>、請參閱。</block>
+  <block id="1e4bf851d18462d626029f69f75339e4" category="list-text"><block ref="1e4bf851d18462d626029f69f75339e4" category="inline-link-rx"></block></block>
+  <block id="a5f38386dcceecb027de7fd15fcc6aa4" category="list-text"><block ref="a5f38386dcceecb027de7fd15fcc6aa4" category="inline-link-rx"></block></block>
+  <block id="0287de700b52d79d64e09aca72f4850b" category="admonition">為的運算節點升級 ESXi<block ref="d6b7667dc675e8798d67d09fb8931bb2" category="inline-link-rx"></block> 時、一次只能升級一個運算節點、因此只有一個見證節點暫時無法使用、而且可以維持叢集仲裁。</block>
+  <block id="a2f9c1250a16a7514c9d6b0865b7bf42" category="list-text"><block ref="a2f9c1250a16a7514c9d6b0865b7bf42" category="inline-link-rx"></block></block>
 </blocks>

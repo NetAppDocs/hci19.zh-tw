@@ -52,8 +52,8 @@ NOTE: 您的網路拓撲可能與此處顯示的不同。這只是一個範例�
 請閱讀以下資源：
 
 * 安裝之前、請使用「_ NetApp HCI 靜態安裝探索工作簿_」來設定您的網路。
-* 如需詳細資料及其他支援的組態、請參閱 https://www.netapp.com/us/media/tr-4820.pdf["_TR-4820：NetApp HCI 《鏈路》快速規劃指南"^] 和 https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["_《安裝與設定說明》_ NetApp HCI"^]。
-* 如需NetApp HCI 有關小於四個儲存節點的不完整組態資訊、請參閱 https://www.netapp.com/us/media/tr-4823.pdf["_TR-4823：NetApp HCI 《SURF2-Node Storage Clust集中》"^]。
+* 如需詳細資料及其他支援的組態 https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["_TR-4820：NetApp HCI 《鏈路》快速規劃指南"^] https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["_《安裝與設定說明》_ NetApp HCI"^]、請參閱和。
+* 有關小於四個儲存節點的 NetApp HCI 組態資訊 https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["_TR-4823：NetApp HCI 《SURF2-Node Storage Clust集中》"^]、請參閱。
 * 如需在每個儲存節點所使用的交換器連接埠上設定連結集合控制傳輸協定（LACP）的詳細資訊、請參閱 link:hci_prereqs_LACP_configuration.html["設定LTAP以獲得最佳儲存效能"]。
 
 
@@ -276,7 +276,7 @@ https://<ManagementNodeIP>
 
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
 * link:../media/hseries-isi.pdf["《安裝與設定說明》NetApp HCI"^]
-* https://www.netapp.com/us/media/tr-4820.pdf["TR-4820：NetApp HCI 《鏈路》快速規劃指南"^]
+* https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["TR-4820：NetApp HCI 《鏈路》快速規劃指南"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server文件的適用插件NetApp Element"^]
 * https://mysupport.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["NetApp組態顧問"^] 5.8.1或更新版本的網路驗證工具
 * https://docs.netapp.com/us-en/solidfire-active-iq/index.html["NetApp SolidFire Active IQ 產品文件"^]

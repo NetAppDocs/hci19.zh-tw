@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blocks>
   <block id="db035ffffac30b1a95fd497625c55167" category="summary">如需深入瞭NetApp HCI 解、請使用下列資訊：「組態與管理」文件與NetApp HCI 「解決方案資訊」。</block>
-  <block id="ad0a505756223d68dc11afeae3459351" category="doc">資訊文件NetApp HCI</block>
   <block id="d1f3348004e8a355335cb19ad2503f19" category="summary">視部署NetApp HCI 了NetApp或NetApp SolidFire 的組織安全政策而定、變更認證或密碼通常是安全實務的一部分。在變更密碼之前、您應該瞭解部署中其他軟體元件的影響。</block>
   <block id="de55aaabf3e64f82482bfec3331b7b99" category="doc">變更NetApp HCI 身分證明資料、請至NetApp SolidFire 解決方案</block>
   <block id="495c10200cf923b1c1357005661bbf33" category="paragraph">如果您變更NetApp HCI 了某個元件的驗證資料、請SolidFire 參閱下表、瞭解決對其他元件的影響。</block>
@@ -6582,4 +6581,5 @@
   <block id="a5f38386dcceecb027de7fd15fcc6aa4" category="list-text"><block ref="a5f38386dcceecb027de7fd15fcc6aa4" category="inline-link-rx"></block></block>
   <block id="0287de700b52d79d64e09aca72f4850b" category="admonition">為的運算節點升級 ESXi<block ref="d6b7667dc675e8798d67d09fb8931bb2" category="inline-link-rx"></block> 時、一次只能升級一個運算節點、因此只有一個見證節點暫時無法使用、而且可以維持叢集仲裁。</block>
   <block id="a2f9c1250a16a7514c9d6b0865b7bf42" category="list-text"><block ref="a2f9c1250a16a7514c9d6b0865b7bf42" category="inline-link-rx"></block></block>
+  <block id="846572971d410f1d04ff53e7bfc8a84b" category="sidebar">NetApp HCI 文件 1.9</block>
 </blocks>

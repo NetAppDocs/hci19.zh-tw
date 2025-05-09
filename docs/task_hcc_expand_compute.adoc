@@ -113,10 +113,10 @@ IMPORTANT: 對於某些運算節點、您可能需要在vCenter版本支援的�
 . *選用*：確認VMware vSphere Web Client中顯示任何新的運算節點。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["《運算與儲存節點安裝與設定說明》NetApp HCI"^]
 * https://kb.vmware.com/s/article/1003212["VMware知識庫：增強的VMotion相容性（EVC）處理器支援"^]
 

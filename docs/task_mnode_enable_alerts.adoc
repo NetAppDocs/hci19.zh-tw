@@ -75,9 +75,8 @@ NOTE: 如果您使用NetApp部署引擎關閉*傳送資料至AIQ*選項、您必
 NOTE: 如果您使用NetApp部署引擎關閉*傳送資料至AIQ*選項、您必須 link:task_mnode_enable_activeIQ.html["啟用遙測"] 再次使用管理節點REST API從這個頁面設定服務。
 
 |===
-[discrete]
+
+
 == 瞭解更多資訊
 
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

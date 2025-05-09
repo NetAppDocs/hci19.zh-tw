@@ -89,9 +89,8 @@ image::hci_networking_config_scenario_1.png[HCI網路組態選項映像]
 
 NOTE: 有些交換器可能需要在允許的VLAN清單中納入原生VLAN。請參閱特定交換器機型與軟體版本的說明文件。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

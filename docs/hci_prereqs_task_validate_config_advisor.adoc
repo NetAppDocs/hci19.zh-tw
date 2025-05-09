@@ -123,9 +123,8 @@ NOTE: PDF與Microsoft Word文件輸出包含您部署的交換器組態資訊、
 . 將匯出的報告檔案傳送給您的NetApp專業服務代表。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

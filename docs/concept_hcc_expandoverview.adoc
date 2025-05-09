@@ -36,12 +36,12 @@ NOTE: 如果您最近擴充了安裝、但新資產並未自動新增至組態�
 
 NOTE: 當您在NetApp HCI NetApp部署引擎中擴充支援的運算或儲存資源時、應連線至管理現有NetApp HCI 的VMware運算節點的vCenter執行個體。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * link:task_hcc_expand_compute.html["擴充NetApp HCI 各種運算資源"]
 * link:task_hcc_expand_storage.html["擴充NetApp HCI 功能"]
 * link:task_hcc_expand_compute_and_storage.html["同時擴充NetApp HCI 功能豐富的支援資源"]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 

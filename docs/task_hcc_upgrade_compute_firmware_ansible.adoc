@@ -32,9 +32,3 @@ NOTE: 升級的Ansible角色僅適用於NetApp HCI 不間斷的H系列運算節�
 
 .開始使用韌體升級自動化
 若要開始使用、請瀏覽至 https://github.com/NetApp-Automation/nar_compute_firmware_upgrade["GitHub上的NetApp Ansible儲存庫"^] 並下載「na_compute節點_f縮短 韌體升級」角色與文件。
-
-[discrete]
-== 如需詳細資訊、請參閱
-
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-

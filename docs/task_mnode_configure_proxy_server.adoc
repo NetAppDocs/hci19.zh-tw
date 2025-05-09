@@ -61,9 +61,8 @@ Proxy使用者名稱、Proxy密碼和SSH連接埠為選用項目、若未使用�
 
 NOTE: 視環境而定、您可能需要重新開機管理節點。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

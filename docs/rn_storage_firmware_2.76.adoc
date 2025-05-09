@@ -175,9 +175,8 @@ image::bol_list_bugs_found.png[儲存韌體套裝軟體版本注意事項]
 * 2016年7月1日、2016年6月1日、2011年3月2日、 CVE-2006-7254、CVE-2005-3590
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://docs.netapp.com/hci/index.jsp["資訊中心NetApp HCI"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-
+https://docs.netapp.com/hci/index.jsp["資訊中心NetApp HCI"^]

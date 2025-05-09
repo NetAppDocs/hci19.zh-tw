@@ -195,6 +195,4 @@ NOTE: 當節點處於維護模式時、它不會接受新資料。因此、停�
 
 == 如需詳細資訊、請參閱
 
-* link:task_mnode_manage_storage_cluster_assets.html["建立及管理儲存叢集資產"]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-
+link:task_mnode_manage_storage_cluster_assets.html["建立及管理儲存叢集資產"]

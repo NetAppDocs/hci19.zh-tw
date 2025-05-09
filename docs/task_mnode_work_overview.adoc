@@ -53,9 +53,8 @@ NOTE: 最佳實務做法是、僅將一個管理節點與一個VMware vCenter執
 * link:task_mnode_ssh_management.html["管理管理節點上的SSH功能"]
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

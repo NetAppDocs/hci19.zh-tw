@@ -63,9 +63,8 @@ NOTE: 此外、您也可以在NetApp混合雲控制UI中等待2分鐘、以便�
 . 重新整理NetApp混合雲控制瀏覽器、查看變更內容。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

@@ -52,9 +52,8 @@ keywords: netapp, hci, network, switch, requirements
 
 所有NetApp HCI 的支援節點都能透過專屬的管理連接埠、提供額外的頻外管理功能。NetApp H300S、H300E、H500S、H500E、H700S、 H700E和H410C節點也允許透過連接埠A進行IPMI存取最佳實務做法是NetApp HCI 為環境中的所有節點設定頻外管理、以簡化對錶面的遠端管理。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

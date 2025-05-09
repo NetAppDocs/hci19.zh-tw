@@ -177,10 +177,10 @@ https://<ManagementNodeIP>/hardware/2/
 ----
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades["運算節點升級的已知問題與因應措施"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
 

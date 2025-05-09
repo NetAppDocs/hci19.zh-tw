@@ -102,9 +102,8 @@ IMPORTANT: 11.3或更新版本的管理節點不支援IPv6選項。
 
 
 
-[discrete]
+
+
 == 瞭解更多資訊
 
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

@@ -251,10 +251,10 @@ NOTE: 您可以新增使用者名稱、或允許指令碼提示您輸入資訊�
 
 IMPORTANT: 提供SSH功能 link:task_mnode_enable_remote_support_connections.html["NetApp支援遠端支援通道（RST）工作階段存取"] 在執行管理服務2.18及更新版本的管理節點上、預設為停用。如果您先前已在管理節點上啟用SSH功能、則可能需要 link:task_mnode_ssh_management.html["再次停用SSH"] 在恢復的管理節點上。
 
-[discrete]
+
+
 == 瞭解更多資訊
 
 * link:concept_hci_volumes.html#persistent-volumes["持續磁碟區"]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
 

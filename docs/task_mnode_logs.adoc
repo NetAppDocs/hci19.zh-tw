@@ -72,9 +72,8 @@ TIP: 使用「Get /services」命令列出管理節點上的服務。
 . 從回應本文中選取* Download*以儲存記錄輸出。
 
 
-[discrete]
+
+
 == 瞭解更多資訊
 
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]

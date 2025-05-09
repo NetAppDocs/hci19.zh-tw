@@ -116,10 +116,10 @@ https://$mnode_IP:442/json-rpc/10.0 \
 ----
 
 
-[discrete]
+
+
 == 瞭解更多資訊
 
 * link:task_mnode_add_assets.html["將運算和控制器資產新增至管理節點"]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
 

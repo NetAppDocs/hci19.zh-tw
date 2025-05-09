@@ -60,10 +60,10 @@ image::mnode_swagger_ui.png[管理節點REST API UI]
 . 按一下*授權*或任何鎖定圖示、然後輸入叢集管理認證、以取得使用API的權限。
 
 
-[discrete]
+
+
 == 瞭解更多資訊
 
 * link:task_mnode_enable_activeIQ.html["啟用Active IQ 支援功能和NetApp HCI 功能性監控"]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
 

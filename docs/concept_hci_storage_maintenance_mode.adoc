@@ -53,6 +53,5 @@ NOTE: 當儲存節點關機時、它會在「儲存」頁面的「節點狀態�
 * https://docs.netapp.com/us-en/element-software/api/reference_element_api_enablemaintenancemode.html["使用Element API啟用維護模式"^]
 * https://docs.netapp.com/us-en/element-software/api/reference_element_api_disablemaintenancemode.html["使用Element API停用維護模式"^]
 * https://docs.netapp.com/us-en/element-software/api/concept_element_api_about_the_api.html["API文件NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 

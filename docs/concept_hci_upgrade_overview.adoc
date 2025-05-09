@@ -77,10 +77,10 @@ NOTE: 不再需要升級管理節點作業系統、即可升級儲存叢集上�
 . link:task_hcc_upgrade_compute_node_firmware.html["使用NetApp混合雲控制更新運算節點韌體"] 或 link:task_hcc_upgrade_compute_firmware_ansible.html["使用Ansible將運算韌體升級作業自動化"]。
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
 * https://docs.netapp.com/us-en/element-software/upgrade/concept_element_upgrade_overview.html["升級NetApp SolidFire 的All Flash儲存系統"^]
 

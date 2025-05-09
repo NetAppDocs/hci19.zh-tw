@@ -31,10 +31,10 @@ keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance, ra
 * link:task_hci_2noderepl.html["更換雙節點叢集中的儲存節點"]
 
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["「資源」頁面NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
 * https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["_TR-4820：NetApp HCI 《鏈路》快速規劃指南"^]
 * https://mysupport.netapp.com/site/tools["NetApp組態顧問"^] 5.8.1或更新版本的網路驗證工具

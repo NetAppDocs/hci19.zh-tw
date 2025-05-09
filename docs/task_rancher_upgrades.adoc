@@ -329,9 +329,8 @@ NOTE: 對於節點作業系統、安全性修補程式的無人值守升級會�
 
 當「PercentComplete」顯示「100」和「REsults」表示升級版本編號時、即表示升級成功。
 
-[discrete]
+
+
 == 如需詳細資訊、請參閱
 
-* https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["參考資源頁面NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["vCenter Server的VMware vCenter外掛程式NetApp Element"^]
